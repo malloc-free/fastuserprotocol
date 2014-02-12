@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('structtb__session__t.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,8 +126,8 @@ Data Fields</h2></td></tr>
 <tr class="memdesc:a879a8cdf605d02f8af8b2e216b8764f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The address to connect/bind to.  <a href="#a879a8cdf605d02f8af8b2e216b8764f2"></a><br/></td></tr>
 <tr class="memitem:add99ba4ea70b8f66170823cad9a55fa4"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__session__t.html#add99ba4ea70b8f66170823cad9a55fa4">port</a></td></tr>
 <tr class="memdesc:add99ba4ea70b8f66170823cad9a55fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The port to connect/bind to.  <a href="#add99ba4ea70b8f66170823cad9a55fa4"></a><br/></td></tr>
-<tr class="memitem:a723d705438178675e55878826ac4ae7c"><td class="memItemLeft" align="right" valign="top">struct sockaddr_storage *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__session__t.html#a723d705438178675e55878826ac4ae7c">o_addr_info</a></td></tr>
-<tr class="memdesc:a723d705438178675e55878826ac4ae7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">For receiving connections.  <a href="#a723d705438178675e55878826ac4ae7c"></a><br/></td></tr>
+<tr class="memitem:ab617a1bfa381136f3c0811b771c618e9"><td class="memItemLeft" align="right" valign="top">struct sockaddr_storage *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__session__t.html#ab617a1bfa381136f3c0811b771c618e9">addr_in</a></td></tr>
+<tr class="memdesc:ab617a1bfa381136f3c0811b771c618e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">For receiving connections.  <a href="#ab617a1bfa381136f3c0811b771c618e9"></a><br/></td></tr>
 <tr class="memitem:a116941d922ae354d7241d04b0f3c84d8"><td class="memItemLeft" align="right" valign="top">socklen_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__session__t.html#a116941d922ae354d7241d04b0f3c84d8">addr_len</a></td></tr>
 <tr class="memdesc:a116941d922ae354d7241d04b0f3c84d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of sockaddr_storage.  <a href="#a116941d922ae354d7241d04b0f3c84d8"></a><br/></td></tr>
 <tr class="memitem:aab742bc33815bd69bf49ad1861006b97"><td class="memItemLeft" align="right" valign="top">struct addrinfo *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__session__t.html#aab742bc33815bd69bf49ad1861006b97">addr_info</a></td></tr>
@@ -159,6 +160,7 @@ Data Fields</h2></td></tr>
 <tr class="memdesc:a0cb6fc264a37771e927fe0b383fc600c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer time.  <a href="#a0cb6fc264a37771e927fe0b383fc600c"></a><br/></td></tr>
 <tr class="memitem:a49678949e63fd3a8335bac2bfa9d9ff2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__time__t.html">tb_time_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__session__t.html#a49678949e63fd3a8335bac2bfa9d9ff2">connect_t</a></td></tr>
 <tr class="memdesc:a49678949e63fd3a8335bac2bfa9d9ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection time.  <a href="#a49678949e63fd3a8335bac2bfa9d9ff2"></a><br/></td></tr>
+<tr class="memitem:acb1df3a0f703b05bc4971f79cabe2597"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__session__t.html#acb1df3a0f703b05bc4971f79cabe2597">info</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -177,6 +179,22 @@ Data Fields</h2></td></tr>
 <p>Connection hints. </p>
 
 <p>Definition at line <a class="el" href="tb__session_8h_source.html#l00056">56</a> of file <a class="el" href="tb__session_8h_source.html">tb_session.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab617a1bfa381136f3c0811b771c618e9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_storage* addr_in</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>For receiving connections. </p>
+
+<p>Definition at line <a class="el" href="tb__session_8h_source.html#l00053">53</a> of file <a class="el" href="tb__session_8h_source.html">tb_session.h</a>.</p>
 
 </div>
 </div>
@@ -302,6 +320,20 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="acb1df3a0f703b05bc4971f79cabe2597"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* info</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="tb__session_8h_source.html#l00086">86</a> of file <a class="el" href="tb__session_8h_source.html">tb_session.h</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="adf89a25c6c2cefbabf86ff4e7931032e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -375,22 +407,6 @@ Data Fields</h2></td></tr>
 <p>Link to next session (Linked list). </p>
 
 <p>Definition at line <a class="el" href="tb__session_8h_source.html#l00079">79</a> of file <a class="el" href="tb__session_8h_source.html">tb_session.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a723d705438178675e55878826ac4ae7c"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct sockaddr_storage* o_addr_info</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>For receiving connections. </p>
-
-<p>Definition at line <a class="el" href="tb__session_8h_source.html#l00053">53</a> of file <a class="el" href="tb__session_8h_source.html">tb_session.h</a>.</p>
 
 </div>
 </div>
@@ -541,7 +557,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structtb__session__t.html">tb_session_t</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:39 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

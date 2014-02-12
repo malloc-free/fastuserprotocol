@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('structtb__test__params__t.html','');})
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,6 +108,9 @@ $(document).ready(function(){initNavTree('structtb__test__params__t.html','');})
 <div class="title">tb_test_params_t Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>struct used to pass parameters into testbed.  
+ <a href="structtb__test__params__t.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>&gt;</code></p>
 <table class="memberdecls">
@@ -147,8 +151,10 @@ Data Fields</h2></td></tr>
 <tr class="memitem:af7112fe07fe05134febc994e10196ce5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structtb__test__params__t.html#af7112fe07fe05134febc994e10196ce5">pack_size</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00078">78</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<div class="textblock"><p>struct used to pass parameters into testbed. </p>
+<p>This struct is used to pass the parameters required for a particular test into fuction tb_create_endpoint. This information is used to create a listener to carry out the particular test. </p>
+
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00082">82</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 </div><h2>Field Documentation</h2>
 <a class="anchor" id="a879a8cdf605d02f8af8b2e216b8764f2"></a>
 <div class="memitem">
@@ -162,7 +168,7 @@ Data Fields</h2></td></tr>
 
 <p>The address to bind/connect to. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00085">85</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00089">89</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -178,7 +184,7 @@ Data Fields</h2></td></tr>
 
 <p>The congestion control algorithm to use. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00082">82</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00086">86</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -194,7 +200,7 @@ Data Fields</h2></td></tr>
 
 <p>Destroy the listener on exit. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00100">100</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00104">104</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -210,7 +216,7 @@ Data Fields</h2></td></tr>
 
 <p>The size of the data to send. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00096">96</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00100">100</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -226,7 +232,7 @@ Data Fields</h2></td></tr>
 
 <p>The name of the file to use. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00097">97</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00101">101</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -242,7 +248,7 @@ Data Fields</h2></td></tr>
 
 <p>The size of the l3 read buffer. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00092">92</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00096">96</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -258,7 +264,7 @@ Data Fields</h2></td></tr>
 
 <p>The size of the l3 write buffer. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00093">93</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00097">97</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -274,7 +280,7 @@ Data Fields</h2></td></tr>
 
 <p>The size of the l4 read buffer. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00089">89</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00093">93</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -290,7 +296,7 @@ Data Fields</h2></td></tr>
 
 <p>The size of the l4 write buffer. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00090">90</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00094">94</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +312,7 @@ Data Fields</h2></td></tr>
 
 <p>Enable logging. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00107">107</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00111">111</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -322,7 +328,7 @@ Data Fields</h2></td></tr>
 
 <p>The path to save the log to. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00108">108</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00112">112</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -338,7 +344,7 @@ Data Fields</h2></td></tr>
 
 <p>Monitor the connection. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00103">103</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00107">107</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -352,7 +358,7 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00111">111</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00115">115</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -368,7 +374,7 @@ Data Fields</h2></td></tr>
 
 <p>The port to bind/connect to. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00086">86</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00090">90</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -384,7 +390,7 @@ Data Fields</h2></td></tr>
 
 <p>Print stats to screen. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00104">104</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00108">108</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -400,7 +406,7 @@ Data Fields</h2></td></tr>
 
 <p>The protocol to test. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00081">81</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00085">85</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -416,7 +422,7 @@ Data Fields</h2></td></tr>
 
 <p>The end point type. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00080">80</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00084">84</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -429,7 +435,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structtb__test__params__t.html">tb_test_params_t</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:39 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

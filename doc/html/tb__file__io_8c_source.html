@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('tb__file__io_8c_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -171,7 +172,7 @@ $(document).ready(function(){initNavTree('tb__file__io_8c_source.html','');});
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">if</span>((file-&gt;<a class="code" href="structtb__file__t.html#af6bfabeceb7d9e92a4a6d0f6ebdf3eec">f_desc</a> = open(file_path, flags)) == -1)</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="tb__common_8h.html#a06e3a3123fb05c14a8240e56817ca0da">PRT_ERR</a>(<span class="stringliteral">&quot;Could not open file&quot;</span>)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <a class="code" href="tb__common_8h.html#a06e3a3123fb05c14a8240e56817ca0da">PRT_ERR</a>(<span class="stringliteral">&quot;Could not open file&quot;</span>);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <a class="code" href="tb__file__io_8c.html#abe2d48200f902cbf3ba8fac68c138ade" title="Destroy tb_file_t.">tb_destroy_file</a>(file);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">return</span> NULL;</div>
@@ -203,7 +204,7 @@ $(document).ready(function(){initNavTree('tb__file__io_8c_source.html','');});
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            PROT_WRITE, MAP_SHARED, file-&gt;<a class="code" href="structtb__file__t.html#af6bfabeceb7d9e92a4a6d0f6ebdf3eec">f_desc</a>, 0)) == NULL)</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="tb__common_8h.html#a06e3a3123fb05c14a8240e56817ca0da">PRT_ERR</a>(<span class="stringliteral">&quot;Error: tb_setup_mmap: &quot;</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="stringliteral">&quot;Could not create memory map, closing file&quot;</span>)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="stringliteral">&quot;Could not create memory map, closing file&quot;</span>);</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        close(file-&gt;<a class="code" href="structtb__file__t.html#af6bfabeceb7d9e92a4a6d0f6ebdf3eec">f_desc</a>);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <a class="code" href="tb__file__io_8c.html#abe2d48200f902cbf3ba8fac68c138ade" title="Destroy tb_file_t.">tb_destroy_file</a>(file);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
@@ -319,7 +320,7 @@ $(document).ready(function(){initNavTree('tb__file__io_8c_source.html','');});
 <div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <a class="code" href="structtb__file__t.html" title="The struct that contains information about the file.">tb_file_t</a> *file = <a class="code" href="tb__file__io_8c.html#a34e8cc7a2fb9a9807fe122d73d833e69" title="Create tb_file_t.">tb_create_file</a>(file_path, <a class="code" href="tb__file__io_8h.html#a365107762359ca7508e1b789f8f12c2ba02abfd86533a52a57456cc2b0d69493f">IO_BUFF_SYNC</a>);</div>
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <a class="code" href="tb__common_8h.html#a799a3082c570c7896f84c7289c951048">PRT_I_S</a>(<span class="stringliteral">&quot;Open file&quot;</span>, file_path)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <a class="code" href="tb__common_8h.html#a799a3082c570c7896f84c7289c951048">PRT_I_S</a>(<span class="stringliteral">&quot;Open file&quot;</span>, file_path);</div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">if</span>((file-&gt;b_f_desc = fopen(file_path, <span class="stringliteral">&quot;r+&quot;</span>)) == NULL)</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    {</div>
@@ -447,7 +448,7 @@ $(document).ready(function(){initNavTree('tb__file__io_8c_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tb__file__io_8c.html">tb_file_io.c</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:38 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

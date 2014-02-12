@@ -16,9 +16,9 @@ var tb__session_8h =
       [ "SESSION_DISCONNECTED", "tb__session_8h.html#a81168c33495c6f3db310119f82934596a1dd86dbd444e24f2122e681e04a786d6", null ]
     ] ],
     [ "allocate_session", "tb__session_8h.html#a45d4154769abcedc5989d6feeb106a5e", null ],
-    [ "create_session", "tb__session_8h.html#a53834f39f0b91e572c72ec256eb81534", null ],
     [ "free_session", "tb__session_8h.html#a59019b05e88200313224bf2c77ae9c7a", null ],
     [ "get_key_value", "tb__session_8h.html#a61635f66121430da09247644cb1ba0f2", null ],
+    [ "tb_create_server_session", "tb__session_8h.html#a2fc903815b77552836525068c01bda8b", null ],
     [ "tb_create_session", "tb__session_8h.html#a3ae8d1d1ca5878cd9bab48098af09aae", null ],
     [ "tb_create_session_full", "tb__session_8h.html#a61071ac6ac1fac65754a394e190fc57d", null ],
     [ "tb_destroy_session", "tb__session_8h.html#a478a71afc34cc2f15ffd5732b102d5ca", null ],

@@ -4,6 +4,7 @@ var searchData=
   ['ack',['ACK',['../tb__common_8h.html#a77cccdd506f431925643040baa01e4e0',1,'tb_common.h']]],
   ['add_5fwork',['add_work',['../tb__worker_8c.html#aa5ef220c5813db06b41fccbf885a5727',1,'add_work(tb_worker_t *worker, tb_session_t *data):&#160;tb_worker.c'],['../tb__worker_8h.html#aa5ef220c5813db06b41fccbf885a5727',1,'add_work(tb_worker_t *worker, tb_session_t *data):&#160;tb_worker.c']]],
   ['addr_5fhints',['addr_hints',['../structtb__session__t.html#a105521cb94384edeaace1a1ce7b3d7c7',1,'tb_session_t']]],
+  ['addr_5fin',['addr_in',['../structtb__session__t.html#ab617a1bfa381136f3c0811b771c618e9',1,'tb_session_t']]],
   ['addr_5finfo',['addr_info',['../structtb__listener__t.html#aab742bc33815bd69bf49ad1861006b97',1,'tb_listener_t::addr_info()'],['../structtb__session__t.html#aab742bc33815bd69bf49ad1861006b97',1,'tb_session_t::addr_info()']]],
   ['addr_5flen',['addr_len',['../structtb__session__t.html#a116941d922ae354d7241d04b0f3c84d8',1,'tb_session_t::addr_len()'],['../structtb__utp__t.html#a116941d922ae354d7241d04b0f3c84d8',1,'tb_utp_t::addr_len()']]],
   ['addr_5fs',['addr_s',['../structtb__utp__t.html#a6c6b934648a67540d62892076f229e35',1,'tb_utp_t']]],

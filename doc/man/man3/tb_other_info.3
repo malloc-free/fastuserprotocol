@@ -1,8 +1,11 @@
-.TH "tb_other_info" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.TH "tb_other_info" 3 "Wed Feb 12 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
 tb_other_info \- 
+.PP
+struct that contains information on the current status of the listener\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -26,7 +29,11 @@ tb_other_info \-
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line 216 of file tb_listener\&.h\&.
+struct that contains information on the current status of the listener\&. 
+
+This struct is appended to the \fBtb_prot_stats_t\fP struct\&. It contains information on the current status of the TestBed\&. 
+.PP
+Definition at line 230 of file tb_listener\&.h\&.
 .SH "Field Documentation"
 .PP 
 .SS "int cpu_affinity"
@@ -34,19 +41,19 @@ Definition at line 216 of file tb_listener\&.h\&.
 .PP
 The current affinity of the cpu\&. 
 .PP
-Definition at line 220 of file tb_listener\&.h\&.
+Definition at line 234 of file tb_listener\&.h\&.
 .SS "int l_status"
 
 .PP
 The current status of the listener\&. 
 .PP
-Definition at line 218 of file tb_listener\&.h\&.
+Definition at line 232 of file tb_listener\&.h\&.
 .SS "int sys_tid"
 
 .PP
 The tid of the thread according to the sys\&. 
 .PP
-Definition at line 219 of file tb_listener\&.h\&.
+Definition at line 233 of file tb_listener\&.h\&.
 
 .SH "Author"
 .PP 

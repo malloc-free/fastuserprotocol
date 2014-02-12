@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -91,7 +92,7 @@ $(document).ready(function(){initNavTree('structtb__other__info.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,6 +109,9 @@ $(document).ready(function(){initNavTree('structtb__other__info.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>struct that contains information on the current status of the listener.  
+ <a href="structtb__other__info.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
@@ -120,8 +124,10 @@ Data Fields</h2></td></tr>
 <tr class="memdesc:ab7a892d2900125821f3d6b11d003191b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The current affinity of the cpu.  <a href="#ab7a892d2900125821f3d6b11d003191b"></a><br/></td></tr>
 </table>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00216">216</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<div class="textblock"><p>struct that contains information on the current status of the listener. </p>
+<p>This struct is appended to the <a class="el" href="structtb__prot__stats__t.html" title="Protocol information struct.">tb_prot_stats_t</a> struct. It contains information on the current status of the TestBed. </p>
+
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00230">230</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 </div><h2>Field Documentation</h2>
 <a class="anchor" id="ab7a892d2900125821f3d6b11d003191b"></a>
 <div class="memitem">
@@ -135,7 +141,7 @@ Data Fields</h2></td></tr>
 
 <p>The current affinity of the cpu. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00220">220</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00234">234</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -151,7 +157,7 @@ Data Fields</h2></td></tr>
 
 <p>The current status of the listener. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00218">218</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00232">232</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -167,7 +173,7 @@ Data Fields</h2></td></tr>
 
 <p>The tid of the thread according to the sys. </p>
 
-<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00219">219</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__listener_8h_source.html#l00233">233</a> of file <a class="el" href="tb__listener_8h_source.html">tb_listener.h</a>.</p>
 
 </div>
 </div>
@@ -180,7 +186,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="structtb__other__info.html">tb_other_info</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:39 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

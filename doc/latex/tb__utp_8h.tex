@@ -80,6 +80,10 @@ int \hyperlink{tb__utp_8h_ab3bd87fbc20dbbd52543b2fab384f29f}{tb\-\_\-utp\-\_\-er
 \item 
 int \hyperlink{tb__utp_8h_a914e27dc988c6efc694ad951dadefc6b}{tb\-\_\-utp\-\_\-close} (\hyperlink{structtb__utp__t}{tb\-\_\-utp\-\_\-t} $\ast$utp)
 \item 
+int \hyperlink{tb__utp_8h_a257cf363763e3b3e4f705bec97ff3d65}{tb\-\_\-utp\-\_\-m\-\_\-client} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run a client using multiple connections. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{tb__utp_8h_a8bb16be421a9e33da354bc5c0259ca4d}{tb\-\_\-utp\-\_\-m\-\_\-client\-\_\-conn} (void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Run. \end{DoxyCompactList}\item 
 int \hyperlink{tb__utp_8h_aaef934c0644a4ded7635420534b2bd01}{tb\-\_\-utp\-\_\-client} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
 \begin{DoxyCompactList}\small\item\em Upload using the u\-T\-P protocol. \end{DoxyCompactList}\item 
 int \hyperlink{tb__utp_8h_aacb2150e3f5d787a6d04e4c69663f643}{tb\-\_\-utp\-\_\-m\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
@@ -108,7 +112,7 @@ int \hyperlink{tb__utp_8h_a4701d9551ad1e0d73019590b729b6224}{tb\-\_\-utp\-\_\-se
 
 
 
-Definition at line 59 of file tb\-\_\-utp.\-h.
+Definition at line 58 of file tb\-\_\-utp.\-h.
 
 
 
@@ -126,7 +130,7 @@ Upload using the u\-T\-P protocol.
 
 Upload data using the u\-T\-P protocol. 
 
-Definition at line 340 of file tb\-\_\-utp.\-c.
+Definition at line 528 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_a914e27dc988c6efc694ad951dadefc6b}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-close@{tb\-\_\-utp\-\_\-close}}
 \index{tb\-\_\-utp\-\_\-close@{tb\-\_\-utp\-\_\-close}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -150,7 +154,7 @@ Definition at line 308 of file tb\-\_\-utp.\-c.
 )}}\label{tb__utp_8h_ae499f3155494fdc2ea5e53375c1ab5ed}
 
 
-Definition at line 187 of file tb\-\_\-utp.\-c.
+Definition at line 186 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_ab15274bd142f9d742f43ff8670eee3cd}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-error@{tb\-\_\-utp\-\_\-error}}
 \index{tb\-\_\-utp\-\_\-error@{tb\-\_\-utp\-\_\-error}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -190,7 +194,7 @@ Callback used by epoll events.
 
 
 
-Definition at line 239 of file tb\-\_\-utp.\-c.
+Definition at line 243 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_a00c956cd2abf69fde14be69ff5e7aa0c}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-funct\-\_\-exit@{tb\-\_\-utp\-\_\-funct\-\_\-exit}}
 \index{tb\-\_\-utp\-\_\-funct\-\_\-exit@{tb\-\_\-utp\-\_\-funct\-\_\-exit}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -235,7 +239,37 @@ callback, for incoming connections.
 
 Called by the u\-T\-P library when incoming data is deemed to be data for a new connection. 
 
-Definition at line 153 of file tb\-\_\-utp.\-c.
+Definition at line 152 of file tb\-\_\-utp.\-c.
+
+\hypertarget{tb__utp_8h_a257cf363763e3b3e4f705bec97ff3d65}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-m\-\_\-client@{tb\-\_\-utp\-\_\-m\-\_\-client}}
+\index{tb\-\_\-utp\-\_\-m\-\_\-client@{tb\-\_\-utp\-\_\-m\-\_\-client}!tb_utp.h@{tb\-\_\-utp.\-h}}
+\subsubsection[{tb\-\_\-utp\-\_\-m\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-utp\-\_\-m\-\_\-client (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__utp_8h_a257cf363763e3b3e4f705bec97ff3d65}
+
+
+Run a client using multiple connections. 
+
+
+
+Definition at line 340 of file tb\-\_\-utp.\-c.
+
+\hypertarget{tb__utp_8h_a8bb16be421a9e33da354bc5c0259ca4d}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-m\-\_\-client\-\_\-conn@{tb\-\_\-utp\-\_\-m\-\_\-client\-\_\-conn}}
+\index{tb\-\_\-utp\-\_\-m\-\_\-client\-\_\-conn@{tb\-\_\-utp\-\_\-m\-\_\-client\-\_\-conn}!tb_utp.h@{tb\-\_\-utp.\-h}}
+\subsubsection[{tb\-\_\-utp\-\_\-m\-\_\-client\-\_\-conn}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ tb\-\_\-utp\-\_\-m\-\_\-client\-\_\-conn (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__utp_8h_a8bb16be421a9e33da354bc5c0259ca4d}
+
+
+Run. 
+
+
+
+Definition at line 449 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_a91f1cecaee23c1889b8588111d17ddb1}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-m\-\_\-event@{tb\-\_\-utp\-\_\-m\-\_\-event}}
 \index{tb\-\_\-utp\-\_\-m\-\_\-event@{tb\-\_\-utp\-\_\-m\-\_\-event}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -251,7 +285,7 @@ Event called by epoll.
 
 
 
-Definition at line 428 of file tb\-\_\-utp.\-c.
+Definition at line 625 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_a7fe7f3ac875ad5df2f011c70db45f644}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-m\-\_\-new\-\_\-conn@{tb\-\_\-utp\-\_\-m\-\_\-new\-\_\-conn}}
 \index{tb\-\_\-utp\-\_\-m\-\_\-new\-\_\-conn@{tb\-\_\-utp\-\_\-m\-\_\-new\-\_\-conn}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -267,7 +301,7 @@ Called when creating a new connection.
 
 
 
-Definition at line 469 of file tb\-\_\-utp.\-c.
+Definition at line 666 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_aacb2150e3f5d787a6d04e4c69663f643}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-m\-\_\-server@{tb\-\_\-utp\-\_\-m\-\_\-server}}
 \index{tb\-\_\-utp\-\_\-m\-\_\-server@{tb\-\_\-utp\-\_\-m\-\_\-server}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -282,7 +316,7 @@ Create a multiconnection server using u\-T\-P.
 
 
 
-Definition at line 421 of file tb\-\_\-utp.\-c.
+Definition at line 618 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_af31fb5ebecca7ed41d3b82654a6d57c6}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-overhead@{tb\-\_\-utp\-\_\-overhead}}
 \index{tb\-\_\-utp\-\_\-overhead@{tb\-\_\-utp\-\_\-overhead}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -358,7 +392,7 @@ Definition at line 286 of file tb\-\_\-utp.\-c.
 )}}\label{tb__utp_8h_a9dca05324926fb62deab6aa46f130696}
 
 
-Definition at line 206 of file tb\-\_\-utp.\-c.
+Definition at line 210 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_a11b6cdd962696b52f2fcac93df1e28e3}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-send\-\_\-to@{tb\-\_\-utp\-\_\-send\-\_\-to}}
 \index{tb\-\_\-utp\-\_\-send\-\_\-to@{tb\-\_\-utp\-\_\-send\-\_\-to}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -388,7 +422,7 @@ Run a server with u\-T\-P.
 
 
 
-Definition at line 475 of file tb\-\_\-utp.\-c.
+Definition at line 672 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_ab7c3fb612ca38a7954c68aec1b4c9d0f}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-set\-\_\-buffers@{tb\-\_\-utp\-\_\-set\-\_\-buffers}}
 \index{tb\-\_\-utp\-\_\-set\-\_\-buffers@{tb\-\_\-utp\-\_\-set\-\_\-buffers}!tb_utp.h@{tb\-\_\-utp.\-h}}
@@ -433,7 +467,7 @@ Definition at line 34 of file tb\-\_\-utp.\-c.
 )}}\label{tb__utp_8h_a07325129f2f67a976ddd914e71b67881}
 
 
-Definition at line 167 of file tb\-\_\-utp.\-c.
+Definition at line 166 of file tb\-\_\-utp.\-c.
 
 \hypertarget{tb__utp_8h_a1e25222015d067d9bfdf2046b27b58af}{\index{tb\-\_\-utp.\-h@{tb\-\_\-utp.\-h}!tb\-\_\-utp\-\_\-state\-\_\-change@{tb\-\_\-utp\-\_\-state\-\_\-change}}
 \index{tb\-\_\-utp\-\_\-state\-\_\-change@{tb\-\_\-utp\-\_\-state\-\_\-change}!tb_utp.h@{tb\-\_\-utp.\-h}}

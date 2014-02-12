@@ -1,4 +1,4 @@
-.TH "tb_utp_t" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.TH "tb_utp_t" 3 "Wed Feb 12 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -11,6 +11,10 @@ tb_utp_t \-
 .SS "Data Fields"
 
 .in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.RI "\fIId for this utp struct\&. \fP"
 .ti -1c
 .RI "struct UTPSocket * \fBsocket\fP"
 .br
@@ -72,13 +76,7 @@ tb_utp_t \-
 .RI "int \fBr_data_size\fP"
 .br
 .ti -1c
-.RI "pthread_t * \fButp_thread\fP"
-.br
-.ti -1c
 .RI "pthread_mutex_t * \fBlock\fP"
-.br
-.ti -1c
-.RI "pthread_cond_t * \fBcond\fP"
 .br
 .ti -1c
 .RI "int \fBso_sndbuf\fP"
@@ -97,35 +95,37 @@ Definition at line 22 of file tb_utp\&.h\&.
 .SS "socklen_t addr_len"
 
 .PP
-Definition at line 39 of file tb_utp\&.h\&.
+Definition at line 40 of file tb_utp\&.h\&.
 .SS "struct sockaddr_storage* addr_s"
 
 .PP
-Definition at line 37 of file tb_utp\&.h\&.
+Definition at line 38 of file tb_utp\&.h\&.
 .SS "char* buffer"
 
 .PP
-Definition at line 26 of file tb_utp\&.h\&.
+Definition at line 27 of file tb_utp\&.h\&.
 .SS "int buffer_size"
 
 .PP
-Definition at line 30 of file tb_utp\&.h\&.
+Definition at line 31 of file tb_utp\&.h\&.
 .SS "struct UTPFunctionTable* call_backs"
 
 .PP
-Definition at line 38 of file tb_utp\&.h\&.
-.SS "pthread_cond_t* cond"
-
-.PP
-Definition at line 50 of file tb_utp\&.h\&.
+Definition at line 39 of file tb_utp\&.h\&.
 .SS "int e_id"
 
 .PP
-Definition at line 32 of file tb_utp\&.h\&.
+Definition at line 33 of file tb_utp\&.h\&.
 .SS "\fBtb_epoll_t\fP* epoll"
 
 .PP
-Definition at line 36 of file tb_utp\&.h\&.
+Definition at line 37 of file tb_utp\&.h\&.
+.SS "int id"
+
+.PP
+Id for this utp struct\&. 
+.PP
+Definition at line 24 of file tb_utp\&.h\&.
 .SS "pthread_mutex_t* lock"
 
 .PP
@@ -133,71 +133,67 @@ Definition at line 49 of file tb_utp\&.h\&.
 .SS "char* r_data"
 
 .PP
-Definition at line 44 of file tb_utp\&.h\&.
+Definition at line 45 of file tb_utp\&.h\&.
 .SS "int r_data_size"
 
 .PP
-Definition at line 45 of file tb_utp\&.h\&.
+Definition at line 46 of file tb_utp\&.h\&.
 .SS "int read_bytes"
 
 .PP
-Definition at line 28 of file tb_utp\&.h\&.
+Definition at line 29 of file tb_utp\&.h\&.
 .SS "int rec_buff_size"
 
 .PP
-Definition at line 31 of file tb_utp\&.h\&.
+Definition at line 32 of file tb_utp\&.h\&.
 .SS "char* rec_buffer"
 
 .PP
-Definition at line 27 of file tb_utp\&.h\&.
+Definition at line 28 of file tb_utp\&.h\&.
 .SS "int recv_total"
 
 .PP
-Definition at line 33 of file tb_utp\&.h\&.
+Definition at line 34 of file tb_utp\&.h\&.
 .SS "char* s_data"
 
 .PP
-Definition at line 41 of file tb_utp\&.h\&.
+Definition at line 42 of file tb_utp\&.h\&.
 .SS "int s_data_size"
 
 .PP
-Definition at line 42 of file tb_utp\&.h\&.
+Definition at line 43 of file tb_utp\&.h\&.
 .SS "int sent_total"
 
 .PP
-Definition at line 34 of file tb_utp\&.h\&.
+Definition at line 35 of file tb_utp\&.h\&.
 .SS "int so_rcvbuf"
 
 .PP
 The size of the receive buffer to use\&. 
 .PP
-Definition at line 53 of file tb_utp\&.h\&.
+Definition at line 52 of file tb_utp\&.h\&.
 .SS "int so_sndbuf"
 
 .PP
 The size of the send buffer to use\&. 
 .PP
-Definition at line 52 of file tb_utp\&.h\&.
+Definition at line 51 of file tb_utp\&.h\&.
 .SS "int sock_fd"
 
 .PP
-Definition at line 25 of file tb_utp\&.h\&.
+Definition at line 26 of file tb_utp\&.h\&.
 .SS "struct UTPSocket* socket"
 
 .PP
-Definition at line 24 of file tb_utp\&.h\&.
+Definition at line 25 of file tb_utp\&.h\&.
 .SS "int state"
 
 .PP
-Definition at line 35 of file tb_utp\&.h\&.
-.SS "pthread_t* utp_thread"
-
-.PP
-Definition at line 48 of file tb_utp\&.h\&.
+Definition at line 36 of file tb_utp\&.h\&.
 .SS "int write_bytes"
 
 .PP
-Definition at line 29 of file tb_utp\&.h\&.
+Definition at line 30 of file tb_utp\&.h\&.
 
 .SH "Author"
 .PP 

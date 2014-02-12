@@ -9,6 +9,7 @@ var searchData=
   ['dccp',['DCCP',['../tb__protocol_8h.html#a7a5bff1040fc154c510874327d44cc1aa53de17981d3224badb4ed817cb3992e5',1,'tb_protocol.h']]],
   ['dccp_5frcv_5fbuff',['DCCP_RCV_BUFF',['../tb__sock__opt_8c.html#a934abdd1dd88c196b5a0a64ab231aaa4',1,'tb_sock_opt.c']]],
   ['dccp_5fsnd_5fbuff',['DCCP_SND_BUFF',['../tb__sock__opt_8c.html#aef7d89138e6b529c349b6cdb2ab021cd',1,'tb_sock_opt.c']]],
+  ['deprecated_20list',['Deprecated List',['../deprecated.html',1,'']]],
   ['destroy_5fworker',['destroy_worker',['../tb__worker_8c.html#aa7815ec198375441b2d6dad28f0c6fce',1,'destroy_worker(tb_worker_t *w):&#160;tb_worker.c'],['../tb__worker_8h.html#aa7815ec198375441b2d6dad28f0c6fce',1,'destroy_worker(tb_worker_t *w):&#160;tb_worker.c']]],
   ['do_5fwork',['do_work',['../tb__worker_8c.html#af9d62097df66ab4d05386c49b45a74e8',1,'do_work(void *param):&#160;tb_worker.c'],['../tb__worker_8h.html#afc515f36e24829670510abc9d736f921',1,'do_work(void *worker):&#160;tb_worker.c']]]
 ];

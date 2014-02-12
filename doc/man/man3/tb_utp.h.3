@@ -1,4 +1,4 @@
-.TH "src/tb_utp.h" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.TH "src/tb_utp.h" 3 "Wed Feb 12 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -107,6 +107,14 @@ src/tb_utp.h \-
 .RI "int \fBtb_utp_close\fP (\fBtb_utp_t\fP *utp)"
 .br
 .ti -1c
+.RI "int \fBtb_utp_m_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIRun a client using multiple connections\&. \fP"
+.ti -1c
+.RI "void * \fBtb_utp_m_client_conn\fP (void *data)"
+.br
+.RI "\fIRun\&. \fP"
+.ti -1c
 .RI "int \fBtb_utp_client\fP (\fBtb_listener_t\fP *listener)"
 .br
 .RI "\fIUpload using the uTP protocol\&. \fP"
@@ -140,7 +148,7 @@ src/tb_utp.h \-
 \fB\fIUTP_STATE_ERROR \fP\fP
 
 .PP
-Definition at line 59 of file tb_utp\&.h\&.
+Definition at line 58 of file tb_utp\&.h\&.
 .SH "Function Documentation"
 .PP 
 .SS "int tb_utp_client (\fBtb_listener_t\fP *listener)"
@@ -148,7 +156,7 @@ Definition at line 59 of file tb_utp\&.h\&.
 .PP
 Upload using the uTP protocol\&. Upload data using the uTP protocol\&. 
 .PP
-Definition at line 340 of file tb_utp\&.c\&.
+Definition at line 528 of file tb_utp\&.c\&.
 .SS "int tb_utp_close (\fBtb_utp_t\fP *utp)"
 
 .PP
@@ -156,7 +164,7 @@ Definition at line 308 of file tb_utp\&.c\&.
 .SS "int tb_utp_connect (\fBtb_utp_t\fP *utp, const struct sockaddr *addr, socklen_tlen)"
 
 .PP
-Definition at line 187 of file tb_utp\&.c\&.
+Definition at line 186 of file tb_utp\&.c\&.
 .SS "void tb_utp_error (void *userdata, interrcode)"
 
 .PP
@@ -170,7 +178,7 @@ Definition at line 302 of file tb_utp\&.c\&.
 .PP
 Callback used by epoll events\&. 
 .PP
-Definition at line 239 of file tb_utp\&.c\&.
+Definition at line 243 of file tb_utp\&.c\&.
 .SS "int tb_utp_funct_exit ()"
 
 .PP
@@ -186,25 +194,37 @@ Definition at line 92 of file tb_utp\&.c\&.
 .PP
 callback, for incoming connections\&. Called by the uTP library when incoming data is deemed to be data for a new connection\&. 
 .PP
-Definition at line 153 of file tb_utp\&.c\&.
+Definition at line 152 of file tb_utp\&.c\&.
+.SS "int tb_utp_m_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Run a client using multiple connections\&. 
+.PP
+Definition at line 340 of file tb_utp\&.c\&.
+.SS "void* tb_utp_m_client_conn (void *data)"
+
+.PP
+Run\&. 
+.PP
+Definition at line 449 of file tb_utp\&.c\&.
 .SS "int tb_utp_m_event (intevents, void *data)"
 
 .PP
 Event called by epoll\&. 
 .PP
-Definition at line 428 of file tb_utp\&.c\&.
+Definition at line 625 of file tb_utp\&.c\&.
 .SS "void tb_utp_m_new_conn (void *userdata, struct UTPSocket *socket)"
 
 .PP
 Called when creating a new connection\&. 
 .PP
-Definition at line 469 of file tb_utp\&.c\&.
+Definition at line 666 of file tb_utp\&.c\&.
 .SS "int tb_utp_m_server (\fBtb_listener_t\fP *listener)"
 
 .PP
 Create a multiconnection server using uTP\&. 
 .PP
-Definition at line 421 of file tb_utp\&.c\&.
+Definition at line 618 of file tb_utp\&.c\&.
 .SS "void tb_utp_overhead (void *userdata, intsend, size_tcount, inttype)"
 
 .PP
@@ -226,7 +246,7 @@ Definition at line 286 of file tb_utp\&.c\&.
 .SS "int tb_utp_send (\fBtb_utp_t\fP *utp, void *buf, size_tn)"
 
 .PP
-Definition at line 206 of file tb_utp\&.c\&.
+Definition at line 210 of file tb_utp\&.c\&.
 .SS "void tb_utp_send_to (void *userdata, const byte *p, size_tlen, const struct sockaddr *to, socklen_ttolen)"
 
 .PP
@@ -236,7 +256,7 @@ Definition at line 139 of file tb_utp\&.c\&.
 .PP
 Run a server with uTP\&. 
 .PP
-Definition at line 475 of file tb_utp\&.c\&.
+Definition at line 672 of file tb_utp\&.c\&.
 .SS "int tb_utp_set_buffers (size_tsend_buf, size_trecv_buf)"
 
 .SS "int tb_utp_setsockopt (intopt, intval)"
@@ -250,7 +270,7 @@ Definition at line 34 of file tb_utp\&.c\&.
 .SS "int tb_utp_socket (\fBtb_utp_t\fP *utp, intdomain, intsocktype, intprotocol)"
 
 .PP
-Definition at line 167 of file tb_utp\&.c\&.
+Definition at line 166 of file tb_utp\&.c\&.
 .SS "void tb_utp_state_change (void *userdata, intstate)"
 
 .PP

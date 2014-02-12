@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('tb__session_8c.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -133,8 +134,8 @@ Include dependency graph for tb_session.c:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a15863848d0188bcb5662d43156903241"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__session_8c.html#a15863848d0188bcb5662d43156903241">tb_session_add</a> (<a class="el" href="structtb__session__list__t.html">tb_session_list_t</a> *list, <a class="el" href="structtb__session__t.html">tb_session_t</a> *session)</td></tr>
 <tr class="memdesc:a15863848d0188bcb5662d43156903241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a session to a list.  <a href="#a15863848d0188bcb5662d43156903241"></a><br/></td></tr>
-<tr class="memitem:a10ad0196975eeca1e3469d05cdcc3758"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__session__t.html">tb_session_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__session_8c.html#a10ad0196975eeca1e3469d05cdcc3758">create_session</a> (char *file_name, struct sockaddr_storage *o_addr_info)</td></tr>
-<tr class="memdesc:a10ad0196975eeca1e3469d05cdcc3758"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a session with a file name, sockaddr_storage.  <a href="#a10ad0196975eeca1e3469d05cdcc3758"></a><br/></td></tr>
+<tr class="memitem:a2fc903815b77552836525068c01bda8b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__session__t.html">tb_session_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__session_8c.html#a2fc903815b77552836525068c01bda8b">tb_create_server_session</a> ()</td></tr>
+<tr class="memdesc:a2fc903815b77552836525068c01bda8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a session for servers.  <a href="#a2fc903815b77552836525068c01bda8b"></a><br/></td></tr>
 <tr class="memitem:a3ae8d1d1ca5878cd9bab48098af09aae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__session__t.html">tb_session_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__session_8c.html#a3ae8d1d1ca5878cd9bab48098af09aae">tb_create_session</a> ()</td></tr>
 <tr class="memdesc:a3ae8d1d1ca5878cd9bab48098af09aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a session.  <a href="#a3ae8d1d1ca5878cd9bab48098af09aae"></a><br/></td></tr>
 <tr class="memitem:a61071ac6ac1fac65754a394e190fc57d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__session__t.html">tb_session_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__session_8c.html#a61071ac6ac1fac65754a394e190fc57d">tb_create_session_full</a> (char *addr, char *port, int sock_type, unsigned int data_size)</td></tr>
@@ -172,37 +173,7 @@ Functions</h2></td></tr>
 <p>Used by gdsl structures to allocate memory for a <a class="el" href="structtb__session__t.html">tb_session_t</a> struct.</p>
 <p>data This needs to be an instance of <a class="el" href="structtb__session__t.html">tb_session_t</a> </p>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00243">243</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a10ad0196975eeca1e3469d05cdcc3758"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtb__session__t.html">tb_session_t</a>* create_session </td>
-          <td>(</td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">struct sockaddr_storage *&#160;</td>
-          <td class="paramname"><em>o_addr_info</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Create a session with a file name, sockaddr_storage. </p>
-
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00044">44</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00235">235</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -222,7 +193,7 @@ Functions</h2></td></tr>
 
 <p>Free memory for a session. </p>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00256">256</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00248">248</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -240,7 +211,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00266">266</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00258">258</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2fc903815b77552836525068c01bda8b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structtb__session__t.html">tb_session_t</a>* tb_create_server_session </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a session for servers. </p>
+
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00044">44</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -260,7 +250,7 @@ Functions</h2></td></tr>
 <p>Create a session. </p>
 <p>With this version of create_session, the sockaddr_storage is created, the file name is set to NULL, addr_info and hints are null. </p>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00067">67</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00059">59</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -303,7 +293,7 @@ Functions</h2></td></tr>
 <p>Full version of create session. </p>
 <p>This version creates the hints and info field, and resolves the provided address. If the data_size parameter is greater than zero, the session buffer is also created. </p>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00100">100</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00092">92</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -324,7 +314,7 @@ Functions</h2></td></tr>
 <p>Free memory used for a session. </p>
 <p>Frees memory used by a <a class="el" href="structtb__session__t.html">tb_session_t</a> struct. Releases all memory for associated fields. </p>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00125">125</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00117">117</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -352,7 +342,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00218">218</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00210">210</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -421,7 +411,7 @@ Functions</h2></td></tr>
 <p>Tests equality for sessions keys. </p>
 <p>Called by the hash table implementation in glib. Simply tests to see if the supplied integers are equal (these are just int32). </p>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00289">289</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00281">281</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -452,7 +442,7 @@ Functions</h2></td></tr>
 <p>Set the addrinfo for the session. </p>
 <p>Fills out the addrinfo field for the session. </p>
 
-<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00185">185</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__session_8c_source.html#l00177">177</a> of file <a class="el" href="tb__session_8c_source.html">tb_session.c</a>.</p>
 
 </div>
 </div>
@@ -462,7 +452,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tb__session_8c.html">tb_session.c</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:39 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

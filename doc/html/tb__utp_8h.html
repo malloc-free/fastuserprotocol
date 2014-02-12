@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('tb__utp_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -169,6 +170,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a00c956cd2abf69fde14be69ff5e7aa0c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__utp_8h.html#a00c956cd2abf69fde14be69ff5e7aa0c">tb_utp_funct_exit</a> ()</td></tr>
 <tr class="memitem:ab3bd87fbc20dbbd52543b2fab384f29f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__utp_8h.html#ab3bd87fbc20dbbd52543b2fab384f29f">tb_utp_error_handle</a> (int value, int err_no)</td></tr>
 <tr class="memitem:a914e27dc988c6efc694ad951dadefc6b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__utp_8h.html#a914e27dc988c6efc694ad951dadefc6b">tb_utp_close</a> (<a class="el" href="structtb__utp__t.html">tb_utp_t</a> *utp)</td></tr>
+<tr class="memitem:a257cf363763e3b3e4f705bec97ff3d65"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__utp_8h.html#a257cf363763e3b3e4f705bec97ff3d65">tb_utp_m_client</a> (<a class="el" href="structtb__listener__t.html">tb_listener_t</a> *listener)</td></tr>
+<tr class="memdesc:a257cf363763e3b3e4f705bec97ff3d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run a client using multiple connections.  <a href="#a257cf363763e3b3e4f705bec97ff3d65"></a><br/></td></tr>
+<tr class="memitem:a8bb16be421a9e33da354bc5c0259ca4d"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__utp_8h.html#a8bb16be421a9e33da354bc5c0259ca4d">tb_utp_m_client_conn</a> (void *data)</td></tr>
+<tr class="memdesc:a8bb16be421a9e33da354bc5c0259ca4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run.  <a href="#a8bb16be421a9e33da354bc5c0259ca4d"></a><br/></td></tr>
 <tr class="memitem:aaef934c0644a4ded7635420534b2bd01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__utp_8h.html#aaef934c0644a4ded7635420534b2bd01">tb_utp_client</a> (<a class="el" href="structtb__listener__t.html">tb_listener_t</a> *listener)</td></tr>
 <tr class="memdesc:aaef934c0644a4ded7635420534b2bd01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upload using the uTP protocol.  <a href="#aaef934c0644a4ded7635420534b2bd01"></a><br/></td></tr>
 <tr class="memitem:aacb2150e3f5d787a6d04e4c69663f643"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__utp_8h.html#aacb2150e3f5d787a6d04e4c69663f643">tb_utp_m_server</a> (<a class="el" href="structtb__listener__t.html">tb_listener_t</a> *listener)</td></tr>
@@ -199,7 +204,7 @@ Functions</h2></td></tr>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="tb__utp_8h_source.html#l00059">59</a> of file <a class="el" href="tb__utp_8h_source.html">tb_utp.h</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8h_source.html#l00058">58</a> of file <a class="el" href="tb__utp_8h_source.html">tb_utp.h</a>.</p>
 
 </div>
 </div>
@@ -221,7 +226,7 @@ Functions</h2></td></tr>
 <p>Upload using the uTP protocol. </p>
 <p>Upload data using the uTP protocol. </p>
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00340">340</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00528">528</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -273,7 +278,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00187">187</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00186">186</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -359,7 +364,7 @@ Functions</h2></td></tr>
 
 <p>Callback used by epoll events. </p>
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00239">239</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00243">243</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -448,7 +453,47 @@ Functions</h2></td></tr>
 <p>callback, for incoming connections. </p>
 <p>Called by the uTP library when incoming data is deemed to be data for a new connection. </p>
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00153">153</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00152">152</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a257cf363763e3b3e4f705bec97ff3d65"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int tb_utp_m_client </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtb__listener__t.html">tb_listener_t</a> *&#160;</td>
+          <td class="paramname"><em>listener</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run a client using multiple connections. </p>
+
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00340">340</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8bb16be421a9e33da354bc5c0259ca4d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* tb_utp_m_client_conn </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Run. </p>
+
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00449">449</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -478,7 +523,7 @@ Functions</h2></td></tr>
 
 <p>Event called by epoll. </p>
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00428">428</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00625">625</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -508,7 +553,7 @@ Functions</h2></td></tr>
 
 <p>Called when creating a new connection. </p>
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00469">469</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00666">666</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -528,7 +573,7 @@ Functions</h2></td></tr>
 
 <p>Create a multiconnection server using uTP. </p>
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00421">421</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00618">618</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -737,7 +782,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00206">206</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00210">210</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -803,7 +848,7 @@ Functions</h2></td></tr>
 
 <p>Run a server with uTP. </p>
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00475">475</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00672">672</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -915,7 +960,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00167">167</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__utp_8c_source.html#l00166">166</a> of file <a class="el" href="tb__utp_8c_source.html">tb_utp.c</a>.</p>
 
 </div>
 </div>
@@ -987,7 +1032,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tb__utp_8h.html">tb_utp.h</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:39 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

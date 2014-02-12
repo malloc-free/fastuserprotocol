@@ -5,6 +5,5 @@ var searchData=
   ['udt_5frcv_5fbuff',['UDT_RCV_BUFF',['../tb__sock__opt_8c.html#a336fb201b76af68ff4518278ac94ab06',1,'tb_sock_opt.c']]],
   ['udt_5fsnd_5fbuff',['UDT_SND_BUFF',['../tb__sock__opt_8c.html#a546259a497fb4f4a2ed3eca4f2df8c7b',1,'tb_sock_opt.c']]],
   ['utp_5frcv_5fbuff',['uTP_RCV_BUFF',['../tb__sock__opt_8c.html#afa8d1866976a282df203e70aaad012d0',1,'tb_sock_opt.c']]],
-  ['utp_5fsnd_5fbuff',['uTP_SND_BUFF',['../tb__sock__opt_8c.html#a6fc4fd2ac14035fda584b5a66634d395',1,'tb_sock_opt.c']]],
-  ['utp_5fthread',['utp_thread',['../structtb__utp__t.html#aa0eb12bac5ef0d83e6689f3b547b695d',1,'tb_utp_t']]]
+  ['utp_5fsnd_5fbuff',['uTP_SND_BUFF',['../tb__sock__opt_8c.html#a6fc4fd2ac14035fda584b5a66634d395',1,'tb_sock_opt.c']]]
 ];

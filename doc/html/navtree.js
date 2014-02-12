@@ -1,6 +1,7 @@
 var NAVTREE =
 [
   [ "TestBed", "index.html", [
+    [ "Deprecated List", "deprecated.html", null ],
     [ "Data Structures", null, [
       [ "Data Structures", "annotated.html", "annotated" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -27,9 +28,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"structtb__worker__t.html#aea4c15677ebae0f50f9f4684804d7987",
-"tb__protocol_8h.html#a473a931a3082ddc4d122f9f4a8fd1437",
-"tb__utp_8h.html#ab15274bd142f9d742f43ff8670eee3cd"
+"structtb__worker__t.html#a4b75564f2d4bac6720918785d0de5034",
+"tb__protocol_8h.html#a43255c3ce51eb275006d03290ea299d3",
+"tb__utp_8h.html#a914e27dc988c6efc694ad951dadefc6b"
 ];
 
 var navTreeSubIndices = new Array();

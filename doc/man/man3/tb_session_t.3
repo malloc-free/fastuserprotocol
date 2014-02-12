@@ -1,4 +1,4 @@
-.TH "tb_session_t" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.TH "tb_session_t" 3 "Wed Feb 12 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -24,7 +24,7 @@ tb_session_t \-
 .br
 .RI "\fIThe port to connect/bind to\&. \fP"
 .ti -1c
-.RI "struct sockaddr_storage * \fBo_addr_info\fP"
+.RI "struct sockaddr_storage * \fBaddr_in\fP"
 .br
 .RI "\fIFor receiving connections\&. \fP"
 .ti -1c
@@ -99,6 +99,9 @@ tb_session_t \-
 .RI "\fBtb_time_t\fP * \fBconnect_t\fP"
 .br
 .RI "\fIConnection time\&. \fP"
+.ti -1c
+.RI "void * \fBinfo\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -111,6 +114,12 @@ Definition at line 44 of file tb_session\&.h\&.
 Connection hints\&. 
 .PP
 Definition at line 56 of file tb_session\&.h\&.
+.SS "struct sockaddr_storage* addr_in"
+
+.PP
+For receiving connections\&. 
+.PP
+Definition at line 53 of file tb_session\&.h\&.
 .SS "struct addrinfo* addr_info"
 
 .PP
@@ -153,6 +162,10 @@ Definition at line 61 of file tb_session\&.h\&.
 Id for this session\&. 
 .PP
 Definition at line 46 of file tb_session\&.h\&.
+.SS "void* info"
+
+.PP
+Definition at line 86 of file tb_session\&.h\&.
 .SS "int int_data"
 
 .PP
@@ -179,12 +192,6 @@ Definition at line 67 of file tb_session\&.h\&.
 Link to next session (Linked list)\&. 
 .PP
 Definition at line 79 of file tb_session\&.h\&.
-.SS "struct sockaddr_storage* o_addr_info"
-
-.PP
-For receiving connections\&. 
-.PP
-Definition at line 53 of file tb_session\&.h\&.
 .SS "int pack_size"
 
 .PP

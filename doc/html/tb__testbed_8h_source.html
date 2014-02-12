@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('tb__testbed_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -135,18 +136,18 @@ $(document).ready(function(){initNavTree('tb__testbed_8h_source.html','');});
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="tb__testbed_8h.html#ab5ee406d514403c7caaa5bce873cd300" title="The server buffer multiplier.">S_BUFF_SIZE</a>;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">extern</span> <a class="code" href="structtb__listener__t.html">tb_listener_t</a></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;*<a class="code" href="tb__listener_8c.html#a5ec3b6c120621050965582e51e4d0d5a" title="Create a listener with the supplied parameters.">tb_create_listener</a>(<a class="code" href="tb__listener_8h.html#ae37f3ebcf0081b2dd11adf41f1f867d6">ENDPOINT_TYPE</a> type, <span class="keywordtype">char</span> *addr,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">extern</span> <a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;*<a class="code" href="tb__listener_8c.html#a5ec3b6c120621050965582e51e4d0d5a" title="Create a listener with the supplied parameters.">tb_create_listener</a>(<a class="code" href="tb__listener_8h.html#ae37f3ebcf0081b2dd11adf41f1f867d6" title="The type of endpoint to create.">ENDPOINT_TYPE</a> type, <span class="keywordtype">char</span> *addr,</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">char</span> *port, <a class="code" href="tb__protocol_8h.html#a7a5bff1040fc154c510874327d44cc1a">PROTOCOL</a> protocol, <span class="keywordtype">int</span> bufsize);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">extern</span> <a class="code" href="structtb__listener__t.html">tb_listener_t</a></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;*<a class="code" href="tb__listener_8c.html#a042a2b565ccc70e1506562ad43c83bfb" title="Create a listener using a tb_test_params_t struct.">tb_create_endpoint</a>(<a class="code" href="structtb__test__params__t.html">tb_test_params_t</a> *params);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">extern</span> <a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;*<a class="code" href="tb__listener_8c.html#a042a2b565ccc70e1506562ad43c83bfb" title="Create a listener using a tb_test_params_t struct.">tb_create_endpoint</a>(<a class="code" href="structtb__test__params__t.html" title="struct used to pass parameters into testbed.">tb_test_params_t</a> *params);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">extern</span> <a class="code" href="structtb__prot__stats__t.html" title="Protocol information struct.">tb_prot_stats_t</a></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;*<a class="code" href="tb__testbed_8h.html#a7e28b461066b5dd420523dc686b3ac29">tb_get_protocol_stats</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;*<a class="code" href="tb__testbed_8h.html#a7e28b461066b5dd420523dc686b3ac29">tb_get_protocol_stats</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">extern</span> <a class="code" href="structtb__prot__stats__t.html" title="Protocol information struct.">tb_prot_stats_t</a></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;*<a class="code" href="tb__listener_8c.html#a6e5c88a915882ea9d39fd41ee4742ffc" title="A thread safe way to get access to stats.">tb_ex_get_stats</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;*<a class="code" href="tb__listener_8c.html#a6e5c88a915882ea9d39fd41ee4742ffc" title="A thread safe way to get access to stats.">tb_ex_get_stats</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<a class="code" href="tb__testbed_8c.html#a3be49a9767c918bd4abcb1e6ba44f014" title="Parse input from a number of strings.">tb_parse</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> *argv[]);</div>
@@ -155,13 +156,13 @@ $(document).ready(function(){initNavTree('tb__testbed_8h_source.html','');});
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<a class="code" href="tb__testbed_8c.html#ac8da963855e09bf929c085486f4a3b47">test</a>();</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<a class="code" href="tb__testbed_8c.html#a70047050ccc93bb63209038b7d6d9284" title="Starts the server/client.">tb_start</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<a class="code" href="tb__testbed_8c.html#a70047050ccc93bb63209038b7d6d9284" title="Starts the server/client.">tb_start</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keywordtype">int</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<a class="code" href="tb__testbed_8c.html#ab77c10c1456bceb81a136fbf41a68cb8" title="actively monitor the server/client connection">tb_monitor</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<a class="code" href="tb__testbed_8c.html#ab77c10c1456bceb81a136fbf41a68cb8" title="actively monitor the server/client connection">tb_monitor</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<a class="code" href="tb__testbed_8c.html#af588c4b48b411318fac6057a5399512d" title="Print the stats given.">tb_print_stats</a>(<a class="code" href="structtb__prot__stats__t.html" title="Protocol information struct.">tb_prot_stats_t</a> *stats, <a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<a class="code" href="tb__testbed_8c.html#af588c4b48b411318fac6057a5399512d" title="Print the stats given.">tb_print_stats</a>(<a class="code" href="structtb__prot__stats__t.html" title="Protocol information struct.">tb_prot_stats_t</a> *stats, <a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">void</span></div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<a class="code" href="tb__testbed_8h.html#a31e07ac64cefdac833246c5c845449b7" title="Handle system interrupts.">tb_interrupt_handler</a>(<span class="keywordtype">int</span> value);</div>
@@ -179,7 +180,7 @@ $(document).ready(function(){initNavTree('tb__testbed_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tb__testbed_8h.html">tb_testbed.h</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:38 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

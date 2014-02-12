@@ -99,8 +99,10 @@ void \hyperlink{tb__listener_8c_a1a5b9849075e44703d7815be5934af11}{tb\-\_\-addre
 
 Accept an incoming connection. 
 
-Accepts incoming connections. This operation blocks, as we are using blocking I/\-O currently
+Accepts incoming connections. This operation blocks, as we are using blocking I/\-O currently.
 
+\begin{DoxyRefDesc}{Deprecated}
+\item[\hyperlink{deprecated__deprecated000001}{Deprecated}]\end{DoxyRefDesc}
 
 \begin{DoxyParams}{Parameters}
 {\em listener} & The listener to accept the connection on. \\
@@ -111,7 +113,7 @@ Accepts incoming connections. This operation blocks, as we are using blocking I/
 \end{DoxyReturn}
 
 
-Definition at line 466 of file tb\-\_\-listener.\-c.
+Definition at line 467 of file tb\-\_\-listener.\-c.
 
 \hypertarget{tb__listener_8c_a1a5b9849075e44703d7815be5934af11}{\index{tb\-\_\-listener.\-c@{tb\-\_\-listener.\-c}!tb\-\_\-address@{tb\-\_\-address}}
 \index{tb\-\_\-address@{tb\-\_\-address}!tb_listener.c@{tb\-\_\-listener.\-c}}
@@ -279,7 +281,7 @@ Definition at line 282 of file tb\-\_\-listener.\-c.
 )}}\label{tb__listener_8c_adeff1eb694f2649f6e9452ebbab990c4}
 
 
-Definition at line 487 of file tb\-\_\-listener.\-c.
+Definition at line 488 of file tb\-\_\-listener.\-c.
 
 \hypertarget{tb__listener_8c_aca070e070aa077fd83fda3d2f448bfca}{\index{tb\-\_\-listener.\-c@{tb\-\_\-listener.\-c}!tb\-\_\-error@{tb\-\_\-error}}
 \index{tb\-\_\-error@{tb\-\_\-error}!tb_listener.c@{tb\-\_\-listener.\-c}}
@@ -358,7 +360,7 @@ Definition at line 270 of file tb\-\_\-listener.\-c.
 
 Get a worker for the supplied session. 
 
-
+Fetches a worker to perform work based on the information contained in the \hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} struct. If no such session exists (when a new connection is created) then this session will be added to the hashtable, and assigned a worker. 
 
 Definition at line 244 of file tb\-\_\-listener.\-c.
 
@@ -385,7 +387,7 @@ Binds the listener to the specified port and ip address, and then begins listeni
 \end{DoxyReturn}
 
 
-Definition at line 448 of file tb\-\_\-listener.\-c.
+Definition at line 449 of file tb\-\_\-listener.\-c.
 
 \hypertarget{tb__listener_8c_af552255cac39c1b712a1c213070c04e0}{\index{tb\-\_\-listener.\-c@{tb\-\_\-listener.\-c}!tb\-\_\-print\-\_\-listener@{tb\-\_\-print\-\_\-listener}}
 \index{tb\-\_\-print\-\_\-listener@{tb\-\_\-print\-\_\-listener}!tb_listener.c@{tb\-\_\-listener.\-c}}
@@ -398,7 +400,7 @@ Definition at line 448 of file tb\-\_\-listener.\-c.
 
 Print a listener. 
 
-Prints the given listener.
+Prints the given listener to stdout.
 
 
 \begin{DoxyParams}{Parameters}
@@ -521,6 +523,9 @@ Gets the stats for the listener.
 
 This method collects the stats for single connection servers. The stats are saved in the listener-\/$>$stats field.
 
+\begin{DoxyPrecond}{Precondition}
+The listener must be of a single connection type. 
+\end{DoxyPrecond}
 
 \begin{DoxyParams}{Parameters}
 {\em listener} & The listener to collect stats for. \\
@@ -553,7 +558,7 @@ The listener must be of the multiple connection type.
 \end{DoxyParams}
 
 
-Definition at line 416 of file tb\-\_\-listener.\-c.
+Definition at line 417 of file tb\-\_\-listener.\-c.
 
 \hypertarget{tb__listener_8c_a104d49d9fbeed470cf0a9de8706c0af8}{\index{tb\-\_\-listener.\-c@{tb\-\_\-listener.\-c}!tb\-\_\-setup\-\_\-workers@{tb\-\_\-setup\-\_\-workers}}
 \index{tb\-\_\-setup\-\_\-workers@{tb\-\_\-setup\-\_\-workers}!tb_listener.c@{tb\-\_\-listener.\-c}}

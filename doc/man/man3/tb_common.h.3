@@ -1,4 +1,4 @@
-.TH "src/tb_common.h" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.TH "src/tb_common.h" 3 "Wed Feb 12 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -56,25 +56,25 @@ src/tb_common.h \-
 .RI "#define \fBINFO\fP(str)   \fBBLUE\fP str \fBRESET\fP"
 .br
 .ti -1c
-.RI "#define \fBPRT_ERR\fP(str)   fprintf(stderr, \fBERR\fP(str) '\\n');"
+.RI "#define \fBPRT_ERR\fP(str)   fprintf(stderr, \fBERR\fP(str) '\\n')"
 .br
 .ti -1c
-.RI "#define \fBPRT_ACK\fP(str)   fprintf(stdout, \fBACK\fP(str) '\\n');"
+.RI "#define \fBPRT_ACK\fP(str)   fprintf(stdout, \fBACK\fP(str) '\\n')"
 .br
 .ti -1c
-.RI "#define \fBPRT_INFO\fP(str)   fprintf(stdout, \fBINFO\fP(str) '\\n');"
+.RI "#define \fBPRT_INFO\fP(str)   fprintf(stdout, \fBINFO\fP(str) '\\n')"
 .br
 .ti -1c
-.RI "#define \fBPRT_ERR_PARAM\fP(str, mod, param)   fprintf(stderr, \fBACK\fP(str)mod, param);"
+.RI "#define \fBPRT_ERR_PARAM\fP(str, mod, param)   fprintf(stderr, \fBACK\fP(str)mod, param)"
 .br
 .ti -1c
-.RI "#define \fBPRT_I_D\fP(str, num)   fprintf(stdout, \fBINFO\fP(str) '\\n', num);"
+.RI "#define \fBPRT_I_D\fP(str, num)   fprintf(stdout, \fBINFO\fP(str) '\\n', num)"
 .br
 .ti -1c
-.RI "#define \fBPRT_I_S\fP(str, s)   fprintf(stdout, \fBINFO\fP(str) ':%s\\n', s);"
+.RI "#define \fBPRT_I_S\fP(str, s)   fprintf(stdout, \fBINFO\fP(str) ':%s\\n', s)"
 .br
 .ti -1c
-.RI "#define \fBPRT_E_S\fP(str, s)   fprintf(stdout, \fBERR\fP(str) ':%s', s);"
+.RI "#define \fBPRT_E_S\fP(str, s)   fprintf(stdout, \fBERR\fP(str) ':%s', s)"
 .br
 .ti -1c
 .RI "#define \fBLOG\fP(l, i, t)   if(l->log_enabled) \fBtb_write_log\fP(l->log_info, i, t)"
@@ -182,31 +182,31 @@ Definition at line 34 of file tb_common\&.h\&.
 
 .PP
 Definition at line 21 of file tb_common\&.h\&.
-.SS "#define PRT_ACK(str)   fprintf(stdout, \fBACK\fP(str) '\\n');"
+.SS "#define PRT_ACK(str)   fprintf(stdout, \fBACK\fP(str) '\\n')"
 
 .PP
 Definition at line 26 of file tb_common\&.h\&.
-.SS "#define PRT_E_S(str, s)   fprintf(stdout, \fBERR\fP(str) ':%s', s);"
+.SS "#define PRT_E_S(str, s)   fprintf(stdout, \fBERR\fP(str) ':%s', s)"
 
 .PP
 Definition at line 31 of file tb_common\&.h\&.
-.SS "#define PRT_ERR(str)   fprintf(stderr, \fBERR\fP(str) '\\n');"
+.SS "#define PRT_ERR(str)   fprintf(stderr, \fBERR\fP(str) '\\n')"
 
 .PP
 Definition at line 25 of file tb_common\&.h\&.
-.SS "#define PRT_ERR_PARAM(str, mod, param)   fprintf(stderr, \fBACK\fP(str)mod, param);"
+.SS "#define PRT_ERR_PARAM(str, mod, param)   fprintf(stderr, \fBACK\fP(str)mod, param)"
 
 .PP
 Definition at line 28 of file tb_common\&.h\&.
-.SS "#define PRT_I_D(str, num)   fprintf(stdout, \fBINFO\fP(str) '\\n', num);"
+.SS "#define PRT_I_D(str, num)   fprintf(stdout, \fBINFO\fP(str) '\\n', num)"
 
 .PP
 Definition at line 29 of file tb_common\&.h\&.
-.SS "#define PRT_I_S(str, s)   fprintf(stdout, \fBINFO\fP(str) ':%s\\n', s);"
+.SS "#define PRT_I_S(str, s)   fprintf(stdout, \fBINFO\fP(str) ':%s\\n', s)"
 
 .PP
 Definition at line 30 of file tb_common\&.h\&.
-.SS "#define PRT_INFO(str)   fprintf(stdout, \fBINFO\fP(str) '\\n');"
+.SS "#define PRT_INFO(str)   fprintf(stdout, \fBINFO\fP(str) '\\n')"
 
 .PP
 Definition at line 27 of file tb_common\&.h\&.

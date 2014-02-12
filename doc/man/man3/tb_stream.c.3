@@ -1,4 +1,4 @@
-.TH "src/tb_stream.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.TH "src/tb_stream.c" 3 "Wed Feb 12 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -88,25 +88,25 @@ src/tb_stream.c \-
 .PP
 Upload with a single connection\&. 
 .PP
-Definition at line 363 of file tb_stream\&.c\&.
+Definition at line 370 of file tb_stream\&.c\&.
 .SS "void* tb_stream_connection (void *data)"
 
 .PP
 A single stream connection\&. 
 .PP
-Definition at line 305 of file tb_stream\&.c\&.
+Definition at line 312 of file tb_stream\&.c\&.
 .SS "int tb_stream_event (intevents, void *data)"
 
 .PP
 Called by epoll\&. 
 .PP
-Definition at line 117 of file tb_stream\&.c\&.
+Definition at line 123 of file tb_stream\&.c\&.
 .SS "int tb_stream_m_client (\fBtb_listener_t\fP *listener)"
 
 .PP
 Upload using stream sockets\&. Upload using bsd stream based protocols (TCP, DCCP) with multiple connections\&. 
 .PP
-Definition at line 216 of file tb_stream\&.c\&.
+Definition at line 222 of file tb_stream\&.c\&.
 .SS "int tb_stream_m_server (\fBtb_listener_t\fP *listener)"
 
 .PP
@@ -117,13 +117,13 @@ Run a multiple connection server\&. \fBParameters:\fP
 .PP
 
 .PP
-Definition at line 100 of file tb_stream\&.c\&.
+Definition at line 106 of file tb_stream\&.c\&.
 .SS "void* tb_stream_m_server_conn (void *data)"
 
 .PP
 Individual stream connections for multiple stream servers\&. 
 .PP
-Definition at line 169 of file tb_stream\&.c\&.
+Definition at line 175 of file tb_stream\&.c\&.
 .SS "int tb_stream_server (\fBtb_listener_t\fP *listener)"
 
 .PP

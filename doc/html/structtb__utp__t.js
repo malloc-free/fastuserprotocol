@@ -5,9 +5,9 @@ var structtb__utp__t =
     [ "buffer", "structtb__utp__t.html#aff2566f4c366b48d73479bef43ee4d2e", null ],
     [ "buffer_size", "structtb__utp__t.html#af22ff4ab7a026e6c3b4b08eafb2df027", null ],
     [ "call_backs", "structtb__utp__t.html#af8b7b669057336d848a5117e4232a83a", null ],
-    [ "cond", "structtb__utp__t.html#a41d4de1455ed50839baec9be13941163", null ],
     [ "e_id", "structtb__utp__t.html#ae2ab59af76be940892170990721a0832", null ],
     [ "epoll", "structtb__utp__t.html#af7fbbda1b15f6051fb8cead0ada5ce7e", null ],
+    [ "id", "structtb__utp__t.html#a7441ef0865bcb3db9b8064dd7375c1ea", null ],
     [ "lock", "structtb__utp__t.html#a33586b4184d23f2b8f4df153ec23af13", null ],
     [ "r_data", "structtb__utp__t.html#a4298ec565665ee4e72e4b28434546602", null ],
     [ "r_data_size", "structtb__utp__t.html#a53fb5c97e533c0555ca3ed99facdb1d5", null ],
@@ -23,6 +23,5 @@ var structtb__utp__t =
     [ "sock_fd", "structtb__utp__t.html#a514331e6141a28289f8ddead55eadebd", null ],
     [ "socket", "structtb__utp__t.html#add15e39a83c7a0c72140c305bdd386d0", null ],
     [ "state", "structtb__utp__t.html#a89f234133d3efe315836311cbf21c64b", null ],
-    [ "utp_thread", "structtb__utp__t.html#aa0eb12bac5ef0d83e6689f3b547b695d", null ],
     [ "write_bytes", "structtb__utp__t.html#a814ec097a6a396e10f9f0924e924684e", null ]
 ];

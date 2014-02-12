@@ -1,6 +1,7 @@
 var structtb__session__t =
 [
     [ "addr_hints", "structtb__session__t.html#a105521cb94384edeaace1a1ce7b3d7c7", null ],
+    [ "addr_in", "structtb__session__t.html#ab617a1bfa381136f3c0811b771c618e9", null ],
     [ "addr_info", "structtb__session__t.html#aab742bc33815bd69bf49ad1861006b97", null ],
     [ "addr_len", "structtb__session__t.html#a116941d922ae354d7241d04b0f3c84d8", null ],
     [ "address", "structtb__session__t.html#a879a8cdf605d02f8af8b2e216b8764f2", null ],
@@ -9,12 +10,12 @@ var structtb__session__t =
     [ "data_size", "structtb__session__t.html#ad6bc120bffc64dfc5230863a8ba96596", null ],
     [ "file_name", "structtb__session__t.html#a8505c513bc640d1f69e5f76fb32b24a8", null ],
     [ "id", "structtb__session__t.html#a7441ef0865bcb3db9b8064dd7375c1ea", null ],
+    [ "info", "structtb__session__t.html#acb1df3a0f703b05bc4971f79cabe2597", null ],
     [ "int_data", "structtb__session__t.html#adf89a25c6c2cefbabf86ff4e7931032e", null ],
     [ "l_status", "structtb__session__t.html#a22cc288b7e9b2ffe6053aeac5914cb40", null ],
     [ "l_txrx", "structtb__session__t.html#a98701b8da6c02c1671dd748b2251cea7", null ],
     [ "last_trans", "structtb__session__t.html#ad3547e4d09ba01be9e898cf841504521", null ],
     [ "n_session", "structtb__session__t.html#ae96f976543c2fbc18fd89a368720f4d4", null ],
-    [ "o_addr_info", "structtb__session__t.html#a723d705438178675e55878826ac4ae7c", null ],
     [ "pack_size", "structtb__session__t.html#af7112fe07fe05134febc994e10196ce5", null ],
     [ "port", "structtb__session__t.html#add99ba4ea70b8f66170823cad9a55fa4", null ],
     [ "s_thread", "structtb__session__t.html#ae0b73c023bde38042a32ba345baca741", null ],

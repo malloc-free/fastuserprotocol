@@ -1,4 +1,4 @@
-.TH "src/tb_listener.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.TH "src/tb_listener.c" 3 "Wed Feb 12 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -158,7 +158,11 @@ src/tb_listener.c \-
 .SS "\fBtb_session_t\fP* tb_accept (\fBtb_listener_t\fP *listener)\fC [inline]\fP"
 
 .PP
-Accept an incoming connection\&. Accepts incoming connections\&. This operation blocks, as we are using blocking I/O currently
+Accept an incoming connection\&. Accepts incoming connections\&. This operation blocks, as we are using blocking I/O currently\&.
+.PP
+\fBDeprecated\fP
+.RS 4
+.RE
 .PP
 \fBParameters:\fP
 .RS 4
@@ -172,7 +176,7 @@ Accept an incoming connection\&. Accepts incoming connections\&. This operation 
 .PP
 
 .PP
-Definition at line 466 of file tb_listener\&.c\&.
+Definition at line 467 of file tb_listener\&.c\&.
 .SS "void tb_address (\fBtb_listener_t\fP *listener, const char *info, struct sockaddr_storage *store)\fC [inline]\fP"
 
 .PP
@@ -272,7 +276,7 @@ Definition at line 282 of file tb_listener\&.c\&.
 .SS "\fBtb_session_t\fP* tb_epoll_accept (\fBtb_listener_t\fP *listener)"
 
 .PP
-Definition at line 487 of file tb_listener\&.c\&.
+Definition at line 488 of file tb_listener\&.c\&.
 .SS "void tb_error (\fBtb_listener_t\fP *listener, const char *info, interr_no)\fC [inline]\fP"
 
 .PP
@@ -308,7 +312,7 @@ Definition at line 270 of file tb_listener\&.c\&.
 .SS "\fBtb_worker_t\fP* tb_get_worker (\fBtb_listener_t\fP *listener, \fBtb_session_t\fP *session)"
 
 .PP
-Get a worker for the supplied session\&. 
+Get a worker for the supplied session\&. Fetches a worker to perform work based on the information contained in the \fBtb_session_t\fP struct\&. If no such session exists (when a new connection is created) then this session will be added to the hashtable, and assigned a worker\&. 
 .PP
 Definition at line 244 of file tb_listener\&.c\&.
 .SS "int tb_listen (\fBtb_listener_t\fP *listener)\fC [inline]\fP"
@@ -328,11 +332,11 @@ Bind and listen\&. Binds the listener to the specified port and ip address, and 
 .PP
 
 .PP
-Definition at line 448 of file tb_listener\&.c\&.
+Definition at line 449 of file tb_listener\&.c\&.
 .SS "void tb_print_listener (\fBtb_listener_t\fP *listener)"
 
 .PP
-Print a listener\&. Prints the given listener\&.
+Print a listener\&. Prints the given listener to stdout\&.
 .PP
 \fBParameters:\fP
 .RS 4
@@ -391,6 +395,11 @@ Definition at line 659 of file tb_listener\&.c\&.
 .PP
 Gets the stats for the listener\&. This method collects the stats for single connection servers\&. The stats are saved in the listener->stats field\&.
 .PP
+\fBPrecondition:\fP
+.RS 4
+The listener must be of a single connection type\&. 
+.RE
+.PP
 \fBParameters:\fP
 .RS 4
 \fIlistener\fP The listener to collect stats for\&. 
@@ -416,7 +425,7 @@ The listener must be of the multiple connection type\&.
 .PP
 
 .PP
-Definition at line 416 of file tb_listener\&.c\&.
+Definition at line 417 of file tb_listener\&.c\&.
 .SS "int tb_setup_workers (\fBtb_listener_t\fP *listener, intnum_threads)"
 
 .PP

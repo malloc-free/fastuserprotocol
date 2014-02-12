@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('tb__testbed_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -147,7 +148,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a5ec3b6c120621050965582e51e4d0d5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__listener__t.html">tb_listener_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__testbed_8h.html#a5ec3b6c120621050965582e51e4d0d5a">tb_create_listener</a> (<a class="el" href="tb__listener_8h.html#ae37f3ebcf0081b2dd11adf41f1f867d6">ENDPOINT_TYPE</a> type, char *addr, char *port, <a class="el" href="tb__protocol_8h.html#a7a5bff1040fc154c510874327d44cc1a">PROTOCOL</a> protocol, int bufsize)</td></tr>
 <tr class="memdesc:a5ec3b6c120621050965582e51e4d0d5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a listener with the supplied parameters.  <a href="#a5ec3b6c120621050965582e51e4d0d5a"></a><br/></td></tr>
 <tr class="memitem:a042a2b565ccc70e1506562ad43c83bfb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__listener__t.html">tb_listener_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__testbed_8h.html#a042a2b565ccc70e1506562ad43c83bfb">tb_create_endpoint</a> (<a class="el" href="structtb__test__params__t.html">tb_test_params_t</a> *params)</td></tr>
-<tr class="memdesc:a042a2b565ccc70e1506562ad43c83bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a listener using a <a class="el" href="structtb__test__params__t.html">tb_test_params_t</a> struct.  <a href="#a042a2b565ccc70e1506562ad43c83bfb"></a><br/></td></tr>
+<tr class="memdesc:a042a2b565ccc70e1506562ad43c83bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a listener using a <a class="el" href="structtb__test__params__t.html" title="struct used to pass parameters into testbed.">tb_test_params_t</a> struct.  <a href="#a042a2b565ccc70e1506562ad43c83bfb"></a><br/></td></tr>
 <tr class="memitem:a7e28b461066b5dd420523dc686b3ac29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__prot__stats__t.html">tb_prot_stats_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__testbed_8h.html#a7e28b461066b5dd420523dc686b3ac29">tb_get_protocol_stats</a> (<a class="el" href="structtb__listener__t.html">tb_listener_t</a> *listener)</td></tr>
 <tr class="memitem:a6e5c88a915882ea9d39fd41ee4742ffc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structtb__prot__stats__t.html">tb_prot_stats_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tb__testbed_8h.html#a6e5c88a915882ea9d39fd41ee4742ffc">tb_ex_get_stats</a> (<a class="el" href="structtb__listener__t.html">tb_listener_t</a> *listener)</td></tr>
 <tr class="memdesc:a6e5c88a915882ea9d39fd41ee4742ffc"><td class="mdescLeft">&#160;</td><td class="mdescRight">A thread safe way to get access to stats.  <a href="#a6e5c88a915882ea9d39fd41ee4742ffc"></a><br/></td></tr>
@@ -238,7 +239,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00446">446</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00445">445</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
 
 </div>
 </div>
@@ -256,7 +257,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Create a listener using a <a class="el" href="structtb__test__params__t.html">tb_test_params_t</a> struct. </p>
+<p>Create a listener using a <a class="el" href="structtb__test__params__t.html" title="struct used to pass parameters into testbed.">tb_test_params_t</a> struct. </p>
 <p>The details in the struct are used to create an endpoint for use in testing.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -380,7 +381,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00435">435</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00434">434</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
 
 </div>
 </div>
@@ -447,7 +448,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00301">301</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00300">300</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
 
 </div>
 </div>
@@ -524,7 +525,7 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00402">402</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
+<p>Definition at line <a class="el" href="tb__testbed_8c_source.html#l00401">401</a> of file <a class="el" href="tb__testbed_8c_source.html">tb_testbed.c</a>.</p>
 
 </div>
 </div>
@@ -610,7 +611,7 @@ Variables</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tb__testbed_8h.html">tb_testbed.h</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:39 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

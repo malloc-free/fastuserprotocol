@@ -26,8 +26,8 @@ Include dependency graph for tb\-\_\-session.\-c\-:\nopagebreak
 \item 
 void \hyperlink{tb__session_8c_a15863848d0188bcb5662d43156903241}{tb\-\_\-session\-\_\-add} (\hyperlink{structtb__session__list__t}{tb\-\_\-session\-\_\-list\-\_\-t} $\ast$list, \hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} $\ast$session)
 \begin{DoxyCompactList}\small\item\em Add a session to a list. \end{DoxyCompactList}\item 
-\hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} $\ast$ \hyperlink{tb__session_8c_a10ad0196975eeca1e3469d05cdcc3758}{create\-\_\-session} (char $\ast$file\-\_\-name, struct sockaddr\-\_\-storage $\ast$o\-\_\-addr\-\_\-info)
-\begin{DoxyCompactList}\small\item\em Create a session with a file name, sockaddr\-\_\-storage. \end{DoxyCompactList}\item 
+\hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} $\ast$ \hyperlink{tb__session_8c_a2fc903815b77552836525068c01bda8b}{tb\-\_\-create\-\_\-server\-\_\-session} ()
+\begin{DoxyCompactList}\small\item\em Create a session for servers. \end{DoxyCompactList}\item 
 \hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} $\ast$ \hyperlink{tb__session_8c_a3ae8d1d1ca5878cd9bab48098af09aae}{tb\-\_\-create\-\_\-session} ()
 \begin{DoxyCompactList}\small\item\em Create a session. \end{DoxyCompactList}\item 
 \hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} $\ast$ \hyperlink{tb__session_8c_a61071ac6ac1fac65754a394e190fc57d}{tb\-\_\-create\-\_\-session\-\_\-full} (char $\ast$addr, char $\ast$port, int sock\-\_\-type, unsigned int data\-\_\-size)
@@ -64,23 +64,7 @@ Used by gdsl structures to allocate memory for a \hyperlink{structtb__session__t
 
 data This needs to be an instance of \hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} 
 
-Definition at line 243 of file tb\-\_\-session.\-c.
-
-\hypertarget{tb__session_8c_a10ad0196975eeca1e3469d05cdcc3758}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!create\-\_\-session@{create\-\_\-session}}
-\index{create\-\_\-session@{create\-\_\-session}!tb_session.c@{tb\-\_\-session.\-c}}
-\subsubsection[{create\-\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-session\-\_\-t}$\ast$ create\-\_\-session (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{file\-\_\-name, }
-\item[{struct sockaddr\-\_\-storage $\ast$}]{o\-\_\-addr\-\_\-info}
-\end{DoxyParamCaption}
-)}}\label{tb__session_8c_a10ad0196975eeca1e3469d05cdcc3758}
-
-
-Create a session with a file name, sockaddr\-\_\-storage. 
-
-
-
-Definition at line 44 of file tb\-\_\-session.\-c.
+Definition at line 235 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_a59019b05e88200313224bf2c77ae9c7a}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!free\-\_\-session@{free\-\_\-session}}
 \index{free\-\_\-session@{free\-\_\-session}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -95,7 +79,7 @@ Free memory for a session.
 
 
 
-Definition at line 256 of file tb\-\_\-session.\-c.
+Definition at line 248 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_a61635f66121430da09247644cb1ba0f2}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!get\-\_\-key\-\_\-value@{get\-\_\-key\-\_\-value}}
 \index{get\-\_\-key\-\_\-value@{get\-\_\-key\-\_\-value}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -106,7 +90,22 @@ Definition at line 256 of file tb\-\_\-session.\-c.
 )}}\label{tb__session_8c_a61635f66121430da09247644cb1ba0f2}
 
 
-Definition at line 266 of file tb\-\_\-session.\-c.
+Definition at line 258 of file tb\-\_\-session.\-c.
+
+\hypertarget{tb__session_8c_a2fc903815b77552836525068c01bda8b}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!tb\-\_\-create\-\_\-server\-\_\-session@{tb\-\_\-create\-\_\-server\-\_\-session}}
+\index{tb\-\_\-create\-\_\-server\-\_\-session@{tb\-\_\-create\-\_\-server\-\_\-session}!tb_session.c@{tb\-\_\-session.\-c}}
+\subsubsection[{tb\-\_\-create\-\_\-server\-\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-session\-\_\-t}$\ast$ tb\-\_\-create\-\_\-server\-\_\-session (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{tb__session_8c_a2fc903815b77552836525068c01bda8b}
+
+
+Create a session for servers. 
+
+
+
+Definition at line 44 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_a3ae8d1d1ca5878cd9bab48098af09aae}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!tb\-\_\-create\-\_\-session@{tb\-\_\-create\-\_\-session}}
 \index{tb\-\_\-create\-\_\-session@{tb\-\_\-create\-\_\-session}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -121,7 +120,7 @@ Create a session.
 
 With this version of create\-\_\-session, the sockaddr\-\_\-storage is created, the file name is set to N\-U\-L\-L, addr\-\_\-info and hints are null. 
 
-Definition at line 67 of file tb\-\_\-session.\-c.
+Definition at line 59 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_a61071ac6ac1fac65754a394e190fc57d}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!tb\-\_\-create\-\_\-session\-\_\-full@{tb\-\_\-create\-\_\-session\-\_\-full}}
 \index{tb\-\_\-create\-\_\-session\-\_\-full@{tb\-\_\-create\-\_\-session\-\_\-full}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -139,7 +138,7 @@ Full version of create session.
 
 This version creates the hints and info field, and resolves the provided address. If the data\-\_\-size parameter is greater than zero, the session buffer is also created. 
 
-Definition at line 100 of file tb\-\_\-session.\-c.
+Definition at line 92 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_a478a71afc34cc2f15ffd5732b102d5ca}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!tb\-\_\-destroy\-\_\-session@{tb\-\_\-destroy\-\_\-session}}
 \index{tb\-\_\-destroy\-\_\-session@{tb\-\_\-destroy\-\_\-session}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -154,7 +153,7 @@ Free memory used for a session.
 
 Frees memory used by a \hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} struct. Releases all memory for associated fields. 
 
-Definition at line 125 of file tb\-\_\-session.\-c.
+Definition at line 117 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_a388990e2adbda494ee660b923afbf2db}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!tb\-\_\-print\-\_\-times@{tb\-\_\-print\-\_\-times}}
 \index{tb\-\_\-print\-\_\-times@{tb\-\_\-print\-\_\-times}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -179,7 +178,7 @@ The times in the session need to have been set, using the timer functions tb\-\_
 \end{DoxyParams}
 
 
-Definition at line 218 of file tb\-\_\-session.\-c.
+Definition at line 210 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_a15863848d0188bcb5662d43156903241}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!tb\-\_\-session\-\_\-add@{tb\-\_\-session\-\_\-add}}
 \index{tb\-\_\-session\-\_\-add@{tb\-\_\-session\-\_\-add}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -211,7 +210,7 @@ Tests equality for sessions keys.
 
 Called by the hash table implementation in glib. Simply tests to see if the supplied integers are equal (these are just int32). 
 
-Definition at line 289 of file tb\-\_\-session.\-c.
+Definition at line 281 of file tb\-\_\-session.\-c.
 
 \hypertarget{tb__session_8c_ac07e93563e7b1e38af38e582e360ee02}{\index{tb\-\_\-session.\-c@{tb\-\_\-session.\-c}!tb\-\_\-set\-\_\-addrinfo@{tb\-\_\-set\-\_\-addrinfo}}
 \index{tb\-\_\-set\-\_\-addrinfo@{tb\-\_\-set\-\_\-addrinfo}!tb_session.c@{tb\-\_\-session.\-c}}
@@ -227,5 +226,5 @@ Set the addrinfo for the session.
 
 Fills out the addrinfo field for the session. 
 
-Definition at line 185 of file tb\-\_\-session.\-c.
+Definition at line 177 of file tb\-\_\-session.\-c.
 

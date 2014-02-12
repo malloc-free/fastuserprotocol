@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('tb__stream_8h_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -117,10 +118,10 @@ $(document).ready(function(){initNavTree('tb__stream_8h_source.html','');});
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tb__listener_8h.html">tb_listener.h</a>&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="tb__stream_8c.html#ab254f51747c78bfc75e1dd91945936af" title="Run a server without epoll (blocking socket).">tb_stream_server</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="tb__stream_8c.html#ab254f51747c78bfc75e1dd91945936af" title="Run a server without epoll (blocking socket).">tb_stream_server</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">int</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="tb__stream_8c.html#a736ead28c313623ab95be2738fa6a2d8" title="Run a multiple connection server.">tb_stream_m_server</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="tb__stream_8c.html#a736ead28c313623ab95be2738fa6a2d8" title="Run a multiple connection server.">tb_stream_m_server</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="tb__stream_8c.html#a2824c0d70d74f26a227971550f32446f" title="Called by epoll.">tb_stream_event</a>(<span class="keywordtype">int</span> events, <span class="keywordtype">void</span> *data);</div>
@@ -129,13 +130,13 @@ $(document).ready(function(){initNavTree('tb__stream_8h_source.html','');});
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;*<a class="code" href="tb__stream_8c.html#afbdad677cb3cfe90954ec6e482fec19c" title="Individual stream connections for multiple stream servers.">tb_stream_m_server_conn</a>(<span class="keywordtype">void</span> *data);</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keywordtype">int</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="tb__stream_8c.html#a4836f7e8e6b482f36a354d52d16b5843" title="Upload using stream sockets.">tb_stream_m_client</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<a class="code" href="tb__stream_8c.html#a4836f7e8e6b482f36a354d52d16b5843" title="Upload using stream sockets.">tb_stream_m_client</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span></div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;*<a class="code" href="tb__stream_8c.html#aaa8373bc3d9d810fb73ce3cf09dbd27a" title="A single stream connection.">tb_stream_connection</a>(<span class="keywordtype">void</span> *data);</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">int</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<a class="code" href="tb__stream_8c.html#a37207d097b0a8f4906fda05c22b5d851" title="Upload with a single connection.">tb_stream_client</a>(<a class="code" href="structtb__listener__t.html">tb_listener_t</a> *listener);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<a class="code" href="tb__stream_8c.html#a37207d097b0a8f4906fda05c22b5d851" title="Upload with a single connection.">tb_stream_client</a>(<a class="code" href="structtb__listener__t.html" title="struct that defines the fields for the listener class.">tb_listener_t</a> *listener);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* TB_STREAM_H_ */</span><span class="preprocessor"></span></div>
@@ -145,7 +146,7 @@ $(document).ready(function(){initNavTree('tb__stream_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tb__stream_8h.html">tb_stream.h</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:38 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>

@@ -15,6 +15,8 @@ var tb__utp_8h =
     [ "tb_utp_get_Rcv_buff", "tb__utp_8h.html#a78dc4e9a5c6efe713d6bac1e968ce6f1", null ],
     [ "tb_utp_get_state", "tb__utp_8h.html#a24564db4f7608a8476e4a0138730c7eb", null ],
     [ "tb_utp_incoming", "tb__utp_8h.html#a43444f296566ed304ac2934328dd20a0", null ],
+    [ "tb_utp_m_client", "tb__utp_8h.html#a257cf363763e3b3e4f705bec97ff3d65", null ],
+    [ "tb_utp_m_client_conn", "tb__utp_8h.html#a8bb16be421a9e33da354bc5c0259ca4d", null ],
     [ "tb_utp_m_event", "tb__utp_8h.html#a91f1cecaee23c1889b8588111d17ddb1", null ],
     [ "tb_utp_m_new_conn", "tb__utp_8h.html#a7fe7f3ac875ad5df2f011c70db45f644", null ],
     [ "tb_utp_m_server", "tb__utp_8h.html#aacb2150e3f5d787a6d04e4c69663f643", null ],

@@ -44,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -90,7 +91,7 @@ $(document).ready(function(){initNavTree('tb__common_8c_source.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -124,7 +125,7 @@ $(document).ready(function(){initNavTree('tb__common_8c_source.html','');});
 <div class="line"><a name="l00018"></a><span class="lineno"><a class="code" href="tb__common_8h.html#a173bdbe188f1db7efceac0a9a2aa234a">   18</a></span>&#160;<a class="code" href="tb__common_8c.html#a552a8fe72390cc6c07aaa8af6b71f149">tb_print_address</a>(<span class="keyword">struct</span> sockaddr_storage *store)</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">char</span> *addr = <a class="code" href="tb__common_8c.html#aa5572e6039ea29b3bfbe1ad5401880e1">tb_get_address</a>(store);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="tb__common_8h.html#a799a3082c570c7896f84c7289c951048">PRT_I_S</a>(<span class="stringliteral">&quot;Address:&quot;</span>, <a class="code" href="tb__common_8c.html#aa5572e6039ea29b3bfbe1ad5401880e1">tb_get_address</a>(store))</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="tb__common_8h.html#a799a3082c570c7896f84c7289c951048">PRT_I_S</a>(<span class="stringliteral">&quot;Address:&quot;</span>, <a class="code" href="tb__common_8c.html#aa5572e6039ea29b3bfbe1ad5401880e1">tb_get_address</a>(store));</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    free(addr);</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
@@ -209,7 +210,7 @@ $(document).ready(function(){initNavTree('tb__common_8c_source.html','');});
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        data = <a class="code" href="tb__common_8c.html#a32e9f0dbdbebb0e77182590d251c6b16" title="Load random file of specified size.">tb_load_random_file</a>(*file_size);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="tb__common_8h.html#a189cd5397305bc0da38f767312901e6b">PRT_INFO</a>(<span class="stringliteral">&quot;Random creation success&quot;</span>)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="tb__common_8h.html#a189cd5397305bc0da38f767312901e6b">PRT_INFO</a>(<span class="stringliteral">&quot;Random creation success&quot;</span>);</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    }</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
@@ -258,11 +259,11 @@ $(document).ready(function(){initNavTree('tb__common_8c_source.html','');});
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    sprintf(num_str, <span class="stringliteral">&quot;%d&quot;</span>, size);</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    snprintf(cat_str, <span class="keyword">sizeof</span>(cat_str), <span class="stringliteral">&quot;%s.ran&quot;</span>, num_str);</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="tb__common_8h.html#a799a3082c570c7896f84c7289c951048">PRT_I_S</a>(<span class="stringliteral">&quot;Opening file&quot;</span>, cat_str)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="tb__common_8h.html#a799a3082c570c7896f84c7289c951048">PRT_I_S</a>(<span class="stringliteral">&quot;Opening file&quot;</span>, cat_str);</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">if</span>((rand_file = fopen(cat_str, <span class="stringliteral">&quot;rb&quot;</span>)) == NULL)</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="tb__common_8h.html#a189cd5397305bc0da38f767312901e6b">PRT_INFO</a>(<span class="stringliteral">&quot;File does not exist, creating&quot;</span>)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="tb__common_8h.html#a189cd5397305bc0da38f767312901e6b">PRT_INFO</a>(<span class="stringliteral">&quot;File does not exist, creating&quot;</span>);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="tb__common_8c.html#ac679a827a18628284c3003a2af880749" title="Create a random file.">tb_create_random</a>(cat_str, size);</div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
@@ -275,7 +276,7 @@ $(document).ready(function(){initNavTree('tb__common_8c_source.html','');});
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        fclose(rand_file);</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        free(r_data);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <a class="code" href="tb__common_8h.html#a189cd5397305bc0da38f767312901e6b">PRT_INFO</a>(<span class="stringliteral">&quot;Could not load file, creating&quot;</span>)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <a class="code" href="tb__common_8h.html#a189cd5397305bc0da38f767312901e6b">PRT_INFO</a>(<span class="stringliteral">&quot;Could not load file, creating&quot;</span>);</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="comment">//If reading fails, attempt to create a random file.</span></div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="tb__common_8c.html#ac679a827a18628284c3003a2af880749" title="Create a random file.">tb_create_random</a>(cat_str, size);</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    }</div>
@@ -335,7 +336,7 @@ $(document).ready(function(){initNavTree('tb__common_8c_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="tb__common_8c.html">tb_common.c</a></li>
-    <li class="footer">Generated on Mon Feb 10 2014 19:36:05 for TestBed by
+    <li class="footer">Generated on Wed Feb 12 2014 16:33:38 for TestBed by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.2 </li>
   </ul>
