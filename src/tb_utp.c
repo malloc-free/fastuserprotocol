@@ -154,9 +154,11 @@ tb_utp_incoming(void *userdata, struct UTPSocket *socket)
 	PRT_INFO("Incoming connection");
 	tb_utp_t *utp = (tb_utp_t*)userdata;
 
-	utp->socket = socket;
-	UTP_SetSockopt(utp->socket, SO_RCVBUF, utp->so_rcvbuf);
-	UTP_SetCallbacks(utp->socket, utp->call_backs, utp);
+	tb_utp_t *clone = malloc(sizeof(tb_utp_t));
+	memcpy(clone, utp, sizeof(tb_utp_t));
+	clone->socket = socket;
+	UTP_SetSockopt(clone->socket, SO_RCVBUF, utp->so_rcvbuf);
+	UTP_SetCallbacks(clone->socket, clone->call_backs, clone);
 	utp->state = UTP_STATE_CONNECT;
 }
 
@@ -340,10 +342,45 @@ int
 tb_utp_m_client(tb_listener_t *listener)
 {
 	const int num_conn = 2;
-	int x = 0;
+
 
 	pthread_mutex_t *utp_lock = malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(utp_lock, NULL);
+
+	tb_utp_t *utp = tb_utp_setup();
+
+	PRT_INFO("UTP Creating socket");
+	tb_utp_socket(utp, listener->addr_info->ai_family,
+					listener->addr_info->ai_socktype,
+					listener->addr_info->ai_protocol);
+
+	utp->so_sndbuf = listener->options->l4_s_b_size;
+
+	utp->buffer = malloc(1024 * 2);
+	utp->buffer_size = 1024 * 2;
+
+	utp->rec_buffer = malloc(1024 * 2);
+	utp->rec_buff_size = 1024 * 2;
+
+	if(setsockopt(utp->sock_fd, SOL_SOCKET, SO_RCVBUF,
+					(void*)&listener->options->l3_r_b_size,
+					sizeof(listener->options->l3_r_b_size)) != 0)
+	{
+		perror("Error: setsockopt: RCVBUF");
+		return -1;
+	}
+
+	utp->lock = utp_lock;
+
+	if(setsockopt(utp->sock_fd, SOL_SOCKET, SO_SNDBUF,
+			(void*)&listener->options->l3_s_b_size,
+			sizeof(listener->options->l3_s_b_size)) != 0)
+	{
+		perror("Error: setsockopt: SNDBUF");
+		return -1;
+	}
+
+	int x = 0;
 
 	for(; x < num_conn; x++)
 	{
@@ -356,40 +393,10 @@ tb_utp_m_client(tb_listener_t *listener)
 			tb_abort(listener);
 		}
 
-		tb_utp_t *utp = tb_utp_setup();
-		utp->id = x;
-
-		PRT_INFO("UTP Creating socket");
-
-		tb_utp_socket(utp, listener->addr_info->ai_family,
-				listener->addr_info->ai_socktype,
-				listener->addr_info->ai_protocol);
-
-		utp->so_sndbuf = listener->options->l4_s_b_size;
-
-		utp->buffer = malloc(1024 * 2);
-		utp->buffer_size = 1024 * 2;
-
-		utp->rec_buffer = malloc(1024 * 2);
-		utp->rec_buff_size = 1024 * 2;
-
-		if(setsockopt(utp->sock_fd, SOL_SOCKET, SO_RCVBUF,
-						(void*)&listener->options->l3_r_b_size,
-						sizeof(listener->options->l3_r_b_size)) != 0)
-		{
-			perror("Error: setsockopt: RCVBUF");
-			return -1;
-		}
-
-		utp->lock = utp_lock;
-
-		if(setsockopt(utp->sock_fd, SOL_SOCKET, SO_SNDBUF,
-				(void*)&listener->options->l3_s_b_size,
-				sizeof(listener->options->l3_s_b_size)) != 0)
-		{
-			perror("Error: setsockopt: SNDBUF");
-			return -1;
-		}
+		//Create a clone of the socket, add id.
+		tb_utp_t *clone_utp = malloc(sizeof(tb_utp_t));
+		memcpy(clone_utp, utp, sizeof(tb_utp_t));
+		clone_utp->id = x;
 
 		//Set session parameters.
 		session->l_status = (int*)&listener->status;
@@ -410,7 +417,7 @@ tb_utp_m_client(tb_listener_t *listener)
 
 		tb_session_add(listener->session_list, session);
 
-		session->info = (void*)utp;
+		session->info = (void*)clone_utp;
 
 		PRT_I_D("Creating thread for session %d", session->id);
 		//Send the thread on its merry way.
@@ -432,7 +439,7 @@ tb_utp_m_client(tb_listener_t *listener)
 		PRT_I_D("Joining with session %d",curr_session->id);
 		pthread_join(*curr_session->s_thread, (void**)&retval);
 		pthread_mutex_lock(curr_session->stat_lock);
-		udt_close(curr_session->sock_d);
+
 		pthread_mutex_unlock(curr_session->stat_lock);
 
 		curr_session = curr_session->n_session;
@@ -454,10 +461,9 @@ void
 	tb_utp_t *utp = (tb_utp_t*)session->info;
 
 	PRT_I_D("Session %d: uTP Connecting", session->id);
-	fprintf(stdout, "Session %d: utp id = %d", session->id, utp->id);
+	fprintf(stdout, "Session %d: utp id = %d\n", session->id, utp->id);
 
 	pthread_mutex_trylock(utp->lock);
-
 	if(tb_utp_connect(utp, session->addr_info->ai_addr,
 			session->addr_info->ai_addrlen) < 0)
 	{
@@ -484,7 +490,6 @@ void
 
 		pthread_mutex_trylock(utp->lock);
 
-		//fprintf(stdout, "session %d pack size: %d", session->id, sz);
 		session->total_bytes +=
 				tb_utp_send(utp, session->data +
 						session->total_bytes, sz);
@@ -513,8 +518,6 @@ void
 	pthread_mutex_trylock(session->stat_lock);
 
 	session->status = SESSION_DISCONNECTED;
-	tb_utp_close(utp);
-	session->sock_d = -1;
 
 	pthread_mutex_unlock(session->stat_lock);
 

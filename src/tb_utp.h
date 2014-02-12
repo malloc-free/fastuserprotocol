@@ -22,16 +22,16 @@ struct UTPSocket;
 typedef struct
 {
 	int id;	///< Id for this utp struct.
-	struct UTPSocket *socket;
-	int sock_fd;
-	char *buffer;
-	char *rec_buffer;
-	int read_bytes;
-	int write_bytes;
-	int buffer_size;
-	int rec_buff_size;
-	int e_id;
-	int recv_total;
+	struct UTPSocket *socket; ///< The UTP socket.
+	int sock_fd; ///< The UDP socket associated with the UTP socket.
+	char *buffer; ///< The send buffer to be used for temporary data.
+	char *rec_buffer; ///< The receive buffer.
+	int read_bytes; ///< Total number of bytes
+	int write_bytes; ///< the number of bytes written on this socket.
+	int buffer_size; ///< The size of the buffer to use with this socket.
+	int rec_buff_size; ///< The size of the receive buffer.
+	int e_id; ///< The id of the epoll instance used with this utp socket.
+	int recv_total; ///<
 	int sent_total;
 	int state;
 	tb_epoll_t *epoll;
@@ -62,6 +62,14 @@ typedef enum
 }
 tb_utp_state;
 
+/**
+ * @brief Setup and create the tb_utp_t struct
+ *
+ * Sets up a struct for carrying utp information for transmission of data using
+ * the utp protocol.
+ *
+ * @return tb_utp_t Struct with appropriate information for the utp protocol.
+ */
 tb_utp_t
 *tb_utp_setup();
 

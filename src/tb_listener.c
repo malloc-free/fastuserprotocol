@@ -105,7 +105,7 @@ tb_listener_t
 
 	//Set defaults for monitor and print
 	listener->monitor = 1;
-	listener->print_stats = 0;
+	listener->print_stats = 1;
 
 	//Set CPU and thread info.
 	listener->num_proc = get_nprocs();
@@ -420,13 +420,14 @@ tb_set_m_stats(tb_listener_t *listener)
 
 	tb_session_t *session = listener->session_list->start;
 
+
 	while(session != NULL)
 	{
 		pthread_mutex_trylock(session->stat_lock);
 
 		if(session->status == SESSION_CONNECTED)
 		{
-			listener->stats->current_read = session->total_bytes;
+			listener->stats->current_read += session->total_bytes;
 			tb_get_stats(session->stats, session->sock_d);
 		}
 
