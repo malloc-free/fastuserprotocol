@@ -25,7 +25,7 @@
 #include <glib-2.0/glib/ghash.h>
 
 /**
- * @enum
+ * @enum <ENDPOINT_TYPE> [tb_listener.h]
  *
  * @brief The type of endpoint to create.
  */
@@ -33,13 +33,13 @@ typedef enum
 {
 	SERVER = 0, ///< The listener is a server.
 	CLIENT,		///< The listener is a client.
-	mSERVER,	///< Multi connection server
+	mSERVER,	///< Multi connection server.
 	mCLIENT		///< Multi connection client.
 }
 ENDPOINT_TYPE;
 
 /**
- * @enum
+ * @enum <STATUS> [tb_listener.h]
  *
  * Specifies the current state of the testbed.
  */
@@ -70,9 +70,13 @@ typedef enum
 }
 COMMAND;
 
-/** @struct
+/** @struct <tb_test_params_t> [tb_listener.h]
  *
  *  @brief struct used to pass parameters into testbed.
+ *
+ *  This struct is used to pass the parameters required for a particular
+ *  test into fuction tb_create_endpoint. This information is used to
+ *  create a listener to carry out the particular test.
  *
  */
 typedef struct
@@ -124,8 +128,14 @@ typedef void (*funct_l_exit)(void *listener);
  */
 typedef void (*funct_l_abort)(void *listener);
 
-/** @struct
+/** @struct <tb_listener_t> [tb_listener.h]
+ *
  *  @brief struct that defines the fields for the listener class.
+ *
+ *  This is the 'main' struct used in testbed. It contains all of the data
+ *  required to carry out a test. This information is set using command line
+ *  parameters (when used as an application) or using the tb_test_param_t
+ *  struct, passed into the tb_create_endpoint function.
  */
 typedef struct
 {
@@ -209,9 +219,13 @@ typedef struct
 tb_listener_t;
 
 /**
- * @struct
+ * @struct <tb_other_info> [tb_listener.h]
+ *
  * @brief struct that contains information on the current status of
  * the listener.
+ *
+ * This struct is appended to the tb_prot_stats_t struct. It contains
+ * information on the current status of the TestBed.
  */
 typedef struct
 {
@@ -228,6 +242,7 @@ tb_other_info;
  * servers. The stats are saved in the listener->stats
  * field.
  *
+ * @pre The listener must be of a single connection type.
  * @param listener The listener to collect stats for.
  */
 void
@@ -291,6 +306,11 @@ tb_listener_t
 
 /**
  * @brief Get a worker for the supplied session.
+ *
+ * Fetches a worker to perform work based on the information contained
+ * in the tb_session_t struct. If no such session exists (when a new
+ * connection is created) then this session will be added to the hashtable,
+ * and assigned a worker.
  */
 tb_worker_t
 *tb_get_worker(tb_listener_t *listener, tb_session_t *session);
@@ -324,7 +344,7 @@ tb_get_cpu_info(tb_listener_t *listener);
 /**
  * @brief Print a listener.
  *
- * Prints the given listener.
+ * Prints the given listener to stdout.
  *
  * @param listener The listener to print the values for.
  */

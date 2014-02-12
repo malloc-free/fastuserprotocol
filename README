@@ -1,4 +1,4 @@
-Version 0.1.24 of TestBed, authored by Michael Holmwood
+﻿Version 0.1.24 of TestBed, authored by Michael Holmwood
 
 TestBed carries out tests on 5 different protocols: TCP, UDP, UDT, uTP and DCCP.
 The implementations for TCP, UDP and DCCP are those found in the Linux kernel. 
@@ -9,11 +9,14 @@ each can be found in the lib directory.
 Machine Requirements:
 
 Large file sizes will require that much free memory for the tests to run 
-properly (reading from swap will affect the results somewhat).
+properly (reading from swap will affect the results somewhat). Also requirded
+will be disk space to hold this file (as each file of a particular size is
+generated once, and saved to disk, to be read later if the same sized file
+is used for testing).
 
 Dependencies:
 
-The TestBed does have a couple of dependencies, some of which are going to be
+The TestBed does have a couple of dependencies, one of which is going to be
 redundant soon, and removed.
 
 Generic Data Structures Library (GDSL):
@@ -22,10 +25,54 @@ home page: home.gna.org/gdsl/
 docs: home.gna.org/gdsl/1.7/html/
 code: download.gna.org/gdsl
 
-This dependancy will be removed shortly, as I am going to be using the glib
-hashtable and queue implemetations instead.
+This dependency will be removed shortly, as I am going to be using the glib
+hashtable and queue implementations instead.
 
 glib2.0:
 
 On debian, its just apt-get install libglib2.0-0 libglib2.0-dev
+
+At the moment there is no real make file - to build, just run the tbmake
+script. libmake creates testbed as a shared library, and runs odxygen to
+create the documentation in the doc folder. However, it also currently pushes
+this into what will be a non-existent directory in a remote machine, fix to
+come soon.
+
+Running the binary:
+
+To run a server, use:
+TestBed server [bind_address] [bind_port] [protocol: tcp | udp | utp | udt | dccp] [pack_size]
+
+To run a client, use:
+TestBed client [remote_address] [remote_port] [protocol: tcp | udp | utp | udt | dccp] [pack_size] size [file_size]
+
+bind_address/remote_address: The address to bind(server)/connect(client) to.
+bind_port/remote_port: The port to bind(server)/connect(client) to.
+protocol: The protocol to use for testing.
+pack_size: The maximum size of the buffer used to copy data to the protocol
+buffer, in bytes. If this is 0, it defaults to 1402 bytes.
+file_size: The size of the randomly generated file to create/load to use in
+tests. If a file of that size does not exist on disk, it is generated. These
+files appear in the directory as .ran files.
+
+When used as a shared library, more options become available. These will be 
+available from the commandline in a future release.
+
+Using TestBed as a shared library:
+
+The struct tb_test_params_t struct can be used to create a tb_listener_t
+struct, if passed into the tb_create_endpoint function. More information on
+this struct is contained in the documentation (doc dir). tb_ex_get_stats
+can be used for stat collection. This information is collected every 100ms, 
+and blocks until new information is available. Outdated information is 
+overwritten. Future revisions will use a linked list to store unread
+information. This information is provided in a struct called tb_prot_stats_t, 
+and detailed info on this is in the documentation.
+
+A listener struct created in this fashion is *not* destroyed on completion of
+a test, so it is up to an external application to call tb_destroy_listener
+to free up memory for this struct. This could potentially be a real problem,
+as this struct contains the data used in the test, and for large files (read:
+1GB) memory will disappear very quickly. We keep the data, as it may prove
+useful for external applications.
 
