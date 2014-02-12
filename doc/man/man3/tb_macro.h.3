@@ -1,0 +1,122 @@
+.TH "src/tb_macro.h" 3 "Tue Jan 21 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_macro.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBLACK\fP   '\\x1b[22;30m'"
+.br
+.ti -1c
+.RI "#define \fBRED\fP   '\\x1b[22;31m'"
+.br
+.ti -1c
+.RI "#define \fBGREEN\fP   '\\x1b[22;32m'"
+.br
+.ti -1c
+.RI "#define \fBBLUE\fP   '\\x1b[22;34m'"
+.br
+.ti -1c
+.RI "#define \fBRESET\fP   '\\x1b[39m'"
+.br
+.ti -1c
+.RI "#define \fBCLEAR\fP   '\\x1b[2J'"
+.br
+.ti -1c
+.RI "#define \fBLINE\fP   '\\n===================================\\n'"
+.br
+.ti -1c
+.RI "#define \fBMOVE_CSR\fP(n, m)   '\\x1b[' #n ';' #m 'H'"
+.br
+.ti -1c
+.RI "#define \fBACK\fP(str)   \fBGREEN\fP str \fBRESET\fP"
+.br
+.ti -1c
+.RI "#define \fBERR\fP(str)   \fBRED\fP str \fBRESET\fP"
+.br
+.ti -1c
+.RI "#define \fBINFO\fP(str)   \fBBLUE\fP str \fBRESET\fP"
+.br
+.ti -1c
+.RI "#define \fBPRT_ERR\fP(str)   fprintf(stderr, \fBERR\fP(str) '\\n');"
+.br
+.ti -1c
+.RI "#define \fBPRT_ACK\fP(str)   fprintf(stdout, \fBACK\fP(str) '\\n');"
+.br
+.ti -1c
+.RI "#define \fBPRT_INFO\fP(str)   fprintf(stdout, \fBINFO\fP(str) '\\n');"
+.br
+.ti -1c
+.RI "#define \fBPRT_ERR_PARAM\fP(str, mod, param)   fprintf(stderr, \fBACK\fP(str)mod, param);"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ACK(str)   \fBGREEN\fP str \fBRESET\fP"
+
+.PP
+Definition at line 19 of file tb_macro\&.h\&.
+.SS "#define BLACK   '\\x1b[22;30m'"
+
+.PP
+Definition at line 11 of file tb_macro\&.h\&.
+.SS "#define BLUE   '\\x1b[22;34m'"
+
+.PP
+Definition at line 14 of file tb_macro\&.h\&.
+.SS "#define CLEAR   '\\x1b[2J'"
+
+.PP
+Definition at line 16 of file tb_macro\&.h\&.
+.SS "#define ERR(str)   \fBRED\fP str \fBRESET\fP"
+
+.PP
+Definition at line 20 of file tb_macro\&.h\&.
+.SS "#define GREEN   '\\x1b[22;32m'"
+
+.PP
+Definition at line 13 of file tb_macro\&.h\&.
+.SS "#define INFO(str)   \fBBLUE\fP str \fBRESET\fP"
+
+.PP
+Definition at line 21 of file tb_macro\&.h\&.
+.SS "#define LINE   '\\n===================================\\n'"
+
+.PP
+Definition at line 17 of file tb_macro\&.h\&.
+.SS "#define MOVE_CSR(n, m)   '\\x1b[' #n ';' #m 'H'"
+
+.PP
+Definition at line 18 of file tb_macro\&.h\&.
+.SS "#define PRT_ACK(str)   fprintf(stdout, \fBACK\fP(str) '\\n');"
+
+.PP
+Definition at line 23 of file tb_macro\&.h\&.
+.SS "#define PRT_ERR(str)   fprintf(stderr, \fBERR\fP(str) '\\n');"
+
+.PP
+Definition at line 22 of file tb_macro\&.h\&.
+.SS "#define PRT_ERR_PARAM(str, mod, param)   fprintf(stderr, \fBACK\fP(str)mod, param);"
+
+.PP
+Definition at line 25 of file tb_macro\&.h\&.
+.SS "#define PRT_INFO(str)   fprintf(stdout, \fBINFO\fP(str) '\\n');"
+
+.PP
+Definition at line 24 of file tb_macro\&.h\&.
+.SS "#define RED   '\\x1b[22;31m'"
+
+.PP
+Definition at line 12 of file tb_macro\&.h\&.
+.SS "#define RESET   '\\x1b[39m'"
+
+.PP
+Definition at line 15 of file tb_macro\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

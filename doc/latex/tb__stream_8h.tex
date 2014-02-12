@@ -1,0 +1,156 @@
+\hypertarget{tb__stream_8h}{\section{src/tb\-\_\-stream.h File Reference}
+\label{tb__stream_8h}\index{src/tb\-\_\-stream.\-h@{src/tb\-\_\-stream.\-h}}
+}
+{\ttfamily \#include \char`\"{}tb\-\_\-listener.\-h\char`\"{}}\\*
+Include dependency graph for tb\-\_\-stream.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tb__stream_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tb__stream_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{tb__stream_8h_ab254f51747c78bfc75e1dd91945936af}{tb\-\_\-stream\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run a server without epoll (blocking socket). \end{DoxyCompactList}\item 
+int \hyperlink{tb__stream_8h_a736ead28c313623ab95be2738fa6a2d8}{tb\-\_\-stream\-\_\-m\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run a multiple connection server. \end{DoxyCompactList}\item 
+int \hyperlink{tb__stream_8h_a2824c0d70d74f26a227971550f32446f}{tb\-\_\-stream\-\_\-event} (int events, void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Called by epoll. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{tb__stream_8h_afbdad677cb3cfe90954ec6e482fec19c}{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn} (void $\ast$data)
+\begin{DoxyCompactList}\small\item\em Individual stream connections for multiple stream servers. \end{DoxyCompactList}\item 
+int \hyperlink{tb__stream_8h_a4836f7e8e6b482f36a354d52d16b5843}{tb\-\_\-stream\-\_\-m\-\_\-client} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Upload using stream sockets. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{tb__stream_8h_aaa8373bc3d9d810fb73ce3cf09dbd27a}{tb\-\_\-stream\-\_\-connection} (void $\ast$data)
+\begin{DoxyCompactList}\small\item\em A single stream connection. \end{DoxyCompactList}\item 
+int \hyperlink{tb__stream_8h_a37207d097b0a8f4906fda05c22b5d851}{tb\-\_\-stream\-\_\-client} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Upload with a single connection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{tb__stream_8h_a37207d097b0a8f4906fda05c22b5d851}{\index{tb\-\_\-stream.\-h@{tb\-\_\-stream.\-h}!tb\-\_\-stream\-\_\-client@{tb\-\_\-stream\-\_\-client}}
+\index{tb\-\_\-stream\-\_\-client@{tb\-\_\-stream\-\_\-client}!tb_stream.h@{tb\-\_\-stream.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-client (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__stream_8h_a37207d097b0a8f4906fda05c22b5d851}
+
+
+Upload with a single connection. 
+
+
+
+Definition at line 363 of file tb\-\_\-stream.\-c.
+
+\hypertarget{tb__stream_8h_aaa8373bc3d9d810fb73ce3cf09dbd27a}{\index{tb\-\_\-stream.\-h@{tb\-\_\-stream.\-h}!tb\-\_\-stream\-\_\-connection@{tb\-\_\-stream\-\_\-connection}}
+\index{tb\-\_\-stream\-\_\-connection@{tb\-\_\-stream\-\_\-connection}!tb_stream.h@{tb\-\_\-stream.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-connection}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ tb\-\_\-stream\-\_\-connection (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__stream_8h_aaa8373bc3d9d810fb73ce3cf09dbd27a}
+
+
+A single stream connection. 
+
+
+
+Definition at line 305 of file tb\-\_\-stream.\-c.
+
+\hypertarget{tb__stream_8h_a2824c0d70d74f26a227971550f32446f}{\index{tb\-\_\-stream.\-h@{tb\-\_\-stream.\-h}!tb\-\_\-stream\-\_\-event@{tb\-\_\-stream\-\_\-event}}
+\index{tb\-\_\-stream\-\_\-event@{tb\-\_\-stream\-\_\-event}!tb_stream.h@{tb\-\_\-stream.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-event (
+\begin{DoxyParamCaption}
+\item[{int}]{events, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__stream_8h_a2824c0d70d74f26a227971550f32446f}
+
+
+Called by epoll. 
+
+
+
+Definition at line 117 of file tb\-\_\-stream.\-c.
+
+\hypertarget{tb__stream_8h_a4836f7e8e6b482f36a354d52d16b5843}{\index{tb\-\_\-stream.\-h@{tb\-\_\-stream.\-h}!tb\-\_\-stream\-\_\-m\-\_\-client@{tb\-\_\-stream\-\_\-m\-\_\-client}}
+\index{tb\-\_\-stream\-\_\-m\-\_\-client@{tb\-\_\-stream\-\_\-m\-\_\-client}!tb_stream.h@{tb\-\_\-stream.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-m\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-m\-\_\-client (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__stream_8h_a4836f7e8e6b482f36a354d52d16b5843}
+
+
+Upload using stream sockets. 
+
+Upload using bsd stream based protocols (T\-C\-P, D\-C\-C\-P) with multiple connections. 
+
+Definition at line 216 of file tb\-\_\-stream.\-c.
+
+\hypertarget{tb__stream_8h_a736ead28c313623ab95be2738fa6a2d8}{\index{tb\-\_\-stream.\-h@{tb\-\_\-stream.\-h}!tb\-\_\-stream\-\_\-m\-\_\-server@{tb\-\_\-stream\-\_\-m\-\_\-server}}
+\index{tb\-\_\-stream\-\_\-m\-\_\-server@{tb\-\_\-stream\-\_\-m\-\_\-server}!tb_stream.h@{tb\-\_\-stream.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-m\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-m\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__stream_8h_a736ead28c313623ab95be2738fa6a2d8}
+
+
+Run a multiple connection server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & The listener to create the server for \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file tb\-\_\-stream.\-c.
+
+\hypertarget{tb__stream_8h_afbdad677cb3cfe90954ec6e482fec19c}{\index{tb\-\_\-stream.\-h@{tb\-\_\-stream.\-h}!tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn@{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn}}
+\index{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn@{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn}!tb_stream.h@{tb\-\_\-stream.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__stream_8h_afbdad677cb3cfe90954ec6e482fec19c}
+
+
+Individual stream connections for multiple stream servers. 
+
+
+
+Definition at line 169 of file tb\-\_\-stream.\-c.
+
+\hypertarget{tb__stream_8h_ab254f51747c78bfc75e1dd91945936af}{\index{tb\-\_\-stream.\-h@{tb\-\_\-stream.\-h}!tb\-\_\-stream\-\_\-server@{tb\-\_\-stream\-\_\-server}}
+\index{tb\-\_\-stream\-\_\-server@{tb\-\_\-stream\-\_\-server}!tb_stream.h@{tb\-\_\-stream.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__stream_8h_ab254f51747c78bfc75e1dd91945936af}
+
+
+Run a server without epoll (blocking socket). 
+
+Runs a server without using epoll, so the socket blocks. Also used by U\-D\-T, a\-U\-D\-T and other protocols that are not implemented in sockets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & The listener to run the server with. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file tb\-\_\-stream.\-c.
+

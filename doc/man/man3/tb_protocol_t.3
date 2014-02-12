@@ -1,0 +1,184 @@
+.TH "tb_protocol_t" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tb_protocol_t \- 
+.PP
+Defines the API for the chosen protocol\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <tb_protocol\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBPROTOCOL\fP \fBprotocol\fP"
+.br
+.ti -1c
+.RI "void * \fBparameters\fP"
+.br
+.ti -1c
+.RI "int \fBtype\fP"
+.br
+.ti -1c
+.RI "const int * \fBerror_no\fP"
+.br
+.ti -1c
+.RI "int \fBeot\fP"
+.br
+.ti -1c
+.RI "int \fBsock_flags\fP"
+.br
+.ti -1c
+.RI "\fBPROT_OPT\fP \fBprot_opts\fP"
+.br
+.ti -1c
+.RI "\fBfunct_socket\fP \fBf_sock\fP"
+.br
+.ti -1c
+.RI "\fBfunct_bind\fP \fBf_bind\fP"
+.br
+.ti -1c
+.RI "\fBfunct_connect\fP \fBf_connect\fP"
+.br
+.ti -1c
+.RI "\fBfunct_send\fP \fBf_send\fP"
+.br
+.ti -1c
+.RI "\fBfunct_recv\fP \fBf_recv\fP"
+.br
+.ti -1c
+.RI "\fBfunct_listen\fP \fBf_listen\fP"
+.br
+.ti -1c
+.RI "\fBfunct_accept\fP \fBf_accept\fP"
+.br
+.ti -1c
+.RI "\fBfunct_close\fP \fBf_close\fP"
+.br
+.ti -1c
+.RI "\fBfunct_exit\fP \fBf_exit\fP"
+.br
+.ti -1c
+.RI "\fBfunct_recvfrom\fP \fBf_recfrom\fP"
+.br
+.ti -1c
+.RI "\fBfunct_sendto\fP \fBf_sendto\fP"
+.br
+.ti -1c
+.RI "\fBfunct_error\fP \fBf_error\fP"
+.br
+.ti -1c
+.RI "\fBfunct_options\fP \fBf_opt\fP"
+.br
+.ti -1c
+.RI "\fBfunct_setup\fP \fBf_setup\fP"
+.br
+.ti -1c
+.RI "\fBfunc_event\fP \fBf_ep_event\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Defines the API for the chosen protocol\&. 
+
+This struct describes the protocol to be used in communication\&. The pointers to the functions required for communication with each of the protocols is stored in this struct\&. 
+.PP
+Definition at line 158 of file tb_protocol\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int eot"
+
+.PP
+Definition at line 164 of file tb_protocol\&.h\&.
+.SS "const int* error_no"
+
+.PP
+Definition at line 163 of file tb_protocol\&.h\&.
+.SS "\fBfunct_accept\fP f_accept"
+
+.PP
+Definition at line 173 of file tb_protocol\&.h\&.
+.SS "\fBfunct_bind\fP f_bind"
+
+.PP
+Definition at line 168 of file tb_protocol\&.h\&.
+.SS "\fBfunct_close\fP f_close"
+
+.PP
+Definition at line 174 of file tb_protocol\&.h\&.
+.SS "\fBfunct_connect\fP f_connect"
+
+.PP
+Definition at line 169 of file tb_protocol\&.h\&.
+.SS "\fBfunc_event\fP f_ep_event"
+
+.PP
+Definition at line 181 of file tb_protocol\&.h\&.
+.SS "\fBfunct_error\fP f_error"
+
+.PP
+Definition at line 178 of file tb_protocol\&.h\&.
+.SS "\fBfunct_exit\fP f_exit"
+
+.PP
+Definition at line 175 of file tb_protocol\&.h\&.
+.SS "\fBfunct_listen\fP f_listen"
+
+.PP
+Definition at line 172 of file tb_protocol\&.h\&.
+.SS "\fBfunct_options\fP f_opt"
+
+.PP
+Definition at line 179 of file tb_protocol\&.h\&.
+.SS "\fBfunct_recvfrom\fP f_recfrom"
+
+.PP
+Definition at line 176 of file tb_protocol\&.h\&.
+.SS "\fBfunct_recv\fP f_recv"
+
+.PP
+Definition at line 171 of file tb_protocol\&.h\&.
+.SS "\fBfunct_send\fP f_send"
+
+.PP
+Definition at line 170 of file tb_protocol\&.h\&.
+.SS "\fBfunct_sendto\fP f_sendto"
+
+.PP
+Definition at line 177 of file tb_protocol\&.h\&.
+.SS "\fBfunct_setup\fP f_setup"
+
+.PP
+Definition at line 180 of file tb_protocol\&.h\&.
+.SS "\fBfunct_socket\fP f_sock"
+
+.PP
+Definition at line 167 of file tb_protocol\&.h\&.
+.SS "void* parameters"
+
+.PP
+Definition at line 161 of file tb_protocol\&.h\&.
+.SS "\fBPROT_OPT\fP prot_opts"
+
+.PP
+Definition at line 166 of file tb_protocol\&.h\&.
+.SS "\fBPROTOCOL\fP protocol"
+
+.PP
+Definition at line 160 of file tb_protocol\&.h\&.
+.SS "int sock_flags"
+
+.PP
+Definition at line 165 of file tb_protocol\&.h\&.
+.SS "int type"
+
+.PP
+Definition at line 162 of file tb_protocol\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

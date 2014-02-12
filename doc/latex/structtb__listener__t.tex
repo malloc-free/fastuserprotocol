@@ -1,0 +1,624 @@
+\hypertarget{structtb__listener__t}{\section{tb\-\_\-listener\-\_\-t Struct Reference}
+\label{structtb__listener__t}\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$tb\-\_\-listener.\-h$>$}
+
+
+
+Collaboration diagram for tb\-\_\-listener\-\_\-t\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structtb__listener__t__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+gdsl\-\_\-hash\-\_\-t \hyperlink{structtb__listener__t_a297b6218401cf4b88bf011d2665be0d2}{\-\_\-\-\_\-sessions}
+\item 
+gdsl\-\_\-heap\-\_\-t \hyperlink{structtb__listener__t_a41b2b73dc00fee2a18f90afa4987cc5b}{\-\_\-\-\_\-workers}
+\begin{DoxyCompactList}\small\item\em The workers for this listener. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a49ffb28f94389b1ca495a663507db665}{\-\_\-\-\_\-num\-\_\-threads}
+\begin{DoxyCompactList}\small\item\em The number of threads for listener. \end{DoxyCompactList}\item 
+G\-Hash\-Table $\ast$ \hyperlink{structtb__listener__t_a696d2a3fd36c8895302b9372d1e55935}{sessions}
+\begin{DoxyCompactList}\small\item\em Active sessions. \end{DoxyCompactList}\item 
+pthread\-\_\-t $\ast$ \hyperlink{structtb__listener__t_a104cf2a79e8cb03fe3c0d3301fe8257f}{\-\_\-\-\_\-l\-\_\-thread}
+\begin{DoxyCompactList}\small\item\em The thread the listener is on. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a053be2f9198a10c7329b11c19dfc6fe4}{sys\-\_\-tid}
+\begin{DoxyCompactList}\small\item\em The id returned from syscall. \end{DoxyCompactList}\item 
+pthread\-\_\-mutex\-\_\-t $\ast$ \hyperlink{structtb__listener__t_ab828bf6b1b85621025b518a892b79d79}{stat\-\_\-lock}
+\begin{DoxyCompactList}\small\item\em Locks the stats field for writing. \end{DoxyCompactList}\item 
+pthread\-\_\-cond\-\_\-t $\ast$ \hyperlink{structtb__listener__t_a7f764a9f865a1a752a852d4d4422023a}{stat\-\_\-cond}
+\begin{DoxyCompactList}\small\item\em The condition for releasing external threads. \end{DoxyCompactList}\item 
+pthread\-\_\-mutex\-\_\-t $\ast$ \hyperlink{structtb__listener__t_a54cc7a2ff1d7592de7c4647c6fd66e14}{status\-\_\-lock}
+\begin{DoxyCompactList}\small\item\em Lock for safe set/get of listener status. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_ae9a3e84ebf05ae6b7baf872b844c94ea}{num\-\_\-proc}
+\begin{DoxyCompactList}\small\item\em The number of processors available. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_ab7a892d2900125821f3d6b11d003191b}{cpu\-\_\-affinity}
+\begin{DoxyCompactList}\small\item\em The affinity for the listener thread. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a2715f812fc8239e875c5e9413f8ed04b}{main\-\_\-cpu\-\_\-aff}
+\begin{DoxyCompactList}\small\item\em The affinity for the main thread. \end{DoxyCompactList}\item 
+\hyperlink{tb__listener_8h_ae37f3ebcf0081b2dd11adf41f1f867d6}{E\-N\-D\-P\-O\-I\-N\-T\-\_\-\-T\-Y\-P\-E} \hyperlink{structtb__listener__t_abbd1eee27b1b57dcb1f57b2ef4b4fa12}{e\-\_\-type}
+\begin{DoxyCompactList}\small\item\em The type of endpoint this is. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{structtb__listener__t_ae15b37b2cdfd51bbb2719e4eb3ffb917}{bind\-\_\-address}
+\begin{DoxyCompactList}\small\item\em The bind address for this listener. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{structtb__listener__t_a5c96fa09c995ca60f7b334c1842eb991}{bind\-\_\-port}
+\begin{DoxyCompactList}\small\item\em The bind port for this listener. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a199ab88d4ca8eab30e1cb7d35edacca5}{bufsize}
+\begin{DoxyCompactList}\small\item\em The size of the buffer to use. \end{DoxyCompactList}\item 
+\hyperlink{structtb__protocol__t}{tb\-\_\-protocol\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_a0b0f6789be37cb22fa42abe30a271591}{protocol}
+\begin{DoxyCompactList}\small\item\em The protocol to use. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a94d540b145f21be2f9b28a2c225ccf30}{sock\-\_\-d}
+\begin{DoxyCompactList}\small\item\em The socket descriptor. \end{DoxyCompactList}\item 
+\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_abe6a138a14cade5eb871eeb66ee2b638}{options}
+\begin{DoxyCompactList}\small\item\em The options for the protocol. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{structtb__listener__t_ab79822e20d19ce95bdf8a3f95bd616d5}{prot\-\_\-data}
+\begin{DoxyCompactList}\small\item\em Protocol specific data. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_acbf48788378975ac1fb514027e3dc1ab}{num\-\_\-connections}
+\begin{DoxyCompactList}\small\item\em The number of connections to create;. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a8bc95708c758a6400d8692f2d0fcbaeb}{file\-\_\-size}
+\begin{DoxyCompactList}\small\item\em The size of the file to generate. \end{DoxyCompactList}\item 
+F\-I\-L\-E $\ast$ \hyperlink{structtb__listener__t_aa065f30aa9f5f9a42132c82c787ee70b}{fp}
+\begin{DoxyCompactList}\small\item\em A pointer to the file to read/write to/from. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{structtb__listener__t_aeac90097f29f7529968697163cea5c18}{filename}
+\begin{DoxyCompactList}\small\item\em The name of the file to load. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{structtb__listener__t_a91a70b77df95bd8b0830b49a094c2acb}{data}
+\begin{DoxyCompactList}\small\item\em The data to send. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a875fd564b2b2de100e6fc2090a06812c}{num\-\_\-send}
+\begin{DoxyCompactList}\small\item\em Send multiple times. \end{DoxyCompactList}\item 
+struct addrinfo $\ast$ \hyperlink{structtb__listener__t_aab742bc33815bd69bf49ad1861006b97}{addr\-\_\-info}
+\begin{DoxyCompactList}\small\item\em The addrinfo for the endpoint. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_ac8bf36fe0577cba66bccda3a6f7e80a4}{flags}
+\begin{DoxyCompactList}\small\item\em The flags for the endpoint. \end{DoxyCompactList}\item 
+long long \hyperlink{structtb__listener__t_af6b56edb73bc2df2c5b45cb794532ce5}{total\-\_\-tx\-\_\-rx}
+\begin{DoxyCompactList}\small\item\em the total amount of data tx/rx. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__listener__t_a741d9964fa8029b9468528756ea835af}{sec}
+\begin{DoxyCompactList}\small\item\em The seconds it took for the last transfer. \end{DoxyCompactList}\item 
+\hyperlink{structtb__prot__stats__t}{tb\-\_\-prot\-\_\-stats\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_a464593aa6d4c80e0f689c501c4e81e8c}{stats}
+\begin{DoxyCompactList}\small\item\em The current stats. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_ad91878c8e805d88354749a9fbfee4296}{read}
+\begin{DoxyCompactList}\small\item\em Current stats have been read. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a46fa1969de5714507943035793d36269}{monitor}
+\begin{DoxyCompactList}\small\item\em Monitor for stat collection. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a21a0be842e8fa2c780fa87f45bd5d17e}{print\-\_\-stats}
+\begin{DoxyCompactList}\small\item\em Print stats to screen. \end{DoxyCompactList}\item 
+\hyperlink{tb__listener_8h_a32c27cc471df37f4fc818d65de0a56c4}{S\-T\-A\-T\-U\-S} \hyperlink{structtb__listener__t_a1025e6cbbd3179d2d91b9b4afb8f8efc}{status}
+\begin{DoxyCompactList}\small\item\em The current status of the listener. \end{DoxyCompactList}\item 
+\hyperlink{tb__listener_8h_a0fbada5bff0eeb4dc6be4b6e6f1c4eaf}{C\-O\-M\-M\-A\-N\-D} \hyperlink{structtb__listener__t_a70d431da3740b5dedad495c2843ba89e}{command}
+\begin{DoxyCompactList}\small\item\em Commands to stop, etc. \end{DoxyCompactList}\item 
+\hyperlink{tb__listener_8h_a0fbada5bff0eeb4dc6be4b6e6f1c4eaf}{C\-O\-M\-M\-A\-N\-D} \hyperlink{structtb__listener__t_aea40caaca885ba5ed3e0b82d7ef1f498}{s\-\_\-tx\-\_\-end}
+\begin{DoxyCompactList}\small\item\em The command to process if a tx ends. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a73b88865af668ff87dacd74c1f838da6}{d\-\_\-exit}
+\begin{DoxyCompactList}\small\item\em Destroy on exit. \end{DoxyCompactList}\item 
+\hyperlink{structtb__test__params__t}{tb\-\_\-test\-\_\-params\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_ada07b15315fdcc71589ed7b50faec50a}{params}
+\begin{DoxyCompactList}\small\item\em The parameters for the test. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__listener__t_a511e73c6f56fe64b24f9261939aec65f}{log\-\_\-enabled}
+\begin{DoxyCompactList}\small\item\em Logging enabled/disabled. \end{DoxyCompactList}\item 
+\hyperlink{structtb__log__t}{tb\-\_\-log\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_a206b8711b0b270577f073bdc99b0917d}{log\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Information for logging. \end{DoxyCompactList}\item 
+\hyperlink{structtb__session__t}{tb\-\_\-session\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_a77b5086c18c650adfe86a3489057d9f9}{curr\-\_\-session}
+\item 
+\hyperlink{structtb__epoll__t}{tb\-\_\-epoll\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_af7fbbda1b15f6051fb8cead0ada5ce7e}{epoll}
+\begin{DoxyCompactList}\small\item\em Used by protocols that require epoll;. \end{DoxyCompactList}\item 
+\hyperlink{structtb__session__list__t}{tb\-\_\-session\-\_\-list\-\_\-t} $\ast$ \hyperlink{structtb__listener__t_a948f8e60166821d3db232c56a59b195c}{session\-\_\-list}
+\begin{DoxyCompactList}\small\item\em Session list. \end{DoxyCompactList}\item 
+\hyperlink{tb__listener_8h_a087aa7eae6394f6a052ea86a8944b262}{funct\-\_\-l\-\_\-exit} \hyperlink{structtb__listener__t_a90a87c6e5bc8d9e690190da6d0aa926e}{f\-\_\-exit}
+\begin{DoxyCompactList}\small\item\em Called when aborting. \end{DoxyCompactList}\item 
+\hyperlink{tb__listener_8h_a26990e2906e18234aa32e757383e1752}{funct\-\_\-l\-\_\-abort} \hyperlink{structtb__listener__t_a385e4cbcf683dd35d7d80c9726c8c67d}{f\-\_\-abort}
+\begin{DoxyCompactList}\small\item\em Called when exiting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 130 of file tb\-\_\-listener.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structtb__listener__t_a104cf2a79e8cb03fe3c0d3301fe8257f}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!\-\_\-\-\_\-l\-\_\-thread@{\-\_\-\-\_\-l\-\_\-thread}}
+\index{\-\_\-\-\_\-l\-\_\-thread@{\-\_\-\-\_\-l\-\_\-thread}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-l\-\_\-thread}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-t$\ast$ \-\_\-\-\_\-l\-\_\-thread}}\label{structtb__listener__t_a104cf2a79e8cb03fe3c0d3301fe8257f}
+
+
+The thread the listener is on. 
+
+
+
+Definition at line 142 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a49ffb28f94389b1ca495a663507db665}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!\-\_\-\-\_\-num\-\_\-threads@{\-\_\-\-\_\-num\-\_\-threads}}
+\index{\-\_\-\-\_\-num\-\_\-threads@{\-\_\-\-\_\-num\-\_\-threads}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-num\-\_\-threads}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-num\-\_\-threads}}\label{structtb__listener__t_a49ffb28f94389b1ca495a663507db665}
+
+
+The number of threads for listener. 
+
+
+
+Definition at line 138 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a297b6218401cf4b88bf011d2665be0d2}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!\-\_\-\-\_\-sessions@{\-\_\-\-\_\-sessions}}
+\index{\-\_\-\-\_\-sessions@{\-\_\-\-\_\-sessions}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-sessions}]{\setlength{\rightskip}{0pt plus 5cm}gdsl\-\_\-hash\-\_\-t \-\_\-\-\_\-sessions}}\label{structtb__listener__t_a297b6218401cf4b88bf011d2665be0d2}
+The active sessions for this listener. Maps address to listener. 
+
+Definition at line 133 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a41b2b73dc00fee2a18f90afa4987cc5b}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!\-\_\-\-\_\-workers@{\-\_\-\-\_\-workers}}
+\index{\-\_\-\-\_\-workers@{\-\_\-\-\_\-workers}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-workers}]{\setlength{\rightskip}{0pt plus 5cm}gdsl\-\_\-heap\-\_\-t \-\_\-\-\_\-workers}}\label{structtb__listener__t_a41b2b73dc00fee2a18f90afa4987cc5b}
+
+
+The workers for this listener. 
+
+
+
+Definition at line 137 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_aab742bc33815bd69bf49ad1861006b97}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!addr\-\_\-info@{addr\-\_\-info}}
+\index{addr\-\_\-info@{addr\-\_\-info}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{addr\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}struct addrinfo$\ast$ addr\-\_\-info}}\label{structtb__listener__t_aab742bc33815bd69bf49ad1861006b97}
+
+
+The addrinfo for the endpoint. 
+
+
+
+Definition at line 173 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ae15b37b2cdfd51bbb2719e4eb3ffb917}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!bind\-\_\-address@{bind\-\_\-address}}
+\index{bind\-\_\-address@{bind\-\_\-address}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{bind\-\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bind\-\_\-address}}\label{structtb__listener__t_ae15b37b2cdfd51bbb2719e4eb3ffb917}
+
+
+The bind address for this listener. 
+
+
+
+Definition at line 157 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a5c96fa09c995ca60f7b334c1842eb991}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!bind\-\_\-port@{bind\-\_\-port}}
+\index{bind\-\_\-port@{bind\-\_\-port}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{bind\-\_\-port}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ bind\-\_\-port}}\label{structtb__listener__t_a5c96fa09c995ca60f7b334c1842eb991}
+
+
+The bind port for this listener. 
+
+
+
+Definition at line 158 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a199ab88d4ca8eab30e1cb7d35edacca5}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!bufsize@{bufsize}}
+\index{bufsize@{bufsize}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{bufsize}]{\setlength{\rightskip}{0pt plus 5cm}int bufsize}}\label{structtb__listener__t_a199ab88d4ca8eab30e1cb7d35edacca5}
+
+
+The size of the buffer to use. 
+
+
+
+Definition at line 159 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a70d431da3740b5dedad495c2843ba89e}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!command@{command}}
+\index{command@{command}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{command}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-O\-M\-M\-A\-N\-D} command}}\label{structtb__listener__t_a70d431da3740b5dedad495c2843ba89e}
+
+
+Commands to stop, etc. 
+
+
+
+Definition at line 189 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ab7a892d2900125821f3d6b11d003191b}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!cpu\-\_\-affinity@{cpu\-\_\-affinity}}
+\index{cpu\-\_\-affinity@{cpu\-\_\-affinity}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{cpu\-\_\-affinity}]{\setlength{\rightskip}{0pt plus 5cm}int cpu\-\_\-affinity}}\label{structtb__listener__t_ab7a892d2900125821f3d6b11d003191b}
+
+
+The affinity for the listener thread. 
+
+
+
+Definition at line 150 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a77b5086c18c650adfe86a3489057d9f9}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!curr\-\_\-session@{curr\-\_\-session}}
+\index{curr\-\_\-session@{curr\-\_\-session}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{curr\-\_\-session}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-session\-\_\-t}$\ast$ curr\-\_\-session}}\label{structtb__listener__t_a77b5086c18c650adfe86a3489057d9f9}
+
+
+Definition at line 201 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a73b88865af668ff87dacd74c1f838da6}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!d\-\_\-exit@{d\-\_\-exit}}
+\index{d\-\_\-exit@{d\-\_\-exit}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{d\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}int d\-\_\-exit}}\label{structtb__listener__t_a73b88865af668ff87dacd74c1f838da6}
+
+
+Destroy on exit. 
+
+
+
+Definition at line 191 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a91a70b77df95bd8b0830b49a094c2acb}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!data@{data}}
+\index{data@{data}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ data}}\label{structtb__listener__t_a91a70b77df95bd8b0830b49a094c2acb}
+
+
+The data to send. 
+
+
+
+Definition at line 170 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_abbd1eee27b1b57dcb1f57b2ef4b4fa12}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!e\-\_\-type@{e\-\_\-type}}
+\index{e\-\_\-type@{e\-\_\-type}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{e\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf E\-N\-D\-P\-O\-I\-N\-T\-\_\-\-T\-Y\-P\-E} e\-\_\-type}}\label{structtb__listener__t_abbd1eee27b1b57dcb1f57b2ef4b4fa12}
+
+
+The type of endpoint this is. 
+
+
+
+Definition at line 154 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_af7fbbda1b15f6051fb8cead0ada5ce7e}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!epoll@{epoll}}
+\index{epoll@{epoll}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{epoll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-epoll\-\_\-t}$\ast$ epoll}}\label{structtb__listener__t_af7fbbda1b15f6051fb8cead0ada5ce7e}
+
+
+Used by protocols that require epoll;. 
+
+
+
+Definition at line 202 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a385e4cbcf683dd35d7d80c9726c8c67d}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!f\-\_\-abort@{f\-\_\-abort}}
+\index{f\-\_\-abort@{f\-\_\-abort}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{f\-\_\-abort}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-l\-\_\-abort} f\-\_\-abort}}\label{structtb__listener__t_a385e4cbcf683dd35d7d80c9726c8c67d}
+
+
+Called when exiting. 
+
+
+
+Definition at line 207 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a90a87c6e5bc8d9e690190da6d0aa926e}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!f\-\_\-exit@{f\-\_\-exit}}
+\index{f\-\_\-exit@{f\-\_\-exit}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{f\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-l\-\_\-exit} f\-\_\-exit}}\label{structtb__listener__t_a90a87c6e5bc8d9e690190da6d0aa926e}
+
+
+Called when aborting. 
+
+
+
+Definition at line 206 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a8bc95708c758a6400d8692f2d0fcbaeb}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!file\-\_\-size@{file\-\_\-size}}
+\index{file\-\_\-size@{file\-\_\-size}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{file\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int file\-\_\-size}}\label{structtb__listener__t_a8bc95708c758a6400d8692f2d0fcbaeb}
+
+
+The size of the file to generate. 
+
+
+
+Definition at line 167 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_aeac90097f29f7529968697163cea5c18}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!filename@{filename}}
+\index{filename@{filename}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{filename}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ filename}}\label{structtb__listener__t_aeac90097f29f7529968697163cea5c18}
+
+
+The name of the file to load. 
+
+
+
+Definition at line 169 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ac8bf36fe0577cba66bccda3a6f7e80a4}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!flags@{flags}}
+\index{flags@{flags}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}int flags}}\label{structtb__listener__t_ac8bf36fe0577cba66bccda3a6f7e80a4}
+
+
+The flags for the endpoint. 
+
+
+
+Definition at line 174 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_aa065f30aa9f5f9a42132c82c787ee70b}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!fp@{fp}}
+\index{fp@{fp}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{fp}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ fp}}\label{structtb__listener__t_aa065f30aa9f5f9a42132c82c787ee70b}
+
+
+A pointer to the file to read/write to/from. 
+
+
+
+Definition at line 168 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a511e73c6f56fe64b24f9261939aec65f}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!log\-\_\-enabled@{log\-\_\-enabled}}
+\index{log\-\_\-enabled@{log\-\_\-enabled}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{log\-\_\-enabled}]{\setlength{\rightskip}{0pt plus 5cm}int log\-\_\-enabled}}\label{structtb__listener__t_a511e73c6f56fe64b24f9261939aec65f}
+
+
+Logging enabled/disabled. 
+
+
+
+Definition at line 197 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a206b8711b0b270577f073bdc99b0917d}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!log\-\_\-info@{log\-\_\-info}}
+\index{log\-\_\-info@{log\-\_\-info}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{log\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-log\-\_\-t}$\ast$ log\-\_\-info}}\label{structtb__listener__t_a206b8711b0b270577f073bdc99b0917d}
+
+
+Information for logging. 
+
+
+
+Definition at line 198 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a2715f812fc8239e875c5e9413f8ed04b}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!main\-\_\-cpu\-\_\-aff@{main\-\_\-cpu\-\_\-aff}}
+\index{main\-\_\-cpu\-\_\-aff@{main\-\_\-cpu\-\_\-aff}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{main\-\_\-cpu\-\_\-aff}]{\setlength{\rightskip}{0pt plus 5cm}int main\-\_\-cpu\-\_\-aff}}\label{structtb__listener__t_a2715f812fc8239e875c5e9413f8ed04b}
+
+
+The affinity for the main thread. 
+
+
+
+Definition at line 151 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a46fa1969de5714507943035793d36269}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!monitor@{monitor}}
+\index{monitor@{monitor}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{monitor}]{\setlength{\rightskip}{0pt plus 5cm}int monitor}}\label{structtb__listener__t_a46fa1969de5714507943035793d36269}
+
+
+Monitor for stat collection. 
+
+
+
+Definition at line 184 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_acbf48788378975ac1fb514027e3dc1ab}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!num\-\_\-connections@{num\-\_\-connections}}
+\index{num\-\_\-connections@{num\-\_\-connections}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{num\-\_\-connections}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-connections}}\label{structtb__listener__t_acbf48788378975ac1fb514027e3dc1ab}
+
+
+The number of connections to create;. 
+
+
+
+Definition at line 164 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ae9a3e84ebf05ae6b7baf872b844c94ea}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!num\-\_\-proc@{num\-\_\-proc}}
+\index{num\-\_\-proc@{num\-\_\-proc}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{num\-\_\-proc}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-proc}}\label{structtb__listener__t_ae9a3e84ebf05ae6b7baf872b844c94ea}
+
+
+The number of processors available. 
+
+
+
+Definition at line 149 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a875fd564b2b2de100e6fc2090a06812c}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!num\-\_\-send@{num\-\_\-send}}
+\index{num\-\_\-send@{num\-\_\-send}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{num\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}int num\-\_\-send}}\label{structtb__listener__t_a875fd564b2b2de100e6fc2090a06812c}
+
+
+Send multiple times. 
+
+
+
+Definition at line 171 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_abe6a138a14cade5eb871eeb66ee2b638}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!options@{options}}
+\index{options@{options}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{options}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-options\-\_\-t}$\ast$ options}}\label{structtb__listener__t_abe6a138a14cade5eb871eeb66ee2b638}
+
+
+The options for the protocol. 
+
+
+
+Definition at line 162 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ada07b15315fdcc71589ed7b50faec50a}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!params@{params}}
+\index{params@{params}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{params}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-test\-\_\-params\-\_\-t}$\ast$ params}}\label{structtb__listener__t_ada07b15315fdcc71589ed7b50faec50a}
+
+
+The parameters for the test. 
+
+
+
+Definition at line 194 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a21a0be842e8fa2c780fa87f45bd5d17e}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!print\-\_\-stats@{print\-\_\-stats}}
+\index{print\-\_\-stats@{print\-\_\-stats}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{print\-\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}int print\-\_\-stats}}\label{structtb__listener__t_a21a0be842e8fa2c780fa87f45bd5d17e}
+
+
+Print stats to screen. 
+
+
+
+Definition at line 185 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ab79822e20d19ce95bdf8a3f95bd616d5}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!prot\-\_\-data@{prot\-\_\-data}}
+\index{prot\-\_\-data@{prot\-\_\-data}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{prot\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ prot\-\_\-data}}\label{structtb__listener__t_ab79822e20d19ce95bdf8a3f95bd616d5}
+
+
+Protocol specific data. 
+
+
+
+Definition at line 163 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a0b0f6789be37cb22fa42abe30a271591}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!protocol@{protocol}}
+\index{protocol@{protocol}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{protocol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-protocol\-\_\-t}$\ast$ protocol}}\label{structtb__listener__t_a0b0f6789be37cb22fa42abe30a271591}
+
+
+The protocol to use. 
+
+
+
+Definition at line 160 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ad91878c8e805d88354749a9fbfee4296}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!read@{read}}
+\index{read@{read}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}int read}}\label{structtb__listener__t_ad91878c8e805d88354749a9fbfee4296}
+
+
+Current stats have been read. 
+
+
+
+Definition at line 183 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_aea40caaca885ba5ed3e0b82d7ef1f498}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!s\-\_\-tx\-\_\-end@{s\-\_\-tx\-\_\-end}}
+\index{s\-\_\-tx\-\_\-end@{s\-\_\-tx\-\_\-end}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{s\-\_\-tx\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}{\bf C\-O\-M\-M\-A\-N\-D} s\-\_\-tx\-\_\-end}}\label{structtb__listener__t_aea40caaca885ba5ed3e0b82d7ef1f498}
+
+
+The command to process if a tx ends. 
+
+
+
+Definition at line 190 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a741d9964fa8029b9468528756ea835af}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!sec@{sec}}
+\index{sec@{sec}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{sec}]{\setlength{\rightskip}{0pt plus 5cm}double sec}}\label{structtb__listener__t_a741d9964fa8029b9468528756ea835af}
+
+
+The seconds it took for the last transfer. 
+
+
+
+Definition at line 179 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a948f8e60166821d3db232c56a59b195c}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!session\-\_\-list@{session\-\_\-list}}
+\index{session\-\_\-list@{session\-\_\-list}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{session\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-session\-\_\-list\-\_\-t}$\ast$ session\-\_\-list}}\label{structtb__listener__t_a948f8e60166821d3db232c56a59b195c}
+
+
+Session list. 
+
+
+
+Definition at line 203 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a696d2a3fd36c8895302b9372d1e55935}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!sessions@{sessions}}
+\index{sessions@{sessions}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{sessions}]{\setlength{\rightskip}{0pt plus 5cm}G\-Hash\-Table$\ast$ sessions}}\label{structtb__listener__t_a696d2a3fd36c8895302b9372d1e55935}
+
+
+Active sessions. 
+
+
+
+Definition at line 140 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a94d540b145f21be2f9b28a2c225ccf30}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!sock\-\_\-d@{sock\-\_\-d}}
+\index{sock\-\_\-d@{sock\-\_\-d}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{sock\-\_\-d}]{\setlength{\rightskip}{0pt plus 5cm}int sock\-\_\-d}}\label{structtb__listener__t_a94d540b145f21be2f9b28a2c225ccf30}
+
+
+The socket descriptor. 
+
+
+
+Definition at line 161 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a7f764a9f865a1a752a852d4d4422023a}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!stat\-\_\-cond@{stat\-\_\-cond}}
+\index{stat\-\_\-cond@{stat\-\_\-cond}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{stat\-\_\-cond}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-cond\-\_\-t$\ast$ stat\-\_\-cond}}\label{structtb__listener__t_a7f764a9f865a1a752a852d4d4422023a}
+
+
+The condition for releasing external threads. 
+
+
+
+Definition at line 145 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_ab828bf6b1b85621025b518a892b79d79}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!stat\-\_\-lock@{stat\-\_\-lock}}
+\index{stat\-\_\-lock@{stat\-\_\-lock}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{stat\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t$\ast$ stat\-\_\-lock}}\label{structtb__listener__t_ab828bf6b1b85621025b518a892b79d79}
+
+
+Locks the stats field for writing. 
+
+
+
+Definition at line 144 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a464593aa6d4c80e0f689c501c4e81e8c}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!stats@{stats}}
+\index{stats@{stats}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{stats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-prot\-\_\-stats\-\_\-t}$\ast$ stats}}\label{structtb__listener__t_a464593aa6d4c80e0f689c501c4e81e8c}
+
+
+The current stats. 
+
+
+
+Definition at line 182 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a1025e6cbbd3179d2d91b9b4afb8f8efc}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!status@{status}}
+\index{status@{status}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\-T\-A\-T\-U\-S} status}}\label{structtb__listener__t_a1025e6cbbd3179d2d91b9b4afb8f8efc}
+
+
+The current status of the listener. 
+
+
+
+Definition at line 188 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a54cc7a2ff1d7592de7c4647c6fd66e14}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!status\-\_\-lock@{status\-\_\-lock}}
+\index{status\-\_\-lock@{status\-\_\-lock}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{status\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t$\ast$ status\-\_\-lock}}\label{structtb__listener__t_a54cc7a2ff1d7592de7c4647c6fd66e14}
+
+
+Lock for safe set/get of listener status. 
+
+
+
+Definition at line 146 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_a053be2f9198a10c7329b11c19dfc6fe4}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!sys\-\_\-tid@{sys\-\_\-tid}}
+\index{sys\-\_\-tid@{sys\-\_\-tid}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{sys\-\_\-tid}]{\setlength{\rightskip}{0pt plus 5cm}int sys\-\_\-tid}}\label{structtb__listener__t_a053be2f9198a10c7329b11c19dfc6fe4}
+
+
+The id returned from syscall. 
+
+
+
+Definition at line 143 of file tb\-\_\-listener.\-h.
+
+\hypertarget{structtb__listener__t_af6b56edb73bc2df2c5b45cb794532ce5}{\index{tb\-\_\-listener\-\_\-t@{tb\-\_\-listener\-\_\-t}!total\-\_\-tx\-\_\-rx@{total\-\_\-tx\-\_\-rx}}
+\index{total\-\_\-tx\-\_\-rx@{total\-\_\-tx\-\_\-rx}!tb_listener_t@{tb\-\_\-listener\-\_\-t}}
+\subsubsection[{total\-\_\-tx\-\_\-rx}]{\setlength{\rightskip}{0pt plus 5cm}long long total\-\_\-tx\-\_\-rx}}\label{structtb__listener__t_af6b56edb73bc2df2c5b45cb794532ce5}
+
+
+the total amount of data tx/rx. 
+
+
+
+Definition at line 178 of file tb\-\_\-listener.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{tb__listener_8h}{tb\-\_\-listener.\-h}\end{DoxyCompactItemize}

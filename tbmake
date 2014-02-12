@@ -1,0 +1,8 @@
+#!/bin/bash
+reset
+rm TestBed
+gcc -Wall -D_GNU_SOURCE -D_DEBUG_STATS -o TestBed src/*.c -Iincludes -includeutp.h \
+ -includeudt.h -Llib -ludt -lutp -pthread -lgdsl -lrt -laio `pkg-config \
+--cflags --libs glib-2.0`
+
+#scp TestBed rafsan@192.168.0.15:/home/rafsan

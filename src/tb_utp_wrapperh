@@ -1,0 +1,107 @@
+/*
+ * tb_utp_wrapper.h
+ *
+ *  Created on: 24/12/2013
+ *      Author: michael
+ */
+
+#ifndef TB_UTP_WRAPPER_H_
+#define TB_UTP_WRAPPER_H_
+
+#include "tb_listener.h"
+
+#include <utp.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <pthread.h>
+#include <sys/socket.h>
+
+struct UTPSocket;
+
+typedef struct
+{
+	struct UTPSocket *socket;
+	int sock_fd;
+	char *buffer;
+	char *rec_buffer;
+	int read_bytes;
+	int write_bytes;
+	int buffer_size;
+	int rec_buff_size;
+	int is_server;
+	int e_id;
+	int recv_total;
+	int sent_total;
+	int state;
+	tb_listener_t *listener;
+	struct sockaddr_storage *addr_s;
+	socklen_t addr_len;
+}
+tb_utp_wrapper_t;
+
+/////////////// uTP management functions /////////////
+
+int
+tb_utp_set_up(void *data);
+
+int
+poll_for_events(int time);
+
+////////////// Functions for uTP ////////////////////
+
+void
+tb_utp_read(void *userdata, const byte *bytes, size_t count);
+
+void
+tb_utp_write(void *userdata, byte *bytes, size_t count);
+
+size_t
+tb_utp_get_Rcv_buff(void *userdata);
+
+void
+tb_utp_state_change(void *userdata, int state);
+
+void
+tb_utp_error(void *userdata, int errcode);
+
+void
+tb_utp_overhead(void *userdata, int send, size_t count, int type);
+
+void
+tb_utp_send_to(void *userdata, const byte *p, size_t len,
+		const struct sockaddr *to, socklen_t tolen);
+
+void
+tb_utp_incoming(void *userdata, struct UTPSocket *socket);
+
+///////////// Standard socket API /////////////////////
+
+int
+tb_utp_socket(int domain, int type, int protocol);
+
+int
+tb_utp_connect(int fd, const struct sockaddr *addr, socklen_t len);
+
+int
+tb_utp_send(int fd, void *buf, size_t n, int sock_flags);
+
+int
+tb_utp_recv_data();
+
+int
+tb_utp_recv_from(int fd, void *buf, size_t n, unsigned int flags,
+		const struct sockaddr *to, socklen_t *tolen);
+
+int
+tb_utp_funct_exit();
+
+int
+tb_utp_error_handle(int value);
+
+int
+tb_utp_options(int sock, int level, int opname, void *optval, int optlen);
+
+int
+tb_utp_close(int sock);
+
+#endif /* TB_UTP_WRAPPER_H_ */

@@ -1,0 +1,221 @@
+.TH "src/tb_file_io.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_file_io.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_file_io\&.h'\fP
+.br
+\fC#include 'tb_common\&.h'\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <fcntl\&.h>\fP
+.br
+\fC#include <sys/stat\&.h>\fP
+.br
+\fC#include <sys/mman\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <libaio\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtb_file_t\fP * \fBtb_create_file\fP (char *file_path, \fBtb_io_type\fP type)"
+.br
+.RI "\fICreate \fBtb_file_t\fP\&. \fP"
+.ti -1c
+.RI "int \fBtb_destroy_file\fP (\fBtb_file_t\fP *file)"
+.br
+.RI "\fIDestroy \fBtb_file_t\fP\&. \fP"
+.ti -1c
+.RI "void \fBtb_close_destroy\fP (\fBtb_file_t\fP *file)"
+.br
+.ti -1c
+.RI "int \fBtb_get_file_length\fP (int fd)"
+.br
+.ti -1c
+.RI "\fBtb_file_t\fP * \fBtb_setup_mmap\fP (char *file_path, \fBtb_o_flags\fP flags, int file_len)"
+.br
+.RI "\fISetup mmap for io\&. \fP"
+.ti -1c
+.RI "int \fBtb_write_mmap\fP (\fBtb_file_t\fP *file, char *buff, int off, int len)"
+.br
+.RI "\fIWrite to a file using mmap\&. \fP"
+.ti -1c
+.RI "int \fBtb_read_mmap\fP (\fBtb_file_t\fP *file, char *buff, int off, int len)"
+.br
+.RI "\fIRead a file using mmap\&. \fP"
+.ti -1c
+.RI "int \fBtb_close_mmap\fP (\fBtb_file_t\fP *file)"
+.br
+.RI "\fIclose mmap\&. \fP"
+.ti -1c
+.RI "\fBtb_file_t\fP * \fBtb_setup_s\fP (char *file_path, \fBtb_o_flags\fP flags, int file_len)"
+.br
+.RI "\fISetup for synchronous io\&. \fP"
+.ti -1c
+.RI "int \fBtb_close_s\fP (\fBtb_file_t\fP *file)"
+.br
+.RI "\fIClose for synchronous io\&. \fP"
+.ti -1c
+.RI "int \fBtb_read_s\fP (\fBtb_file_t\fP *file, char *buf, int off, int len)"
+.br
+.RI "\fIRead a file synchronously\&. \fP"
+.ti -1c
+.RI "int \fBtb_write_s\fP (\fBtb_file_t\fP *file, char *buf, int off, int len)"
+.br
+.RI "\fIWrite to a file synchronously\&. \fP"
+.ti -1c
+.RI "\fBtb_file_t\fP * \fBtb_setup_buffs\fP (char *file_path, \fBtb_o_flags\fP flags, int file_len)"
+.br
+.ti -1c
+.RI "int \fBtb_write_buffs\fP (\fBtb_file_t\fP *file, char *buf, int off, int len)"
+.br
+.ti -1c
+.RI "int \fBtb_read_buffs\fP (\fBtb_file_t\fP *file, char *buf, int off, int len)"
+.br
+.ti -1c
+.RI "int \fBtb_close_buffs\fP (\fBtb_file_t\fP *file)"
+.br
+.ti -1c
+.RI "\fBtb_file_t\fP * \fBtb_setup_as\fP (char *file_path)"
+.br
+.RI "\fISetup asynchronous io\&. \fP"
+.ti -1c
+.RI "int \fBtb_read_as\fP (\fBtb_file_t\fP *file)"
+.br
+.RI "\fIRead a file asynchronously\&. \fP"
+.ti -1c
+.RI "int \fBtb_write_as\fP (\fBtb_file_t\fP *file)"
+.br
+.RI "\fIWrite to a file asynchronously\&. \fP"
+.ti -1c
+.RI "int \fBtb_close_as\fP (\fBtb_file_t\fP *file)"
+.br
+.RI "\fIClose asynchronous io\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int tb_close_as (\fBtb_file_t\fP *file)"
+
+.PP
+Close asynchronous io\&. 
+.PP
+Definition at line 364 of file tb_file_io\&.c\&.
+.SS "int tb_close_buffs (\fBtb_file_t\fP *file)"
+
+.PP
+Definition at line 313 of file tb_file_io\&.c\&.
+.SS "void tb_close_destroy (\fBtb_file_t\fP *file)\fC [inline]\fP"
+
+.PP
+Definition at line 37 of file tb_file_io\&.c\&.
+.SS "int tb_close_mmap (\fBtb_file_t\fP *file)"
+
+.PP
+close mmap\&. 
+.PP
+Definition at line 139 of file tb_file_io\&.c\&.
+.SS "int tb_close_s (\fBtb_file_t\fP *file)"
+
+.PP
+Close for synchronous io\&. 
+.PP
+Definition at line 182 of file tb_file_io\&.c\&.
+.SS "\fBtb_file_t\fP* tb_create_file (char *file_path, \fBtb_io_type\fPtype)\fC [inline]\fP"
+
+.PP
+Create \fBtb_file_t\fP\&. .IP "\(bu" 2
+
+.PP
+
+.PP
+Definition at line 20 of file tb_file_io\&.c\&.
+.SS "int tb_destroy_file (\fBtb_file_t\fP *file)\fC [inline]\fP"
+
+.PP
+Destroy \fBtb_file_t\fP\&. 
+.PP
+Definition at line 29 of file tb_file_io\&.c\&.
+.SS "int tb_get_file_length (intfd)\fC [inline]\fP"
+
+.PP
+Definition at line 44 of file tb_file_io\&.c\&.
+.SS "int tb_read_as (\fBtb_file_t\fP *file)"
+
+.PP
+Read a file asynchronously\&. 
+.PP
+Definition at line 346 of file tb_file_io\&.c\&.
+.SS "int tb_read_buffs (\fBtb_file_t\fP *file, char *buf, intoff, intlen)"
+
+.PP
+Definition at line 299 of file tb_file_io\&.c\&.
+.SS "int tb_read_mmap (\fBtb_file_t\fP *file, char *buff, intoff, intlen)"
+
+.PP
+Read a file using mmap\&. 
+.PP
+Definition at line 128 of file tb_file_io\&.c\&.
+.SS "int tb_read_s (\fBtb_file_t\fP *file, char *buf, intoff, intlen)"
+
+.PP
+Read a file synchronously\&. 
+.PP
+Definition at line 193 of file tb_file_io\&.c\&.
+.SS "\fBtb_file_t\fP* tb_setup_as (char *file_path)"
+
+.PP
+Setup asynchronous io\&. 
+.PP
+Definition at line 325 of file tb_file_io\&.c\&.
+.SS "\fBtb_file_t\fP* tb_setup_buffs (char *file_path, \fBtb_o_flags\fPflags, intfile_len)"
+
+.PP
+Definition at line 232 of file tb_file_io\&.c\&.
+.SS "\fBtb_file_t\fP* tb_setup_mmap (char *file_path, \fBtb_o_flags\fPflags, intfile_len)"
+
+.PP
+Setup mmap for io\&. 
+.PP
+Definition at line 66 of file tb_file_io\&.c\&.
+.SS "\fBtb_file_t\fP* tb_setup_s (char *file_path, \fBtb_o_flags\fPflags, intfile_len)"
+
+.PP
+Setup for synchronous io\&. 
+.PP
+Definition at line 151 of file tb_file_io\&.c\&.
+.SS "int tb_write_as (\fBtb_file_t\fP *file)"
+
+.PP
+Write to a file asynchronously\&. 
+.PP
+Definition at line 355 of file tb_file_io\&.c\&.
+.SS "int tb_write_buffs (\fBtb_file_t\fP *file, char *buf, intoff, intlen)"
+
+.PP
+Definition at line 285 of file tb_file_io\&.c\&.
+.SS "int tb_write_mmap (\fBtb_file_t\fP *file, char *buff, intoff, intlen)"
+
+.PP
+Write to a file using mmap\&. 
+.PP
+Definition at line 117 of file tb_file_io\&.c\&.
+.SS "int tb_write_s (\fBtb_file_t\fP *file, char *buf, intoff, intlen)"
+
+.PP
+Write to a file synchronously\&. 
+.PP
+Definition at line 214 of file tb_file_io\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

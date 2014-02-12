@@ -1,0 +1,2638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Detailed report on module anonymous-->
+<CCCC_Project>
+<module_summary>
+<lines_of_code value="3164" level="2" />
+<lines_of_code_per_member_function value="******" level="0" />
+<McCabes_cyclomatic_complexity value="486" level="1" />
+<McCabes_cyclomatic_complexity_per_member_function value="******" level="2" />
+<lines_of_code value="81" level="0" />
+<lines_of_code_per_member_function value="********" level="2" />
+<lines_of_code_per_line_of_comment value="39.062" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="6.000" level="1" />
+<weighted_methods_per_class_unity value="165" level="0" />
+<weighted_methods_per_class_visibility value="128" level="0" />
+<depth_of_inheritance_tree value="0" level="0" />
+<number_of_children value="0" level="0" />
+<coupling_between_objects value="0" level="0" />
+<IF4 value="0" level="0" />
+<IF4_per_member_function value="********" level="0" />
+<IF4_visible value="0" level="0" />
+<IF4_visible_per_member_function value="********" level="0" />
+<IF4_concrete value="0" level="0" />
+<IF4_concrete_per_member_function value="********" level="0" />
+</module_summary>
+<module_detail>
+</module_detail>
+<procedural_detail>
+<member_function>
+<name>add_work(tb_worker_t *,tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker.c" line="72" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker.h" line="115" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>allocate_session(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="216" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="165" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>allocate_tuple(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker_pair.c" line="21" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker_pair.h" line="21" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>compare_workers(gdsl_element_t,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker.c" line="109" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker.h" line="84" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>create_session(char *,sockaddr_storage *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="26" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="99" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>create_worker()</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker.c" line="44" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker.h" line="68" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>destroy_worker(tb_worker_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker.c" line="61" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker.h" line="58" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>do_work(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker.c" line="25" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker.h" line="48" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>free_session(gdsl_element_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="229" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="171" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>free_tuple(gdsl_element_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker_pair.c" line="30" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker_pair.h" line="22" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_dccp_stats(tb_prot_stats_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="295" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="264" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_key_value(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="239" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="174" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_pair_key(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker_pair.c" line="14" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker_pair.h" line="20" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_tcp_stats(tb_prot_stats_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="301" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="270" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_udp_stats(tb_prot_stats_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="283" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="276" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_udt_stats(tb_prot_stats_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="254" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="258" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="22.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_utp_stats(tb_prot_stats_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="289" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="282" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>get_work(tb_worker_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_worker.c" line="86" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_worker.h" line="98" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>main(...)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="39" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_abort(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="591" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="164" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_accept(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="471" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="386" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_add_socket(tb_epoll_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_epoll.c" line="76" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_epoll.h" line="51" />
+</extent>
+<lines_of_code value="31" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_address(tb_listener_t *,const char *,sockaddr_storage *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="697" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="446" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_bind(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="569" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="405" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_calculate_time(tb_time_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_common.c" line="79" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_common.h" line="66" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_client(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_endpoint.c" line="30" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_endpoint.h" line="25" />
+</extent>
+<lines_of_code value="51" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_close_as(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="364" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="172" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_close_buffs(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="313" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="148" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_close_destroy(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="37" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="85" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_close_mmap(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="139" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="112" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_close_s(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="182" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="136" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_connect(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="550" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="394" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_e_poll(int,int,int,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_epoll.c" line="19" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_epoll.h" line="44" />
+</extent>
+<lines_of_code value="39" level="1" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_create_endpoint(tb_test_params_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="158" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="290" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="56" />
+</extent>
+<lines_of_code value="58" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="19.333" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="2.667" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_file(char *,tb_io_type)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="20" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="76" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_file(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="439" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="125" />
+</extent>
+<lines_of_code value="29" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_flog(char *,tb_log_format_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_logging.c" line="33" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_logging.h" line="52" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_listener(ENDPOINT_TYPE,char *,char *,PROTOCOL,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="38" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="277" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="52" />
+</extent>
+<lines_of_code value="78" level="1" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="18" level="0" />
+<lines_of_code_per_line_of_comment value="4.333" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_log(char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_logging.c" line="18" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_logging.h" line="45" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_protocol(PROTOCOL)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="27" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="301" />
+</extent>
+<lines_of_code value="148" level="2" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="148.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="8.000" level="1" />
+</member_function>
+<member_function>
+<name>tb_create_random(char *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="556" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="153" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_session()</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="47" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="109" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_session_full(char *,char *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="77" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="120" />
+</extent>
+<lines_of_code value="21" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_socket(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="532" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="362" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_time()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_common.h" line="54" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_create_time(clockid_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_common.c" line="46" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_dccp_error(int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="192" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="239" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_destroy_epoll(tb_epoll_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_epoll.c" line="68" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_epoll.h" line="48" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_destroy_file(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="29" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="82" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_destroy_listener(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="280" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="306" />
+</extent>
+<lines_of_code value="50" level="1" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="50.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_destroy_log(tb_log_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_logging.c" line="50" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_logging.h" line="60" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_destroy_protocol(tb_protocol_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="340" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="312" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_destroy_session(tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="102" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="130" />
+</extent>
+<lines_of_code value="43" level="1" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_destroy_stats(tb_prot_stats_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="247" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="227" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_destroy_time(tb_time_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_common.c" line="58" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_common.h" line="57" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_epoll_accept(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="492" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_error(tb_listener_t *,const char *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="681" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="443" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_ex_get_stats(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="367" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="262" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="62" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_exit(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="580" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="175" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_finish_time(tb_time_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_common.c" line="72" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_common.h" line="63" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_address(sockaddr_storage *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_common.c" line="25" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_common.h" line="41" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_bsd_stats(tb_prot_stats_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="330" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="288" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_cpu_info(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="274" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="322" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_f_time(char *,size_t,const char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_logging.c" line="116" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_logging.h" line="77" />
+</extent>
+<lines_of_code value="9" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_file_length(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="44" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="88" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_prot_stats(tb_listener_t *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="431" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_protocol_stats(tb_listener_t *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="59" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_session(tb_listener_t *,tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="268" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_get_stats(tb_prot_stats_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="215" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="252" />
+</extent>
+<lines_of_code value="25" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_get_worker(tb_listener_t *,tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="242" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="296" />
+</extent>
+<lines_of_code value="19" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_interrupt_handler(int)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="117" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_listen(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="453" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="374" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_load_file(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="474" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="131" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_load_random_file(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="522" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="145" />
+</extent>
+<lines_of_code value="25" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="25.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="5.000" level="0" />
+</member_function>
+<member_function>
+<name>tb_monitor(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="305" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="97" />
+</extent>
+<lines_of_code value="75" level="1" />
+<McCabes_cyclomatic_complexity value="16" level="1" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="37.500" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="8.000" level="1" />
+</member_function>
+<member_function>
+<name>tb_parse(...)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="63" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="74" />
+</extent>
+<lines_of_code value="129" level="2" />
+<McCabes_cyclomatic_complexity value="21" level="1" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_poll_for_events(tb_epoll_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_epoll.c" line="115" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_epoll.h" line="54" />
+</extent>
+<lines_of_code value="25" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_print_address(sockaddr_storage *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_common.c" line="17" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_common.h" line="38" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_print_listener(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="343" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="332" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_print_protocol(tb_protocol_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="209" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="320" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_print_stats(tb_prot_stats_t *,tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="406" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="106" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="13.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_print_times(tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="191" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="153" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_random_array(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="502" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="137" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_read_as(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="346" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="160" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_read_buffs(tb_file_t *,char *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="299" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="142" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_read_mmap(tb_file_t *,char *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="128" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="106" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_read_s(tb_file_t *,char *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="193" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="124" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>tb_recv_data(tb_listener_t *,tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="611" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="417" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_recv_from(tb_listener_t *,tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="648" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="425" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_resolve_address(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="502" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="341" />
+</extent>
+<lines_of_code value="21" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="21.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_send_data(tb_listener_t *,char *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="587" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="411" />
+</extent>
+<lines_of_code value="18" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_send_to(tb_listener_t *,tb_session_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="631" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="420" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_server(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_endpoint.c" line="92" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_endpoint.h" line="37" />
+</extent>
+<lines_of_code value="51" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_session_equals(gconstpointer,gconstpointer)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="262" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="184" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_addrinfo(tb_session_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_session.c" line="158" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_session.h" line="138" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_set_audt_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="251" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="70" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_bsd_sock_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="87" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="46" />
+</extent>
+<lines_of_code value="35" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_set_dccp_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="311" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="88" />
+</extent>
+<lines_of_code value="20" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_epoll(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="664" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="437" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_eudp_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="303" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="82" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_l_stats(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="388" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="234" />
+</extent>
+<lines_of_code value="25" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="12.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_m_stats(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="421" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="248" />
+</extent>
+<lines_of_code value="23" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_sock_opt(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="43" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="39" />
+</extent>
+<lines_of_code value="33" level="1" />
+<McCabes_cyclomatic_complexity value="10" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_set_sockopt(tb_listener_t *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="352" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_tcp_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="133" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="52" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_therad_param(tb_listener_t *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_listener.h" line="315" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_udp_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="151" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="58" />
+</extent>
+<lines_of_code value="16" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_set_udt_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="171" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="64" />
+</extent>
+<lines_of_code value="62" level="1" />
+<McCabes_cyclomatic_complexity value="13" level="1" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_set_utp_opts(tb_options_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_sock_opt.c" line="257" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_sock_opt.h" line="76" />
+</extent>
+<lines_of_code value="36" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_setup_as(char *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="325" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="154" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="9" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_setup_buffs(char *,tb_o_flags,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="232" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="139" />
+</extent>
+<lines_of_code value="35" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_setup_mmap(char *,tb_o_flags,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="66" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="94" />
+</extent>
+<lines_of_code value="36" level="1" />
+<McCabes_cyclomatic_complexity value="10" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_setup_s(char *,tb_o_flags,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="151" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="118" />
+</extent>
+<lines_of_code value="22" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_setup_workers(tb_listener_t *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_listener.c" line="230" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="5" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_socket_error(int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="185" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="245" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_start(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="211" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="89" />
+</extent>
+<lines_of_code value="69" level="1" />
+<McCabes_cyclomatic_complexity value="13" level="1" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="11.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="2.167" level="0" />
+</member_function>
+<member_function>
+<name>tb_start_time(tb_time_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_common.c" line="66" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_common.h" line="60" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_stream_client(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_stream.c" line="365" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_stream.h" line="63" />
+</extent>
+<lines_of_code value="25" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_stream_connection(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_stream.c" line="307" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_stream.h" line="57" />
+</extent>
+<lines_of_code value="41" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="20.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="3.500" level="0" />
+</member_function>
+<member_function>
+<name>tb_stream_event(int,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_stream.c" line="116" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_stream.h" line="36" />
+</extent>
+<lines_of_code value="42" level="1" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>tb_stream_m_client(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_stream.c" line="218" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_stream.h" line="51" />
+</extent>
+<lines_of_code value="63" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="6" level="0" />
+<lines_of_code_per_line_of_comment value="10.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.167" level="0" />
+</member_function>
+<member_function>
+<name>tb_stream_m_server(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_stream.c" line="99" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_stream.h" line="30" />
+</extent>
+<lines_of_code value="14" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_stream_m_server_conn(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_stream.c" line="171" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_stream.h" line="42" />
+</extent>
+<lines_of_code value="34" level="1" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="34.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_stream_server(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_stream.c" line="36" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_stream.h" line="22" />
+</extent>
+<lines_of_code value="44" level="1" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="3" level="0" />
+<lines_of_code_per_line_of_comment value="14.667" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="1.667" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_ack(int,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="105" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="37" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_client(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="37" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="28" />
+</extent>
+<lines_of_code value="50" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="25.000" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="4.000" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_epoll_client(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="117" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="44" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_epoll_server(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="229" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="71" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_event(int,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="269" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="87" />
+</extent>
+<lines_of_code value="47" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="2" level="0" />
+<lines_of_code_per_line_of_comment value="23.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="4.000" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_m_client(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="134" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="50" />
+</extent>
+<lines_of_code value="35" level="1" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_m_server(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="253" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="77" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_udp_server(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udp.c" line="182" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udp.h" line="59" />
+</extent>
+<lines_of_code value="37" level="1" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_udt_client(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udt.c" line="132" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udt.h" line="27" />
+</extent>
+<lines_of_code value="31" level="1" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="31.000" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="6.000" level="1" />
+</member_function>
+<member_function>
+<name>tb_udt_error(int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_protocol.c" line="203" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_protocol.h" line="233" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_udt_server(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_udt.c" line="37" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_udt.h" line="21" />
+</extent>
+<lines_of_code value="66" level="1" />
+<McCabes_cyclomatic_complexity value="9" level="0" />
+<lines_of_comment value="4" level="0" />
+<lines_of_code_per_line_of_comment value="16.500" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="2.250" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_client(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="372" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="164" />
+</extent>
+<lines_of_code value="31" level="1" />
+<McCabes_cyclomatic_complexity value="8" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_utp_close(int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="340" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="154" />
+</extent>
+<lines_of_code value="24" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_connect(int,const sockaddr *,socklen_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="222" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="123" />
+</extent>
+<lines_of_code value="12" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_error(void *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="120" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="90" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_error_handle(int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="334" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="151" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_event(int,void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="273" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="139" />
+</extent>
+<lines_of_code value="34" level="1" />
+<McCabes_cyclomatic_complexity value="11" level="1" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_utp_funct_exit()</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="328" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="148" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_get_Rcv_buff(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="92" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="84" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_get_state()</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="161" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="70" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_incoming(void *,UTPSocket *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="152" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="106" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_overhead(void *,int,size_t,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="131" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="93" />
+</extent>
+<lines_of_code value="4" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_read(void *,const byte *,size_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="76" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="78" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="1" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_recv(char *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="318" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="145" />
+</extent>
+<lines_of_code value="8" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_recv_data()</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="129" />
+</extent>
+<lines_of_code value="1" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_recv_from(int,void *,size_t,int,const sockaddr *,socklen_t *)</name>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="132" />
+</extent>
+<lines_of_code value="2" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_send(void *,size_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="240" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="126" />
+</extent>
+<lines_of_code value="26" level="0" />
+<McCabes_cyclomatic_complexity value="6" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_utp_send_to(void *,const byte *,size_t,const sockaddr *,socklen_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="137" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="96" />
+</extent>
+<lines_of_code value="13" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_server(tb_listener_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="413" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="172" />
+</extent>
+<lines_of_code value="32" level="1" />
+<McCabes_cyclomatic_complexity value="7" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_utp_set_buffers(size_t,size_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="167" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="73" />
+</extent>
+<lines_of_code value="10" level="0" />
+<McCabes_cyclomatic_complexity value="2" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_setsockopt(int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="181" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="115" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="4" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_setup(void *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="36" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="67" />
+</extent>
+<lines_of_code value="27" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_socket(int,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="202" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="120" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_state_change(void *,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="98" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="87" />
+</extent>
+<lines_of_code value="17" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_utp_write(void *,byte *,size_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_utp.c" line="84" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_utp.h" line="81" />
+</extent>
+<lines_of_code value="7" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_write_as(tb_file_t *)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="355" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="166" />
+</extent>
+<lines_of_code value="5" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_write_buffs(tb_file_t *,char *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="285" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="145" />
+</extent>
+<lines_of_code value="11" level="0" />
+<McCabes_cyclomatic_complexity value="3" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_write_log(tb_log_t *,char *,tb_log_type_t)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_logging.c" line="58" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_logging.h" line="71" />
+</extent>
+<lines_of_code value="35" level="1" />
+<McCabes_cyclomatic_complexity value="12" level="1" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="******" level="2" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="2" />
+</member_function>
+<member_function>
+<name>tb_write_mmap(tb_file_t *,char *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="117" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="100" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+<member_function>
+<name>tb_write_s(tb_file_t *,char *,int,int)</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_file_io.c" line="214" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_file_io.h" line="130" />
+</extent>
+<lines_of_code value="15" level="0" />
+<McCabes_cyclomatic_complexity value="5" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="******" level="0" />
+</member_function>
+<member_function>
+<name>test()</name>
+<extent>
+<description>definition</description>
+<source_reference file="tb_testbed.c" line="45" />
+</extent>
+<extent>
+<description>declaration</description>
+<source_reference file="tb_testbed.h" line="77" />
+</extent>
+<lines_of_code value="6" level="0" />
+<McCabes_cyclomatic_complexity value="1" level="0" />
+<lines_of_comment value="0" level="0" />
+<lines_of_code_per_line_of_comment value="------" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="------" level="0" />
+</member_function>
+</procedural_detail>
+<structural_detail>
+<module>
+<name>anonymous</name>
+<client_module>
+</client_module>
+<supplier_module>
+</supplier_module>
+</module>
+</structural_detail>
+</CCCC_Project>

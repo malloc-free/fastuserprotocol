@@ -1,0 +1,219 @@
+.TH "src/tb_session.h" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_session.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_epoll\&.h'\fP
+.br
+\fC#include 'tb_common\&.h'\fP
+.br
+\fC#include 'tb_session\&.h'\fP
+.br
+\fC#include 'tb_protocol\&.h'\fP
+.br
+\fC#include <gdsl/gdsl_queue\&.h>\fP
+.br
+\fC#include <netinet/in\&.h>\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <netdb\&.h>\fP
+.br
+\fC#include <glib-2\&.0/glib\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtb_session_t\fP"
+.br
+.ti -1c
+.RI "struct \fBtb_session_list_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBtb_session_status\fP { \fBSESSION_CREATED\fP =  0, \fBSESSION_ADDR_RES\fP, \fBSESSION_CONNECTED\fP, \fBSESSION_COMPLETE\fP, \fBSESSION_DISCONNECTED\fP }"
+.br
+.ti -1c
+.RI "enum \fBtb_session_command\fP { \fBS_CONTINUE\fP =  1, \fBS_EXIT\fP =  2, \fBS_ABORT\fP =  4, \fBS_E_LOOP\fP =  S_EXIT | S_ABORT }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBtb_session_add\fP (\fBtb_session_list_t\fP *list, \fBtb_session_t\fP *session) __attribute__((always_inline))"
+.br
+.RI "\fIAdd a session to a list\&. \fP"
+.ti -1c
+.RI "\fBtb_session_t\fP * \fBcreate_session\fP (char *file_name, struct sockaddr_storage *storage)"
+.br
+.RI "\fICreate a session with a file name, sockaddr_storage\&. \fP"
+.ti -1c
+.RI "\fBtb_session_t\fP * \fBtb_create_session\fP ()"
+.br
+.RI "\fICreate a session\&. \fP"
+.ti -1c
+.RI "\fBtb_session_t\fP * \fBtb_create_session_full\fP (char *addr, char *port, int sock_type, unsigned int data_size)"
+.br
+.RI "\fIFull version of create session\&. \fP"
+.ti -1c
+.RI "void \fBtb_destroy_session\fP (\fBtb_session_t\fP *session)"
+.br
+.RI "\fIFree memory used for a session\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_addrinfo\fP (\fBtb_session_t\fP *session, int type)"
+.br
+.RI "\fISet the addrinfo for the session\&. \fP"
+.ti -1c
+.RI "void \fBtb_print_times\fP (\fBtb_session_t\fP *session)"
+.br
+.RI "\fIPrint the times for a given session\&. \fP"
+.ti -1c
+.RI "gdsl_element_t \fBallocate_session\fP (void *data)"
+.br
+.RI "\fIAllocates memory for a session\&. \fP"
+.ti -1c
+.RI "void \fBfree_session\fP (gdsl_element_t data)"
+.br
+.RI "\fIFree memory for a session\&. \fP"
+.ti -1c
+.RI "char * \fBget_key_value\fP (void *data)"
+.br
+.ti -1c
+.RI "gboolean \fBtb_session_equals\fP (gconstpointer a, gconstpointer b)"
+.br
+.RI "\fITests equality for sessions keys\&. \fP"
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBtb_session_command\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIS_CONTINUE \fP\fP
+.TP
+\fB\fIS_EXIT \fP\fP
+.TP
+\fB\fIS_ABORT \fP\fP
+.TP
+\fB\fIS_E_LOOP \fP\fP
+
+.PP
+Definition at line 35 of file tb_session\&.h\&.
+.SS "enum \fBtb_session_status\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fISESSION_CREATED \fP\fP
+.TP
+\fB\fISESSION_ADDR_RES \fP\fP
+.TP
+\fB\fISESSION_CONNECTED \fP\fP
+.TP
+\fB\fISESSION_COMPLETE \fP\fP
+.TP
+\fB\fISESSION_DISCONNECTED \fP\fP
+
+.PP
+Definition at line 25 of file tb_session\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "gdsl_element_t allocate_session (void *data)"
+
+.PP
+Allocates memory for a session\&. Used by gdsl structures to allocate memory for a \fBtb_session_t\fP struct\&.
+.PP
+data This needs to be an instance of \fBtb_session_t\fP 
+.PP
+Definition at line 243 of file tb_session\&.c\&.
+.SS "\fBtb_session_t\fP* create_session (char *file_name, struct sockaddr_storage *storage)"
+
+.PP
+Create a session with a file name, sockaddr_storage\&. 
+.PP
+Definition at line 44 of file tb_session\&.c\&.
+.SS "void free_session (gdsl_element_tdata)"
+
+.PP
+Free memory for a session\&. 
+.PP
+Definition at line 256 of file tb_session\&.c\&.
+.SS "char* get_key_value (void *data)"
+
+.PP
+Definition at line 266 of file tb_session\&.c\&.
+.SS "\fBtb_session_t\fP* tb_create_session ()"
+
+.PP
+Create a session\&. With this version of create_session, the sockaddr_storage is created, the file name is set to NULL, addr_info and hints are null\&. 
+.PP
+Definition at line 67 of file tb_session\&.c\&.
+.SS "\fBtb_session_t\fP* tb_create_session_full (char *addr, char *port, intsock_type, unsigned intdata_size)"
+
+.PP
+Full version of create session\&. This version creates the hints and info field, and resolves the provided address\&. If the data_size parameter is greater than zero, the session buffer is also created\&. 
+.PP
+Definition at line 100 of file tb_session\&.c\&.
+.SS "void tb_destroy_session (\fBtb_session_t\fP *session)"
+
+.PP
+Free memory used for a session\&. Frees memory used by a \fBtb_session_t\fP struct\&. Releases all memory for associated fields\&. 
+.PP
+Definition at line 125 of file tb_session\&.c\&.
+.SS "void tb_print_times (\fBtb_session_t\fP *session)"
+
+.PP
+Print the times for a given session\&. Prints to stdout the connection and transfer times for the given session\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+The times in the session need to have been set, using the timer functions tb_start_time, tb_finish_time and tb_calculate_time 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP The session to print the times for\&. 
+.RE
+.PP
+
+.PP
+Definition at line 218 of file tb_session\&.c\&.
+.SS "void tb_session_add (\fBtb_session_list_t\fP *list, \fBtb_session_t\fP *session)\fC [inline]\fP"
+
+.PP
+Add a session to a list\&. 
+.PP
+Definition at line 25 of file tb_session\&.c\&.
+.SS "gboolean tb_session_equals (gconstpointera, gconstpointerb)"
+
+.PP
+Tests equality for sessions keys\&. Called by the hash table implementation in glib\&. Simply tests to see if the supplied integers are equal (these are just int32)\&. 
+.PP
+Definition at line 289 of file tb_session\&.c\&.
+.SS "int tb_set_addrinfo (\fBtb_session_t\fP *session, inttype)"
+
+.PP
+Set the addrinfo for the session\&. Fills out the addrinfo field for the session\&. 
+.PP
+Definition at line 185 of file tb_session\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

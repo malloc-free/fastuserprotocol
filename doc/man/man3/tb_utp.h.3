@@ -1,0 +1,264 @@
+.TH "src/tb_utp.h" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_utp.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_listener\&.h'\fP
+.br
+\fC#include 'tb_epoll\&.h'\fP
+.br
+\fC#include <utp\&.h>\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+\fC#include <netinet/in\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtb_utp_t\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBtb_utp_state\fP { \fBUTP_STATE_CREATED\fP =  0, \fBUTP_STATE_ERROR\fP =  5 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtb_utp_t\fP * \fBtb_utp_setup\fP ()"
+.br
+.ti -1c
+.RI "int \fBtb_utp_get_state\fP () __attribute__((always_inline))"
+.br
+.ti -1c
+.RI "int \fBtb_utp_set_buffers\fP (size_t send_buf, size_t recv_buf)"
+.br
+.ti -1c
+.RI "void \fBtb_utp_read\fP (void *userdata, const byte *bytes, size_t count)"
+.br
+.ti -1c
+.RI "void \fBtb_utp_write\fP (void *userdata, byte *bytes, size_t count)"
+.br
+.ti -1c
+.RI "size_t \fBtb_utp_get_Rcv_buff\fP (void *userdata)"
+.br
+.ti -1c
+.RI "void \fBtb_utp_state_change\fP (void *userdata, int state)"
+.br
+.ti -1c
+.RI "void \fBtb_utp_error\fP (void *userdata, int errcode)"
+.br
+.ti -1c
+.RI "void \fBtb_utp_overhead\fP (void *userdata, int send, size_t count, int type)"
+.br
+.ti -1c
+.RI "void \fBtb_utp_send_to\fP (void *userdata, const byte *p, size_t len, const struct sockaddr *to, socklen_t tolen)"
+.br
+.ti -1c
+.RI "void \fBtb_utp_incoming\fP (void *userdata, struct UTPSocket *socket)"
+.br
+.RI "\fIcallback, for incoming connections\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_setsockopt\fP (int opt, int val)"
+.br
+.RI "\fISet the given option on a utp socket\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_socket\fP (\fBtb_utp_t\fP *utp, int domain, int socktype, int protocol)"
+.br
+.ti -1c
+.RI "int \fBtb_utp_connect\fP (\fBtb_utp_t\fP *utp, const struct sockaddr *addr, socklen_t len)"
+.br
+.ti -1c
+.RI "int \fBtb_utp_send\fP (\fBtb_utp_t\fP *utp, void *buf, size_t n)"
+.br
+.ti -1c
+.RI "int \fBtb_utp_recv_data\fP ()"
+.br
+.ti -1c
+.RI "int \fBtb_utp_recv_from\fP (int fd, void *buf, size_t n, unsigned int flags, const struct sockaddr *to, socklen_t *tolen)"
+.br
+.ti -1c
+.RI "int \fBtb_utp_event\fP (int events, void *data)"
+.br
+.RI "\fICallback used by epoll events\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_recv\fP (\fBtb_utp_t\fP *utp, char *buff, int size)"
+.br
+.RI "\fIReceive data from a uTP socket\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_funct_exit\fP ()"
+.br
+.ti -1c
+.RI "int \fBtb_utp_error_handle\fP (int value, int err_no)"
+.br
+.ti -1c
+.RI "int \fBtb_utp_close\fP (\fBtb_utp_t\fP *utp)"
+.br
+.ti -1c
+.RI "int \fBtb_utp_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload using the uTP protocol\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_m_server\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fICreate a multiconnection server using uTP\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_m_event\fP (int events, void *data)"
+.br
+.RI "\fIEvent called by epoll\&. \fP"
+.ti -1c
+.RI "void \fBtb_utp_m_new_conn\fP (void *userdata, struct UTPSocket *socket)"
+.br
+.RI "\fICalled when creating a new connection\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_server\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIRun a server with uTP\&. \fP"
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBtb_utp_state\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIUTP_STATE_CREATED \fP\fP
+.TP
+\fB\fIUTP_STATE_ERROR \fP\fP
+
+.PP
+Definition at line 59 of file tb_utp\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "int tb_utp_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload using the uTP protocol\&. Upload data using the uTP protocol\&. 
+.PP
+Definition at line 340 of file tb_utp\&.c\&.
+.SS "int tb_utp_close (\fBtb_utp_t\fP *utp)"
+
+.PP
+Definition at line 308 of file tb_utp\&.c\&.
+.SS "int tb_utp_connect (\fBtb_utp_t\fP *utp, const struct sockaddr *addr, socklen_tlen)"
+
+.PP
+Definition at line 187 of file tb_utp\&.c\&.
+.SS "void tb_utp_error (void *userdata, interrcode)"
+
+.PP
+Definition at line 121 of file tb_utp\&.c\&.
+.SS "int tb_utp_error_handle (intvalue, interr_no)"
+
+.PP
+Definition at line 302 of file tb_utp\&.c\&.
+.SS "int tb_utp_event (intevents, void *data)"
+
+.PP
+Callback used by epoll events\&. 
+.PP
+Definition at line 239 of file tb_utp\&.c\&.
+.SS "int tb_utp_funct_exit ()"
+
+.PP
+Definition at line 296 of file tb_utp\&.c\&.
+.SS "size_t tb_utp_get_Rcv_buff (void *userdata)"
+
+.PP
+Definition at line 92 of file tb_utp\&.c\&.
+.SS "int tb_utp_get_state ()\fC [inline]\fP"
+
+.SS "void tb_utp_incoming (void *userdata, struct UTPSocket *socket)"
+
+.PP
+callback, for incoming connections\&. Called by the uTP library when incoming data is deemed to be data for a new connection\&. 
+.PP
+Definition at line 153 of file tb_utp\&.c\&.
+.SS "int tb_utp_m_event (intevents, void *data)"
+
+.PP
+Event called by epoll\&. 
+.PP
+Definition at line 428 of file tb_utp\&.c\&.
+.SS "void tb_utp_m_new_conn (void *userdata, struct UTPSocket *socket)"
+
+.PP
+Called when creating a new connection\&. 
+.PP
+Definition at line 469 of file tb_utp\&.c\&.
+.SS "int tb_utp_m_server (\fBtb_listener_t\fP *listener)"
+
+.PP
+Create a multiconnection server using uTP\&. 
+.PP
+Definition at line 421 of file tb_utp\&.c\&.
+.SS "void tb_utp_overhead (void *userdata, intsend, size_tcount, inttype)"
+
+.PP
+Definition at line 133 of file tb_utp\&.c\&.
+.SS "void tb_utp_read (void *userdata, const byte *bytes, size_tcount)"
+
+.PP
+Definition at line 74 of file tb_utp\&.c\&.
+.SS "int tb_utp_recv (\fBtb_utp_t\fP *utp, char *buff, intsize)"
+
+.PP
+Receive data from a uTP socket\&. 
+.PP
+Definition at line 286 of file tb_utp\&.c\&.
+.SS "int tb_utp_recv_data ()"
+
+.SS "int tb_utp_recv_from (intfd, void *buf, size_tn, unsigned intflags, const struct sockaddr *to, socklen_t *tolen)"
+
+.SS "int tb_utp_send (\fBtb_utp_t\fP *utp, void *buf, size_tn)"
+
+.PP
+Definition at line 206 of file tb_utp\&.c\&.
+.SS "void tb_utp_send_to (void *userdata, const byte *p, size_tlen, const struct sockaddr *to, socklen_ttolen)"
+
+.PP
+Definition at line 139 of file tb_utp\&.c\&.
+.SS "int tb_utp_server (\fBtb_listener_t\fP *listener)"
+
+.PP
+Run a server with uTP\&. 
+.PP
+Definition at line 475 of file tb_utp\&.c\&.
+.SS "int tb_utp_set_buffers (size_tsend_buf, size_trecv_buf)"
+
+.SS "int tb_utp_setsockopt (intopt, intval)"
+
+.PP
+Set the given option on a utp socket\&. Sets the provided value for the given option\&. Returns 1 on success\&. 
+.SS "\fBtb_utp_t\fP* tb_utp_setup ()"
+
+.PP
+Definition at line 34 of file tb_utp\&.c\&.
+.SS "int tb_utp_socket (\fBtb_utp_t\fP *utp, intdomain, intsocktype, intprotocol)"
+
+.PP
+Definition at line 167 of file tb_utp\&.c\&.
+.SS "void tb_utp_state_change (void *userdata, intstate)"
+
+.PP
+Definition at line 98 of file tb_utp\&.c\&.
+.SS "void tb_utp_write (void *userdata, byte *bytes, size_tcount)"
+
+.PP
+Definition at line 83 of file tb_utp\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

@@ -1,0 +1,5 @@
+<map id="tb_session_list_t" name="tb_session_list_t">
+<area shape="rect" id="node2" href="$structtb__session__t.html" title="tb_session_t" alt="" coords="52,117,148,147"/>
+<area shape="rect" id="node4" href="$structtb__time__t.html" title="A struct to hold start, stop and elapsed times." alt="" coords="5,5,80,35"/>
+<area shape="rect" id="node6" href="$structtb__prot__stats__t.html" title="Protocol information struct." alt="" coords="104,5,213,35"/>
+</map>

@@ -1,0 +1,171 @@
+.TH "src/tb_client.c" 3 "Fri Feb 7 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_client.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_client\&.h'\fP
+.br
+\fC#include 'tb_testbed\&.h'\fP
+.br
+\fC#include 'tb_protocol\&.h'\fP
+.br
+\fC#include 'tb_listener\&.h'\fP
+.br
+\fC#include 'tb_session\&.h'\fP
+.br
+\fC#include 'tb_udp\&.h'\fP
+.br
+\fC#include 'tb_utp\&.h'\fP
+.br
+\fC#include 'tb_common\&.h'\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+\fC#include <fcntl\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <sys/epoll\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <sys/ioctl\&.h>\fP
+.br
+\fC#include <netinet/in\&.h>\fP
+.br
+\fC#include <netdb\&.h>\fP
+.br
+\fC#include <udt\&.h>\fP
+.br
+\fC#include <errno\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBtb_client\fP (void *data)"
+.br
+.RI "\fIRuns the client\&. \fP"
+.ti -1c
+.RI "int \fBtb_stream_m_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload using stream sockets\&. \fP"
+.ti -1c
+.RI "void * \fBtb_stream_connection\fP (void *data)"
+.br
+.RI "\fIA single stream connection\&. \fP"
+.ti -1c
+.RI "int \fBtb_stream_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload with a single connection\&. \fP"
+.ti -1c
+.RI "int \fBtb_udt_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload a file using udt\&. \fP"
+.ti -1c
+.RI "int \fBtb_udp_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload a file using udp with epoll eof ack\&. \fP"
+.ti -1c
+.RI "int \fBtb_udp_ack\fP (int events, void *data)"
+.br
+.RI "\fICallback function for udp\&. \fP"
+.ti -1c
+.RI "int \fBtb_utp_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload using the uTP protocol\&. \fP"
+.ti -1c
+.RI "int \fBtb_udp_epoll_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUses epoll for receiving data from the client\&. This is a prototype for TB0\&.2\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void* tb_client (void *data)"
+
+.PP
+Runs the client\&. Runs the client, called from pthread_create\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+data must be of type \fBtb_listener_t\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP Instance of \fBtb_listener_t\fP to run as client\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+As pthread_exit is called, this does not return\&. 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file tb_client\&.c\&.
+.SS "int tb_stream_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload with a single connection\&. 
+.PP
+Definition at line 247 of file tb_client\&.c\&.
+.SS "void* tb_stream_connection (void *data)"
+
+.PP
+A single stream connection\&. 
+.PP
+Definition at line 186 of file tb_client\&.c\&.
+.SS "int tb_stream_m_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload using stream sockets\&. Upload using bsd stream based protocols (TCP, DCCP) with multiple connections\&. 
+.PP
+Definition at line 97 of file tb_client\&.c\&.
+.SS "int tb_udp_ack (intevents, void *data)"
+
+.PP
+Callback function for udp\&. This is the function that is called when the eof from the server has be acknowledged\&. 
+.PP
+Definition at line 395 of file tb_client\&.c\&.
+.SS "int tb_udp_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload a file using udp with epoll eof ack\&. The difference between upload_random_udp and udp is that this uses the epoll mechanism to listenen for an ack of the eof\&. This insures that transmission is complete in the event of packet loss\&. 
+.PP
+Definition at line 327 of file tb_client\&.c\&.
+.SS "int tb_udp_epoll_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Uses epoll for receiving data from the client\&. This is a prototype for TB0\&.2\&. 
+.PP
+Definition at line 446 of file tb_client\&.c\&.
+.SS "int tb_udt_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload a file using udt\&. 
+.PP
+Definition at line 284 of file tb_client\&.c\&.
+.SS "int tb_utp_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload using the uTP protocol\&. Upload data using the uTP protocol\&. 
+.PP
+Definition at line 407 of file tb_client\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

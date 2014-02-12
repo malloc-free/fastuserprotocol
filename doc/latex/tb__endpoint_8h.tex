@@ -1,0 +1,86 @@
+\hypertarget{tb__endpoint_8h}{\section{src/tb\-\_\-endpoint.h File Reference}
+\label{tb__endpoint_8h}\index{src/tb\-\_\-endpoint.\-h@{src/tb\-\_\-endpoint.\-h}}
+}
+{\ttfamily \#include \char`\"{}tb\-\_\-listener.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tb\-\_\-session.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tb\-\_\-common.\-h\char`\"{}}\\*
+Include dependency graph for tb\-\_\-endpoint.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tb__endpoint_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{tb__endpoint_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{tb__endpoint_8h_ae38c1a880329aa4e19c7d646cebf6f23}{tb\-\_\-client} (void $\ast$data) \-\_\-\-\_\-attribute\-\_\-\-\_\-((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\begin{DoxyCompactList}\small\item\em Runs the client. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{tb__endpoint_8h_afa271df665c1d414719366b433b88433}{tb\-\_\-server} (void $\ast$data) \-\_\-\-\_\-attribute\-\_\-\-\_\-((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\begin{DoxyCompactList}\small\item\em Runs the server. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{tb__endpoint_8h_ae38c1a880329aa4e19c7d646cebf6f23}{\index{tb\-\_\-endpoint.\-h@{tb\-\_\-endpoint.\-h}!tb\-\_\-client@{tb\-\_\-client}}
+\index{tb\-\_\-client@{tb\-\_\-client}!tb_endpoint.h@{tb\-\_\-endpoint.\-h}}
+\subsubsection[{tb\-\_\-client}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ tb\-\_\-client (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__endpoint_8h_ae38c1a880329aa4e19c7d646cebf6f23}
+
+
+Runs the client. 
+
+Runs the client, called from pthread\-\_\-create.
+
+\begin{DoxyPrecond}{Precondition}
+data must be of type \hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t}. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Instance of \hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} to run as client. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+As pthread\-\_\-exit is called, this does not return. 
+\end{DoxyReturn}
+
+
+Definition at line 30 of file tb\-\_\-endpoint.\-c.
+
+\hypertarget{tb__endpoint_8h_afa271df665c1d414719366b433b88433}{\index{tb\-\_\-endpoint.\-h@{tb\-\_\-endpoint.\-h}!tb\-\_\-server@{tb\-\_\-server}}
+\index{tb\-\_\-server@{tb\-\_\-server}!tb_endpoint.h@{tb\-\_\-endpoint.\-h}}
+\subsubsection[{tb\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ tb\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__endpoint_8h_afa271df665c1d414719366b433b88433}
+
+
+Runs the server. 
+
+This starts a server instance, called from pthread\-\_\-create.
+
+\begin{DoxyPrecond}{Precondition}
+data must be of type \hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t}. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & This is an instance of \hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+As pthread\-\_\-exit is called, this does not return. 
+\end{DoxyReturn}
+
+
+Definition at line 114 of file tb\-\_\-endpoint.\-c.
+

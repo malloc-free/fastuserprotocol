@@ -1,0 +1,239 @@
+.TH "tb_session_t" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tb_session_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <tb_session\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.RI "\fIId for this session\&. \fP"
+.ti -1c
+.RI "char * \fBaddress\fP"
+.br
+.RI "\fIThe address to connect/bind to\&. \fP"
+.ti -1c
+.RI "char * \fBport\fP"
+.br
+.RI "\fIThe port to connect/bind to\&. \fP"
+.ti -1c
+.RI "struct sockaddr_storage * \fBo_addr_info\fP"
+.br
+.RI "\fIFor receiving connections\&. \fP"
+.ti -1c
+.RI "socklen_t \fBaddr_len\fP"
+.br
+.RI "\fILength of sockaddr_storage\&. \fP"
+.ti -1c
+.RI "struct addrinfo * \fBaddr_info\fP"
+.br
+.RI "\fIConnection info\&. \fP"
+.ti -1c
+.RI "struct addrinfo * \fBaddr_hints\fP"
+.br
+.RI "\fIConnection hints\&. \fP"
+.ti -1c
+.RI "int \fBsock_d\fP"
+.br
+.RI "\fIThe socket descriptor for this session\&. \fP"
+.ti -1c
+.RI "int \fBpack_size\fP"
+.br
+.RI "\fIThe size of the pack to use\&. \fP"
+.ti -1c
+.RI "char * \fBfile_name\fP"
+.br
+.ti -1c
+.RI "char * \fBdata\fP"
+.br
+.ti -1c
+.RI "size_t \fBdata_size\fP"
+.br
+.ti -1c
+.RI "int \fBint_data\fP"
+.br
+.RI "\fIIf the session creates the data, it is destroyed\&. \fP"
+.ti -1c
+.RI "int \fBlast_trans\fP"
+.br
+.ti -1c
+.RI "long long \fBtotal_bytes\fP"
+.br
+.ti -1c
+.RI "\fBtb_prot_stats_t\fP * \fBstats\fP"
+.br
+.ti -1c
+.RI "\fBtb_session_status\fP \fBstatus\fP"
+.br
+.ti -1c
+.RI "int * \fBl_status\fP"
+.br
+.RI "\fIThe status of the session\&. \fP"
+.ti -1c
+.RI "long long * \fBl_txrx\fP"
+.br
+.ti -1c
+.RI "pthread_t * \fBs_thread\fP"
+.br
+.RI "\fIThread for this session\&. \fP"
+.ti -1c
+.RI "pthread_mutex_t * \fBstat_lock\fP"
+.br
+.RI "\fILock for stat collection\&. \fP"
+.ti -1c
+.RI "void * \fBn_session\fP"
+.br
+.RI "\fILink to next session (Linked list)\&. \fP"
+.ti -1c
+.RI "\fBtb_time_t\fP * \fBtransfer_t\fP"
+.br
+.RI "\fITransfer time\&. \fP"
+.ti -1c
+.RI "\fBtb_time_t\fP * \fBconnect_t\fP"
+.br
+.RI "\fIConnection time\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 44 of file tb_session\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct addrinfo* addr_hints"
+
+.PP
+Connection hints\&. 
+.PP
+Definition at line 56 of file tb_session\&.h\&.
+.SS "struct addrinfo* addr_info"
+
+.PP
+Connection info\&. 
+.PP
+Definition at line 55 of file tb_session\&.h\&.
+.SS "socklen_t addr_len"
+
+.PP
+Length of sockaddr_storage\&. 
+.PP
+Definition at line 54 of file tb_session\&.h\&.
+.SS "char* address"
+
+.PP
+The address to connect/bind to\&. 
+.PP
+Definition at line 49 of file tb_session\&.h\&.
+.SS "\fBtb_time_t\fP* connect_t"
+
+.PP
+Connection time\&. 
+.PP
+Definition at line 83 of file tb_session\&.h\&.
+.SS "char* data"
+
+.PP
+Definition at line 62 of file tb_session\&.h\&.
+.SS "size_t data_size"
+
+.PP
+Definition at line 63 of file tb_session\&.h\&.
+.SS "char* file_name"
+
+.PP
+Definition at line 61 of file tb_session\&.h\&.
+.SS "int id"
+
+.PP
+Id for this session\&. 
+.PP
+Definition at line 46 of file tb_session\&.h\&.
+.SS "int int_data"
+
+.PP
+If the session creates the data, it is destroyed\&. 
+.PP
+Definition at line 64 of file tb_session\&.h\&.
+.SS "int* l_status"
+
+.PP
+The status of the session\&. 
+.PP
+Definition at line 73 of file tb_session\&.h\&.
+.SS "long long* l_txrx"
+
+.PP
+Definition at line 74 of file tb_session\&.h\&.
+.SS "int last_trans"
+
+.PP
+Definition at line 67 of file tb_session\&.h\&.
+.SS "void* n_session"
+
+.PP
+Link to next session (Linked list)\&. 
+.PP
+Definition at line 79 of file tb_session\&.h\&.
+.SS "struct sockaddr_storage* o_addr_info"
+
+.PP
+For receiving connections\&. 
+.PP
+Definition at line 53 of file tb_session\&.h\&.
+.SS "int pack_size"
+
+.PP
+The size of the pack to use\&. 
+.PP
+Definition at line 58 of file tb_session\&.h\&.
+.SS "char* port"
+
+.PP
+The port to connect/bind to\&. 
+.PP
+Definition at line 50 of file tb_session\&.h\&.
+.SS "pthread_t* s_thread"
+
+.PP
+Thread for this session\&. 
+.PP
+Definition at line 77 of file tb_session\&.h\&.
+.SS "int sock_d"
+
+.PP
+The socket descriptor for this session\&. 
+.PP
+Definition at line 57 of file tb_session\&.h\&.
+.SS "pthread_mutex_t* stat_lock"
+
+.PP
+Lock for stat collection\&. 
+.PP
+Definition at line 78 of file tb_session\&.h\&.
+.SS "\fBtb_prot_stats_t\fP* stats"
+
+.PP
+Definition at line 69 of file tb_session\&.h\&.
+.SS "\fBtb_session_status\fP status"
+
+.PP
+Definition at line 72 of file tb_session\&.h\&.
+.SS "long long total_bytes"
+
+.PP
+Definition at line 68 of file tb_session\&.h\&.
+.SS "\fBtb_time_t\fP* transfer_t"
+
+.PP
+Transfer time\&. 
+.PP
+Definition at line 82 of file tb_session\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

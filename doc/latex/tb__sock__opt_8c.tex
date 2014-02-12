@@ -1,0 +1,292 @@
+\hypertarget{tb__sock__opt_8c}{\section{src/tb\-\_\-sock\-\_\-opt.c File Reference}
+\label{tb__sock__opt_8c}\index{src/tb\-\_\-sock\-\_\-opt.\-c@{src/tb\-\_\-sock\-\_\-opt.\-c}}
+}
+{\ttfamily \#include \char`\"{}tb\-\_\-sock\-\_\-opt.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tb\-\_\-protocol.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tb\-\_\-common.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}tb\-\_\-utp.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+Include dependency graph for tb\-\_\-sock\-\_\-opt.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tb__sock__opt_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{tb__sock__opt_8c_a43b2b5e868cfb51f3e8ad367d8f354e8}{tb\-\_\-set\-\_\-sock\-\_\-opt} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for individual protocols. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_aeb90bdb9face6f1bbe2e7c141a428cdf}{tb\-\_\-set\-\_\-bsd\-\_\-sock\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for B\-S\-D sockets. Used by T\-C\-P, U\-D\-P and e\-U\-D\-P. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_a0c80d1c0e50d1312798c17f7f1add6e2}{tb\-\_\-set\-\_\-tcp\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for T\-C\-P. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_af776cbfef331b9154f4cb40888e75bae}{tb\-\_\-set\-\_\-udp\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for U\-D\-P. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_a834ce1097c65130cf74f1695eff08b1c}{tb\-\_\-set\-\_\-udt\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for U\-D\-T. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_a178a04119b0fa7767e32fe915832c33e}{tb\-\_\-set\-\_\-audt\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for a\-U\-D\-T. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_ac991c8bf8191d0900eac41096eeb3ab9}{tb\-\_\-set\-\_\-utp\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for u\-T\-P. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_a3e68a727c2d788a487f8a973aec788f2}{tb\-\_\-set\-\_\-eudp\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for e\-U\-D\-P. \end{DoxyCompactList}\item 
+int \hyperlink{tb__sock__opt_8c_a1740be02ba9a1f9372be0ac2b4061f99}{tb\-\_\-set\-\_\-dccp\-\_\-opts} (\hyperlink{structtb__options__t}{tb\-\_\-options\-\_\-t} $\ast$options, int fd)
+\begin{DoxyCompactList}\small\item\em Set options for D\-C\-C\-P. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{tb__sock__opt_8c_a546259a497fb4f4a2ed3eca4f2df8c7b}{U\-D\-T\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 1024 $\ast$ 10
+\item 
+const int \hyperlink{tb__sock__opt_8c_a336fb201b76af68ff4518278ac94ab06}{U\-D\-T\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 1024 $\ast$ 10
+\item 
+const int \hyperlink{tb__sock__opt_8c_a0b316e118833d3d23071779fce32ee32}{U\-D\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 256
+\item 
+const int \hyperlink{tb__sock__opt_8c_aa5a5320a53c72b290f4027b8b858024c}{U\-D\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 1024
+\item 
+const int \hyperlink{tb__sock__opt_8c_ab2ce54d61f26ea80ae2ce7990537a51a}{T\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 256
+\item 
+const int \hyperlink{tb__sock__opt_8c_a6614561194a3b54264c01d7b7eba4b75}{T\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 1024
+\item 
+const int \hyperlink{tb__sock__opt_8c_a6fc4fd2ac14035fda584b5a66634d395}{u\-T\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F} = 300 $\ast$ 200
+\item 
+const int \hyperlink{tb__sock__opt_8c_afa8d1866976a282df203e70aaad012d0}{u\-T\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F} = 300 $\ast$ 200
+\item 
+const int \hyperlink{tb__sock__opt_8c_aef7d89138e6b529c349b6cdb2ab021cd}{D\-C\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 256
+\item 
+const int \hyperlink{tb__sock__opt_8c_a934abdd1dd88c196b5a0a64ab231aaa4}{D\-C\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F} = 1024 $\ast$ 1024
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{tb__sock__opt_8c_a178a04119b0fa7767e32fe915832c33e}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-audt\-\_\-opts@{tb\-\_\-set\-\_\-audt\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-audt\-\_\-opts@{tb\-\_\-set\-\_\-audt\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-audt\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-audt\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_a178a04119b0fa7767e32fe915832c33e}
+
+
+Set options for a\-U\-D\-T. 
+
+
+
+Definition at line 251 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_aeb90bdb9face6f1bbe2e7c141a428cdf}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-bsd\-\_\-sock\-\_\-opts@{tb\-\_\-set\-\_\-bsd\-\_\-sock\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-bsd\-\_\-sock\-\_\-opts@{tb\-\_\-set\-\_\-bsd\-\_\-sock\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-bsd\-\_\-sock\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-bsd\-\_\-sock\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_aeb90bdb9face6f1bbe2e7c141a428cdf}
+
+
+Set options for B\-S\-D sockets. Used by T\-C\-P, U\-D\-P and e\-U\-D\-P. 
+
+
+
+Definition at line 87 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a1740be02ba9a1f9372be0ac2b4061f99}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-dccp\-\_\-opts@{tb\-\_\-set\-\_\-dccp\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-dccp\-\_\-opts@{tb\-\_\-set\-\_\-dccp\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-dccp\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-dccp\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_a1740be02ba9a1f9372be0ac2b4061f99}
+
+
+Set options for D\-C\-C\-P. 
+
+
+
+Definition at line 294 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a3e68a727c2d788a487f8a973aec788f2}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-eudp\-\_\-opts@{tb\-\_\-set\-\_\-eudp\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-eudp\-\_\-opts@{tb\-\_\-set\-\_\-eudp\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-eudp\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-eudp\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_a3e68a727c2d788a487f8a973aec788f2}
+
+
+Set options for e\-U\-D\-P. 
+
+
+
+Definition at line 286 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a43b2b5e868cfb51f3e8ad367d8f354e8}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-sock\-\_\-opt@{tb\-\_\-set\-\_\-sock\-\_\-opt}}
+\index{tb\-\_\-set\-\_\-sock\-\_\-opt@{tb\-\_\-set\-\_\-sock\-\_\-opt}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-sock\-\_\-opt}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-sock\-\_\-opt (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_a43b2b5e868cfb51f3e8ad367d8f354e8}
+
+
+Set options for individual protocols. 
+
+This function is used to set the options on the currently used protocol.
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & The currently used listener.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if options were set, -\/1 otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a0c80d1c0e50d1312798c17f7f1add6e2}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-tcp\-\_\-opts@{tb\-\_\-set\-\_\-tcp\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-tcp\-\_\-opts@{tb\-\_\-set\-\_\-tcp\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-tcp\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-tcp\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_a0c80d1c0e50d1312798c17f7f1add6e2}
+
+
+Set options for T\-C\-P. 
+
+
+
+Definition at line 133 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_af776cbfef331b9154f4cb40888e75bae}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-udp\-\_\-opts@{tb\-\_\-set\-\_\-udp\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-udp\-\_\-opts@{tb\-\_\-set\-\_\-udp\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-udp\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-udp\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_af776cbfef331b9154f4cb40888e75bae}
+
+
+Set options for U\-D\-P. 
+
+
+
+Definition at line 151 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a834ce1097c65130cf74f1695eff08b1c}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-udt\-\_\-opts@{tb\-\_\-set\-\_\-udt\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-udt\-\_\-opts@{tb\-\_\-set\-\_\-udt\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-udt\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-udt\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_a834ce1097c65130cf74f1695eff08b1c}
+
+
+Set options for U\-D\-T. 
+
+
+
+Definition at line 171 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_ac991c8bf8191d0900eac41096eeb3ab9}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!tb\-\_\-set\-\_\-utp\-\_\-opts@{tb\-\_\-set\-\_\-utp\-\_\-opts}}
+\index{tb\-\_\-set\-\_\-utp\-\_\-opts@{tb\-\_\-set\-\_\-utp\-\_\-opts}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{tb\-\_\-set\-\_\-utp\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-set\-\_\-utp\-\_\-opts (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-options\-\_\-t} $\ast$}]{options, }
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{tb__sock__opt_8c_ac991c8bf8191d0900eac41096eeb3ab9}
+
+
+Set options for u\-T\-P. 
+
+
+
+Definition at line 257 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{tb__sock__opt_8c_a934abdd1dd88c196b5a0a64ab231aaa4}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!D\-C\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{D\-C\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}}
+\index{D\-C\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{D\-C\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{D\-C\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int D\-C\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 1024}}\label{tb__sock__opt_8c_a934abdd1dd88c196b5a0a64ab231aaa4}
+
+
+Definition at line 40 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_aef7d89138e6b529c349b6cdb2ab021cd}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!D\-C\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{D\-C\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}}
+\index{D\-C\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{D\-C\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{D\-C\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int D\-C\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 256}}\label{tb__sock__opt_8c_aef7d89138e6b529c349b6cdb2ab021cd}
+
+
+Definition at line 39 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a6614561194a3b54264c01d7b7eba4b75}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!T\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{T\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}}
+\index{T\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{T\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{T\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int T\-C\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 1024}}\label{tb__sock__opt_8c_a6614561194a3b54264c01d7b7eba4b75}
+
+
+Definition at line 30 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_ab2ce54d61f26ea80ae2ce7990537a51a}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!T\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{T\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}}
+\index{T\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{T\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{T\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int T\-C\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 256}}\label{tb__sock__opt_8c_ab2ce54d61f26ea80ae2ce7990537a51a}
+
+
+Definition at line 29 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_aa5a5320a53c72b290f4027b8b858024c}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!U\-D\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{U\-D\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}}
+\index{U\-D\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{U\-D\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{U\-D\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int U\-D\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 1024}}\label{tb__sock__opt_8c_aa5a5320a53c72b290f4027b8b858024c}
+
+
+Definition at line 26 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a0b316e118833d3d23071779fce32ee32}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!U\-D\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{U\-D\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}}
+\index{U\-D\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{U\-D\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{U\-D\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int U\-D\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 256}}\label{tb__sock__opt_8c_a0b316e118833d3d23071779fce32ee32}
+
+
+Definition at line 25 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a336fb201b76af68ff4518278ac94ab06}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!U\-D\-T\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{U\-D\-T\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}}
+\index{U\-D\-T\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{U\-D\-T\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{U\-D\-T\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int U\-D\-T\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 1024 $\ast$ 10}}\label{tb__sock__opt_8c_a336fb201b76af68ff4518278ac94ab06}
+
+
+Definition at line 22 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a546259a497fb4f4a2ed3eca4f2df8c7b}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!U\-D\-T\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{U\-D\-T\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}}
+\index{U\-D\-T\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{U\-D\-T\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{U\-D\-T\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int U\-D\-T\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F = 1024 $\ast$ 1024 $\ast$ 10}}\label{tb__sock__opt_8c_a546259a497fb4f4a2ed3eca4f2df8c7b}
+U\-D\-T l4 default buffer sizes. Based on the defaults set in the library. 
+
+Definition at line 21 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_afa8d1866976a282df203e70aaad012d0}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!u\-T\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{u\-T\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}}
+\index{u\-T\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F@{u\-T\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{u\-T\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int u\-T\-P\-\_\-\-R\-C\-V\-\_\-\-B\-U\-F\-F = 300 $\ast$ 200}}\label{tb__sock__opt_8c_afa8d1866976a282df203e70aaad012d0}
+
+
+Definition at line 36 of file tb\-\_\-sock\-\_\-opt.\-c.
+
+\hypertarget{tb__sock__opt_8c_a6fc4fd2ac14035fda584b5a66634d395}{\index{tb\-\_\-sock\-\_\-opt.\-c@{tb\-\_\-sock\-\_\-opt.\-c}!u\-T\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{u\-T\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}}
+\index{u\-T\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F@{u\-T\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}!tb_sock_opt.c@{tb\-\_\-sock\-\_\-opt.\-c}}
+\subsubsection[{u\-T\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}const int u\-T\-P\-\_\-\-S\-N\-D\-\_\-\-B\-U\-F\-F = 300 $\ast$ 200}}\label{tb__sock__opt_8c_a6fc4fd2ac14035fda584b5a66634d395}
+u\-D\-P default buffer sizes. Based on the sizes given in the example code. 
+
+Definition at line 35 of file tb\-\_\-sock\-\_\-opt.\-c.
+

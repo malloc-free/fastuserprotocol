@@ -1,0 +1,146 @@
+.TH "src/tb_logging.h" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_logging.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtb_log_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBL_INFO\fP   '[ INF ]'"
+.br
+.ti -1c
+.RI "#define \fBL_ACK\fP   '[ ACK ]'"
+.br
+.ti -1c
+.RI "#define \fBL_ERR\fP   '[ ERR ]'"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBtb_log_type_t\fP { \fBLOG_INFO\fP =  0, \fBLOG_ACK\fP, \fBLOG_ERR\fP }"
+.br
+.ti -1c
+.RI "enum \fBtb_log_format_t\fP { \fBPLAIN\fP =  0, \fBDATE\fP, \fBTIME\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtb_log_t\fP * \fBtb_create_log\fP (char *file_path)"
+.br
+.RI "\fICreate a log file, using a plain name\&. \fP"
+.ti -1c
+.RI "\fBtb_log_t\fP * \fBtb_create_flog\fP (char *file_path, \fBtb_log_format_t\fP format)"
+.br
+.RI "\fICreat a log file, adding formatting to the log file name\&. \fP"
+.ti -1c
+.RI "void \fBtb_destroy_log\fP (\fBtb_log_t\fP *log)"
+.br
+.RI "\fIDestroy the log struct\&. \fP"
+.ti -1c
+.RI "int \fBtb_write_log\fP (\fBtb_log_t\fP *log, char *info, \fBtb_log_type_t\fP type)"
+.br
+.RI "\fIWrite a line to log file\&. \fP"
+.ti -1c
+.RI "void \fBtb_get_f_time\fP (char *time_str, size_t len, const char *format) __attribute__((always_inline))"
+.br
+.RI "\fIGet formatted time\&. \fP"
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define L_ACK   '[ ACK ]'"
+
+.PP
+Definition at line 14 of file tb_logging\&.h\&.
+.SS "#define L_ERR   '[ ERR ]'"
+
+.PP
+Definition at line 15 of file tb_logging\&.h\&.
+.SS "#define L_INFO   '[ INF ]'"
+
+.PP
+Definition at line 13 of file tb_logging\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBtb_log_format_t\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fIPLAIN \fP\fP
+.TP
+\fB\fIDATE \fP\fP
+.TP
+\fB\fITIME \fP\fP
+
+.PP
+Definition at line 33 of file tb_logging\&.h\&.
+.SS "enum \fBtb_log_type_t\fP"
+
+.PP
+\fBEnumerator: \fP
+.in +1c
+.TP
+\fB\fILOG_INFO \fP\fP
+.TP
+\fB\fILOG_ACK \fP\fP
+.TP
+\fB\fILOG_ERR \fP\fP
+
+.PP
+Definition at line 25 of file tb_logging\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBtb_log_t\fP* tb_create_flog (char *file_path, \fBtb_log_format_t\fPformat)"
+
+.PP
+Creat a log file, adding formatting to the log file name\&. 
+.PP
+Definition at line 33 of file tb_logging\&.c\&.
+.SS "\fBtb_log_t\fP* tb_create_log (char *file_path)"
+
+.PP
+Create a log file, using a plain name\&. 
+.PP
+Definition at line 18 of file tb_logging\&.c\&.
+.SS "void tb_destroy_log (\fBtb_log_t\fP *log)"
+
+.PP
+Destroy the log struct\&. Frees memory for the \fBtb_log_t\fP struct\&. 
+.PP
+Definition at line 50 of file tb_logging\&.c\&.
+.SS "void tb_get_f_time (char *time_str, size_tlen, const char *format)\fC [inline]\fP"
+
+.PP
+Get formatted time\&. 
+.PP
+Definition at line 116 of file tb_logging\&.c\&.
+.SS "int tb_write_log (\fBtb_log_t\fP *log, char *info, \fBtb_log_type_t\fPtype)"
+
+.PP
+Write a line to log file\&. Writes the supplied line to the specified log file, prepending the type, date and time to this string, eg:
+.PP
+[ INF ] [ Wed Jan 29 10:30:33 2014 ] Info 
+.PP
+Definition at line 58 of file tb_logging\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

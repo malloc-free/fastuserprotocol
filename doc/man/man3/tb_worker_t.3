@@ -1,0 +1,82 @@
+.TH "tb_worker_t" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tb_worker_t \- 
+.PP
+struct that defines fields for worker\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <tb_worker\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fB__id\fP"
+.br
+.RI "\fIThe unique id of this worker\&. \fP"
+.ti -1c
+.RI "gdsl_queue_t \fB__queue\fP"
+.br
+.RI "\fIThe work for this worker\&. \fP"
+.ti -1c
+.RI "pthread_mutex_t * \fB__queue_lock\fP"
+.br
+.RI "\fIThe lock for the queue\&. \fP"
+.ti -1c
+.RI "pthread_cond_t * \fB__queue_cond\fP"
+.br
+.RI "\fIThe condition for the queue\&. \fP"
+.ti -1c
+.RI "int \fB__stop\fP"
+.br
+.RI "\fIStops the thread, 0 to continue, 1 to stop\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+struct that defines fields for worker\&. 
+
+\fBtb_worker\&.h\fP
+.PP
+Created on: 20/11/2013 Author: Michael HolmwoodThis struct defines the fields for class tb_worker\&. The queue contains new work for the worker\&. The queue_lock is used to make the queue thread safe\&. The worker will sleep if the work queue is empty\&. Newly added work wakes the thread up using the queue_cond\&. 
+.PP
+Definition at line 25 of file tb_worker\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int __id"
+
+.PP
+The unique id of this worker\&. 
+.PP
+Definition at line 27 of file tb_worker\&.h\&.
+.SS "gdsl_queue_t __queue"
+
+.PP
+The work for this worker\&. 
+.PP
+Definition at line 28 of file tb_worker\&.h\&.
+.SS "pthread_cond_t* __queue_cond"
+
+.PP
+The condition for the queue\&. 
+.PP
+Definition at line 30 of file tb_worker\&.h\&.
+.SS "pthread_mutex_t* __queue_lock"
+
+.PP
+The lock for the queue\&. 
+.PP
+Definition at line 29 of file tb_worker\&.h\&.
+.SS "int __stop"
+
+.PP
+Stops the thread, 0 to continue, 1 to stop\&. 
+.PP
+Definition at line 31 of file tb_worker\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

@@ -1,0 +1,200 @@
+\hypertarget{tb__server_8h}{\section{src/tb\-\_\-server.h File Reference}
+\label{tb__server_8h}\index{src/tb\-\_\-server.\-h@{src/tb\-\_\-server.\-h}}
+}
+{\ttfamily \#include \char`\"{}tb\-\_\-listener.\-h\char`\"{}}\\*
+Include dependency graph for tb\-\_\-server.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tb__server_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{tb__server_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void $\ast$ \hyperlink{tb__server_8h_afa271df665c1d414719366b433b88433}{tb\-\_\-server} (void $\ast$data) \-\_\-\-\_\-attribute\-\_\-\-\_\-((\-\_\-\-\_\-noreturn\-\_\-\-\_\-))
+\begin{DoxyCompactList}\small\item\em Runs the server. \end{DoxyCompactList}\item 
+int \hyperlink{tb__server_8h_ab254f51747c78bfc75e1dd91945936af}{tb\-\_\-stream\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run a server without epoll (blocking socket). \end{DoxyCompactList}\item 
+int \hyperlink{tb__server_8h_a736ead28c313623ab95be2738fa6a2d8}{tb\-\_\-stream\-\_\-m\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\item 
+int \hyperlink{tb__server_8h_a2824c0d70d74f26a227971550f32446f}{tb\-\_\-stream\-\_\-event} (int events, void $\ast$data)
+\item 
+void $\ast$ \hyperlink{tb__server_8h_afbdad677cb3cfe90954ec6e482fec19c}{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn} (void $\ast$data)
+\item 
+int \hyperlink{tb__server_8h_abbfc0a93f9d26ea48ce0f27f2341b25f}{tb\-\_\-udt\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run the server with U\-D\-T. \end{DoxyCompactList}\item 
+int \hyperlink{tb__server_8h_aa96de8208d00dd816bee9110ba759cf6}{tb\-\_\-udp\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run a server using U\-D\-P, and epoll to signal transmission end. \end{DoxyCompactList}\item 
+int \hyperlink{tb__server_8h_a4701d9551ad1e0d73019590b729b6224}{tb\-\_\-utp\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run a server with u\-T\-P. \end{DoxyCompactList}\item 
+int \hyperlink{tb__server_8h_a41ddaa85e718fa4afe65a979a58d7f9a}{tb\-\_\-udp\-\_\-epoll\-\_\-server} (\hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t} $\ast$listener)
+\begin{DoxyCompactList}\small\item\em Run a server using epoll (non-\/blocking socket). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{tb__server_8h_afa271df665c1d414719366b433b88433}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-server@{tb\-\_\-server}}
+\index{tb\-\_\-server@{tb\-\_\-server}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ tb\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_afa271df665c1d414719366b433b88433}
+
+
+Runs the server. 
+
+This starts a server instance, called from pthread\-\_\-create.
+
+\begin{DoxyPrecond}{Precondition}
+data must be of type \hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t}. 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em data} & This is an instance of \hyperlink{structtb__listener__t}{tb\-\_\-listener\-\_\-t}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+As pthread\-\_\-exit is called, this does not return. 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_a2824c0d70d74f26a227971550f32446f}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-stream\-\_\-event@{tb\-\_\-stream\-\_\-event}}
+\index{tb\-\_\-stream\-\_\-event@{tb\-\_\-stream\-\_\-event}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-event (
+\begin{DoxyParamCaption}
+\item[{int}]{events, }
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_a2824c0d70d74f26a227971550f32446f}
+
+
+Definition at line 177 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_a736ead28c313623ab95be2738fa6a2d8}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-stream\-\_\-m\-\_\-server@{tb\-\_\-stream\-\_\-m\-\_\-server}}
+\index{tb\-\_\-stream\-\_\-m\-\_\-server@{tb\-\_\-stream\-\_\-m\-\_\-server}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-m\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-m\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_a736ead28c313623ab95be2738fa6a2d8}
+
+
+Definition at line 160 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_afbdad677cb3cfe90954ec6e482fec19c}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn@{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn}}
+\index{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn@{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ tb\-\_\-stream\-\_\-m\-\_\-server\-\_\-conn (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_afbdad677cb3cfe90954ec6e482fec19c}
+
+
+Definition at line 232 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_ab254f51747c78bfc75e1dd91945936af}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-stream\-\_\-server@{tb\-\_\-stream\-\_\-server}}
+\index{tb\-\_\-stream\-\_\-server@{tb\-\_\-stream\-\_\-server}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-stream\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-stream\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_ab254f51747c78bfc75e1dd91945936af}
+
+
+Run a server without epoll (blocking socket). 
+
+Runs a server without using epoll, so the socket blocks. Also used by U\-D\-T, a\-U\-D\-T and other protocols that are not implemented in sockets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & The listener to run the server with. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 97 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_a41ddaa85e718fa4afe65a979a58d7f9a}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-udp\-\_\-epoll\-\_\-server@{tb\-\_\-udp\-\_\-epoll\-\_\-server}}
+\index{tb\-\_\-udp\-\_\-epoll\-\_\-server@{tb\-\_\-udp\-\_\-epoll\-\_\-server}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-udp\-\_\-epoll\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-udp\-\_\-epoll\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_a41ddaa85e718fa4afe65a979a58d7f9a}
+
+
+Run a server using epoll (non-\/blocking socket). 
+
+Runs a server that uses a sockets based protocol using epoll. Not used by U\-D\-T, a\-U\-D\-T or any thing else not implemented in sockets.
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & The listener to run the server with. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 462 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_aa96de8208d00dd816bee9110ba759cf6}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-udp\-\_\-server@{tb\-\_\-udp\-\_\-server}}
+\index{tb\-\_\-udp\-\_\-server@{tb\-\_\-udp\-\_\-server}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-udp\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-udp\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_aa96de8208d00dd816bee9110ba759cf6}
+
+
+Run a server using U\-D\-P, and epoll to signal transmission end. 
+
+
+
+Definition at line 371 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_abbfc0a93f9d26ea48ce0f27f2341b25f}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-udt\-\_\-server@{tb\-\_\-udt\-\_\-server}}
+\index{tb\-\_\-udt\-\_\-server@{tb\-\_\-udt\-\_\-server}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-udt\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-udt\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_abbfc0a93f9d26ea48ce0f27f2341b25f}
+
+
+Run the server with U\-D\-T. 
+
+This runs the T\-B server with the U\-D\-T protocol.
+
+
+\begin{DoxyParams}{Parameters}
+{\em listener} & The listener to run with. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 278 of file tb\-\_\-server.\-c.
+
+\hypertarget{tb__server_8h_a4701d9551ad1e0d73019590b729b6224}{\index{tb\-\_\-server.\-h@{tb\-\_\-server.\-h}!tb\-\_\-utp\-\_\-server@{tb\-\_\-utp\-\_\-server}}
+\index{tb\-\_\-utp\-\_\-server@{tb\-\_\-utp\-\_\-server}!tb_server.h@{tb\-\_\-server.\-h}}
+\subsubsection[{tb\-\_\-utp\-\_\-server}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-utp\-\_\-server (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-listener\-\_\-t} $\ast$}]{listener}
+\end{DoxyParamCaption}
+)}}\label{tb__server_8h_a4701d9551ad1e0d73019590b729b6224}
+
+
+Run a server with u\-T\-P. 
+
+
+
+Definition at line 419 of file tb\-\_\-server.\-c.
+

@@ -1,0 +1,212 @@
+.TH "src/tb_sock_opt.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_sock_opt.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_sock_opt\&.h'\fP
+.br
+\fC#include 'tb_protocol\&.h'\fP
+.br
+\fC#include 'tb_common\&.h'\fP
+.br
+\fC#include 'tb_utp\&.h'\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+\fC#include <netdb\&.h>\fP
+.br
+\fC#include <arpa/inet\&.h>\fP
+.br
+\fC#include <fcntl\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBtb_set_sock_opt\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for individual protocols\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_bsd_sock_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for BSD sockets\&. Used by TCP, UDP and eUDP\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_tcp_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for TCP\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_udp_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for UDP\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_udt_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for UDT\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_audt_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for aUDT\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_utp_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for uTP\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_eudp_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for eUDP\&. \fP"
+.ti -1c
+.RI "int \fBtb_set_dccp_opts\fP (\fBtb_options_t\fP *options, int fd)"
+.br
+.RI "\fISet options for DCCP\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const int \fBUDT_SND_BUFF\fP = 1024 * 1024 * 10"
+.br
+.ti -1c
+.RI "const int \fBUDT_RCV_BUFF\fP = 1024 * 1024 * 10"
+.br
+.ti -1c
+.RI "const int \fBUDP_SND_BUFF\fP = 1024 * 256"
+.br
+.ti -1c
+.RI "const int \fBUDP_RCV_BUFF\fP = 1024 * 1024"
+.br
+.ti -1c
+.RI "const int \fBTCP_SND_BUFF\fP = 1024 * 256"
+.br
+.ti -1c
+.RI "const int \fBTCP_RCV_BUFF\fP = 1024 * 1024"
+.br
+.ti -1c
+.RI "const int \fBuTP_SND_BUFF\fP = 300 * 200"
+.br
+.ti -1c
+.RI "const int \fBuTP_RCV_BUFF\fP = 300 * 200"
+.br
+.ti -1c
+.RI "const int \fBDCCP_SND_BUFF\fP = 1024 * 256"
+.br
+.ti -1c
+.RI "const int \fBDCCP_RCV_BUFF\fP = 1024 * 1024"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int tb_set_audt_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for aUDT\&. 
+.PP
+Definition at line 251 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_bsd_sock_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for BSD sockets\&. Used by TCP, UDP and eUDP\&. 
+.PP
+Definition at line 87 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_dccp_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for DCCP\&. 
+.PP
+Definition at line 294 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_eudp_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for eUDP\&. 
+.PP
+Definition at line 286 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_sock_opt (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for individual protocols\&. This function is used to set the options on the currently used protocol\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The currently used listener\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if options were set, -1 otherwise\&. 
+.RE
+.PP
+
+.PP
+Definition at line 43 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_tcp_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for TCP\&. 
+.PP
+Definition at line 133 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_udp_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for UDP\&. 
+.PP
+Definition at line 151 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_udt_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for UDT\&. 
+.PP
+Definition at line 171 of file tb_sock_opt\&.c\&.
+.SS "int tb_set_utp_opts (\fBtb_options_t\fP *options, intfd)"
+
+.PP
+Set options for uTP\&. 
+.PP
+Definition at line 257 of file tb_sock_opt\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const int DCCP_RCV_BUFF = 1024 * 1024"
+
+.PP
+Definition at line 40 of file tb_sock_opt\&.c\&.
+.SS "const int DCCP_SND_BUFF = 1024 * 256"
+
+.PP
+Definition at line 39 of file tb_sock_opt\&.c\&.
+.SS "const int TCP_RCV_BUFF = 1024 * 1024"
+
+.PP
+Definition at line 30 of file tb_sock_opt\&.c\&.
+.SS "const int TCP_SND_BUFF = 1024 * 256"
+
+.PP
+Definition at line 29 of file tb_sock_opt\&.c\&.
+.SS "const int UDP_RCV_BUFF = 1024 * 1024"
+
+.PP
+Definition at line 26 of file tb_sock_opt\&.c\&.
+.SS "const int UDP_SND_BUFF = 1024 * 256"
+
+.PP
+Definition at line 25 of file tb_sock_opt\&.c\&.
+.SS "const int UDT_RCV_BUFF = 1024 * 1024 * 10"
+
+.PP
+Definition at line 22 of file tb_sock_opt\&.c\&.
+.SS "const int UDT_SND_BUFF = 1024 * 1024 * 10"
+UDT l4 default buffer sizes\&. Based on the defaults set in the library\&. 
+.PP
+Definition at line 21 of file tb_sock_opt\&.c\&.
+.SS "const int uTP_RCV_BUFF = 300 * 200"
+
+.PP
+Definition at line 36 of file tb_sock_opt\&.c\&.
+.SS "const int uTP_SND_BUFF = 300 * 200"
+uDP default buffer sizes\&. Based on the sizes given in the example code\&. 
+.PP
+Definition at line 35 of file tb_sock_opt\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

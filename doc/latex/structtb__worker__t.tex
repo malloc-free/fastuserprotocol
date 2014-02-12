@@ -1,0 +1,99 @@
+\hypertarget{structtb__worker__t}{\section{tb\-\_\-worker\-\_\-t Struct Reference}
+\label{structtb__worker__t}\index{tb\-\_\-worker\-\_\-t@{tb\-\_\-worker\-\_\-t}}
+}
+
+
+struct that defines fields for worker.  
+
+
+
+
+{\ttfamily \#include $<$tb\-\_\-worker.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structtb__worker__t_a4b75564f2d4bac6720918785d0de5034}{\-\_\-\-\_\-id}
+\begin{DoxyCompactList}\small\item\em The unique id of this worker. \end{DoxyCompactList}\item 
+gdsl\-\_\-queue\-\_\-t \hyperlink{structtb__worker__t_aea4c15677ebae0f50f9f4684804d7987}{\-\_\-\-\_\-queue}
+\begin{DoxyCompactList}\small\item\em The work for this worker. \end{DoxyCompactList}\item 
+pthread\-\_\-mutex\-\_\-t $\ast$ \hyperlink{structtb__worker__t_a0721617bd4bf8c42313acd1791f62885}{\-\_\-\-\_\-queue\-\_\-lock}
+\begin{DoxyCompactList}\small\item\em The lock for the queue. \end{DoxyCompactList}\item 
+pthread\-\_\-cond\-\_\-t $\ast$ \hyperlink{structtb__worker__t_a1302209e4d7c2a7707bfcd735ead74e0}{\-\_\-\-\_\-queue\-\_\-cond}
+\begin{DoxyCompactList}\small\item\em The condition for the queue. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__worker__t_a3c8ddb573339a9677d54ba3e63387f1d}{\-\_\-\-\_\-stop}
+\begin{DoxyCompactList}\small\item\em Stops the thread, 0 to continue, 1 to stop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+struct that defines fields for worker. 
+
+\hyperlink{tb__worker_8h}{tb\-\_\-worker.\-h}
+
+Created on\-: 20/11/2013 Author\-: Michael Holmwood\-This struct defines the fields for class tb\-\_\-worker. The queue contains new work for the worker. The queue\-\_\-lock is used to make the queue thread safe. The worker will sleep if the work queue is empty. Newly added work wakes the thread up using the queue\-\_\-cond. 
+
+Definition at line 25 of file tb\-\_\-worker.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structtb__worker__t_a4b75564f2d4bac6720918785d0de5034}{\index{tb\-\_\-worker\-\_\-t@{tb\-\_\-worker\-\_\-t}!\-\_\-\-\_\-id@{\-\_\-\-\_\-id}}
+\index{\-\_\-\-\_\-id@{\-\_\-\-\_\-id}!tb_worker_t@{tb\-\_\-worker\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-id}}\label{structtb__worker__t_a4b75564f2d4bac6720918785d0de5034}
+
+
+The unique id of this worker. 
+
+
+
+Definition at line 27 of file tb\-\_\-worker.\-h.
+
+\hypertarget{structtb__worker__t_aea4c15677ebae0f50f9f4684804d7987}{\index{tb\-\_\-worker\-\_\-t@{tb\-\_\-worker\-\_\-t}!\-\_\-\-\_\-queue@{\-\_\-\-\_\-queue}}
+\index{\-\_\-\-\_\-queue@{\-\_\-\-\_\-queue}!tb_worker_t@{tb\-\_\-worker\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-queue}]{\setlength{\rightskip}{0pt plus 5cm}gdsl\-\_\-queue\-\_\-t \-\_\-\-\_\-queue}}\label{structtb__worker__t_aea4c15677ebae0f50f9f4684804d7987}
+
+
+The work for this worker. 
+
+
+
+Definition at line 28 of file tb\-\_\-worker.\-h.
+
+\hypertarget{structtb__worker__t_a1302209e4d7c2a7707bfcd735ead74e0}{\index{tb\-\_\-worker\-\_\-t@{tb\-\_\-worker\-\_\-t}!\-\_\-\-\_\-queue\-\_\-cond@{\-\_\-\-\_\-queue\-\_\-cond}}
+\index{\-\_\-\-\_\-queue\-\_\-cond@{\-\_\-\-\_\-queue\-\_\-cond}!tb_worker_t@{tb\-\_\-worker\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-queue\-\_\-cond}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-cond\-\_\-t$\ast$ \-\_\-\-\_\-queue\-\_\-cond}}\label{structtb__worker__t_a1302209e4d7c2a7707bfcd735ead74e0}
+
+
+The condition for the queue. 
+
+
+
+Definition at line 30 of file tb\-\_\-worker.\-h.
+
+\hypertarget{structtb__worker__t_a0721617bd4bf8c42313acd1791f62885}{\index{tb\-\_\-worker\-\_\-t@{tb\-\_\-worker\-\_\-t}!\-\_\-\-\_\-queue\-\_\-lock@{\-\_\-\-\_\-queue\-\_\-lock}}
+\index{\-\_\-\-\_\-queue\-\_\-lock@{\-\_\-\-\_\-queue\-\_\-lock}!tb_worker_t@{tb\-\_\-worker\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-queue\-\_\-lock}]{\setlength{\rightskip}{0pt plus 5cm}pthread\-\_\-mutex\-\_\-t$\ast$ \-\_\-\-\_\-queue\-\_\-lock}}\label{structtb__worker__t_a0721617bd4bf8c42313acd1791f62885}
+
+
+The lock for the queue. 
+
+
+
+Definition at line 29 of file tb\-\_\-worker.\-h.
+
+\hypertarget{structtb__worker__t_a3c8ddb573339a9677d54ba3e63387f1d}{\index{tb\-\_\-worker\-\_\-t@{tb\-\_\-worker\-\_\-t}!\-\_\-\-\_\-stop@{\-\_\-\-\_\-stop}}
+\index{\-\_\-\-\_\-stop@{\-\_\-\-\_\-stop}!tb_worker_t@{tb\-\_\-worker\-\_\-t}}
+\subsubsection[{\-\_\-\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-stop}}\label{structtb__worker__t_a3c8ddb573339a9677d54ba3e63387f1d}
+
+
+Stops the thread, 0 to continue, 1 to stop. 
+
+
+
+Definition at line 31 of file tb\-\_\-worker.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{tb__worker_8h}{tb\-\_\-worker.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,163 @@
+.TH "src/tb_udt.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_udt.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_udt\&.h'\fP
+.br
+\fC#include 'tb_protocol\&.h'\fP
+.br
+\fC#include 'tb_listener\&.h'\fP
+.br
+\fC#include 'tb_testbed\&.h'\fP
+.br
+\fC#include 'tb_common\&.h'\fP
+.br
+\fC#include 'tb_udp\&.h'\fP
+.br
+\fC#include 'tb_utp\&.h'\fP
+.br
+\fC#include 'udt\&.h'\fP
+.br
+\fC#include 'tb_session\&.h'\fP
+.br
+\fC#include 'tb_stream\&.h'\fP
+.br
+\fC#include <utp\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+\fC#include <fcntl\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <sys/epoll\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <errno\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBtb_udt_server\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIRun the server with UDT\&. \fP"
+.ti -1c
+.RI "int \fBtb_udt_m_server\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIRun a multi-connection server with UDT\&. \fP"
+.ti -1c
+.RI "int \fBtb_udt_event\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIAccept a new incoming connection\&. \fP"
+.ti -1c
+.RI "void * \fBtb_udt_m_server_conn\fP (void *data)"
+.br
+.RI "\fIRead data from a connection\&. \fP"
+.ti -1c
+.RI "int \fBtb_udt_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload a file using udt\&. \fP"
+.ti -1c
+.RI "int \fBtb_udt_m_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload a file using multiple connections with UDT\&. \fP"
+.ti -1c
+.RI "void * \fBtb_udt_m_connection\fP (void *data)"
+.br
+.RI "\fIWrite data to a connection\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int tb_udt_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload a file using udt\&. 
+.PP
+Definition at line 264 of file tb_udt\&.c\&.
+.SS "int tb_udt_event (\fBtb_listener_t\fP *listener)"
+
+.PP
+Accept a new incoming connection\&. Called when udt_epolls_wait2 indicates that a new incoming connection is being made\&. 
+.PP
+Definition at line 180 of file tb_udt\&.c\&.
+.SS "int tb_udt_m_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload a file using multiple connections with UDT\&. Uses multiple connections to upload files using the UDT protocol\&. The number of connections to be used is stored in the num_connections field in \fBtb_listener_t\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP A vaild \fBtb_listener_t\fP struct, with connection data\&. 
+.RE
+.PP
+
+.PP
+Definition at line 308 of file tb_udt\&.c\&.
+.SS "void* tb_udt_m_connection (void *data)"
+
+.PP
+Write data to a connection\&. Called when creating new client connections to multi-connection servers\&. Passed as a function pointer to pthread_create\&. 
+.PP
+Definition at line 383 of file tb_udt\&.c\&.
+.SS "int tb_udt_m_server (\fBtb_listener_t\fP *listener)"
+
+.PP
+Run a multi-connection server with UDT\&. Runs a server that can handle multiple connections using the UDT protocol\&. 
+.PP
+Definition at line 128 of file tb_udt\&.c\&.
+.SS "void* tb_udt_m_server_conn (void *data)"
+
+.PP
+Read data from a connection\&. Called to read data from a new connection\&. Passed in as a function pointer in the pthread_create function is called\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+data must be a \fBtb_session_t\fP struct\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP void pointer to a \fBtb_session_t\fP struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+pointer to int, 0 if connection terminated normally, -1 if not\&. 
+.RE
+.PP
+
+.PP
+Definition at line 221 of file tb_udt\&.c\&.
+.SS "int tb_udt_server (\fBtb_listener_t\fP *listener)"
+
+.PP
+Run the server with UDT\&. This runs the TB server with the UDT protocol\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to run with\&. 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file tb_udt\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

@@ -1,0 +1,233 @@
+.TH "src/tb_protocol.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_protocol.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_protocol\&.h'\fP
+.br
+\fC#include 'tb_utp\&.h'\fP
+.br
+\fC#include 'tb_udp\&.h'\fP
+.br
+\fC#include 'tb_common\&.h'\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <udt\&.h>\fP
+.br
+\fC#include <utp\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <fcntl\&.h>\fP
+.br
+\fC#include <netinet/tcp\&.h>\fP
+.br
+\fC#include <errno\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBtb_protocol_t\fP * \fBtb_create_protocol\fP (\fBPROTOCOL\fP prot)"
+.br
+.RI "\fICreate a new Protocol\&. \fP"
+.ti -1c
+.RI "int \fBtb_socket_error\fP (int value, int err_no)"
+.br
+.RI "\fIHandle errors for socket\&. \fP"
+.ti -1c
+.RI "int \fBtb_dccp_error\fP (int value, int err_no)"
+.br
+.RI "\fIHandle errors for dccp\&. \fP"
+.ti -1c
+.RI "int \fBtb_udt_error\fP (int value, int err_no)"
+.br
+.RI "\fIHandle errors for udt\&. \fP"
+.ti -1c
+.RI "void \fBtb_print_protocol\fP (\fBtb_protocol_t\fP *protocol)"
+.br
+.RI "\fIPrint the values for this protocol\&. \fP"
+.ti -1c
+.RI "void \fBtb_get_stats\fP (\fBtb_prot_stats_t\fP *stats, int fd)"
+.br
+.RI "\fIGet the stats for the given protocol, with the given descriptor\&. \fP"
+.ti -1c
+.RI "void \fBtb_destroy_stats\fP (\fBtb_prot_stats_t\fP *stats)"
+.br
+.RI "\fIDestroy stats struct\&. \fP"
+.ti -1c
+.RI "void \fBget_udt_stats\fP (\fBtb_prot_stats_t\fP *stats, int fd)"
+.br
+.RI "\fIGet udt stats\&. \fP"
+.ti -1c
+.RI "void \fBget_udp_stats\fP (\fBtb_prot_stats_t\fP *stats, int fd)"
+.br
+.RI "\fIGet udp stats\&. \fP"
+.ti -1c
+.RI "void \fBget_utp_stats\fP (\fBtb_prot_stats_t\fP *stats, int fd)"
+.br
+.RI "\fIGet utp stats\&. \fP"
+.ti -1c
+.RI "void \fBget_dccp_stats\fP (\fBtb_prot_stats_t\fP *stats, int fd)"
+.br
+.RI "\fIGet dccp stats\&. \fP"
+.ti -1c
+.RI "void \fBget_tcp_stats\fP (\fBtb_prot_stats_t\fP *stats, int fd)"
+.br
+.RI "\fIGet tcp stats\&. \fP"
+.ti -1c
+.RI "void \fBtb_get_bsd_stats\fP (\fBtb_prot_stats_t\fP *stats, int fd)"
+.br
+.RI "\fIGet generic bsd stats\&. \fP"
+.ti -1c
+.RI "void \fBtb_destroy_protocol\fP (\fBtb_protocol_t\fP *protocol)"
+.br
+.RI "\fIDestroy the given protocol structure\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const int \fBsocket_error\fP = -1"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void get_dccp_stats (\fBtb_prot_stats_t\fP *stats, intfd)"
+
+.PP
+Get dccp stats\&. 
+.PP
+Definition at line 299 of file tb_protocol\&.c\&.
+.SS "void get_tcp_stats (\fBtb_prot_stats_t\fP *stats, intfd)"
+
+.PP
+Get tcp stats\&. 
+.PP
+Definition at line 305 of file tb_protocol\&.c\&.
+.SS "void get_udp_stats (\fBtb_prot_stats_t\fP *stats, intfd)"
+
+.PP
+Get udp stats\&. 
+.PP
+Definition at line 287 of file tb_protocol\&.c\&.
+.SS "void get_udt_stats (\fBtb_prot_stats_t\fP *stats, intfd)"
+
+.PP
+Get udt stats\&. 
+.PP
+Definition at line 258 of file tb_protocol\&.c\&.
+.SS "void get_utp_stats (\fBtb_prot_stats_t\fP *stats, intfd)"
+
+.PP
+Get utp stats\&. 
+.PP
+Definition at line 293 of file tb_protocol\&.c\&.
+.SS "\fBtb_protocol_t\fP* tb_create_protocol (\fBPROTOCOL\fPprot)"
+
+.PP
+Create a new Protocol\&. Creates the protocol, and loads the struct with all of the relevant functions to perform communication\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+The protocol must be one of the supported types\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprot\fP The protocol to use in the tests\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The struct \fBtb_protocol_t\fP 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file tb_protocol\&.c\&.
+.SS "int tb_dccp_error (intvalue, interr_no)"
+
+.PP
+Handle errors for dccp\&. 
+.PP
+Definition at line 192 of file tb_protocol\&.c\&.
+.SS "void tb_destroy_protocol (\fBtb_protocol_t\fP *protocol)"
+
+.PP
+Destroy the given protocol structure\&. Destroys the struct, freeing up memory\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+protocol must be of type \fBtb_protocol_t\fP\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprotocol\fP The struct to destroy\&. 
+.RE
+.PP
+
+.PP
+Definition at line 344 of file tb_protocol\&.c\&.
+.SS "void tb_destroy_stats (\fBtb_prot_stats_t\fP *stats)"
+
+.PP
+Destroy stats struct\&. 
+.PP
+Definition at line 247 of file tb_protocol\&.c\&.
+.SS "void tb_get_bsd_stats (\fBtb_prot_stats_t\fP *stats, intfd)"
+
+.PP
+Get generic bsd stats\&. 
+.PP
+Definition at line 334 of file tb_protocol\&.c\&.
+.SS "void tb_get_stats (\fBtb_prot_stats_t\fP *stats, intfd)"
+
+.PP
+Get the stats for the given protocol, with the given descriptor\&. 
+.PP
+Definition at line 215 of file tb_protocol\&.c\&.
+.SS "void tb_print_protocol (\fBtb_protocol_t\fP *protocol)"
+
+.PP
+Print the values for this protocol\&. \fBParameters:\fP
+.RS 4
+\fIlistener\fP The protocol to print the values for\&. 
+.RE
+.PP
+
+.PP
+Definition at line 209 of file tb_protocol\&.c\&.
+.SS "int tb_socket_error (intvalue, interr_no)"
+
+.PP
+Handle errors for socket\&. 
+.PP
+Definition at line 185 of file tb_protocol\&.c\&.
+.SS "int tb_udt_error (intvalue, interr_no)"
+
+.PP
+Handle errors for udt\&. 
+.PP
+Definition at line 203 of file tb_protocol\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const int socket_error = -1"
+
+.PP
+Definition at line 24 of file tb_protocol\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

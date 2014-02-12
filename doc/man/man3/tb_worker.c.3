@@ -1,0 +1,205 @@
+.TH "src/tb_worker.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_worker.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_worker\&.h'\fP
+.br
+\fC#include 'tb_session\&.h'\fP
+.br
+\fC#include <gdsl/gdsl_queue\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBdo_work\fP (void *param)"
+.br
+.RI "\fIStart work\&. \fP"
+.ti -1c
+.RI "\fBtb_worker_t\fP * \fBcreate_worker\fP ()"
+.br
+.RI "\fICreate a new worker, allocating memory as required\&. \fP"
+.ti -1c
+.RI "void \fBdestroy_worker\fP (\fBtb_worker_t\fP *w)"
+.br
+.RI "\fIDestroy the given worker, freeing memory\&. \fP"
+.ti -1c
+.RI "void \fBadd_work\fP (\fBtb_worker_t\fP *worker, \fBtb_session_t\fP *data)"
+.br
+.RI "\fIAdd work to a worker\&. \fP"
+.ti -1c
+.RI "\fBtb_session_t\fP * \fBget_work\fP (\fBtb_worker_t\fP *worker)"
+.br
+.RI "\fIGet work for this worker\&. \fP"
+.ti -1c
+.RI "long int \fBcompare_workers\fP (gdsl_element_t E, void *value)"
+.br
+.RI "\fICompare two workers, required by gdsl_heap\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void add_work (\fBtb_worker_t\fP *worker, \fBtb_session_t\fP *data)"
+
+.PP
+Add work to a worker\&. Add work to the given worker\&. Is thread-safe, so it will block if another thread is adding work to the queue\&. The work is added to the work queue in the given worker\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+worker must be of struct type \fBtb_worker_t\fP\&. 
+.PP
+data must be of type \fBtb_session_t\fP\&.  parameters can be NULL\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP The worker to add work to\&. 
+.br
+\fIdata\fP The work to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file tb_worker\&.c\&.
+.SS "long int compare_workers (gdsl_element_tE, void *value)"
+
+.PP
+Compare two workers, required by gdsl_heap\&. gdsl_heap_t is a max heap, so workers with a lesser number of tasks will return > 0, same number of tasks = 0, and greater number of tasks < 0\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+E and value must be both of struct type worker\&. 
+.PP
+E and value cannot be NULL\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIE\fP The element to compare\&. 
+.br
+\fIvalue\fP The element to compare against\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-1, 0 and 1 if E is greater, equal, or less than\&. 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file tb_worker\&.c\&.
+.SS "\fBtb_worker_t\fP* create_worker ()"
+
+.PP
+Create a new worker, allocating memory as required\&. \fBNote:\fP
+.RS 4
+Each worker gets a new, unique id that is generated at the time of creation 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+worker* Pointer to new \fBtb_worker_t\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file tb_worker\&.c\&.
+.SS "void destroy_worker (\fBtb_worker_t\fP *w)"
+
+.PP
+Destroy the given worker, freeing memory\&. \fBNote:\fP
+.RS 4
+.RE
+.PP
+\fBPrecondition:\fP
+.RS 4
+w must be of struct type worker\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIw\fP The worker to destroy 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file tb_worker\&.c\&.
+.SS "void* do_work (void *worker)"
+
+.PP
+Start work\&. This is the function that is passed to pthread_create\&. The worker struct is passed in by pthread_create as per the api
+.PP
+\fBSee Also:\fP
+.RS 4
+pthread\&.h 
+.PP
+pthread_create 
+.RE
+.PP
+\fBPrecondition:\fP
+.RS 4
+param Must be of struct type worker, cannot be NULL\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP The worker to do the specified work\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file tb_worker\&.c\&.
+.SS "\fBtb_session_t\fP* get_work (\fBtb_worker_t\fP *worker)"
+
+.PP
+Get work for this worker\&. Gets a unit of work for this worker\&. Blocks if the queue is empty\&.
+.PP
+\fBPrecondition:\fP
+.RS 4
+worker must be of struct type worker\&. 
+.PP
+worker cannot be NULL 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIworker\fP The worker to fetch the work for\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Work to be done by this \fBtb_worker_t\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line 86 of file tb_worker\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

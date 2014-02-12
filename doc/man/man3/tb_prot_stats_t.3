@@ -1,0 +1,240 @@
+.TH "tb_prot_stats_t" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+tb_prot_stats_t \- 
+.PP
+Protocol information struct\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <tb_protocol\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.RI "\fIThe id for this stat\&. \fP"
+.ti -1c
+.RI "double \fBrtt\fP"
+.br
+.RI "\fIThe current rtt\&. \fP"
+.ti -1c
+.RI "double \fBrtt_var\fP"
+.br
+.RI "\fIThe current rttvar\&. \fP"
+.ti -1c
+.RI "int \fBbyte_sec\fP"
+.br
+.RI "\fIThe bytes/sec as measured by the testbed\&. \fP"
+.ti -1c
+.RI "double \fBav_byte_sec\fP"
+.br
+.RI "\fIThe average bytes/sec, as measured by testbed\&. \fP"
+.ti -1c
+.RI "int \fBpeak_byte_sec\fP"
+.br
+.RI "\fIPeak transfer rate\&. \fP"
+.ti -1c
+.RI "double \fBsend_rate\fP"
+.br
+.RI "\fIThe send rate\&. \fP"
+.ti -1c
+.RI "double \fBrecv_rate\fP"
+.br
+.RI "\fIThe recv rate\&. \fP"
+.ti -1c
+.RI "double \fBsend_window\fP"
+.br
+.RI "\fIThe send window\&. \fP"
+.ti -1c
+.RI "double \fBrecv_window\fP"
+.br
+.RI "\fIThe current recv window for the socket\&. \fP"
+.ti -1c
+.RI "void * \fBother_info\fP"
+.br
+.RI "\fIOther info added here\&. \fP"
+.ti -1c
+.RI "long \fBnum_m_seconds\fP"
+.br
+.RI "\fITotal transfer time in microseconds\&. \fP"
+.ti -1c
+.RI "long long \fBcurrent_read\fP"
+.br
+.RI "\fIThe current rx/tx byte read\&. \fP"
+.ti -1c
+.RI "long \fBtotal_bytes\fP"
+.br
+.RI "\fITotal received bytes\&. \fP"
+.ti -1c
+.RI "unsigned long \fBex_time\fP"
+.br
+.RI "\fITotal time for transfer\&. \fP"
+.ti -1c
+.RI "int \fBsend_p_loss\fP"
+.br
+.RI "\fINumber of lost packets (sender side)\&. \fP"
+.ti -1c
+.RI "int \fBrecv_p_loss\fP"
+.br
+.RI "\fINumber of lost packets (recivers side)\&. \fP"
+.ti -1c
+.RI "int \fBw_buff_size\fP"
+.br
+.RI "\fIThe current send buff size\&. \fP"
+.ti -1c
+.RI "int \fBr_buff_size\fP"
+.br
+.RI "\fIThe current recv buff size\&. \fP"
+.ti -1c
+.RI "void * \fBprot_data\fP"
+.br
+.RI "\fIProtocol specific data\&. \fP"
+.ti -1c
+.RI "\fBPROTOCOL\fP \fBprotocol\fP"
+.br
+.RI "\fIProtocol for these stats\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Protocol information struct\&. 
+
+This struct contains all of the statistics on the currently tested protocol\&. 
+.PP
+Definition at line 193 of file tb_protocol\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "double av_byte_sec"
+
+.PP
+The average bytes/sec, as measured by testbed\&. 
+.PP
+Definition at line 199 of file tb_protocol\&.h\&.
+.SS "int byte_sec"
+
+.PP
+The bytes/sec as measured by the testbed\&. 
+.PP
+Definition at line 198 of file tb_protocol\&.h\&.
+.SS "long long current_read"
+
+.PP
+The current rx/tx byte read\&. 
+.PP
+Definition at line 208 of file tb_protocol\&.h\&.
+.SS "unsigned long ex_time"
+
+.PP
+Total time for transfer\&. 
+.PP
+Definition at line 210 of file tb_protocol\&.h\&.
+.SS "int id"
+
+.PP
+The id for this stat\&. 
+.PP
+Definition at line 195 of file tb_protocol\&.h\&.
+.SS "long num_m_seconds"
+
+.PP
+Total transfer time in microseconds\&. 
+.PP
+Definition at line 207 of file tb_protocol\&.h\&.
+.SS "void* other_info"
+
+.PP
+Other info added here\&. 
+.PP
+Definition at line 205 of file tb_protocol\&.h\&.
+.SS "int peak_byte_sec"
+
+.PP
+Peak transfer rate\&. 
+.PP
+Definition at line 200 of file tb_protocol\&.h\&.
+.SS "void* prot_data"
+
+.PP
+Protocol specific data\&. 
+.PP
+Definition at line 218 of file tb_protocol\&.h\&.
+.SS "\fBPROTOCOL\fP protocol"
+
+.PP
+Protocol for these stats\&. 
+.PP
+Definition at line 219 of file tb_protocol\&.h\&.
+.SS "int r_buff_size"
+
+.PP
+The current recv buff size\&. 
+.PP
+Definition at line 216 of file tb_protocol\&.h\&.
+.SS "int recv_p_loss"
+
+.PP
+Number of lost packets (recivers side)\&. 
+.PP
+Definition at line 213 of file tb_protocol\&.h\&.
+.SS "double recv_rate"
+
+.PP
+The recv rate\&. 
+.PP
+Definition at line 202 of file tb_protocol\&.h\&.
+.SS "double recv_window"
+
+.PP
+The current recv window for the socket\&. 
+.PP
+Definition at line 204 of file tb_protocol\&.h\&.
+.SS "double rtt"
+
+.PP
+The current rtt\&. 
+.PP
+Definition at line 196 of file tb_protocol\&.h\&.
+.SS "double rtt_var"
+
+.PP
+The current rttvar\&. 
+.PP
+Definition at line 197 of file tb_protocol\&.h\&.
+.SS "int send_p_loss"
+
+.PP
+Number of lost packets (sender side)\&. 
+.PP
+Definition at line 212 of file tb_protocol\&.h\&.
+.SS "double send_rate"
+
+.PP
+The send rate\&. 
+.PP
+Definition at line 201 of file tb_protocol\&.h\&.
+.SS "double send_window"
+
+.PP
+The send window\&. 
+.PP
+Definition at line 203 of file tb_protocol\&.h\&.
+.SS "long total_bytes"
+
+.PP
+Total received bytes\&. 
+.PP
+Definition at line 209 of file tb_protocol\&.h\&.
+.SS "int w_buff_size"
+
+.PP
+The current send buff size\&. 
+.PP
+Definition at line 215 of file tb_protocol\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

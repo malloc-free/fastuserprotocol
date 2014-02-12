@@ -1,0 +1,305 @@
+\hypertarget{structtb__prot__stats__t}{\section{tb\-\_\-prot\-\_\-stats\-\_\-t Struct Reference}
+\label{structtb__prot__stats__t}\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+}
+
+
+Protocol information struct.  
+
+
+
+
+{\ttfamily \#include $<$tb\-\_\-protocol.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{structtb__prot__stats__t_a7441ef0865bcb3db9b8064dd7375c1ea}{id}
+\begin{DoxyCompactList}\small\item\em The id for this stat. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__prot__stats__t_abc953dca5930a67736d6cd8f72353794}{rtt}
+\begin{DoxyCompactList}\small\item\em The current rtt. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__prot__stats__t_adef6e52b2e3ac2f1f1369e40f3f515e3}{rtt\-\_\-var}
+\begin{DoxyCompactList}\small\item\em The current rttvar. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__prot__stats__t_a69f2a2630fbc05fb4fd41fb24459e9c6}{byte\-\_\-sec}
+\begin{DoxyCompactList}\small\item\em The bytes/sec as measured by the testbed. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__prot__stats__t_afcb119a75ab6e472c10bac8ccb627517}{av\-\_\-byte\-\_\-sec}
+\begin{DoxyCompactList}\small\item\em The average bytes/sec, as measured by testbed. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__prot__stats__t_add34b08d945695cb3234fa3b74d63ab5}{peak\-\_\-byte\-\_\-sec}
+\begin{DoxyCompactList}\small\item\em Peak transfer rate. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__prot__stats__t_a67477aa01a9beb18e9738c11e847a9fc}{send\-\_\-rate}
+\begin{DoxyCompactList}\small\item\em The send rate. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__prot__stats__t_aa453b7c484e3457e06bdf4e791bde373}{recv\-\_\-rate}
+\begin{DoxyCompactList}\small\item\em The recv rate. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__prot__stats__t_ab0aed934e7f36cd46104bd3dd5b14c1d}{send\-\_\-window}
+\begin{DoxyCompactList}\small\item\em The send window. \end{DoxyCompactList}\item 
+double \hyperlink{structtb__prot__stats__t_a74c7641a53b9b24b7b8941937450b2f5}{recv\-\_\-window}
+\begin{DoxyCompactList}\small\item\em The current recv window for the socket. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{structtb__prot__stats__t_a2c82f234171703c3ce25a507590a05fd}{other\-\_\-info}
+\begin{DoxyCompactList}\small\item\em Other info added here. \end{DoxyCompactList}\item 
+long \hyperlink{structtb__prot__stats__t_a6222fdae7552d06b315c06a2d778ff46}{num\-\_\-m\-\_\-seconds}
+\begin{DoxyCompactList}\small\item\em Total transfer time in microseconds. \end{DoxyCompactList}\item 
+long long \hyperlink{structtb__prot__stats__t_a0f29a560900feea0bfd7b1c97e206313}{current\-\_\-read}
+\begin{DoxyCompactList}\small\item\em The current rx/tx byte read. \end{DoxyCompactList}\item 
+long \hyperlink{structtb__prot__stats__t_af793b9ec786f2ae3a01e61bd38994e72}{total\-\_\-bytes}
+\begin{DoxyCompactList}\small\item\em Total received bytes. \end{DoxyCompactList}\item 
+unsigned long \hyperlink{structtb__prot__stats__t_aac25bc0f34fbf812aa9ad386f7a7574f}{ex\-\_\-time}
+\begin{DoxyCompactList}\small\item\em Total time for transfer. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__prot__stats__t_a0bd7c47cdd9a90293b61401e8e408569}{send\-\_\-p\-\_\-loss}
+\begin{DoxyCompactList}\small\item\em Number of lost packets (sender side). \end{DoxyCompactList}\item 
+int \hyperlink{structtb__prot__stats__t_ad24965ef016625acedfa758f91151fb6}{recv\-\_\-p\-\_\-loss}
+\begin{DoxyCompactList}\small\item\em Number of lost packets (recivers side). \end{DoxyCompactList}\item 
+int \hyperlink{structtb__prot__stats__t_a90beb7bd16530af85b6858932d219ed5}{w\-\_\-buff\-\_\-size}
+\begin{DoxyCompactList}\small\item\em The current send buff size. \end{DoxyCompactList}\item 
+int \hyperlink{structtb__prot__stats__t_a0875385576dea06176e123aca81e2b53}{r\-\_\-buff\-\_\-size}
+\begin{DoxyCompactList}\small\item\em The current recv buff size. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{structtb__prot__stats__t_ab79822e20d19ce95bdf8a3f95bd616d5}{prot\-\_\-data}
+\begin{DoxyCompactList}\small\item\em Protocol specific data. \end{DoxyCompactList}\item 
+\hyperlink{tb__protocol_8h_a7a5bff1040fc154c510874327d44cc1a}{P\-R\-O\-T\-O\-C\-O\-L} \hyperlink{structtb__prot__stats__t_a0d2276cd987e688180eedab183cd503e}{protocol}
+\begin{DoxyCompactList}\small\item\em Protocol for these stats. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Protocol information struct. 
+
+This struct contains all of the statistics on the currently tested protocol. 
+
+Definition at line 193 of file tb\-\_\-protocol.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structtb__prot__stats__t_afcb119a75ab6e472c10bac8ccb627517}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!av\-\_\-byte\-\_\-sec@{av\-\_\-byte\-\_\-sec}}
+\index{av\-\_\-byte\-\_\-sec@{av\-\_\-byte\-\_\-sec}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{av\-\_\-byte\-\_\-sec}]{\setlength{\rightskip}{0pt plus 5cm}double av\-\_\-byte\-\_\-sec}}\label{structtb__prot__stats__t_afcb119a75ab6e472c10bac8ccb627517}
+
+
+The average bytes/sec, as measured by testbed. 
+
+
+
+Definition at line 199 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a69f2a2630fbc05fb4fd41fb24459e9c6}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!byte\-\_\-sec@{byte\-\_\-sec}}
+\index{byte\-\_\-sec@{byte\-\_\-sec}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{byte\-\_\-sec}]{\setlength{\rightskip}{0pt plus 5cm}int byte\-\_\-sec}}\label{structtb__prot__stats__t_a69f2a2630fbc05fb4fd41fb24459e9c6}
+
+
+The bytes/sec as measured by the testbed. 
+
+
+
+Definition at line 198 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a0f29a560900feea0bfd7b1c97e206313}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!current\-\_\-read@{current\-\_\-read}}
+\index{current\-\_\-read@{current\-\_\-read}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{current\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}long long current\-\_\-read}}\label{structtb__prot__stats__t_a0f29a560900feea0bfd7b1c97e206313}
+
+
+The current rx/tx byte read. 
+
+
+
+Definition at line 208 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_aac25bc0f34fbf812aa9ad386f7a7574f}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!ex\-\_\-time@{ex\-\_\-time}}
+\index{ex\-\_\-time@{ex\-\_\-time}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{ex\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long ex\-\_\-time}}\label{structtb__prot__stats__t_aac25bc0f34fbf812aa9ad386f7a7574f}
+
+
+Total time for transfer. 
+
+
+
+Definition at line 210 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a7441ef0865bcb3db9b8064dd7375c1ea}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!id@{id}}
+\index{id@{id}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int id}}\label{structtb__prot__stats__t_a7441ef0865bcb3db9b8064dd7375c1ea}
+
+
+The id for this stat. 
+
+
+
+Definition at line 195 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a6222fdae7552d06b315c06a2d778ff46}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!num\-\_\-m\-\_\-seconds@{num\-\_\-m\-\_\-seconds}}
+\index{num\-\_\-m\-\_\-seconds@{num\-\_\-m\-\_\-seconds}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{num\-\_\-m\-\_\-seconds}]{\setlength{\rightskip}{0pt plus 5cm}long num\-\_\-m\-\_\-seconds}}\label{structtb__prot__stats__t_a6222fdae7552d06b315c06a2d778ff46}
+
+
+Total transfer time in microseconds. 
+
+
+
+Definition at line 207 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a2c82f234171703c3ce25a507590a05fd}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!other\-\_\-info@{other\-\_\-info}}
+\index{other\-\_\-info@{other\-\_\-info}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{other\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ other\-\_\-info}}\label{structtb__prot__stats__t_a2c82f234171703c3ce25a507590a05fd}
+
+
+Other info added here. 
+
+
+
+Definition at line 205 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_add34b08d945695cb3234fa3b74d63ab5}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!peak\-\_\-byte\-\_\-sec@{peak\-\_\-byte\-\_\-sec}}
+\index{peak\-\_\-byte\-\_\-sec@{peak\-\_\-byte\-\_\-sec}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{peak\-\_\-byte\-\_\-sec}]{\setlength{\rightskip}{0pt plus 5cm}int peak\-\_\-byte\-\_\-sec}}\label{structtb__prot__stats__t_add34b08d945695cb3234fa3b74d63ab5}
+
+
+Peak transfer rate. 
+
+
+
+Definition at line 200 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_ab79822e20d19ce95bdf8a3f95bd616d5}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!prot\-\_\-data@{prot\-\_\-data}}
+\index{prot\-\_\-data@{prot\-\_\-data}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{prot\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ prot\-\_\-data}}\label{structtb__prot__stats__t_ab79822e20d19ce95bdf8a3f95bd616d5}
+
+
+Protocol specific data. 
+
+
+
+Definition at line 218 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a0d2276cd987e688180eedab183cd503e}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!protocol@{protocol}}
+\index{protocol@{protocol}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{protocol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-T\-O\-C\-O\-L} protocol}}\label{structtb__prot__stats__t_a0d2276cd987e688180eedab183cd503e}
+
+
+Protocol for these stats. 
+
+
+
+Definition at line 219 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a0875385576dea06176e123aca81e2b53}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!r\-\_\-buff\-\_\-size@{r\-\_\-buff\-\_\-size}}
+\index{r\-\_\-buff\-\_\-size@{r\-\_\-buff\-\_\-size}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{r\-\_\-buff\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int r\-\_\-buff\-\_\-size}}\label{structtb__prot__stats__t_a0875385576dea06176e123aca81e2b53}
+
+
+The current recv buff size. 
+
+
+
+Definition at line 216 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_ad24965ef016625acedfa758f91151fb6}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!recv\-\_\-p\-\_\-loss@{recv\-\_\-p\-\_\-loss}}
+\index{recv\-\_\-p\-\_\-loss@{recv\-\_\-p\-\_\-loss}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{recv\-\_\-p\-\_\-loss}]{\setlength{\rightskip}{0pt plus 5cm}int recv\-\_\-p\-\_\-loss}}\label{structtb__prot__stats__t_ad24965ef016625acedfa758f91151fb6}
+
+
+Number of lost packets (recivers side). 
+
+
+
+Definition at line 213 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_aa453b7c484e3457e06bdf4e791bde373}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!recv\-\_\-rate@{recv\-\_\-rate}}
+\index{recv\-\_\-rate@{recv\-\_\-rate}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{recv\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}double recv\-\_\-rate}}\label{structtb__prot__stats__t_aa453b7c484e3457e06bdf4e791bde373}
+
+
+The recv rate. 
+
+
+
+Definition at line 202 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a74c7641a53b9b24b7b8941937450b2f5}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!recv\-\_\-window@{recv\-\_\-window}}
+\index{recv\-\_\-window@{recv\-\_\-window}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{recv\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}double recv\-\_\-window}}\label{structtb__prot__stats__t_a74c7641a53b9b24b7b8941937450b2f5}
+
+
+The current recv window for the socket. 
+
+
+
+Definition at line 204 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_abc953dca5930a67736d6cd8f72353794}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!rtt@{rtt}}
+\index{rtt@{rtt}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{rtt}]{\setlength{\rightskip}{0pt plus 5cm}double rtt}}\label{structtb__prot__stats__t_abc953dca5930a67736d6cd8f72353794}
+
+
+The current rtt. 
+
+
+
+Definition at line 196 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_adef6e52b2e3ac2f1f1369e40f3f515e3}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!rtt\-\_\-var@{rtt\-\_\-var}}
+\index{rtt\-\_\-var@{rtt\-\_\-var}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{rtt\-\_\-var}]{\setlength{\rightskip}{0pt plus 5cm}double rtt\-\_\-var}}\label{structtb__prot__stats__t_adef6e52b2e3ac2f1f1369e40f3f515e3}
+
+
+The current rttvar. 
+
+
+
+Definition at line 197 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a0bd7c47cdd9a90293b61401e8e408569}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!send\-\_\-p\-\_\-loss@{send\-\_\-p\-\_\-loss}}
+\index{send\-\_\-p\-\_\-loss@{send\-\_\-p\-\_\-loss}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{send\-\_\-p\-\_\-loss}]{\setlength{\rightskip}{0pt plus 5cm}int send\-\_\-p\-\_\-loss}}\label{structtb__prot__stats__t_a0bd7c47cdd9a90293b61401e8e408569}
+
+
+Number of lost packets (sender side). 
+
+
+
+Definition at line 212 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a67477aa01a9beb18e9738c11e847a9fc}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!send\-\_\-rate@{send\-\_\-rate}}
+\index{send\-\_\-rate@{send\-\_\-rate}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{send\-\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}double send\-\_\-rate}}\label{structtb__prot__stats__t_a67477aa01a9beb18e9738c11e847a9fc}
+
+
+The send rate. 
+
+
+
+Definition at line 201 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_ab0aed934e7f36cd46104bd3dd5b14c1d}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!send\-\_\-window@{send\-\_\-window}}
+\index{send\-\_\-window@{send\-\_\-window}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{send\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}double send\-\_\-window}}\label{structtb__prot__stats__t_ab0aed934e7f36cd46104bd3dd5b14c1d}
+
+
+The send window. 
+
+
+
+Definition at line 203 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_af793b9ec786f2ae3a01e61bd38994e72}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!total\-\_\-bytes@{total\-\_\-bytes}}
+\index{total\-\_\-bytes@{total\-\_\-bytes}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{total\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}long total\-\_\-bytes}}\label{structtb__prot__stats__t_af793b9ec786f2ae3a01e61bd38994e72}
+
+
+Total received bytes. 
+
+
+
+Definition at line 209 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__prot__stats__t_a90beb7bd16530af85b6858932d219ed5}{\index{tb\-\_\-prot\-\_\-stats\-\_\-t@{tb\-\_\-prot\-\_\-stats\-\_\-t}!w\-\_\-buff\-\_\-size@{w\-\_\-buff\-\_\-size}}
+\index{w\-\_\-buff\-\_\-size@{w\-\_\-buff\-\_\-size}!tb_prot_stats_t@{tb\-\_\-prot\-\_\-stats\-\_\-t}}
+\subsubsection[{w\-\_\-buff\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}int w\-\_\-buff\-\_\-size}}\label{structtb__prot__stats__t_a90beb7bd16530af85b6858932d219ed5}
+
+
+The current send buff size. 
+
+
+
+Definition at line 215 of file tb\-\_\-protocol.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{tb__protocol_8h}{tb\-\_\-protocol.\-h}\end{DoxyCompactItemize}

@@ -1,0 +1,230 @@
+\hypertarget{structtb__protocol__t}{\section{tb\-\_\-protocol\-\_\-t Struct Reference}
+\label{structtb__protocol__t}\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}}
+}
+
+
+Defines the A\-P\-I for the chosen protocol.  
+
+
+
+
+{\ttfamily \#include $<$tb\-\_\-protocol.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tb__protocol_8h_a7a5bff1040fc154c510874327d44cc1a}{P\-R\-O\-T\-O\-C\-O\-L} \hyperlink{structtb__protocol__t_a0d2276cd987e688180eedab183cd503e}{protocol}
+\item 
+void $\ast$ \hyperlink{structtb__protocol__t_ae6c752a4c1c05c1fbd5623711f467712}{parameters}
+\item 
+int \hyperlink{structtb__protocol__t_ac765329451135abec74c45e1897abf26}{type}
+\item 
+const int $\ast$ \hyperlink{structtb__protocol__t_a154801a8a2d2211e5294ebaafb7ab904}{error\-\_\-no}
+\item 
+int \hyperlink{structtb__protocol__t_aba5b95ee17dc696379f1f4bc387cb075}{eot}
+\item 
+int \hyperlink{structtb__protocol__t_addb542b46765ba0bbea2dfce904440ab}{sock\-\_\-flags}
+\item 
+\hyperlink{tb__protocol_8h_ade248d634a0f3c9eca499d6fb268ce09}{P\-R\-O\-T\-\_\-\-O\-P\-T} \hyperlink{structtb__protocol__t_aa6fcad19412b8f80ba0dd887b3030010}{prot\-\_\-opts}
+\item 
+\hyperlink{tb__protocol_8h_aaf09f0db257e10041fe9e53585cf883d}{funct\-\_\-socket} \hyperlink{structtb__protocol__t_a48ae54bbd3f3cdfe397aba482cfcf7b5}{f\-\_\-sock}
+\item 
+\hyperlink{tb__protocol_8h_a14bfec37c8822819a01fb2e7f670096d}{funct\-\_\-bind} \hyperlink{structtb__protocol__t_a7e09c5e8d544ff3b707da30e813725a4}{f\-\_\-bind}
+\item 
+\hyperlink{tb__protocol_8h_a43255c3ce51eb275006d03290ea299d3}{funct\-\_\-connect} \hyperlink{structtb__protocol__t_a7d0f95f7e269f99385844c48a75f6532}{f\-\_\-connect}
+\item 
+\hyperlink{tb__protocol_8h_a473a931a3082ddc4d122f9f4a8fd1437}{funct\-\_\-send} \hyperlink{structtb__protocol__t_a2709f2be8c51a5bc588388daf247fd42}{f\-\_\-send}
+\item 
+\hyperlink{tb__protocol_8h_a167282378503a61350e0d2fb4e317bb0}{funct\-\_\-recv} \hyperlink{structtb__protocol__t_aa1dc450b562c5216a20f25b4701ecb0f}{f\-\_\-recv}
+\item 
+\hyperlink{tb__protocol_8h_aafdc81e719bafbf5836af0764e063c6e}{funct\-\_\-listen} \hyperlink{structtb__protocol__t_a981417cf0cb6a8b6559288520f60c5a1}{f\-\_\-listen}
+\item 
+\hyperlink{tb__protocol_8h_a35f8591b684f7643ff28a012c71b98fa}{funct\-\_\-accept} \hyperlink{structtb__protocol__t_a2fc85e4eab79ec0b85f8b1b599919b63}{f\-\_\-accept}
+\item 
+\hyperlink{tb__protocol_8h_a08f2cf29907c58b40e7d04078252af61}{funct\-\_\-close} \hyperlink{structtb__protocol__t_afba2de073f269f760d4bb0197f201883}{f\-\_\-close}
+\item 
+\hyperlink{tb__protocol_8h_ac8027011503a44781c2e957843accec6}{funct\-\_\-exit} \hyperlink{structtb__protocol__t_ac430cf8f7a44acfe53a981335b9436a9}{f\-\_\-exit}
+\item 
+\hyperlink{tb__protocol_8h_a87e94687c2c2703bd383b95da63fadfb}{funct\-\_\-recvfrom} \hyperlink{structtb__protocol__t_a01abb6c514ece717e5dd4ee4c9069fb6}{f\-\_\-recfrom}
+\item 
+\hyperlink{tb__protocol_8h_ae60ccd51019fbfaaa90a036fc14349a7}{funct\-\_\-sendto} \hyperlink{structtb__protocol__t_a40bf261179f3043c4c05d5c030b3f463}{f\-\_\-sendto}
+\item 
+\hyperlink{tb__protocol_8h_a1375c398cc002ef578b1ccef351761ef}{funct\-\_\-error} \hyperlink{structtb__protocol__t_a5b3fef362953f92e9a750e44cf292b30}{f\-\_\-error}
+\item 
+\hyperlink{tb__protocol_8h_a329bd89568b70a3a25d5e809f31ebac7}{funct\-\_\-options} \hyperlink{structtb__protocol__t_abf29463c11fbb3ef0acccb80ca7c2c48}{f\-\_\-opt}
+\item 
+\hyperlink{tb__protocol_8h_a374dd8150f3cc4a07fe29de3ec5e886a}{funct\-\_\-setup} \hyperlink{structtb__protocol__t_ac590c819e0666511355921e638bca992}{f\-\_\-setup}
+\item 
+\hyperlink{tb__epoll_8h_ab908abbc4a276702f09c05bdf565bd64}{func\-\_\-event} \hyperlink{structtb__protocol__t_a8e1a53ac67fc143d7e7fa50e20ea641f}{f\-\_\-ep\-\_\-event}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Defines the A\-P\-I for the chosen protocol. 
+
+This struct describes the protocol to be used in communication. The pointers to the functions required for communication with each of the protocols is stored in this struct. 
+
+Definition at line 158 of file tb\-\_\-protocol.\-h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structtb__protocol__t_aba5b95ee17dc696379f1f4bc387cb075}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!eot@{eot}}
+\index{eot@{eot}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{eot}]{\setlength{\rightskip}{0pt plus 5cm}int eot}}\label{structtb__protocol__t_aba5b95ee17dc696379f1f4bc387cb075}
+
+
+Definition at line 164 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a154801a8a2d2211e5294ebaafb7ab904}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!error\-\_\-no@{error\-\_\-no}}
+\index{error\-\_\-no@{error\-\_\-no}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{error\-\_\-no}]{\setlength{\rightskip}{0pt plus 5cm}const int$\ast$ error\-\_\-no}}\label{structtb__protocol__t_a154801a8a2d2211e5294ebaafb7ab904}
+
+
+Definition at line 163 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a2fc85e4eab79ec0b85f8b1b599919b63}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-accept@{f\-\_\-accept}}
+\index{f\-\_\-accept@{f\-\_\-accept}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-accept}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-accept} f\-\_\-accept}}\label{structtb__protocol__t_a2fc85e4eab79ec0b85f8b1b599919b63}
+
+
+Definition at line 173 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a7e09c5e8d544ff3b707da30e813725a4}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-bind@{f\-\_\-bind}}
+\index{f\-\_\-bind@{f\-\_\-bind}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-bind}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-bind} f\-\_\-bind}}\label{structtb__protocol__t_a7e09c5e8d544ff3b707da30e813725a4}
+
+
+Definition at line 168 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_afba2de073f269f760d4bb0197f201883}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-close@{f\-\_\-close}}
+\index{f\-\_\-close@{f\-\_\-close}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-close}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-close} f\-\_\-close}}\label{structtb__protocol__t_afba2de073f269f760d4bb0197f201883}
+
+
+Definition at line 174 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a7d0f95f7e269f99385844c48a75f6532}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-connect@{f\-\_\-connect}}
+\index{f\-\_\-connect@{f\-\_\-connect}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-connect}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-connect} f\-\_\-connect}}\label{structtb__protocol__t_a7d0f95f7e269f99385844c48a75f6532}
+
+
+Definition at line 169 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a8e1a53ac67fc143d7e7fa50e20ea641f}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-ep\-\_\-event@{f\-\_\-ep\-\_\-event}}
+\index{f\-\_\-ep\-\_\-event@{f\-\_\-ep\-\_\-event}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-ep\-\_\-event}]{\setlength{\rightskip}{0pt plus 5cm}{\bf func\-\_\-event} f\-\_\-ep\-\_\-event}}\label{structtb__protocol__t_a8e1a53ac67fc143d7e7fa50e20ea641f}
+
+
+Definition at line 181 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a5b3fef362953f92e9a750e44cf292b30}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-error@{f\-\_\-error}}
+\index{f\-\_\-error@{f\-\_\-error}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-error} f\-\_\-error}}\label{structtb__protocol__t_a5b3fef362953f92e9a750e44cf292b30}
+
+
+Definition at line 178 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_ac430cf8f7a44acfe53a981335b9436a9}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-exit@{f\-\_\-exit}}
+\index{f\-\_\-exit@{f\-\_\-exit}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-exit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-exit} f\-\_\-exit}}\label{structtb__protocol__t_ac430cf8f7a44acfe53a981335b9436a9}
+
+
+Definition at line 175 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a981417cf0cb6a8b6559288520f60c5a1}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-listen@{f\-\_\-listen}}
+\index{f\-\_\-listen@{f\-\_\-listen}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-listen}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-listen} f\-\_\-listen}}\label{structtb__protocol__t_a981417cf0cb6a8b6559288520f60c5a1}
+
+
+Definition at line 172 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_abf29463c11fbb3ef0acccb80ca7c2c48}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-opt@{f\-\_\-opt}}
+\index{f\-\_\-opt@{f\-\_\-opt}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-opt}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-options} f\-\_\-opt}}\label{structtb__protocol__t_abf29463c11fbb3ef0acccb80ca7c2c48}
+
+
+Definition at line 179 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a01abb6c514ece717e5dd4ee4c9069fb6}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-recfrom@{f\-\_\-recfrom}}
+\index{f\-\_\-recfrom@{f\-\_\-recfrom}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-recfrom}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-recvfrom} f\-\_\-recfrom}}\label{structtb__protocol__t_a01abb6c514ece717e5dd4ee4c9069fb6}
+
+
+Definition at line 176 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_aa1dc450b562c5216a20f25b4701ecb0f}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-recv@{f\-\_\-recv}}
+\index{f\-\_\-recv@{f\-\_\-recv}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-recv}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-recv} f\-\_\-recv}}\label{structtb__protocol__t_aa1dc450b562c5216a20f25b4701ecb0f}
+
+
+Definition at line 171 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a2709f2be8c51a5bc588388daf247fd42}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-send@{f\-\_\-send}}
+\index{f\-\_\-send@{f\-\_\-send}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-send} f\-\_\-send}}\label{structtb__protocol__t_a2709f2be8c51a5bc588388daf247fd42}
+
+
+Definition at line 170 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a40bf261179f3043c4c05d5c030b3f463}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-sendto@{f\-\_\-sendto}}
+\index{f\-\_\-sendto@{f\-\_\-sendto}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-sendto}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-sendto} f\-\_\-sendto}}\label{structtb__protocol__t_a40bf261179f3043c4c05d5c030b3f463}
+
+
+Definition at line 177 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_ac590c819e0666511355921e638bca992}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-setup@{f\-\_\-setup}}
+\index{f\-\_\-setup@{f\-\_\-setup}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-setup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-setup} f\-\_\-setup}}\label{structtb__protocol__t_ac590c819e0666511355921e638bca992}
+
+
+Definition at line 180 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a48ae54bbd3f3cdfe397aba482cfcf7b5}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!f\-\_\-sock@{f\-\_\-sock}}
+\index{f\-\_\-sock@{f\-\_\-sock}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{f\-\_\-sock}]{\setlength{\rightskip}{0pt plus 5cm}{\bf funct\-\_\-socket} f\-\_\-sock}}\label{structtb__protocol__t_a48ae54bbd3f3cdfe397aba482cfcf7b5}
+
+
+Definition at line 167 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_ae6c752a4c1c05c1fbd5623711f467712}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!parameters@{parameters}}
+\index{parameters@{parameters}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{parameters}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ parameters}}\label{structtb__protocol__t_ae6c752a4c1c05c1fbd5623711f467712}
+
+
+Definition at line 161 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_aa6fcad19412b8f80ba0dd887b3030010}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!prot\-\_\-opts@{prot\-\_\-opts}}
+\index{prot\-\_\-opts@{prot\-\_\-opts}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{prot\-\_\-opts}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-T\-\_\-\-O\-P\-T} prot\-\_\-opts}}\label{structtb__protocol__t_aa6fcad19412b8f80ba0dd887b3030010}
+
+
+Definition at line 166 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_a0d2276cd987e688180eedab183cd503e}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!protocol@{protocol}}
+\index{protocol@{protocol}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{protocol}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-T\-O\-C\-O\-L} protocol}}\label{structtb__protocol__t_a0d2276cd987e688180eedab183cd503e}
+
+
+Definition at line 160 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_addb542b46765ba0bbea2dfce904440ab}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!sock\-\_\-flags@{sock\-\_\-flags}}
+\index{sock\-\_\-flags@{sock\-\_\-flags}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{sock\-\_\-flags}]{\setlength{\rightskip}{0pt plus 5cm}int sock\-\_\-flags}}\label{structtb__protocol__t_addb542b46765ba0bbea2dfce904440ab}
+
+
+Definition at line 165 of file tb\-\_\-protocol.\-h.
+
+\hypertarget{structtb__protocol__t_ac765329451135abec74c45e1897abf26}{\index{tb\-\_\-protocol\-\_\-t@{tb\-\_\-protocol\-\_\-t}!type@{type}}
+\index{type@{type}!tb_protocol_t@{tb\-\_\-protocol\-\_\-t}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}int type}}\label{structtb__protocol__t_ac765329451135abec74c45e1897abf26}
+
+
+Definition at line 162 of file tb\-\_\-protocol.\-h.
+
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{tb__protocol_8h}{tb\-\_\-protocol.\-h}\end{DoxyCompactItemize}

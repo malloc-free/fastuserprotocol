@@ -1,0 +1,1 @@
+gcc -Wall -D_DEBUG_LOGGING -o TestLog log_test.c ../src/tb_logging.c -I../src/ -includetb_logging.h 

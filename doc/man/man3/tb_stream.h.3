@@ -1,0 +1,102 @@
+.TH "src/tb_stream.h" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_stream.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_listener\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBtb_stream_server\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIRun a server without epoll (blocking socket)\&. \fP"
+.ti -1c
+.RI "int \fBtb_stream_m_server\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIRun a multiple connection server\&. \fP"
+.ti -1c
+.RI "int \fBtb_stream_event\fP (int events, void *data)"
+.br
+.RI "\fICalled by epoll\&. \fP"
+.ti -1c
+.RI "void * \fBtb_stream_m_server_conn\fP (void *data)"
+.br
+.RI "\fIIndividual stream connections for multiple stream servers\&. \fP"
+.ti -1c
+.RI "int \fBtb_stream_m_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload using stream sockets\&. \fP"
+.ti -1c
+.RI "void * \fBtb_stream_connection\fP (void *data)"
+.br
+.RI "\fIA single stream connection\&. \fP"
+.ti -1c
+.RI "int \fBtb_stream_client\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIUpload with a single connection\&. \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int tb_stream_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload with a single connection\&. 
+.PP
+Definition at line 363 of file tb_stream\&.c\&.
+.SS "void* tb_stream_connection (void *data)"
+
+.PP
+A single stream connection\&. 
+.PP
+Definition at line 305 of file tb_stream\&.c\&.
+.SS "int tb_stream_event (intevents, void *data)"
+
+.PP
+Called by epoll\&. 
+.PP
+Definition at line 117 of file tb_stream\&.c\&.
+.SS "int tb_stream_m_client (\fBtb_listener_t\fP *listener)"
+
+.PP
+Upload using stream sockets\&. Upload using bsd stream based protocols (TCP, DCCP) with multiple connections\&. 
+.PP
+Definition at line 216 of file tb_stream\&.c\&.
+.SS "int tb_stream_m_server (\fBtb_listener_t\fP *listener)"
+
+.PP
+Run a multiple connection server\&. \fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to create the server for 
+.RE
+.PP
+
+.PP
+Definition at line 100 of file tb_stream\&.c\&.
+.SS "void* tb_stream_m_server_conn (void *data)"
+
+.PP
+Individual stream connections for multiple stream servers\&. 
+.PP
+Definition at line 169 of file tb_stream\&.c\&.
+.SS "int tb_stream_server (\fBtb_listener_t\fP *listener)"
+
+.PP
+Run a server without epoll (blocking socket)\&. Runs a server without using epoll, so the socket blocks\&. Also used by UDT, aUDT and other protocols that are not implemented in sockets\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to run the server with\&. 
+.RE
+.PP
+
+.PP
+Definition at line 36 of file tb_stream\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.

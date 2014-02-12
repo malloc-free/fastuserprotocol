@@ -1,0 +1,208 @@
+\hypertarget{tb__logging_8h}{\section{src/tb\-\_\-logging.h File Reference}
+\label{tb__logging_8h}\index{src/tb\-\_\-logging.\-h@{src/tb\-\_\-logging.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+Include dependency graph for tb\-\_\-logging.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{tb__logging_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tb__logging_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtb__log__t}{tb\-\_\-log\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tb__logging_8h_a44e93e627399c941f83961cf839eaaf2}{L\-\_\-\-I\-N\-F\-O}~\char`\"{}\mbox{[} I\-N\-F \mbox{]}\char`\"{}
+\item 
+\#define \hyperlink{tb__logging_8h_a7c0f1dfbbf64536fd87f0cfcb3e68e48}{L\-\_\-\-A\-C\-K}~\char`\"{}\mbox{[} A\-C\-K \mbox{]}\char`\"{}
+\item 
+\#define \hyperlink{tb__logging_8h_a20994ae9abfb84898f46f5e525831a0e}{L\-\_\-\-E\-R\-R}~\char`\"{}\mbox{[} E\-R\-R \mbox{]}\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9}{tb\-\_\-log\-\_\-type\-\_\-t} \{ \hyperlink{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9a6e98ff471e3ce6c4ef2d75c37ee51837}{L\-O\-G\-\_\-\-I\-N\-F\-O} =  0, 
+\hyperlink{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9aca63fedd69011a057f29a512c1a0634f}{L\-O\-G\-\_\-\-A\-C\-K}, 
+\hyperlink{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9a0b4d9ad891dde7ae8deeb1704195858c}{L\-O\-G\-\_\-\-E\-R\-R}
+ \}
+\item 
+enum \hyperlink{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097}{tb\-\_\-log\-\_\-format\-\_\-t} \{ \hyperlink{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097a8386f3e3e7be0b7b603636867c133a5d}{P\-L\-A\-I\-N} =  0, 
+\hyperlink{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097a0ace72efd9e987dfd807365d0ca50141}{D\-A\-T\-E}, 
+\hyperlink{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097ae9e4c627760f36823cdd153c24229157}{T\-I\-M\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structtb__log__t}{tb\-\_\-log\-\_\-t} $\ast$ \hyperlink{tb__logging_8h_a7c68189d58c8f662755a184836695c8e}{tb\-\_\-create\-\_\-log} (char $\ast$file\-\_\-path)
+\begin{DoxyCompactList}\small\item\em Create a log file, using a plain name. \end{DoxyCompactList}\item 
+\hyperlink{structtb__log__t}{tb\-\_\-log\-\_\-t} $\ast$ \hyperlink{tb__logging_8h_aa99e3e9fc572c1967a821f2ef6065688}{tb\-\_\-create\-\_\-flog} (char $\ast$file\-\_\-path, \hyperlink{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097}{tb\-\_\-log\-\_\-format\-\_\-t} format)
+\begin{DoxyCompactList}\small\item\em Creat a log file, adding formatting to the log file name. \end{DoxyCompactList}\item 
+void \hyperlink{tb__logging_8h_aa819c4fe320cf477fa53dc930794e475}{tb\-\_\-destroy\-\_\-log} (\hyperlink{structtb__log__t}{tb\-\_\-log\-\_\-t} $\ast$log)
+\begin{DoxyCompactList}\small\item\em Destroy the log struct. \end{DoxyCompactList}\item 
+int \hyperlink{tb__logging_8h_a82ad705fd902df959659c7460c4d10b9}{tb\-\_\-write\-\_\-log} (\hyperlink{structtb__log__t}{tb\-\_\-log\-\_\-t} $\ast$log, char $\ast$info, \hyperlink{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9}{tb\-\_\-log\-\_\-type\-\_\-t} type)
+\begin{DoxyCompactList}\small\item\em Write a line to log file. \end{DoxyCompactList}\item 
+void \hyperlink{tb__logging_8h_af988d5c63ebae79e18dc2cd96ab3821c}{tb\-\_\-get\-\_\-f\-\_\-time} (char $\ast$time\-\_\-str, size\-\_\-t len, const char $\ast$format) \-\_\-\-\_\-attribute\-\_\-\-\_\-((always\-\_\-inline))
+\begin{DoxyCompactList}\small\item\em Get formatted time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{tb__logging_8h_a7c0f1dfbbf64536fd87f0cfcb3e68e48}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!L\-\_\-\-A\-C\-K@{L\-\_\-\-A\-C\-K}}
+\index{L\-\_\-\-A\-C\-K@{L\-\_\-\-A\-C\-K}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{L\-\_\-\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-\_\-\-A\-C\-K~\char`\"{}\mbox{[} A\-C\-K \mbox{]}\char`\"{}}}\label{tb__logging_8h_a7c0f1dfbbf64536fd87f0cfcb3e68e48}
+
+
+Definition at line 14 of file tb\-\_\-logging.\-h.
+
+\hypertarget{tb__logging_8h_a20994ae9abfb84898f46f5e525831a0e}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!L\-\_\-\-E\-R\-R@{L\-\_\-\-E\-R\-R}}
+\index{L\-\_\-\-E\-R\-R@{L\-\_\-\-E\-R\-R}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{L\-\_\-\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-\_\-\-E\-R\-R~\char`\"{}\mbox{[} E\-R\-R \mbox{]}\char`\"{}}}\label{tb__logging_8h_a20994ae9abfb84898f46f5e525831a0e}
+
+
+Definition at line 15 of file tb\-\_\-logging.\-h.
+
+\hypertarget{tb__logging_8h_a44e93e627399c941f83961cf839eaaf2}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!L\-\_\-\-I\-N\-F\-O@{L\-\_\-\-I\-N\-F\-O}}
+\index{L\-\_\-\-I\-N\-F\-O@{L\-\_\-\-I\-N\-F\-O}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{L\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-\_\-\-I\-N\-F\-O~\char`\"{}\mbox{[} I\-N\-F \mbox{]}\char`\"{}}}\label{tb__logging_8h_a44e93e627399c941f83961cf839eaaf2}
+
+
+Definition at line 13 of file tb\-\_\-logging.\-h.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!tb\-\_\-log\-\_\-format\-\_\-t@{tb\-\_\-log\-\_\-format\-\_\-t}}
+\index{tb\-\_\-log\-\_\-format\-\_\-t@{tb\-\_\-log\-\_\-format\-\_\-t}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{tb\-\_\-log\-\_\-format\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tb\-\_\-log\-\_\-format\-\_\-t}}}\label{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097}
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{P\-L\-A\-I\-N@{P\-L\-A\-I\-N}!tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}}\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!P\-L\-A\-I\-N@{P\-L\-A\-I\-N}}\item[{\em 
+\hypertarget{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097a8386f3e3e7be0b7b603636867c133a5d}{P\-L\-A\-I\-N}\label{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097a8386f3e3e7be0b7b603636867c133a5d}
+}]\index{D\-A\-T\-E@{D\-A\-T\-E}!tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}}\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!D\-A\-T\-E@{D\-A\-T\-E}}\item[{\em 
+\hypertarget{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097a0ace72efd9e987dfd807365d0ca50141}{D\-A\-T\-E}\label{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097a0ace72efd9e987dfd807365d0ca50141}
+}]\index{T\-I\-M\-E@{T\-I\-M\-E}!tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}}\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!T\-I\-M\-E@{T\-I\-M\-E}}\item[{\em 
+\hypertarget{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097ae9e4c627760f36823cdd153c24229157}{T\-I\-M\-E}\label{tb__logging_8h_ac6d7d82286fbda5f38dd716090016097ae9e4c627760f36823cdd153c24229157}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 33 of file tb\-\_\-logging.\-h.
+
+\hypertarget{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!tb\-\_\-log\-\_\-type\-\_\-t@{tb\-\_\-log\-\_\-type\-\_\-t}}
+\index{tb\-\_\-log\-\_\-type\-\_\-t@{tb\-\_\-log\-\_\-type\-\_\-t}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{tb\-\_\-log\-\_\-type\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tb\-\_\-log\-\_\-type\-\_\-t}}}\label{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9}
+\begin{Desc}
+\item[Enumerator\-: ]\par
+\begin{description}
+\index{L\-O\-G\-\_\-\-I\-N\-F\-O@{L\-O\-G\-\_\-\-I\-N\-F\-O}!tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}}\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!L\-O\-G\-\_\-\-I\-N\-F\-O@{L\-O\-G\-\_\-\-I\-N\-F\-O}}\item[{\em 
+\hypertarget{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9a6e98ff471e3ce6c4ef2d75c37ee51837}{L\-O\-G\-\_\-\-I\-N\-F\-O}\label{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9a6e98ff471e3ce6c4ef2d75c37ee51837}
+}]\index{L\-O\-G\-\_\-\-A\-C\-K@{L\-O\-G\-\_\-\-A\-C\-K}!tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}}\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!L\-O\-G\-\_\-\-A\-C\-K@{L\-O\-G\-\_\-\-A\-C\-K}}\item[{\em 
+\hypertarget{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9aca63fedd69011a057f29a512c1a0634f}{L\-O\-G\-\_\-\-A\-C\-K}\label{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9aca63fedd69011a057f29a512c1a0634f}
+}]\index{L\-O\-G\-\_\-\-E\-R\-R@{L\-O\-G\-\_\-\-E\-R\-R}!tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}}\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!L\-O\-G\-\_\-\-E\-R\-R@{L\-O\-G\-\_\-\-E\-R\-R}}\item[{\em 
+\hypertarget{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9a0b4d9ad891dde7ae8deeb1704195858c}{L\-O\-G\-\_\-\-E\-R\-R}\label{tb__logging_8h_a15964dc9e84f3d4095c21137929d15c9a0b4d9ad891dde7ae8deeb1704195858c}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 25 of file tb\-\_\-logging.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{tb__logging_8h_aa99e3e9fc572c1967a821f2ef6065688}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!tb\-\_\-create\-\_\-flog@{tb\-\_\-create\-\_\-flog}}
+\index{tb\-\_\-create\-\_\-flog@{tb\-\_\-create\-\_\-flog}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{tb\-\_\-create\-\_\-flog}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-log\-\_\-t}$\ast$ tb\-\_\-create\-\_\-flog (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\-\_\-path, }
+\item[{{\bf tb\-\_\-log\-\_\-format\-\_\-t}}]{format}
+\end{DoxyParamCaption}
+)}}\label{tb__logging_8h_aa99e3e9fc572c1967a821f2ef6065688}
+
+
+Creat a log file, adding formatting to the log file name. 
+
+
+
+Definition at line 33 of file tb\-\_\-logging.\-c.
+
+\hypertarget{tb__logging_8h_a7c68189d58c8f662755a184836695c8e}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!tb\-\_\-create\-\_\-log@{tb\-\_\-create\-\_\-log}}
+\index{tb\-\_\-create\-\_\-log@{tb\-\_\-create\-\_\-log}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{tb\-\_\-create\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}{\bf tb\-\_\-log\-\_\-t}$\ast$ tb\-\_\-create\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{tb__logging_8h_a7c68189d58c8f662755a184836695c8e}
+
+
+Create a log file, using a plain name. 
+
+
+
+Definition at line 18 of file tb\-\_\-logging.\-c.
+
+\hypertarget{tb__logging_8h_aa819c4fe320cf477fa53dc930794e475}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!tb\-\_\-destroy\-\_\-log@{tb\-\_\-destroy\-\_\-log}}
+\index{tb\-\_\-destroy\-\_\-log@{tb\-\_\-destroy\-\_\-log}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{tb\-\_\-destroy\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}void tb\-\_\-destroy\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-log\-\_\-t} $\ast$}]{log}
+\end{DoxyParamCaption}
+)}}\label{tb__logging_8h_aa819c4fe320cf477fa53dc930794e475}
+
+
+Destroy the log struct. 
+
+Frees memory for the \hyperlink{structtb__log__t}{tb\-\_\-log\-\_\-t} struct. 
+
+Definition at line 50 of file tb\-\_\-logging.\-c.
+
+\hypertarget{tb__logging_8h_af988d5c63ebae79e18dc2cd96ab3821c}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!tb\-\_\-get\-\_\-f\-\_\-time@{tb\-\_\-get\-\_\-f\-\_\-time}}
+\index{tb\-\_\-get\-\_\-f\-\_\-time@{tb\-\_\-get\-\_\-f\-\_\-time}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{tb\-\_\-get\-\_\-f\-\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}void tb\-\_\-get\-\_\-f\-\_\-time (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{time\-\_\-str, }
+\item[{size\-\_\-t}]{len, }
+\item[{const char $\ast$}]{format}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{tb__logging_8h_af988d5c63ebae79e18dc2cd96ab3821c}
+
+
+Get formatted time. 
+
+
+
+Definition at line 116 of file tb\-\_\-logging.\-c.
+
+\hypertarget{tb__logging_8h_a82ad705fd902df959659c7460c4d10b9}{\index{tb\-\_\-logging.\-h@{tb\-\_\-logging.\-h}!tb\-\_\-write\-\_\-log@{tb\-\_\-write\-\_\-log}}
+\index{tb\-\_\-write\-\_\-log@{tb\-\_\-write\-\_\-log}!tb_logging.h@{tb\-\_\-logging.\-h}}
+\subsubsection[{tb\-\_\-write\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}int tb\-\_\-write\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{{\bf tb\-\_\-log\-\_\-t} $\ast$}]{log, }
+\item[{char $\ast$}]{info, }
+\item[{{\bf tb\-\_\-log\-\_\-type\-\_\-t}}]{type}
+\end{DoxyParamCaption}
+)}}\label{tb__logging_8h_a82ad705fd902df959659c7460c4d10b9}
+
+
+Write a line to log file. 
+
+Writes the supplied line to the specified log file, prepending the type, date and time to this string, eg\-:
+
+\mbox{[} I\-N\-F \mbox{]} \mbox{[} Wed Jan 29 10\-:30\-:33 2014 \mbox{]} Info 
+
+Definition at line 58 of file tb\-\_\-logging.\-c.
+

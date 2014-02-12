@@ -1,0 +1,31 @@
+Version 0.1.24 of TestBed, authored by Michael Holmwood
+
+TestBed carries out tests on 5 different protocols: TCP, UDP, UDT, uTP and DCCP.
+The implementations for TCP, UDP and DCCP are those found in the Linux kernel. 
+The author for the UDT lib is Yunhong Gu, and is provided in this project as
+a shared library. The uTP lib is provided by BitTorrent, Inc. The licences for
+each can be found in the lib directory.
+
+Machine Requirements:
+
+Large file sizes will require that much free memory for the tests to run 
+properly (reading from swap will affect the results somewhat).
+
+Dependencies:
+
+The TestBed does have a couple of dependencies, some of which are going to be
+redundant soon, and removed.
+
+Generic Data Structures Library (GDSL):
+
+home page: home.gna.org/gdsl/
+docs: home.gna.org/gdsl/1.7/html/
+code: download.gna.org/gdsl
+
+This dependancy will be removed shortly, as I am going to be using the glib
+hashtable and queue implemetations instead.
+
+glib2.0:
+
+On debian, its just apt-get install libglib2.0-0 libglib2.0-dev
+

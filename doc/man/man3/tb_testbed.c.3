@@ -1,0 +1,191 @@
+.TH "src/tb_testbed.c" 3 "Mon Feb 10 2014" "Version 0.2" "TestBed" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/tb_testbed.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'tb_testbed\&.h'\fP
+.br
+\fC#include 'tb_protocol\&.h'\fP
+.br
+\fC#include 'tb_listener\&.h'\fP
+.br
+\fC#include 'tb_session\&.h'\fP
+.br
+\fC#include 'tb_common\&.h'\fP
+.br
+\fC#include 'tb_utp\&.h'\fP
+.br
+\fC#include 'tb_udp\&.h'\fP
+.br
+\fC#include 'tb_sock_opt\&.h'\fP
+.br
+\fC#include 'tb_logging\&.h'\fP
+.br
+\fC#include 'tb_endpoint\&.h'\fP
+.br
+\fC#include <pthread\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <assert\&.h>\fP
+.br
+\fC#include <sys/socket\&.h>\fP
+.br
+\fC#include <fcntl\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <sys/epoll\&.h>\fP
+.br
+\fC#include <time\&.h>\fP
+.br
+\fC#include <signal\&.h>\fP
+.br
+\fC#include <sched\&.h>\fP
+.br
+\fC#include <netdb\&.h>\fP
+.br
+\fC#include <errno\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.ti -1c
+.RI "int \fBtest\fP ()"
+.br
+.ti -1c
+.RI "int \fBtb_parse\fP (int argc, char *argv[])"
+.br
+.RI "\fIParse input from a number of strings\&. \fP"
+.ti -1c
+.RI "void \fBtb_start\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIStarts the server/client\&. \fP"
+.ti -1c
+.RI "int \fBtb_monitor\fP (\fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIactively monitor the server/client connection \fP"
+.ti -1c
+.RI "void \fBtb_print_stats\fP (\fBtb_prot_stats_t\fP *stats, \fBtb_listener_t\fP *listener)"
+.br
+.RI "\fIPrint the stats given\&. \fP"
+.ti -1c
+.RI "void \fBtb_exit\fP (void *data)"
+.br
+.RI "\fIExits program\&. \fP"
+.ti -1c
+.RI "void \fBtb_abort\fP (void *data)"
+.br
+.RI "\fIAborts program\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const unsigned long long \fBm_sleep\fP = 100000"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int main (intargc, char *argv[])"
+
+.PP
+Definition at line 39 of file tb_testbed\&.c\&.
+.SS "void tb_abort (void *data)"
+
+.PP
+Aborts program\&. Aborts the program, closes the listener and underlying protocol, kills any sockets or files still open\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to close/destroy\&. 
+.RE
+.PP
+
+.PP
+Definition at line 446 of file tb_testbed\&.c\&.
+.SS "void tb_exit (void *data)"
+
+.PP
+Exits program\&. Exits the program, closes the listener and underlying protocol, kills any sockes or files still open\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to close/destroy\&. 
+.RE
+.PP
+
+.PP
+Definition at line 435 of file tb_testbed\&.c\&.
+.SS "int tb_monitor (\fBtb_listener_t\fP *listener)"
+
+.PP
+actively monitor the server/client connection \fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to monitor\&. 
+.RE
+.PP
+
+.PP
+Definition at line 301 of file tb_testbed\&.c\&.
+.SS "int tb_parse (intargc, char *argv[])"
+
+.PP
+Parse input from a number of strings\&. argv[0] = TestBed argv[1] = Type (server, client) argv[2] = Address argv[3] = Port argv[4] = Protocol (tcp, udp, udt) argv[5] = Bufsize (MB) argv[6] = File type (size, file) argv[7] = Filename/Fliesize 
+.PP
+Definition at line 63 of file tb_testbed\&.c\&.
+.SS "void tb_print_stats (\fBtb_prot_stats_t\fP *stats, \fBtb_listener_t\fP *listener)"
+
+.PP
+Print the stats given\&. \fBParameters:\fP
+.RS 4
+\fIstats\fP The stats struct to print\&. 
+.br
+\fIlistener\fP The listener to print stats for\&. 
+.RE
+.PP
+
+.PP
+Definition at line 402 of file tb_testbed\&.c\&.
+.SS "void tb_start (\fBtb_listener_t\fP *listener)"
+
+.PP
+Starts the server/client\&. This begins the server or client\&. Filename can be null if the endpoint is a server\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlistener\fP The listener to start\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if performed\&. 
+.RE
+.PP
+
+.PP
+Definition at line 211 of file tb_testbed\&.c\&.
+.SS "int test ()"
+
+.PP
+Definition at line 45 of file tb_testbed\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const unsigned long long m_sleep = 100000"
+
+.PP
+Definition at line 36 of file tb_testbed\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for TestBed from the source code\&.
