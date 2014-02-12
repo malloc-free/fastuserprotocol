@@ -38,6 +38,18 @@ create the documentation in the doc folder. However, it also currently pushes
 this into what will be a non-existent directory in a remote machine, fix to
 come soon.
 
+doxygen:
+
+To create the documentation, doxygen needs to be installed. On debian just run: 
+apt-get install doxygen.
+
+Building:
+
+make or make all creates the executable (TestBed), shared library (libtb.so.1.0) and the
+documentation (doc/). make executable and make shared will make the executable and
+shared library separately. make doxygen will create the documentation. Install just
+appends the location of the shared library to your LD_LIBRARY_PATH.
+
 Running the binary:
 
 To run a server, use:
