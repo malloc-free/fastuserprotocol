@@ -11,10 +11,12 @@ src/tb_udt.c src/tb_udp.c src/tb_utp.c src/tb_stream.c src/tb_protocol.c src/tb_
 src/tb_listener.c src/tb_endpoint.c src/tb_testbed.c
 OBJECTS=$(SOURCES:.c=.o)
 EXECUTABLE=TestBed
-SO_LIB=libso.so.1.0
+SO_LIB=libtb.so.1.0
 SO_FLAGS=-shared -Wl,-soname,libso.so.1
 
-all: $(SOURCES) $(EXECUTABLE)
+all: $(SOURCES) $(EXECUTABLE) $(SO_LIB) doxygen
+
+executable: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
@@ -28,7 +30,8 @@ $(SO_LIB) : $(OBJECTS)
 	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
 
 clean:
-	rm -rf src/*.o TestBed
+	rm -rf src/*.o TestBed libtb.so.1.0 doc
 doxygen:
 	$(DOC) $(DOC_FILE)
-
+install:
+	export LD_LIBRARY_PATH=$(DIR):$$LD_LIBRARY_PATH

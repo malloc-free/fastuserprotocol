@@ -8,6 +8,8 @@
 #include "tb_protocol.h"
 #include "tb_utp.h"
 #include "tb_udp.h"
+#include "tb_udt.h"
+#include "tb_stream.h"
 #include "tb_common.h"
 
 #include <sys/socket.h>
