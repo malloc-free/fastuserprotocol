@@ -1,23 +1,34 @@
 CC=gcc
-CFLAGS=-Wall -D_GNU_SOURCE
-INCLUDE_DIR=includes/
-INCLUDES=utp.h udt.h utypes.h
-INCLUDE_FILES := $(foreach inc, $(INCLUDES), $(addprefix $(INCLUDE_DIR), int))
-LDFLAGS=-pthread -ludt -lutp -lgdsl -lrt -laio
-LIB_DIR=lib
-EXECUTABLE=TestBed
-SOURCES=tb_common.c tb_epoll.c tb_file_io.c tb_listener.c \
-tb_logging.c tb_protocol.c tb_server.c tb_session.c tb_sock_opt.c \
-tb_testbed.c tb_udp.c tb_utp.c tb_worker_pair.c tb_worker.c
-SRC_DIR=src/
-SOURCE_FILES := $(foreach src, $(SOURCES), $(addprefix $(SRC_DIR), src))
+DOC=doxygen
+DOC_FILE=Doxyfile
+CFLAGS=-c -fPIC -Wall -D_GNU_SOURCE `pkg-config --cflags glib-2.0`
+INCLUDES=-Iincludes -includeudt.h -includeutp.h
+LDFLAGS=-D_GNU_SOURCE 
+LIBRARIES=-Llib -pthread -lutp -ludt -lgdsl -lrt -laio `pkg-config --libs glib-2.0`
+SOURCES=src/tb_common.c src/tb_epoll.c src/tb_logging.c \
+src/tb_file_io.c src/tb_sock_opt.c src/tb_worker.c src/tb_worker_pair.c \
+src/tb_udt.c src/tb_udp.c src/tb_utp.c src/tb_stream.c src/tb_protocol.c src/tb_session.c \
+src/tb_listener.c src/tb_endpoint.c src/tb_testbed.c
 OBJECTS=$(SOURCES:.c=.o)
-all: $(addsuffx $(SOURCE_FILES) $(EXECUTABLE)
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) $(LIB_DIR) $(LDFLAGS) -o $@
+EXECUTABLE=TestBed
+SO_LIB=libso.so.1.0
+SO_FLAGS=-shared -Wl,-soname,libso.so.1
 
-tb_testbed.o:
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) $(foreach i_file, $(INCLUDE_FILES) , $(addprefix -include
-\i_file)) $< -o $@
-tb_common.o:
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) $(-includeINCLUDE_FILES)
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
+
+shared: $(SOURCES) $(SO_LIB)
+
+$(SO_LIB) : $(OBJECTS)
+	$(CC) $(SO_FLAGS) $(LDFLAGS) $(OBJECTS) $(LIBRARIES) -o $@
+
+.c.o:
+	$(CC) $(CFLAGS) $(INCLUDES) $< -o $@
+
+clean:
+	rm -rf src/*.o TestBed
+doxygen:
+	$(DOC) $(DOC_FILE)
+

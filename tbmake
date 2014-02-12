@@ -1,8 +1,0 @@
-#!/bin/bash
-reset
-rm TestBed
-gcc -Wall -D_GNU_SOURCE -D_DEBUG_STATS -o TestBed src/*.c -Iincludes -includeutp.h \
- -includeudt.h -Llib -ludt -lutp -pthread -lgdsl -lrt -laio `pkg-config \
---cflags --libs glib-2.0`
-
-doxygen Doxyfile

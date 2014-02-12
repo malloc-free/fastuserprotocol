@@ -1,9 +1,0 @@
-<map id="src/tb_macro.h" name="src/tb_macro.h">
-<area shape="rect" id="node3" href="$tb__client_8c.html" title="src/tb_client.c" alt="" coords="5,83,109,112"/>
-<area shape="rect" id="node5" href="$tb__epoll_8c.html" title="src/tb_epoll.c" alt="" coords="133,83,232,112"/>
-<area shape="rect" id="node7" href="$tb__listener_8c.html" title="src/tb_listener.c" alt="" coords="256,83,371,112"/>
-<area shape="rect" id="node9" href="$tb__server_8c.html" title="src/tb_server.c" alt="" coords="395,83,504,112"/>
-<area shape="rect" id="node11" href="$tb__sock__opt_8c.html" title="src/tb_sock_opt.c" alt="" coords="528,83,653,112"/>
-<area shape="rect" id="node13" href="$tb__testbed_8c.html" title="src/tb_testbed.c" alt="" coords="677,83,792,112"/>
-<area shape="rect" id="node15" href="$tb__udp_8c.html" title="src/tb_udp.c" alt="" coords="816,83,909,112"/>
-</map>

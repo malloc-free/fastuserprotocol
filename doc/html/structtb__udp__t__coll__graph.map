@@ -1,6 +1,0 @@
-<map id="tb_udp_t" name="tb_udp_t">
-<area shape="rect" id="node2" href="$structtb__session__t.html" title="tb_session_t" alt="" coords="52,117,148,147"/>
-<area shape="rect" id="node4" href="$structtb__time__t.html" title="tb_time_t" alt="" coords="5,5,80,35"/>
-<area shape="rect" id="node6" href="$structtb__prot__stats__t.html" title="Protocol information struct." alt="" coords="104,5,213,35"/>
-<area shape="rect" id="node8" href="$structtb__epoll__t.html" title="tb_epoll_t" alt="" coords="172,117,249,147"/>
-</map>
