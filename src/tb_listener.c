@@ -420,7 +420,6 @@ tb_set_m_stats(tb_listener_t *listener)
 
 	tb_session_t *session = listener->session_list->start;
 
-
 	while(session != NULL)
 	{
 		pthread_mutex_trylock(session->stat_lock);

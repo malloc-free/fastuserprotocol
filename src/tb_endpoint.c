@@ -143,7 +143,7 @@ void
 		else
 		{
 			PRT_INFO("Running UDP multiple connection server");
-			tb_udp_server(listener);
+			tb_udp_m_server(listener);
 		}
 
 		break;

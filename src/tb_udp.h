@@ -42,6 +42,12 @@ tb_udp_ack(int events, void *data);
 int
 tb_udp_m_client(tb_listener_t *listener);
 
+/**
+ * @brief Use a multi-connection client with udp.
+ */
+void
+*tb_udp_m_client_conn(void *data);
+
 ///////////// UDP Server Functions //////////////
 
 /**
@@ -52,7 +58,8 @@ int
 tb_udp_server(tb_listener_t *listener);
 
 /**
- * @brief Called to create and start a udp server.
+ * @brief Called to create and start a udp server, that handles
+ * multiple connections.
  */
 int
 tb_udp_m_server(tb_listener_t *listener);

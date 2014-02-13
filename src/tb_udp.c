@@ -118,15 +118,111 @@ tb_udp_ack(int events, void *data)
 int
 tb_udp_m_client(tb_listener_t *listener)
 {
-	tb_connect(listener);
+	const int num_conn = 1;
+	int x = 0;
+
+	for(; x < num_conn; x++)
+	{
+		tb_session_t *session = tb_create_session_full(listener->bind_address,
+				listener->bind_port, SOCK_DGRAM, 0);
+
+		if(session == NULL)
+		{
+			PRT_ERR("Error creating session");
+			tb_abort(listener);
+		}
+
+		session->sock_d = socket(session->addr_info->ai_family,
+					session->addr_info->ai_socktype, session->addr_info->ai_protocol);
+
+		if(session->sock_d == -1)
+		{
+			perror("Error: tb_stream_client: ");
+			tb_abort(listener);
+		}
+
+		//Set session parameters.
+		session->l_status = (int*)&listener->status;
+		session->l_txrx = &listener->total_tx_rx;
+
+		//Allocate the session the appropriate amount of data
+		//for the number of connections
+		session->data = listener->data +
+				((listener->file_size / num_conn) * x);
+		session->data_size = listener->file_size / num_conn;
+
+		fprintf(stdout, BLUE "listener %d allocated %zu bytes" RESET,
+				session->id, session->data_size);
+
+		session->stats->protocol = listener->protocol->protocol;
+		session->n_session = NULL;
+		session->pack_size = listener->bufsize;
+
+
+		//Add this session to the end of the list, and to the start
+		//if the list is empty.
+		session->id = ++listener->session_list->current_max_id;
+
+		PRT_I_D("Adding session %d", session->id);
+		if(listener->session_list->start == NULL)
+		{
+			listener->session_list->start = session;
+			listener->session_list->end = session;
+		}
+		else
+		{
+			listener->session_list->end->n_session = session;
+			listener->session_list->end = session;
+		}
+
+		PRT_I_D("Creating thread for session %d", session->id);
+		//Send the thread on its merry way.
+		pthread_create(session->s_thread, NULL, &tb_udp_m_client_conn,
+				(void*)session);
+	}
+	while(listener->session_list->start->status == SESSION_CREATED);
+	listener->status = TB_CONNECTED;
+
+	int *retval;
+
+	tb_session_t *curr_session = listener->session_list->start;
+
+	//Wait for each session to complete, then close the connection.
+	while(curr_session != NULL)
+	{
+		PRT_I_D("Joining with session %d",curr_session->id);
+		pthread_join(*curr_session->s_thread, (void**)&retval);
+		pthread_mutex_lock(curr_session->stat_lock);
+		close(curr_session->sock_d);
+		pthread_mutex_unlock(curr_session->stat_lock);
+
+		curr_session = curr_session->n_session;
+	}
+
+	listener->status = TB_DISCONNECTED;
+
+	return listener->total_tx_rx;
+}
+
+void
+*tb_udp_m_client_conn(void *data)
+{
+	int *retval = malloc(sizeof(int));
+
+	tb_session_t *session = (tb_session_t*)data;
+
+	connect(session->sock_d, session->addr_info->ai_addr,
+			session->addr_info->ai_addrlen);
+
+	session->status = SESSION_CONNECTED;
 
 	int sent = 0;
 
 	struct msghdr msg;
 	struct iovec vec;
 
-	msg.msg_name = listener->addr_info->ai_addr;
-	msg.msg_namelen = listener->addr_info->ai_addrlen;
+	msg.msg_name = session->addr_info->ai_addr;
+	msg.msg_namelen = session->addr_info->ai_addrlen;
 	msg.msg_iov = &vec;
 	msg.msg_iovlen = 1;
 	msg.msg_control = NULL;
@@ -135,34 +231,33 @@ tb_udp_m_client(tb_listener_t *listener)
 
 	do
 	{
-		vec.iov_base = listener->data + sent;
-		vec.iov_len = 1024;
+		vec.iov_base = session->data + sent;
+		vec.iov_len = session->pack_size;
 
-		if(listener->file_size - listener->total_tx_rx < 1024)
+		if(session->data_size - session->total_bytes < session->pack_size)
 		{
-			vec.iov_len = listener->file_size - listener->total_tx_rx;
+			vec.iov_len = session->data_size - session->total_bytes;
 		}
 
-		sent = sendmsg(listener->sock_d, &msg, 0);
+		sent = sendmsg(session->sock_d, &msg, 0);
 
 		if(sent == -1)
 		{
 			perror("tb_udp_send: sendmsg");
-			return -1;
+			*retval = -1;
+			return retval;
 		}
 
-		listener->total_tx_rx += sent;
+		session->total_bytes += sent;
 	}
-	while(listener->total_tx_rx < listener->file_size);
+	while(session->total_bytes < session->data_size);
 
-	vec.iov_base = 0;
-	vec.iov_len = 0;
+	session->status = SESSION_COMPLETE;
 
-	sendmsg(listener->sock_d, &msg, 0);
+	*retval = 0;
 
-	return 0;
+	return retval;
 }
-
 ///////////////////// UDP Server Functions //////////////////////
 
 int
@@ -205,41 +300,39 @@ tb_udp_server(tb_listener_t *listener)
 	}
 
 	LOG(listener, "Closing Connection", LOG_INFO);
-	listener->protocol->f_close(listener->sock_d);
+
+	pthread_mutex_lock(listener->stat_lock);
+	close(listener->sock_d);
 	listener->sock_d = -1;
+	pthread_mutex_unlock(listener->stat_lock);
 
 	return listener->total_tx_rx;
-}
-
-int
-tb_udp_epoll_server(tb_listener_t *listener)
-{
-
 }
 
 int
 tb_udp_m_server(tb_listener_t *listener)
 
 {
-	int rc;
-
-	tb_set_epoll(listener);
-
 	listener->status = TB_LISTENING;
+
+	tb_epoll_t *epoll = tb_create_e_poll(listener->sock_d, 10, 0,
+			(void*)listener);
 
 	tb_session_t *session = tb_create_session();
 	session->data = malloc(listener->bufsize);
 	session->data_size = listener->bufsize;
-	listener->curr_session = session;
+	tb_session_add(listener->session_list, session);
+	epoll->w_time = 50;
+	epoll->f_event = &tb_udp_event;
 
 	do
 	{
-		if(tb_poll_for_events(listener->epoll) < 0)
+		if(tb_poll_for_events(epoll) < 0)
 		{
 			return -1;
 		}
 	}
-	while(listener->curr_session->status != SESSION_COMPLETE);
+	while(listener->session_list->start->status != SESSION_COMPLETE);
 
 	return 0;
 }
@@ -247,15 +340,13 @@ tb_udp_m_server(tb_listener_t *listener)
 int
 tb_udp_event(int events, void *data)
 {
-	//PRT_ACK("Event received")
-
 	int rc, sock_d;
 
 	tb_e_data *e_data = (tb_e_data*)data;
 	tb_listener_t *listener = (tb_listener_t*)e_data->data;
 	sock_d = e_data->fd;
 
-	tb_session_t *session = listener->curr_session;
+	tb_session_t *session = listener->session_list->start;
 
 	if(listener->status == TB_LISTENING)
 	{
@@ -265,20 +356,18 @@ tb_udp_event(int events, void *data)
 	struct msghdr msg;
 	struct iovec vec;
 
-	vec.iov_base = listener->curr_session->data;
-	vec.iov_len = listener->curr_session->data_size;
+	vec.iov_base = session->data;
+	vec.iov_len = session->data_size;
 
 	msg.msg_name = (struct sockaddr_t*)session->addr_in;
-	msg.msg_namelen = (socklen_t)sizeof(session->addr_in);
+	msg.msg_namelen = (socklen_t*)&session->addr_len;
 	msg.msg_iov = &vec;
 	msg.msg_iovlen = 1;
 	msg.msg_flags = 0;
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
 
-	//tb_worker_t *worker = tb_get_worker(listener, session);
-
-	do
+	while(1)
 	{
 		rc = recvmsg(sock_d, &msg, 0);
 
@@ -297,10 +386,9 @@ tb_udp_event(int events, void *data)
 		}
 		else if(rc > 0)
 		{
-			listener->total_tx_rx += rc;
+			session->total_bytes += rc;
 		}
 	}
-	while(rc != 0);
 
 	session->status = SESSION_COMPLETE;
 
