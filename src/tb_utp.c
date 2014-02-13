@@ -123,10 +123,7 @@ tb_utp_error(void *userdata, int errcode)
 	tb_utp_t *utp = (tb_utp_t*)userdata;
 	utp->state = UTP_STATE_ERROR;
 
-#ifdef _DEBUG_UTP
 	fprintf(stderr, "Error: tb_utp_error: %s\n", strerror(errcode));
-#endif
-
 }
 
 void
@@ -743,8 +740,16 @@ tb_utp_server(tb_listener_t *listener)
 
 		case UTP_STATE_ERROR:
 			PRT_ERR("UTP error");
+			pthread_mutex_trylock(listener->stat_lock);
+
+			tb_utp_close(utp);
+			listener->status = TB_DISCONNECTED;
+			listener->sock_d = -1;
+
+			pthread_mutex_unlock(listener->stat_lock);
+
+			free(buffer);
 			tb_abort(listener);
-			break;
 		}
 	}
 
