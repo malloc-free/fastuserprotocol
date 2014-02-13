@@ -153,12 +153,9 @@ tb_utp_incoming(void *userdata, struct UTPSocket *socket)
 {
 	PRT_INFO("Incoming connection");
 	tb_utp_t *utp = (tb_utp_t*)userdata;
-
-	tb_utp_t *clone = malloc(sizeof(tb_utp_t));
-	memcpy(clone, utp, sizeof(tb_utp_t));
-	clone->socket = socket;
-	UTP_SetSockopt(clone->socket, SO_RCVBUF, utp->so_rcvbuf);
-	UTP_SetCallbacks(clone->socket, clone->call_backs, clone);
+	utp->socket = socket;
+	UTP_SetSockopt(utp->socket, SO_RCVBUF, utp->so_rcvbuf);
+	UTP_SetCallbacks(utp->socket, utp->call_backs, utp);
 	utp->state = UTP_STATE_CONNECT;
 }
 
@@ -740,8 +737,8 @@ tb_utp_server(tb_listener_t *listener)
 			break;
 
 		case UTP_STATE_EOF:
-			//PRT_INFO("UTP eof");
-			//listener->command = TB_EXIT;
+			PRT_INFO("UTP eof");
+			listener->command = TB_EXIT;
 			break;
 
 		case UTP_STATE_ERROR:
