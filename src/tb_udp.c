@@ -38,6 +38,8 @@ tb_udp_client(tb_listener_t *listener)
 {
 	tb_connect(listener);
 
+	listener->status = TB_CONNECTED;
+
 	int num_bytes, rc, snd_buff_sz;
 
 	listener->epoll = tb_create_e_poll(listener->sock_d, 5, 0,
