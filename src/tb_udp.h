@@ -37,13 +37,6 @@ int
 tb_udp_ack(int events, void *data);
 
 /**
- * @brief Uses epoll for receiving data from the
- * client. This is a prototype for TB0.2
- */
-int
-tb_udp_epoll_client(tb_listener_t *listener);
-
-/**
  * @brief Called to create and start a udp client
  */
 int
@@ -57,18 +50,6 @@ tb_udp_m_client(tb_listener_t *listener);
  */
 int
 tb_udp_server(tb_listener_t *listener);
-
-/**
- * @brief Run a server using epoll (non-blocking socket).
- *
- * Runs a server that uses a sockets based protocol using epoll.
- * Not used by UDT, aUDT or any thing else not implemented in
- * sockets.
- *
- * @param listener The listener to run the server with.
- */
-int
-tb_udp_epoll_server(tb_listener_t *listener);
 
 /**
  * @brief Called to create and start a udp server.

@@ -42,76 +42,69 @@ void
 
 	long long totalbytes;
 
-	if(listener->protocol->prot_opts == USE_EPOLL)
+	switch(listener->protocol->protocol)
 	{
-		PRT_INFO("Running in epoll mode");
-		totalbytes = tb_udp_epoll_client(listener);
-	}
-	else
-	{
-		switch(listener->protocol->protocol)
+	case uTP:
+		if(listener->e_type == CLIENT)
 		{
-		case uTP:
-			if(listener->e_type == CLIENT)
-			{
-				PRT_INFO("Running uTP client");
-				totalbytes = tb_utp_client(listener);
-			}
-			else
-			{
-				PRT_INFO("Running uTP mClient");
-				totalbytes = tb_utp_m_client(listener);
-			}
-
-			break;
-
-		case TCP:
-		case DCCP:
-			if(listener->e_type == CLIENT)
-			{
-				PRT_INFO("Running stream (TCP or DCCP) socket client");
-				totalbytes = tb_stream_client(listener);
-			}
-			else
-			{
-				PRT_INFO("Running multi stream (TCP or DCCP) socket client");
-				totalbytes = tb_stream_m_client(listener);
-			}
-
-			break;
-
-		case UDP:
-			if(listener->e_type == CLIENT)
-			{
-				PRT_INFO("Running UDP client");
-				totalbytes = tb_udp_client(listener);
-			}
-			else
-			{
-				PRT_INFO("Running UDP mClient");
-				totalbytes = tb_udp_client(listener);
-			}
-			break;
-
-		case UDT:
-			if(listener->e_type == CLIENT)
-			{
-				PRT_INFO("Running UDT client");
-				totalbytes = tb_udt_client(listener);
-			}
-			else
-			{
-				PRT_INFO("Running UDT mClient");
-				totalbytes = tb_udt_m_client(listener);
-			}
-
-			break;
-
-		default:
-			PRT_ERR("Not a supported protocol");
-			tb_abort(listener);
+			PRT_INFO("Running uTP client");
+			totalbytes = tb_utp_client(listener);
 		}
+		else
+		{
+			PRT_INFO("Running uTP mClient");
+			totalbytes = tb_utp_m_client(listener);
+		}
+
+		break;
+
+	case TCP:
+	case DCCP:
+		if(listener->e_type == CLIENT)
+		{
+			PRT_INFO("Running stream (TCP or DCCP) socket client");
+			totalbytes = tb_stream_client(listener);
+		}
+		else
+		{
+			PRT_INFO("Running multi stream (TCP or DCCP) socket client");
+			totalbytes = tb_stream_m_client(listener);
+		}
+
+		break;
+
+	case UDP:
+		if(listener->e_type == CLIENT)
+		{
+			PRT_INFO("Running UDP client");
+			totalbytes = tb_udp_client(listener);
+		}
+		else
+		{
+			PRT_INFO("Running UDP mClient");
+			totalbytes = tb_udp_m_client(listener);
+		}
+		break;
+
+	case UDT:
+		if(listener->e_type == CLIENT)
+		{
+			PRT_INFO("Running UDT client");
+			totalbytes = tb_udt_client(listener);
+		}
+		else
+		{
+			PRT_INFO("Running UDT mClient");
+			totalbytes = tb_udt_m_client(listener);
+		}
+
+		break;
+
+	default:
+		PRT_ERR("Not a supported protocol");
+		tb_abort(listener);
 	}
+
 
 	fprintf(stdout, "Number of bytes sent: %lld\n", totalbytes);
 
@@ -133,63 +126,62 @@ void
 		tb_bind(listener);
 	}
 
-	if(listener->protocol->prot_opts == USE_EPOLL)
+	switch(listener->protocol->protocol)
 	{
-		PRT_INFO("Running epoll mode\n");
-		tb_udp_epoll_server(listener);
-	}
-	else
-	{
-		PRT_INFO("Running standard mode\n");
+	case uTP:
+		PRT_INFO("Running uTP mode\n");
+		tb_utp_server(listener);
 
-		switch(listener->protocol->protocol)
+		break;
+
+	case UDP:
+		if(listener->e_type == SERVER)
 		{
-		case uTP:
-			PRT_INFO("Running uTP mode\n");
-			tb_utp_server(listener);
-			break;
-
-		case UDP:
-			PRT_INFO("Running UDP mode");
+			PRT_INFO("Running UDP single connection server");
 			tb_udp_server(listener);
-			break;
-
-		case TCP:
-		case DCCP:
-			PRT_INFO("Runninng Stream mode\n");
-			if(listener->e_type == SERVER)
-			{
-				PRT_INFO("Server mode");
-				tb_stream_server(listener);
-				break;
-			}
-			else
-			{
-				PRT_INFO("mServer mode");
-				tb_stream_m_server(listener);
-				break;
-			}
-
-		case UDT:
-			PRT_INFO("Running UDT mode");
-			if(listener->e_type == SERVER)
-			{
-				PRT_INFO("Server mode");
-				tb_udt_server(listener);
-				break;
-			}
-			else
-			{
-				PRT_INFO("mServer mode");
-				tb_udt_m_server(listener);
-				break;
-			}
-
-		default:
-			PRT_ERR("Unrecognized protocol, aborting");
-			tb_abort(listener);
+		}
+		else
+		{
+			PRT_INFO("Running UDP multiple connection server");
+			tb_udp_server(listener);
 		}
 
+		break;
+
+	case TCP:
+	case DCCP:
+		PRT_INFO("Runninng Stream mode");
+		if(listener->e_type == SERVER)
+		{
+			PRT_INFO("Server mode");
+			tb_stream_server(listener);
+		}
+		else
+		{
+			PRT_INFO("mServer mode");
+			tb_stream_m_server(listener);
+		}
+
+		break;
+
+	case UDT:
+		PRT_INFO("Running UDT mode");
+		if(listener->e_type == SERVER)
+		{
+			PRT_INFO("Server mode");
+			tb_udt_server(listener);
+		}
+		else
+		{
+			PRT_INFO("mServer mode");
+			tb_udt_m_server(listener);
+		}
+
+		break;
+
+	default:
+		PRT_ERR("Unrecognized protocol, aborting");
+		tb_abort(listener);
 	}
 
 	fprintf(stdout, "Total bytes received = %lld\n", listener->total_tx_rx);

@@ -593,8 +593,15 @@ tb_utp_client(tb_listener_t *listener)
 			break;
 		case UTP_STATE_ERROR:
 			PRT_ERR("UTP Error");
+			pthread_mutex_trylock(listener->stat_lock);
+
+			tb_utp_close(utp);
+			listener->status = TB_DISCONNECTED;
+			listener->sock_d = -1;
+
+			pthread_mutex_unlock(listener->stat_lock);
+
 			tb_abort(listener);
-			break;
 		}
 	}
 

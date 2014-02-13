@@ -116,25 +116,10 @@ tb_udp_ack(int events, void *data)
 }
 
 int
-tb_udp_epoll_client(tb_listener_t *listener)
+tb_udp_m_client(tb_listener_t *listener)
 {
 	tb_connect(listener);
 
-	int rc;
-
-	rc = tb_udp_m_client(listener);
-
-	if(rc == -1)
-	{
-		tb_abort(listener);
-	}
-
-	return listener->total_tx_rx;
-}
-
-int
-tb_udp_m_client(tb_listener_t *listener)
-{
 	int sent = 0;
 
 	struct msghdr msg;
@@ -229,6 +214,13 @@ tb_udp_server(tb_listener_t *listener)
 int
 tb_udp_epoll_server(tb_listener_t *listener)
 {
+
+}
+
+int
+tb_udp_m_server(tb_listener_t *listener)
+
+{
 	int rc;
 
 	tb_set_epoll(listener);
@@ -240,20 +232,6 @@ tb_udp_epoll_server(tb_listener_t *listener)
 	session->data_size = listener->bufsize;
 	listener->curr_session = session;
 
-	rc = tb_udp_m_server(listener);
-
-	if(rc == -1)
-	{
-		tb_abort(listener);
-	}
-
-	return listener->total_tx_rx;
-}
-
-int
-tb_udp_m_server(tb_listener_t *listener)
-
-{
 	do
 	{
 		if(tb_poll_for_events(listener->epoll) < 0)
