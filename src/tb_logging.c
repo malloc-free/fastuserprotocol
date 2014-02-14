@@ -130,7 +130,7 @@ tb_log_error_no(tb_log_t *log, int log_en, const char *info, int err_no)
 
 	snprintf(log_str, sizeof(log_str), "%s%s", info, strerror(err_no));
 
-	tb_log_info(log, log_en, info, LOG_ERR);
+	tb_log_info(log, log_en, log_str, LOG_ERR);
 
 	fprintf(stderr, "%s\n", log_str);
 }

@@ -92,8 +92,13 @@ tb_udp_client(tb_listener_t *listener)
 	{
 		if(send(listener->sock_d, listener->data, 0, 0) < 0)
 		{
-			LOG_E_NO(listener, "Error: udp_send: ", errno);
-			break;
+			int err_no = errno;
+
+			if(err_no != EWOULDBLOCK)
+			{
+				LOG_E_NO(listener, "Error: udp_send: ", errno);
+				break;
+			}
 		}
 
 		tb_poll_for_events(listener->epoll);
@@ -284,7 +289,7 @@ tb_udp_server(tb_listener_t *listener)
 
 	s_time = time(0);
 	listener->status = TB_CONNECTED;
-	LOG(listener, "Connected", LOG_INFO);
+	LOG_INFO(listener, "UDP Connected");
 
 	while(listener->command != TB_ABORT && listener->command != TB_EXIT)
 	{
@@ -297,7 +302,7 @@ tb_udp_server(tb_listener_t *listener)
 			listener->status = TB_LISTENING;
 			listener->command = listener->s_tx_end;
 			PRT_INFO("Sending ack");
-			LOG(listener, "Sending ack", LOG_INFO);
+			LOG_INFO(listener, "UDP Sending ack");
 			tb_send_to(listener, listener->curr_session);
 		}
 		else
@@ -306,7 +311,7 @@ tb_udp_server(tb_listener_t *listener)
 		}
 	}
 
-	LOG(listener, "Closing Connection", LOG_INFO);
+	LOG_INFO(listener, "Closing UDP Connection");
 
 	pthread_mutex_lock(listener->stat_lock);
 	close(listener->sock_d);
