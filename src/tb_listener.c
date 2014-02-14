@@ -105,7 +105,7 @@ tb_listener_t
 
 	//Set defaults for monitor and print
 	listener->monitor = 1;
-	listener->print_stats = 1;
+	listener->print_stats = 0;
 
 	//Set CPU and thread info.
 	listener->num_proc = get_nprocs();

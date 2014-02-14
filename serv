@@ -7,7 +7,7 @@ then
 	./TestBed server 192.168.0.10 4950 tcp 8192
 elif test "$1" == "udt"
 then
-	./TestBed server 192.168.0.10 4950 udt 8192
+	./TestBed server 192.168.0.21 4950 udt 8192
 elif test "$1" == "utp"
 then
 	./TestBed server 192.168.0.10 4950 utp 8192
@@ -16,7 +16,7 @@ then
 	./TestBed server 192.168.0.10 4950 dccp 8192
 elif test "$1" == "udp"
 then
-	./TestBed mserver 192.168.0.10 4950 udp 8192
+	./TestBed server 192.168.0.10 4950 udp 8192
 elif test "$1" == "eudp"
 then
 	./TestBed server 192.168.0.10 4950 udp 8192

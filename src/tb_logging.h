@@ -76,4 +76,15 @@ tb_write_log(tb_log_t *log, char *info, tb_log_type_t type);
 inline void
 tb_get_f_time(char *time_str, size_t len, const char *format) __attribute__((always_inline));
 
+/**
+ * @brief Log an error with the associated errono
+ */
+inline void
+tb_log_error_no(tb_log_t *log, int log_en, const char *info, int err_no) __attribute__((always_inline));
+
+/**
+ * @generic Log function.
+ */
+inline void
+tb_log_info(tb_log_t *log, int log_en, const char *info, tb_log_type_t type) __attribute__ ((always_inline));
 #endif /* TB_LOGGING_H_ */

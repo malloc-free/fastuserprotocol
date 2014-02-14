@@ -6,6 +6,7 @@
  */
 
 #include "tb_logging.h"
+#include "tb_common.h"
 
 #include <string.h>
 #include <time.h>
@@ -121,3 +122,38 @@ tb_get_f_time(char *time_str, size_t len, const char *format)
 	timeinfo = localtime(&rawtime);
 	strftime(time_str, len, format, timeinfo);
 }
+
+void
+tb_log_error_no(tb_log_t *log, int log_en, const char *info, int err_no)
+{
+	char log_str[50];
+
+	snprintf(log_str, sizeof(log_str), "%s%s", info, strerror(err_no));
+
+	tb_log_info(log, log_en, info, LOG_ERR);
+
+	fprintf(stderr, "%s\n", log_str);
+}
+
+void
+tb_log_info(tb_log_t *log, int log_en, const char *log_str, tb_log_type_t type)
+{
+	if(log_en && log != NULL)
+	{
+		tb_write_log(log, log_str, type);
+	}
+
+	switch(type)
+	{
+	case LOG_INFO:
+		fprintf(stdout, INFO("%s\n"), log_str);
+		break;
+	case LOG_ACK:
+		fprintf(stdout, ACK("%s\n"), log_str);
+		break;
+	case LOG_ERR:
+		fprintf(stdout, ERR("%s\n"), log_str);
+	}
+
+}
+

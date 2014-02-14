@@ -226,6 +226,36 @@ tb_print_times(tb_session_t *session)
 			session->transfer_t->n_sec / (double)1000000000);
 }
 
+///////////////// Logging Functions ////////////////////////////
+
+char
+*tb_gen_log_str(tb_session_t *session, const char *info)
+{
+	char *log_str = malloc(sizeof(char) * 50);
+
+	snprintf(log_str, sizeof(char) * 50, "Session %d: %s", session->id, info);
+
+	return log_str;
+}
+
+void
+tb_log_session_info(tb_session_t *session, const char *info, tb_log_type_t type, int err_no)
+{
+	char *log_str = tb_gen_log_str(session, info);
+
+	switch(type)
+	{
+	case LOG_INFO:
+	case LOG_ACK:
+		tb_log_info(session->log_info, session->log_enabled, log_str, type);
+		break;
+	case LOG_ERR:
+		tb_log_error_no(session->log_info, session->log_enabled, log_str, err_no);
+	}
+
+	free(log_str);
+}
+
 ///////////////// Data Structure Functions /////////////////////
 
 /*

@@ -31,8 +31,11 @@
 #define PRT_E_S(str, s) fprintf(stdout, ERR(str) ":%s", s)
 
 #define LOG(l, i, t) if(l->log_enabled) tb_write_log(l->log_info, i, t)
-#define LOG_ERR(l, i) PRT_ERR(i) if(l->log_enabled) tb_write_log(l->log_info, i, t)
 #define LOG_ADD(l, i, s) if(l->log_enabled) tb_address(l, i, s)
+#define LOG_E_NO(l, str, eno) tb_log_error_no(l->log_info, l->log_enabled, str, eno)
+#define LOG_INFO(l, i) tb_log_info(l->log_info, l->log_enabled, i, LOG_INFO)
+#define LOG_S_E_NO(s, str, eno) tb_log_session_info(s, str, LOG_ERR, eno)
+#define LOG_S_INFO(s, str) tb_log_session_info(s, str, LOG_INFO, 0)
 
 //////////////////// Network Functions /////////////////////////////
 
@@ -120,4 +123,5 @@ char
  */
 char
 *tb_create_random(char *path, int size);
+
 #endif /* TB_COMMON_H_ */

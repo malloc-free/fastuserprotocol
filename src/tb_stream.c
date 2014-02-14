@@ -279,6 +279,10 @@ tb_stream_m_client(tb_listener_t *listener)
 			listener->session_list->end = session;
 		}
 
+		//Add logging info
+		session->log_enabled = 1;
+		session->log_info = listener->log_info;
+
 		PRT_I_D("Creating thread for session %d", session->id);
 		//Send the thread on its merry way.
 		pthread_create(session->s_thread, NULL, &tb_stream_connection,
@@ -316,7 +320,7 @@ void
 	int *retval = malloc(sizeof(int));
 	tb_session_t *session = (tb_session_t*)data;
 
-	PRT_I_D("Session %d: started connection", session->id);
+	LOG_S_INFO(session, "started thread");
 
 	//Create the connection and time the connection time.
 	tb_start_time(session->connect_t);
@@ -329,6 +333,8 @@ void
 		return retval;
 	}
 	tb_finish_time(session->connect_t);
+
+	LOG_S_INFO(session, "Connected");
 
 	session->status = SESSION_CONNECTED;
 
@@ -357,7 +363,8 @@ void
 	}
 	tb_finish_time(session->transfer_t);
 
-	PRT_I_D("Session %d: ended connection", session->id);
+	LOG_S_INFO(session, "Ended Connection");
+
 	fprintf(stdout, "Session %d: sent %lld bytes", session->id, session->total_bytes);
 	session->status = SESSION_COMPLETE;
 

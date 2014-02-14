@@ -12,6 +12,7 @@
 #include "tb_common.h"
 #include "tb_session.h"
 #include "tb_protocol.h"
+#include "tb_logging.h"
 
 #include <gdsl/gdsl_queue.h>
 #include <netinet/in.h>
@@ -82,8 +83,12 @@ typedef struct
 	tb_time_t *transfer_t; ///< Transfer time.
 	tb_time_t *connect_t;  ///< Connection time.
 
+	//Logging info
+	int log_enabled;	///< 1 if logging is enabled.
+	tb_log_t *log_info; ///< Log info to log to.
+
 	//Protocol specific info
-	void *info;
+	void *info; 	///< Used for other info.
 }
 tb_session_t;
 
@@ -165,6 +170,21 @@ tb_set_addrinfo(tb_session_t *session, int type);
  */
 void
 tb_print_times(tb_session_t *session);
+
+////////////////// Logging Functions //////////////
+
+/**
+ * @brief Generate a string to be used in logging functions.
+ */
+inline char
+*tb_gen_log_str(tb_session_t *session, const char *info) __attribute__ ((always_inline));
+
+/**
+ * @brief Log info for the given session.
+ */
+inline void
+tb_log_session_info(tb_session_t *session, const char *info,
+		tb_log_type_t type, int err_no) __attribute__((always_inline));
 
 /**
  * @brief Allocates memory for a session.

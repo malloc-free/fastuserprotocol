@@ -56,7 +56,7 @@ tb_udp_client(tb_listener_t *listener)
 
 	if(rc == -1)
 	{
-		perror("Error: tb_upload_random_udp: getsockopt");
+		LOG_E_NO(listener, "Error: tb_upload_random_udp: getsockopt", errno);
 		tb_abort(listener);
 	}
 
@@ -64,27 +64,35 @@ tb_udp_client(tb_listener_t *listener)
 	{
 		if(ioctl(listener->sock_d, TIOCOUTQ, &num_bytes) == -1)
 		{
-			perror("Error: tb_upload_random_udp: ioctl");
+			LOG_E_NO(listener, "Error: tb_upload_random_udp: ioctl", errno);
 			tb_abort(listener);
 		}
 
 		if((snd_buff_sz - num_bytes) > listener->bufsize)
 		{
-			listener->total_tx_rx += tb_send_data(listener,
-							listener->data + listener->total_tx_rx,
-							listener->bufsize);
+			rc = send(listener->sock_d, listener->data + listener->total_tx_rx,
+							listener->bufsize, 0);
+
+			if(rc < 0)
+			{
+				LOG_E_NO(listener, "Error: send: ", errno);
+				tb_abort(listener);
+			}
+			else
+			{
+				listener->total_tx_rx += rc;
+			}
 		}
 	}
 
-	LOG(listener, "Waiting for ack", LOG_INFO);
+	LOG_INFO(listener, "Waiting for ack");
 
 	//Send eof, and wait for ack.
 	while(listener->command != TB_EXIT)
 	{
-		if(listener->protocol->f_send(listener->sock_d, listener->data,
-				0, 0) < 0)
+		if(send(listener->sock_d, listener->data, 0, 0) < 0)
 		{
-			PRT_INFO("Connection closed on server side, exiting");
+			LOG_E_NO(listener, "Error: udp_send: ", errno);
 			break;
 		}
 
@@ -93,7 +101,7 @@ tb_udp_client(tb_listener_t *listener)
 
 	pthread_mutex_trylock(listener->stat_lock);
 
-	LOG(listener, "Closing Connection", LOG_INFO);
+	LOG_INFO(listener, "Closing Connection");
 	listener->protocol->f_close(listener->sock_d);
 	listener->sock_d = -1;
 	listener->status = TB_DISCONNECTED;
@@ -106,10 +114,9 @@ tb_udp_client(tb_listener_t *listener)
 int
 tb_udp_ack(int events, void *data)
 {
-	PRT_INFO("Ack received");
-
 	//Cast to listener, and call for an exit.
 	tb_listener_t *listener = (tb_listener_t*)((tb_e_data*)data)->data;
+	LOG_INFO(listener, "Ack received");
 	listener->command = TB_EXIT;
 
 	return 0;
@@ -128,7 +135,7 @@ tb_udp_m_client(tb_listener_t *listener)
 
 		if(session == NULL)
 		{
-			PRT_ERR("Error creating session");
+			LOG_E_NO(listener, "Error creating session", errno);
 			tb_abort(listener);
 		}
 
@@ -360,7 +367,7 @@ tb_udp_event(int events, void *data)
 	vec.iov_len = session->data_size;
 
 	msg.msg_name = (struct sockaddr_t*)session->addr_in;
-	msg.msg_namelen = (socklen_t*)&session->addr_len;
+	msg.msg_namelen = (socklen_t)session->addr_len;
 	msg.msg_iov = &vec;
 	msg.msg_iovlen = 1;
 	msg.msg_flags = 0;

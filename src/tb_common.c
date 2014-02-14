@@ -5,6 +5,7 @@
  *      Author: michael
  */
 #include "tb_common.h"
+#include "tb_logging.h"
 
 #include <sys/socket.h>
 #include <stdio.h>
@@ -13,6 +14,7 @@
 #include <arpa/inet.h>
 #include <time.h>
 #include <errno.h>
+#include <string.h>
 
 void
 tb_print_address(struct sockaddr_storage *store)
@@ -220,7 +222,3 @@ char
 
 	return r_data;
 }
-
-
-
-
