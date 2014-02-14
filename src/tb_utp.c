@@ -10,6 +10,8 @@
 #include "tb_common.h"
 #include "tb_listener.h"
 #include "tb_testbed.h"
+#include "tb_logging.h"
+#include "tb_session.h"
 
 #include <utp.h>
 #include <netinet/in.h>
@@ -65,6 +67,11 @@ tb_utp_t
 
 	utp->state = UTP_STATE_CREATED;
 
+	//Set the timeout to 2 seconds.
+	utp->last_rec = tb_create_time(CLOCK_MONOTONIC);
+	utp->time_out = 2 * 1000000000;
+	utp->measure_time = 0;
+
 	return utp;
 }
 
@@ -99,22 +106,6 @@ tb_utp_state_change(void *userdata, int state)
 {
 	tb_utp_t *utp = (tb_utp_t*)userdata;
 	utp->state = state;
-
-#ifdef _DEBUG_UTP
-	if(state == UTP_STATE_CONNECT)
-	{
-		PRT_INFO("State: Connected")
-	}
-	else if(state == UTP_STATE_EOF)
-	{
-		PRT_INFO("State: EOF")
-	}
-	else if(state == UTP_STATE_DESTROYING)
-	{
-		PRT_INFO("State: Destroying")
-	}
-#endif
-
 }
 
 void
@@ -154,6 +145,10 @@ tb_utp_incoming(void *userdata, struct UTPSocket *socket)
 	UTP_SetSockopt(utp->socket, SO_RCVBUF, utp->so_rcvbuf);
 	UTP_SetCallbacks(utp->socket, utp->call_backs, utp);
 	utp->state = UTP_STATE_CONNECT;
+
+	//Start timing, and set to measure time-out.
+	tb_start_time(utp->last_rec);
+	utp->measure_time = 1;
 }
 
 /////////////// Standard socket API //////////////////////
@@ -181,20 +176,9 @@ tb_utp_socket(tb_utp_t *utp, int domain, int socktype, int protocol)
 int
 tb_utp_connect(tb_utp_t *utp, const struct sockaddr *addr, socklen_t len)
 {
-	PRT_INFO("Create socket");
-
 	utp->socket = UTP_Create(&tb_utp_send_to, utp, addr, len);
-
-	PRT_INFO("Set options");
-
 	UTP_SetSockopt(utp->socket, SO_SNDBUF, utp->so_sndbuf);
-
-	PRT_INFO("Set callbacks");
-
 	UTP_SetCallbacks(utp->socket, utp->call_backs, utp);
-
-	PRT_INFO("Connect");
-
 	UTP_Connect(utp->socket);
 
 	tb_poll_for_events(utp->epoll);
@@ -252,6 +236,7 @@ tb_utp_event(int events, void *data)
 
 			if(err_no == ECONNRESET || err_no == EMSGSIZE)
 			{
+				perror("Error in loop");
 				continue;
 			}
 
@@ -272,6 +257,10 @@ tb_utp_event(int events, void *data)
 			fprintf(stderr, "Error: utp_recv_from: UTP_IsIncoming\n");
 			return -1;
 		}
+
+		//Reset timeout.
+		tb_start_time(utp->last_rec);
+
 	}
 	while(len > 0);
 
@@ -284,6 +273,17 @@ tb_utp_recv(tb_utp_t *utp, char *buff, int size)
 	utp->read_bytes = 0;
 	tb_poll_for_events(utp->epoll);
 	UTP_CheckTimeouts();
+
+	if(utp->measure_time)
+	{
+		tb_finish_time(utp->last_rec);
+
+		if(utp->last_rec->n_sec > utp->time_out)
+		{
+			utp->state = UTP_STATE_ERROR;
+			return 0;
+		}
+	}
 
 	return utp->read_bytes;
 }
@@ -310,7 +310,8 @@ tb_utp_close(tb_utp_t *utp)
 		UTP_Close(utp->socket);
 		UTP_CheckTimeouts();
 
-		while(utp->state != UTP_STATE_DESTROYING)
+		while(utp->state != UTP_STATE_DESTROYING &&
+				utp->state != UTP_STATE_ERROR)
 		{
 			tb_utp_recv(utp, utp->rec_buffer, utp->rec_buff_size);
 			UTP_CheckTimeouts();
@@ -526,7 +527,7 @@ tb_utp_client(tb_listener_t *listener)
 {
 	tb_utp_t *utp = tb_utp_setup();
 
-	PRT_INFO("UTP Creating socket");
+	LOG_INFO(listener, "UTP Creating socket");
 
 	tb_utp_socket(utp, listener->addr_info->ai_family,
 			listener->addr_info->ai_socktype,
@@ -544,7 +545,7 @@ tb_utp_client(tb_listener_t *listener)
 					(void*)&listener->options->l3_r_b_size,
 					sizeof(listener->options->l3_r_b_size)) != 0)
 	{
-		perror("Error: setsockopt: RCVBUF");
+		LOG_E_NO(listener, "Error: setsockopt: RCVBUF", errno);
 		return -1;
 	}
 
@@ -552,15 +553,15 @@ tb_utp_client(tb_listener_t *listener)
 			(void*)&listener->options->l3_s_b_size,
 			sizeof(listener->options->l3_s_b_size)) != 0)
 	{
-		perror("Error: setsockopt: SNDBUF");
+		LOG_E_NO(listener, "Error: setsockopt: SNDBUF", errno);
 		return -1;
 	}
 
-	PRT_INFO("uTP Connecting");
+	LOG_INFO(listener, "uTP Connecting");
 	if(tb_utp_connect(utp, (struct sockaddr*)listener->addr_info->ai_addr,
 			listener->addr_info->ai_addrlen) < 0)
 	{
-		perror("Error: tb_utp_client: tb_utp_connect");
+		LOG_E_NO(listener, "Error: tb_utp_client: tb_utp_connect", errno);
 		tb_abort(listener);
 	}
 
@@ -569,7 +570,7 @@ tb_utp_client(tb_listener_t *listener)
 
 	int sz = listener->bufsize;
 
-	while(listener->command != TB_EXIT && listener->command != TB_ABORT)
+	while(!(listener->command & TB_E_LOOP))
 	{
 		if((listener->file_size - listener->total_tx_rx) < listener->bufsize)
 		{
@@ -681,12 +682,12 @@ tb_utp_server(tb_listener_t *listener)
 				listener->addr_info->ai_socktype,
 				listener->addr_info->ai_protocol);
 
-	PRT_INFO("Creating socket");
+	LOG_INFO(listener, "Creating uTP socket");
 	listener->sock_d = utp->sock_fd;
 	listener->curr_session = tb_create_session();
 	listener->curr_session->sock_d = listener->sock_d;
 
-	PRT_INFO("Binding socket");
+	LOG_INFO(listener, "Binding uTP socket");
 	if(bind(utp->sock_fd, listener->addr_info->ai_addr,
 			listener->addr_info->ai_addrlen) < 0)
 	{
@@ -711,8 +712,6 @@ tb_utp_server(tb_listener_t *listener)
 		return -1;
 	}
 
-
-
 	if(setsockopt(utp->sock_fd, SOL_SOCKET, SO_SNDBUF,
 			(void*)&listener->options->l3_s_b_size,
 			sizeof(listener->options->l3_s_b_size)) != 0)
@@ -727,7 +726,7 @@ tb_utp_server(tb_listener_t *listener)
 
 	assert(buffer != NULL);
 
-	PRT_INFO("Waiting for connection");
+	LOG_INFO(listener, "Waiting for connection");
 	while(listener->command != TB_ABORT && listener->command != TB_EXIT)
 	{
 		listener->total_tx_rx +=
@@ -741,7 +740,7 @@ tb_utp_server(tb_listener_t *listener)
 			break;
 
 		case UTP_STATE_EOF:
-			PRT_INFO("UTP eof");
+			LOG_INFO(listener, "UTP eof");
 			listener->command = TB_EXIT;
 			break;
 

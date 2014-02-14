@@ -40,7 +40,9 @@ tb_udp_client(tb_listener_t *listener)
 
 	listener->status = TB_CONNECTED;
 
-	int num_bytes, rc, snd_buff_sz;
+	int num_bytes, rc, snd_buff_sz, sz;
+
+	sz = listener->bufsize;
 
 	listener->epoll = tb_create_e_poll(listener->sock_d, 5, 0,
 			listener);
@@ -49,10 +51,10 @@ tb_udp_client(tb_listener_t *listener)
 	listener->epoll->w_time = 50;
 	listener->epoll->f_event = &tb_udp_ack;
 
-	socklen_t sz = (socklen_t)sizeof(snd_buff_sz);
+	socklen_t buf_sz = (socklen_t)sizeof(snd_buff_sz);
 
 	rc = getsockopt(listener->sock_d, SOL_SOCKET, SO_SNDBUF, &snd_buff_sz,
-			&sz);
+			&buf_sz);
 
 	if(rc == -1)
 	{
@@ -68,10 +70,15 @@ tb_udp_client(tb_listener_t *listener)
 			tb_abort(listener);
 		}
 
-		if((snd_buff_sz - num_bytes) > listener->bufsize)
+		if((listener->file_size - listener->total_tx_rx) < listener->bufsize)
+		{
+			sz = listener->file_size - listener->total_tx_rx;
+		}
+
+		if((snd_buff_sz - num_bytes) > sz)
 		{
 			rc = send(listener->sock_d, listener->data + listener->total_tx_rx,
-							listener->bufsize, 0);
+							sz, 0);
 
 			if(rc < 0)
 			{
@@ -87,7 +94,8 @@ tb_udp_client(tb_listener_t *listener)
 
 	LOG_INFO(listener, "Waiting for ack");
 
-	//Send eof, and wait for ack.
+	//Send eof, and wait for ack. If it would have blocked, ignore and
+	//continue to wait.
 	while(listener->command != TB_EXIT)
 	{
 		if(send(listener->sock_d, listener->data, 0, 0) < 0)

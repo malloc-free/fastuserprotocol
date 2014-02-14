@@ -10,6 +10,7 @@
 
 #include "tb_listener.h"
 #include "tb_epoll.h"
+#include "tb_common.h"
 
 #include <utp.h>
 #include <sys/socket.h>
@@ -31,16 +32,16 @@ typedef struct
 	int buffer_size; ///< The size of the buffer to use with this socket.
 	int rec_buff_size; ///< The size of the receive buffer.
 	int e_id; ///< The id of the epoll instance used with this utp socket.
-	int recv_total; ///<
-	int sent_total;
-	int state;
-	tb_epoll_t *epoll;
-	struct sockaddr_storage *addr_s;
-	struct UTPFunctionTable *call_backs;
-	socklen_t addr_len;
+	int recv_total; ///< Total number of bytes received.
+	int sent_total; ///< Total number of bytes sent.
+	int state; ///< Current state of the utp socket.
+	tb_epoll_t *epoll; ///< epoll instance for polling main socket.
+	struct sockaddr_storage *addr_s; ///< Address handling.
+	struct UTPFunctionTable *call_backs; ///< Callbacks for uTP functions.
+	socklen_t addr_len; ///< Length of addr_s.
 
-	char *s_data;
-	int s_data_size;
+	char *s_data; ///< Buffer for recv/send data.
+	int s_data_size; ///< Size of recv/send buffer.
 
 	char *r_data;
 	int r_data_size;
@@ -50,6 +51,11 @@ typedef struct
 
 	int so_sndbuf;	///< The size of the send buffer to use.
 	int so_rcvbuf;  ///< The size of the receive buffer to use.
+
+	//Timing Stuff
+	tb_time_t *last_rec; ///< The last time a byte was received.
+	long long time_out; ///< time out in nanoseconds.
+	int measure_time;   ///< Test for timeout.
 }
 tb_utp_t;
 

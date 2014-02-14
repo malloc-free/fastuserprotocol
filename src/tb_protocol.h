@@ -9,6 +9,7 @@
 #define TB_PROTOCOL_H_
 
 #include "tb_epoll.h"
+#include "tb_common.h"
 
 #include <sys/socket.h>
 
