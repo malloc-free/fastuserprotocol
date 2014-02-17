@@ -135,6 +135,10 @@ tb_udp_ack(int events, void *data)
 	return 0;
 }
 
+/**
+ * Let's play the 'spot the copypasta. Yeah should work on making things
+ * a bit more abstract :-)
+ */
 int
 tb_udp_m_client(tb_listener_t *listener)
 {
@@ -200,6 +204,8 @@ tb_udp_m_client(tb_listener_t *listener)
 		pthread_create(session->s_thread, NULL, &tb_udp_m_client_conn,
 				(void*)session);
 	}
+
+	//Spin and wait. Controlled using an enum.
 	while(listener->session_list->start->status == SESSION_CREATED);
 	listener->status = TB_CONNECTED;
 
@@ -321,6 +327,7 @@ tb_udp_server(tb_listener_t *listener)
 
 	LOG_INFO(listener, "Closing UDP Connection");
 
+	//Lock 'n' close.
 	pthread_mutex_lock(listener->stat_lock);
 	close(listener->sock_d);
 	listener->sock_d = -1;

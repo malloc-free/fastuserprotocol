@@ -159,7 +159,7 @@ tb_listener_t
 {
 	assert(params->address != NULL);
 	assert(params->port != NULL);
-	assert(params->type <= 1 && params->type >= 0);
+	assert(params->type <= 3 && params->type >= 0);
 	assert(params->protocol >= TCP && params->protocol <= DCCP);
 
 	if(params->file_name == NULL)

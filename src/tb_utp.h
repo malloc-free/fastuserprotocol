@@ -20,6 +20,12 @@
 
 struct UTPSocket;
 
+/**
+ * @struct <tb_utp_t> [tb_utp.h]
+ *
+ * This struct contains all of the data external to the utp library that
+ * is required to use the protocol.
+ */
 typedef struct
 {
 	int id;	///< Id for this utp struct.

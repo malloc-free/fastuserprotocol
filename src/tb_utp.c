@@ -194,7 +194,7 @@ tb_utp_send(tb_utp_t *utp, void *buf, size_t n)
 	utp->write_bytes = 0;
 	utp->s_data = buf;
 
-	UTP_CheckTimeouts();
+	//UTP_CheckTimeouts();
 
 	if(utp->state == UTP_STATE_CONNECT ||
 			utp->state == UTP_STATE_WRITABLE)
