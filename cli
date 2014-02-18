@@ -4,16 +4,16 @@ export LD_LIBRARY_PATH=lib
 
 if test "$1" == "tcp"
 then
-	./TestBed client 192.168.0.9 4950 tcp 1408 size 10240
+	./TestBed mclient 192.168.0.9 4950 tcp 1408 size 1048576
 elif test "$1" == "udt"
 then
-	./TestBed client 192.168.0.9 4950 udt 8192 size 1048576
+	./TestBed mclient 192.168.0.9 4950 udt 8192 size 1048576
 elif test "$1" == "utp"
 then
 	./TestBed client 192.168.0.9 4950 utp 1408 size 1048576
 elif test "$1" == "dccp"
 then
-	./TestBed client 192.168.0.9 4950 dccp 1408 size 10240
+	./TestBed mclient 192.168.0.10 4950 dccp 1408 size 10240
 elif test "$1" == "udp"
 then
 	./TestBed client 192.168.0.9 4950 udp 1408 size 1048576

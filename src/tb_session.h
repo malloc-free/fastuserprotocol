@@ -79,6 +79,10 @@ typedef struct
 	pthread_mutex_t *stat_lock; ///< Lock for stat collection.
 	void *n_session;		///< Link to next session (Linked list).
 
+	//Global session info
+	pthread_mutex_t *nac_lock; ///< Lock for num_active_conn
+	int *num_active_conn;  ///< Num active connections
+
 	//Time info
 	tb_time_t *transfer_t; ///< Transfer time.
 	tb_time_t *connect_t;  ///< Connection time.
@@ -89,6 +93,9 @@ typedef struct
 
 	//Protocol specific info
 	void *info; 	///< Used for other info.
+
+	//Other info to be referenced.
+	void *other_info;	///< Mostly used to reference the session_list;
 }
 tb_session_t;
 
@@ -97,9 +104,11 @@ typedef struct
 	int current_max_id;
 	tb_session_t *start;
 	tb_session_t *end;
+	int *num_active_conn;
+	pthread_mutex_t *nac_lock;
+	void *userdata;
 }
 tb_session_list_t;
-
 
 /////////////// Session List Functions //////////
 
@@ -108,6 +117,28 @@ tb_session_list_t;
  */
 inline void
 tb_session_add(tb_session_list_t *list, tb_session_t *session) __attribute__ ((always_inline));
+
+/**
+ * @brief Increment num_active_conn, and return new value
+ *
+ * Thread safe way to increment num_active_conn.
+ *
+ * @param list tb_session_list_t to decrement.
+ * @return The current number of active connections after incrementing.
+ */
+inline int
+tb_session_list_inc(tb_session_list_t *list) __attribute__ ((always_inline));
+
+/**
+ * @brief Decrement num_active_conn, and return new value.
+ *
+ * Thread safe way to increment num_active_conn.
+ *
+ * @param list tb_session_list_t to increment.
+ * @return The current number of active connections after decrementing.
+ */
+inline int
+tb_session_list_dec(tb_session_list_t *list) __attribute__ ((always_inline));
 
 /////////////// Session Functions //////////////
 

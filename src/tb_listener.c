@@ -150,6 +150,10 @@ tb_listener_t
 	listener->session_list->current_max_id = -1;
 	listener->session_list->start = NULL;
 	listener->session_list->end = NULL;
+	listener->session_list->nac_lock = malloc(sizeof(pthread_mutex_t));
+	pthread_mutex_init(listener->session_list->nac_lock, NULL);
+	listener->session_list->num_active_conn = malloc(sizeof(int));
+	*listener->session_list->num_active_conn = 0;
 
 	return listener;
 }

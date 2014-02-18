@@ -150,6 +150,8 @@ tb_udt_m_server(tb_listener_t *listener)
 		tb_abort(listener);
 	}
 
+	listener->session_list->userdata = (void*)&listener->command;
+
 	int epoll_ready = 0;
 	int r_num = 0;
 
@@ -157,7 +159,7 @@ tb_udt_m_server(tb_listener_t *listener)
 
 	while(!(listener->command & TB_E_LOOP))
 	{
-		r_num = udt_epolls_wait2(epoll, &epoll_ready, &r_num, NULL, 0, -1, NULL, 0, NULL, 0);
+		r_num = udt_epolls_wait2(epoll, &epoll_ready, &r_num, NULL, 0, 50, NULL, 0, NULL, 0);
 
 		if(r_num > 0)
 		{
@@ -166,6 +168,7 @@ tb_udt_m_server(tb_listener_t *listener)
 		}
 	}
 
+	LOG_INFO(listener, "exit main loop");
 	pthread_mutex_trylock(listener->stat_lock);
 
 	udt_close(listener->sock_d);
@@ -197,8 +200,6 @@ tb_udt_event(tb_listener_t *listener)
 		session->pack_size = listener->bufsize;
 		session->data = malloc(listener->bufsize);
 
-		tb_session_add(listener->session_list, session);
-
 		//Set socket to blocking - we block on each individual connection.
 		int syn = 1;
 		if(udt_setsockopt(session->sock_d, SOL_SOCKET, UDT_RCVSYN, &syn, sizeof(syn))
@@ -208,6 +209,11 @@ tb_udt_event(tb_listener_t *listener)
 					udt_getlasterror_desc());
 			tb_abort(listener);
 		}
+
+		//Add the session to the linked list, and add the list to otherdata.
+		tb_session_add(listener->session_list, session);
+		tb_session_list_inc(listener->session_list);
+		session->other_info = listener->session_list;
 
 		PRT_I_D("Starting session: %d", session->id);
 		pthread_create(session->s_thread, NULL, &tb_udt_m_server_conn,
@@ -233,16 +239,23 @@ void
 
 		if(rc == UDT_ERROR)
 		{
-			fprintf(stderr, "Session %d: Error: tb_udt_m_connection:"
-					" udt_recv: %s", session->id, udt_getlasterror_desc());
+			if(udt_getlasterror_code() == 2001)
+			{
+				break;
+			}
+			else
+			{
+				fprintf(stderr, "Session %d: Error: tb_udt_m_connection:"
+						" udt_recv: %s", session->id, udt_getlasterror_desc());
 
-			pthread_mutex_trylock(session->stat_lock);
-			udt_close(session->sock_d);
-			session->status = SESSION_DISCONNECTED;
-			pthread_mutex_unlock(session->stat_lock);
+				pthread_mutex_trylock(session->stat_lock);
+				udt_close(session->sock_d);
+				session->status = SESSION_DISCONNECTED;
+				pthread_mutex_unlock(session->stat_lock);
 
-			*retval = -1;
-			return retval;
+				*retval = -1;
+				return retval;
+			}
 		}
 
 		session->total_bytes += rc;
@@ -252,6 +265,15 @@ void
 	pthread_mutex_trylock(session->stat_lock);
 	udt_close(session->sock_d);
 	session->status = SESSION_DISCONNECTED;
+
+	//Decrement number of active conn, if none left, command main loop to bail.
+	tb_session_list_t *list = (tb_session_list_t*)session->other_info;
+	if(!tb_session_list_dec(list))
+	{
+		LOG_S_INFO(session, "Last session, exiting");
+		*(int*)list->userdata = TB_EXIT;
+	}
+
 	pthread_mutex_unlock(session->stat_lock);
 
 	PRT_I_D("Session %d: Ended connection", session->id);

@@ -111,6 +111,8 @@ tb_stream_m_server(tb_listener_t *listener)
 	epoll->f_event = &tb_stream_event;
 	epoll->w_time = 50;
 
+	listener->session_list->userdata = (void*)&listener->command;
+
 	while(!(listener->command & TB_E_LOOP))
 	{
 		tb_poll_for_events(epoll);
@@ -149,17 +151,10 @@ tb_stream_event(int events, void *data)
 		session->pack_size = listener->bufsize;
 		session->data = malloc(listener->bufsize);
 
-		session->id = ++listener->session_list->current_max_id;
-		if(listener->session_list->start == NULL)
-		{
-			listener->session_list->start = session;
-			listener->session_list->end = session;
-		}
-		else
-		{
-			listener->session_list->start->n_session = session;
-			listener->session_list->end = session;
-		}
+		//Add the session to the linked list, and add the list to other info.
+		tb_session_add(listener->session_list, session);
+		tb_session_list_inc(listener->session_list);
+		session->other_info = listener->session_list;
 
 		PRT_INFO("Starting session");
 		pthread_create(session->s_thread, NULL, &tb_stream_m_server_conn,
@@ -207,9 +202,20 @@ void
 	tb_print_times(session);
 	fprintf(stdout, "session %d received %lld bytes", session->id,
 			session->total_bytes);
+
+	//Lock and update status.
 	pthread_mutex_trylock(session->stat_lock);
 	close(session->sock_d);
 	session->status = SESSION_DISCONNECTED;
+
+	//Decrement number of active connections, and if this is the last,
+	//shut the door on the way out :-)
+	tb_session_list_t *list = (tb_session_list_t*)session->other_info;
+	if(!tb_session_list_dec(list))
+	{
+		*(int*)list->userdata = TB_EXIT;
+	}
+
 	pthread_mutex_unlock(session->stat_lock);
 
 	PRT_I_D("Session %d: Ended connection", session->id);

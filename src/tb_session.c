@@ -21,6 +21,7 @@
 #include <time.h>
 
 ///////////////// Session List Functions ///////////////////
+
 void
 tb_session_add(tb_session_list_t *list, tb_session_t *session)
 {
@@ -36,6 +37,27 @@ tb_session_add(tb_session_list_t *list, tb_session_t *session)
 		list->end = session;
 	}
 }
+
+int
+tb_session_list_inc(tb_session_list_t *list)
+{
+	pthread_mutex_trylock(list->nac_lock);
+	int retval = ++(*list->num_active_conn);
+	pthread_mutex_unlock(list->nac_lock);
+
+	return retval;
+}
+
+int
+tb_session_list_dec(tb_session_list_t *list)
+{
+	pthread_mutex_trylock(list->nac_lock);
+	int retval = --(*list->num_active_conn);
+	pthread_mutex_unlock(list->nac_lock);
+
+	return retval;
+}
+
 ///////////////// Session Functions ///////////////////
 
 ////////////////// Creation, Destruction //////////////////
