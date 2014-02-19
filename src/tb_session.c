@@ -15,7 +15,6 @@
 #include <string.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <glib-2.0/glib.h>
 #include <netdb.h>
 #include <pthread.h>
 #include <time.h>
@@ -26,6 +25,12 @@ void
 tb_session_add(tb_session_list_t *list, tb_session_t *session)
 {
 	session->id = ++list->current_max_id;
+	tb_session_add_to(list, session);
+}
+
+void
+tb_session_add_to(tb_session_list_t *list, tb_session_t *session)
+{
 	if(list->start == NULL)
 	{
 		list->start = session;
@@ -56,6 +61,19 @@ tb_session_list_dec(tb_session_list_t *list)
 	pthread_mutex_unlock(list->nac_lock);
 
 	return retval;
+}
+
+tb_session_t
+*tb_session_list_search(tb_session_list_t *list, int id)
+{
+	tb_session_t *curr_session = list->start;
+
+	while(curr_session && curr_session->id != id)
+	{
+		curr_session = curr_session->n_session;
+	}
+
+	return curr_session;
 }
 
 ///////////////// Session Functions ///////////////////
@@ -278,59 +296,3 @@ tb_log_session_info(tb_session_t *session, const char *info, tb_log_type_t type,
 	free(log_str);
 }
 
-///////////////// Data Structure Functions /////////////////////
-
-/*
- * Used by gdsl_queue_t to allocate memory for the given element.
- */
-gdsl_element_t
-allocate_session(void *data){
-	tb_session_t *old = (tb_session_t*)data;
-	tb_session_t *wd = (tb_session_t*)malloc(sizeof(tb_session_t));
-	assert(wd != NULL);
-	wd->file_name = strdup(old->file_name);
-
-	return wd;
-}
-
-/*
- * Used by gdsl_queue_t to free memory for the given element.
- */
-void
-free_session(gdsl_element_t data){
-	free(((tb_session_t*)data)->file_name);
-	free(((tb_session_t*)data)->addr_in);
-	free(data);
-}
-
-/*
- * Get the key value for this tb_session_t. Used by gdsl_hash_table
- */
-char
-*get_key_value(void *data){
-
-	struct sockaddr_storage *str = ((tb_session_t*)data)->addr_in;
-
-	char *addr;
-
-	if(str->ss_family == AF_INET)
-	{
-		addr = malloc(INET_ADDRSTRLEN);
-		inet_ntop(AF_INET, &((struct sockaddr_in*)str)->sin_addr, addr,
-				INET_ADDRSTRLEN);
-	}
-	else
-	{
-		addr = malloc(INET6_ADDRSTRLEN);
-		inet_ntop(AF_INET6, &((struct sockaddr_in6*)str)->sin6_addr, addr,
-				INET6_ADDRSTRLEN);
-	}
-
-	return addr;
-}
-
-gboolean
-tb_session_equals(gconstpointer a, gconstpointer b)
-{
-	return ((&a) == (&b)) ? 1 : 0;
-}

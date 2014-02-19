@@ -10,7 +10,6 @@
 #include "tb_session.h"
 #include "tb_common.h"
 #include "tb_listener.h"
-#include "tb_worker.h"
 #include "tb_utp.h"
 #include "tb_testbed.h"
 
@@ -142,7 +141,7 @@ tb_udp_ack(int events, void *data)
 int
 tb_udp_m_client(tb_listener_t *listener)
 {
-	const int num_conn = 1;
+	const int num_conn = 2;
 	int x = 0;
 
 	for(; x < num_conn; x++)
@@ -245,24 +244,29 @@ void
 	int sent = 0;
 
 	struct msghdr msg;
-	struct iovec vec;
+	struct iovec vec[2];
 
 	msg.msg_name = session->addr_info->ai_addr;
 	msg.msg_namelen = session->addr_info->ai_addrlen;
-	msg.msg_iov = &vec;
-	msg.msg_iovlen = 1;
+	msg.msg_iov = vec;
+	msg.msg_iovlen = 2;
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
 
+	int id = session->id;
+
+	vec[0].iov_base = &id;
+	vec[0].iov_len = sizeof(int);
+
 	do
 	{
-		vec.iov_base = session->data + sent;
-		vec.iov_len = session->pack_size;
+		vec[1].iov_base = session->data + sent;
+		vec[1].iov_len = session->pack_size;
 
 		if(session->data_size - session->total_bytes < session->pack_size)
 		{
-			vec.iov_len = session->data_size - session->total_bytes;
+			vec[1].iov_len = session->data_size - session->total_bytes;
 		}
 
 		sent = sendmsg(session->sock_d, &msg, 0);
@@ -382,15 +386,19 @@ tb_udp_event(int events, void *data)
 	}
 
 	struct msghdr msg;
-	struct iovec vec;
+	struct iovec vec[2];
 
-	vec.iov_base = session->data;
-	vec.iov_len = session->data_size;
+	//Setup message.
+	int id = -1;
+	vec[0].iov_base = &id;
+	vec[0].iov_len = sizeof(int);
+	vec[1].iov_base = session->data;
+	vec[1].iov_len = session->data_size;
 
 	msg.msg_name = (struct sockaddr_t*)session->addr_in;
 	msg.msg_namelen = (socklen_t)session->addr_len;
-	msg.msg_iov = &vec;
-	msg.msg_iovlen = 1;
+	msg.msg_iov = vec;
+	msg.msg_iovlen = 2;
 	msg.msg_flags = 0;
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
@@ -414,6 +422,12 @@ tb_udp_event(int events, void *data)
 		}
 		else if(rc > 0)
 		{
+			fprintf(stdout, "id = %d\n", *(int*)vec[0].iov_base);
+			int id = *(int*)vec[0].iov_base;
+			tb_session_t *session =
+					tb_session_list_search(listener->session_list, id);
+
+
 			session->total_bytes += rc;
 		}
 	}
@@ -422,3 +436,4 @@ tb_udp_event(int events, void *data)
 
 	return 0;
 }
+

@@ -7,17 +7,12 @@
 
 
 #include "tb_listener.h"
-#include "tb_worker_pair.h"
 #include "tb_protocol.h"
 #include "tb_common.h"
-#include "tb_worker_pair.h"
-#include "tb_worker.h"
 #include "tb_logging.h"
 #include "tb_sock_opt.h"
 #include "tb_session.h"
 
-#include <gdsl/gdsl_heap.h>
-#include <gdsl/gdsl_hash.h>
 #include <stdlib.h>
 #include <pthread.h>
 #include <sys/socket.h>
@@ -32,7 +27,6 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <sys/sysinfo.h>
-#include <glib-2.0/glib.h>
 
 tb_listener_t
 *tb_create_listener(ENDPOINT_TYPE type, char *addr, char *port, PROTOCOL protocol,
@@ -40,14 +34,8 @@ tb_listener_t
 {
 	tb_listener_t *listener = malloc(sizeof(tb_listener_t));
 
-	//Setup gdsl hash and heap.
-	listener->__sessions = gdsl_hash_alloc("sessions", NULL, NULL,
-			(gdsl_key_func_t)&get_pair_key, NULL, 10);
-	listener->__workers = gdsl_heap_alloc("heap", NULL, NULL, &compare_workers);
+	//Listener thread.
 	listener->__l_thread = malloc(sizeof(pthread_t));
-
-	//Setup glib hash table
-	listener->sessions = g_hash_table_new(&g_int_hash, &tb_session_equals);
 
 	//Setup network parameters.
 	listener->bind_port = strdup(port);
@@ -232,49 +220,6 @@ tb_listener_t
 	return listener;
 }
 
-int
-tb_setup_workers(tb_listener_t *listener, int num_threads)
-{
-//	unsigned int i;
-//	for(i = 0; i < num_threads; i++)
-//	{
-//		tb_worker_t *worker = create_worker();
-//	}
-
-	return 0;
-}
-
-tb_worker_t
-*tb_get_worker(tb_listener_t *listener, tb_session_t *session)
-{
-	char add_str[INET_ADDRSTRLEN];
-	struct in_addr *address =
-			&((struct sockaddr_in*)session->addr_in)->sin_addr;
-
-	inet_ntop(AF_INET, address, &add_str, (size_t)INET_ADDRSTRLEN);
-	//fprintf(stdout, "address = %s\n", add_str);
-
-	tb_worker_pair_t *pair = gdsl_hash_search(listener->__sessions,
-			(const char*)&add_str);
-
-	if(pair == NULL)
-	{
-		PRT_INFO("Creating new worker");
-		tb_worker_t *worker = create_worker();
-		tb_worker_pair_t n_pair = { worker, session };
-		gdsl_hash_insert(listener->__sessions, &n_pair);
-
-		return n_pair.work;
-	}
-
-	return pair->work;
-}
-
-tb_worker_t
-*tb_get_session(tb_listener_t *listener, tb_session_t *session)
-{
-	return NULL;
-}
 
 void
 tb_get_cpu_info(tb_listener_t *listener)
@@ -288,9 +233,6 @@ tb_destroy_listener(tb_listener_t *listener)
 	free(listener->__l_thread);
 	free(listener->bind_address);
 	free(listener->bind_port);
-
-	gdsl_hash_free(listener->__sessions);
-	gdsl_heap_free(listener->__workers);
 
 	pthread_cond_destroy(listener->stat_cond);
 	pthread_mutex_destroy(listener->stat_lock);

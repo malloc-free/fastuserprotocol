@@ -10,19 +10,15 @@
 
 #include "tb_protocol.h"
 #include "tb_epoll.h"
-#include "tb_worker.h"
 #include "tb_logging.h"
 #include "tb_session.h"
 #include "tb_sock_opt.h"
 
-#include <gdsl/gdsl_hash.h>
-#include <gdsl/gdsl_heap.h>
 #include <pthread.h>
 #include <sys/socket.h>
 #include <stdio.h>
 #include <time.h>
 #include <pthread.h>
-#include <glib-2.0/glib/ghash.h>
 
 /**
  * @enum <ENDPOINT_TYPE> [tb_listener.h]
@@ -140,14 +136,8 @@ typedef void (*funct_l_abort)(void *listener);
 typedef struct
 {
 	//Listener Data Structures
-	gdsl_hash_t __sessions; ///< The active sessions for this
-							///< listener. Maps address to
-							///< listener.
-
-	gdsl_heap_t __workers; 	///< The workers for this listener.
 	int __num_threads;		///< The number of threads for listener.
 
-	GHashTable *sessions;   ///< Active sessions.
 	//pthread fields
 	pthread_t *__l_thread;	///< The thread the listener is on.
 	int sys_tid;			///< The id returned from syscall
@@ -303,17 +293,6 @@ tb_listener_t
  */
 tb_listener_t
 *tb_create_endpoint(tb_test_params_t *params);
-
-/**
- * @brief Get a worker for the supplied session.
- *
- * Fetches a worker to perform work based on the information contained
- * in the tb_session_t struct. If no such session exists (when a new
- * connection is created) then this session will be added to the hashtable,
- * and assigned a worker.
- */
-tb_worker_t
-*tb_get_worker(tb_listener_t *listener, tb_session_t *session);
 
 /**
  *  @brief Destroy a listener.

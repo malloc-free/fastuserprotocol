@@ -13,8 +13,21 @@
 #include "tb_session.h"
 
 #include <sys/socket.h>
+#include <pthread.h>
 
 ////////////// UDP Client Functions /////////////
+
+/**
+ * @struct <tb_udp_session_t> [tb_udp.h]
+ *
+ *
+ */
+typedef struct
+{
+	pthread_cond_t *data_cond;
+	tb_session_list_t *list;
+}
+tb_udp_session_t;
 
 /**
  * @brief Upload a file using udp with epoll eof ack.

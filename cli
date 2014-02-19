@@ -16,7 +16,7 @@ then
 	./TestBed mclient 192.168.0.10 4950 dccp 1408 size 10240
 elif test "$1" == "udp"
 then
-	./TestBed client 192.168.0.9 4950 udp 1408 size 1048576
+	./TestBed mclient 192.168.0.9 4950 udp 1408 size 1
 elif test "$1" == "eudp"
 then
 	./TestBed client 192.168.0.9 4950 eudp 1408 size 1048576

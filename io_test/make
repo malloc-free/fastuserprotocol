@@ -1,8 +1,0 @@
-#!/bin/bash
-gcc -Wall -D_GNU_SOURCE -D_DEBUG -o TestFIO \
--I../src -includetb_file_io.h \
--includetb_common.h \
-io_test.c ../src/tb_file_io.c \
-../src/tb_common.c
-
-#scp TestBed rafsan@192.168.0.15:/home/rafsan

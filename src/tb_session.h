@@ -14,13 +14,11 @@
 #include "tb_protocol.h"
 #include "tb_logging.h"
 
-#include <gdsl/gdsl_queue.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <stdio.h>
 #include <time.h>
 #include <netdb.h>
-#include <glib-2.0/glib.h>
 #include <pthread.h>
 
 typedef enum
@@ -114,9 +112,18 @@ tb_session_list_t;
 
 /**
  * @brief Add a session to a list.
+ *
+ * Just appends a session to the list, and allocates an appropriate id
+ * to the session.
  */
 inline void
 tb_session_add(tb_session_list_t *list, tb_session_t *session) __attribute__ ((always_inline));
+
+/**
+ * @brief Add a session to a list.
+ */
+inline void
+tb_session_add_to(tb_session_list_t *list, tb_session_t *session) __attribute__ ((always_inline));
 
 /**
  * @brief Increment num_active_conn, and return new value
@@ -139,6 +146,21 @@ tb_session_list_inc(tb_session_list_t *list) __attribute__ ((always_inline));
  */
 inline int
 tb_session_list_dec(tb_session_list_t *list) __attribute__ ((always_inline));
+
+/**
+ * @brief Search for a session with the specified id.
+ *
+ * Search for the id of the specified session in the linked list. Return
+ * a pointer to the session if found, or NULL if not. Just iterates
+ * through the list, not a binary search or anything. As we are only going
+ * to have 4 connections, it should suffice.
+ *
+ * @param list The list to search
+ * @param id The id of the session to find
+ * @return A pointer to the session if it is present, or null if not found.
+ */
+inline tb_session_t
+*tb_session_list_search(tb_session_list_t *list, int id) __attribute__ ((always_inline));
 
 /////////////// Session Functions //////////////
 
@@ -216,36 +238,5 @@ inline char
 inline void
 tb_log_session_info(tb_session_t *session, const char *info,
 		tb_log_type_t type, int err_no) __attribute__((always_inline));
-
-/**
- * @brief Allocates memory for a session.
- *
- * Used by gdsl structures to allocate memory for
- * a tb_session_t struct.
- *
- * @brief data This needs to be an instance of
- * tb_session_t
- */
-gdsl_element_t
-allocate_session(void *data);
-
-/**
- * @brief Free memory for a session.
- */
-void
-free_session(gdsl_element_t data);
-
-char
-*get_key_value(void *data);
-
-/**
- * @brief Tests equality for sessions keys
- *
- * Called by the hash table implementation in glib.
- * Simply tests to see if the supplied integers are
- * equal (these are just int32).
- */
-gboolean
-tb_session_equals(gconstpointer a, gconstpointer b);
 
 #endif /* TB_SESSION_H_ */
