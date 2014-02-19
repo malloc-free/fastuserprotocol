@@ -27,7 +27,7 @@ typedef enum
 	aUDT = 3, 	 ///< Yet to be implemented adaptive UDT.
 	uTP = 4,     ///< Arrrr a pirates favourite protocol.
 	eUDP = 5,	 ///< UDP with epoll.
-	DCCP = 6	 ///< DCCP, in linux kernal.
+	DCCP = 6	 ///< DCCP, in linux kernel.
 }
 PROTOCOL;
 

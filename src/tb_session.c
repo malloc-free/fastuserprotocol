@@ -38,9 +38,11 @@ tb_session_add_to(tb_session_list_t *list, tb_session_t *session)
 	}
 	else
 	{
-		list->start->n_session = session;
+		list->end->n_session = session;
 		list->end = session;
 	}
+
+	list->num_sessions++;
 }
 
 int
@@ -91,6 +93,7 @@ tb_session_t
 	data->transfer_t = NULL;
 	data->connect_t = NULL;
 	data->stats = NULL;
+	data->n_session = NULL;
 
 	return data;
 }
@@ -124,6 +127,7 @@ tb_session_t
 	session->connect_t = tb_create_time(CLOCK_MONOTONIC);
 
 	session->file_name = NULL;
+	session->n_session = NULL;
 
 	return session;
 }

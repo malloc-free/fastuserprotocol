@@ -142,6 +142,7 @@ tb_listener_t
 	pthread_mutex_init(listener->session_list->nac_lock, NULL);
 	listener->session_list->num_active_conn = malloc(sizeof(int));
 	*listener->session_list->num_active_conn = 0;
+	listener->session_list->num_sessions = 0;
 
 	return listener;
 }

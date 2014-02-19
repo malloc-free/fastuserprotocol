@@ -29,8 +29,47 @@
 #include <netdb.h>
 #include <udt.h>
 #include <errno.h>
+#include <pthread.h>
 
-const int DATA_SIZE = 1024;
+//////////////////// Data Structure Functions /////////////////////
+
+void
+tb_queue_add(tb_queue_t *queue, tb_queue_data_t *data)
+{
+	 if(!queue->start)
+	 {
+		 queue->start = data;
+		 queue->end = data;
+	 }
+	 else
+	 {
+		 queue->end->n_data = data;
+		 queue->end = data;
+	 }
+}
+
+/////////////////// UDP Session Functions ////////////////////////
+
+tb_udp_session_t
+*tb_create_udp_session()
+{
+	tb_udp_session_t *session = malloc(sizeof(tb_udp_session_t));
+
+	session->data_cond = malloc(sizeof(pthread_cond_t));
+	session->data_lock = malloc(sizeof(pthread_mutex_t));
+
+	return session;
+}
+
+void
+tb_destroy_udp_session(tb_udp_session_t *session)
+{
+	pthread_cond_destroy(session->data_cond);
+	pthread_mutex_destroy(session->data_lock);
+	free(session);
+}
+
+/////////////////// Client Functions /////////////////////////////
 
 int
 tb_udp_client(tb_listener_t *listener)
@@ -141,7 +180,7 @@ tb_udp_ack(int events, void *data)
 int
 tb_udp_m_client(tb_listener_t *listener)
 {
-	const int num_conn = 2;
+	const int num_conn = 4;
 	int x = 0;
 
 	for(; x < num_conn; x++)
@@ -221,12 +260,62 @@ tb_udp_m_client(tb_listener_t *listener)
 		close(curr_session->sock_d);
 		pthread_mutex_unlock(curr_session->stat_lock);
 
+		free(retval);
 		curr_session = curr_session->n_session;
 	}
+
+	//Close the connection.
+	tb_udp_m_close_conn(listener);
 
 	listener->status = TB_DISCONNECTED;
 
 	return listener->total_tx_rx;
+}
+
+void
+tb_udp_m_close_conn(tb_listener_t *listener)
+{
+	listener->epoll = tb_create_e_poll(listener->sock_d, 5, 0,
+				listener);
+
+	//Give the server 50 milliseconds to respond to the eof.
+	listener->epoll->w_time = 50;
+	listener->epoll->f_event = &tb_udp_ack;
+
+	struct msghdr msg;
+	struct iovec vec[3];
+	msg.msg_name = listener->addr_info->ai_addr;
+	msg.msg_namelen = listener->addr_info->ai_addrlen;
+	msg.msg_iov = vec;
+	msg.msg_iovlen = 3;
+	msg.msg_control = NULL;
+	msg.msg_controllen = 0;
+	msg.msg_flags = 0;
+
+	vec[0].iov_base = 0;
+	vec[0].iov_len = 0;
+	vec[1].iov_base = 0;
+	vec[1].iov_len = 0;
+	vec[2].iov_base = 0;
+	vec[2].iov_len = 0;
+
+	//Send eof, and wait for ack. If it would have blocked, ignore and
+	//continue to wait.
+	while(listener->command != TB_EXIT)
+	{
+		if(sendmsg(listener->sock_d, &msg, 0) < 0)
+		{
+			int err_no = errno;
+
+			if(err_no != EWOULDBLOCK)
+			{
+				LOG_E_NO(listener, "Error: udp_send: ", errno);
+				break;
+			}
+		}
+
+		tb_poll_for_events(listener->epoll);
+	}
 }
 
 void
@@ -244,30 +333,35 @@ void
 	int sent = 0;
 
 	struct msghdr msg;
-	struct iovec vec[2];
+	struct iovec vec[3];
 
 	msg.msg_name = session->addr_info->ai_addr;
 	msg.msg_namelen = session->addr_info->ai_addrlen;
 	msg.msg_iov = vec;
-	msg.msg_iovlen = 2;
+	msg.msg_iovlen = 3;
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
 
-	int id = session->id;
+	int id = session->id, sz = 0;
 
 	vec[0].iov_base = &id;
 	vec[0].iov_len = sizeof(int);
 
+	vec[1].iov_base = &sz;
+	vec[1].iov_len = sizeof(int);
+
 	do
 	{
-		vec[1].iov_base = session->data + sent;
-		vec[1].iov_len = session->pack_size;
+		vec[2].iov_base = session->data + sent;
+		vec[2].iov_len = session->pack_size;
 
 		if(session->data_size - session->total_bytes < session->pack_size)
 		{
-			vec[1].iov_len = session->data_size - session->total_bytes;
+			vec[2].iov_len = session->data_size - session->total_bytes;
 		}
+
+		*(int*)vec[1].iov_base = vec[2].iov_len;
 
 		sent = sendmsg(session->sock_d, &msg, 0);
 
@@ -281,6 +375,8 @@ void
 		session->total_bytes += sent;
 	}
 	while(session->total_bytes < session->data_size);
+
+	sendmsg(session->sock_d, &msg, 0);
 
 	session->status = SESSION_COMPLETE;
 
@@ -350,21 +446,24 @@ tb_udp_m_server(tb_listener_t *listener)
 	tb_epoll_t *epoll = tb_create_e_poll(listener->sock_d, 10, 0,
 			(void*)listener);
 
-	tb_session_t *session = tb_create_session();
-	session->data = malloc(listener->bufsize);
-	session->data_size = listener->bufsize;
-	tb_session_add(listener->session_list, session);
+	//Setup session data.
+	listener->curr_session = tb_create_server_session();
+	listener->curr_session->data = malloc(listener->bufsize);
+	listener->curr_session->data_size = listener->bufsize;
+
 	epoll->w_time = 50;
 	epoll->f_event = &tb_udp_event;
 
-	do
+	//Start polling
+	while(!(listener->command & TB_E_LOOP))
 	{
 		if(tb_poll_for_events(epoll) < 0)
 		{
 			return -1;
 		}
 	}
-	while(listener->session_list->start->status != SESSION_COMPLETE);
+
+	LOG_INFO(listener, "exiting m server");
 
 	return 0;
 }
@@ -378,7 +477,7 @@ tb_udp_event(int events, void *data)
 	tb_listener_t *listener = (tb_listener_t*)e_data->data;
 	sock_d = e_data->fd;
 
-	tb_session_t *session = listener->session_list->start;
+	tb_session_t *session = listener->curr_session;
 
 	if(listener->status == TB_LISTENING)
 	{
@@ -386,14 +485,19 @@ tb_udp_event(int events, void *data)
 	}
 
 	struct msghdr msg;
-	struct iovec vec[2];
+	struct iovec vec[3];
 
 	//Setup message.
-	int id = -1;
+	int id = -1, sz = 0;
+
 	vec[0].iov_base = &id;
 	vec[0].iov_len = sizeof(int);
-	vec[1].iov_base = session->data;
-	vec[1].iov_len = session->data_size;
+
+	vec[1].iov_base = &sz;
+	vec[1].iov_len = sizeof(int);
+
+	vec[2].iov_base = session->data;
+	vec[2].iov_len = session->data_size;
 
 	msg.msg_name = (struct sockaddr_t*)session->addr_in;
 	msg.msg_namelen = (socklen_t)session->addr_len;
@@ -406,6 +510,7 @@ tb_udp_event(int events, void *data)
 	while(1)
 	{
 		rc = recvmsg(sock_d, &msg, 0);
+		int id = *(int*)vec[0].iov_base;
 
 		if(rc < 0)
 		{
@@ -420,19 +525,38 @@ tb_udp_event(int events, void *data)
 				return -1;
 			}
 		}
-		else if(rc > 0)
+		else if(*(int*)vec[1].iov_base > 0)
 		{
-			fprintf(stdout, "id = %d\n", *(int*)vec[0].iov_base);
-			int id = *(int*)vec[0].iov_base;
 			tb_session_t *session =
 					tb_session_list_search(listener->session_list, id);
 
+			if(!session)
+			{
+				session = tb_create_session();
+				session->id = id;
+				tb_session_add_to(listener->session_list, session);
+				tb_session_list_inc(listener->session_list);
+				PRT_I_D("Created session %d", session->id);
+			}
 
 			session->total_bytes += rc;
 		}
-	}
+		else
+		{
+			PRT_INFO("Call for exit");
 
-	session->status = SESSION_COMPLETE;
+			vec[0].iov_base = 0;
+			vec[0].iov_len = 0;
+			vec[1].iov_base = 0;
+			vec[1].iov_len = 0;
+			vec[2].iov_base = 0;
+			vec[2].iov_len = 0;
+
+			sendmsg(listener->sock_d, &msg, 0);
+			listener->command = TB_EXIT;
+			break;
+		}
+	}
 
 	return 0;
 }

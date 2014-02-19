@@ -100,6 +100,7 @@ tb_session_t;
 typedef struct
 {
 	int current_max_id;
+	int num_sessions;
 	tb_session_t *start;
 	tb_session_t *end;
 	int *num_active_conn;
