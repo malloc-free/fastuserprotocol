@@ -67,9 +67,6 @@ tb_udt_server(tb_listener_t *listener)
 		listener->curr_session = session;
 		listener->status = TB_CONNECTED;
 
-		listener->sec = 0;
-		time_t s_time = time(0);
-
 		//Critical loop.
 		while(!(listener->command & TB_E_LOOP))
 		{
@@ -95,9 +92,6 @@ tb_udt_server(tb_listener_t *listener)
 			listener->total_tx_rx += session->last_trans;
 		}
 
-
-		time_t f_time = time(0);
-		listener->sec = difftime(f_time, s_time);
 
 		//Lock stat collection while closing connection and destroying session.
 		pthread_mutex_trylock(listener->stat_lock);
@@ -197,6 +191,7 @@ tb_udt_event(tb_listener_t *listener)
 			return 0;
 		}
 
+		session->stats->protocol = listener->protocol->protocol;
 		session->pack_size = listener->bufsize;
 		session->data = malloc(listener->bufsize);
 
@@ -218,6 +213,8 @@ tb_udt_event(tb_listener_t *listener)
 		PRT_I_D("Starting session: %d", session->id);
 		pthread_create(session->s_thread, NULL, &tb_udt_m_server_conn,
 				(void*)session);
+
+		listener->status = TB_CONNECTED;
 	}
 
 	return 0;
@@ -274,6 +271,7 @@ void
 		*(int*)list->userdata = TB_EXIT;
 	}
 
+	fprintf(stdout, "Session %d received %lld\n", session->id, session->total_bytes);
 	pthread_mutex_unlock(session->stat_lock);
 
 	PRT_I_D("Session %d: Ended connection", session->id);
@@ -459,6 +457,7 @@ void
 	tb_print_times(session);
 
 	*retval = 0;
+
 	return retval;
 }
 

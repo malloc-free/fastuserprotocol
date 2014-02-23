@@ -390,8 +390,6 @@ void
 int
 tb_udp_server(tb_listener_t *listener)
 {
-	time_t s_time, f_time;
-
 	listener->status = TB_LISTENING;
 
 	listener->curr_session = tb_create_server_session();
@@ -402,7 +400,6 @@ tb_udp_server(tb_listener_t *listener)
 
 	listener->total_tx_rx += listener->curr_session->last_trans;
 
-	s_time = time(0);
 	listener->status = TB_CONNECTED;
 	LOG_INFO(listener, "UDP Connected");
 
@@ -412,8 +409,6 @@ tb_udp_server(tb_listener_t *listener)
 
 		if(listener->curr_session->last_trans == listener->protocol->eot)
 		{
-			f_time = time(0);
-			listener->sec = difftime(f_time, s_time);
 			listener->status = TB_LISTENING;
 			listener->command = listener->s_tx_end;
 			PRT_INFO("Sending ack");

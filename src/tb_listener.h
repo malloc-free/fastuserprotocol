@@ -162,6 +162,8 @@ typedef struct
 	tb_options_t *options;  ///< The options for the protocol.
 	void *prot_data;		///< Protocol specific data.
 	int num_connections;    ///< The number of connections to create;
+	struct addrinfo *addr_info;  ///< The addrinfo for the endpoint.
+	int flags;				///< The flags for the endpoint.
 
 	//Data setup
 	int file_size;			///< The size of the file to generate.
@@ -170,13 +172,10 @@ typedef struct
 	char *data;				///< The data to send
 	int num_send;			///< Send multiple times.
 
-	struct addrinfo *addr_info;  ///< The addrinfo for the endpoint.
-	int flags;				///< The flags for the endpoint.
-
-
 	//Stats
-	long long total_tx_rx;		///< the total amount of data tx/rx.
-	double sec;				///< The seconds it took for the last transfer.
+	long long total_tx_rx;	///< the total amount of data tx/rx.
+	tb_time_t *transfer_time;  ///< Measure the time for transfer.
+	tb_time_t *connect_time;   ///< Time to establish a connection.
 
 	//Stat collection control
 	tb_prot_stats_t *stats; ///< The current stats.

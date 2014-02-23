@@ -49,15 +49,19 @@ inline char
 //////////////////// Timer Functions /////////////////////////////
 
 /**
- * @brief A struct to hold start, stop and elapsed times.
+ * @struct <tb_time_t> [tb_common.h]
+ *
+ * @brief A struct to hold start, finish and elapsed times.
  */
 typedef struct
 {
-	clockid_t clk_id;
-	struct timespec *start;
-	struct timespec *finish;
+	clockid_t clk_id;	///< Id of the clock to use.
+	struct timespec *start;  ///< Start time.
+	struct timespec *finish; ///< Finish time.
+	int started;	///< Timing has started.
+	int stopped;	///< Timing has stopped;
 
-	long long n_sec;
+	long long n_sec;	///< Total time.
 }
 tb_time_t;
 

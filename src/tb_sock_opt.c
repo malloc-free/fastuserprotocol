@@ -307,11 +307,5 @@ tb_set_dccp_opts(tb_options_t *options, int fd)
 
 	int on = 1;
 
-	if(setsockopt(fd, SOL_SOCKET, SO_REUSEADDR, &on, sizeof on) == -1)
-	{
-		perror(RED "Error: tb_set_dccp_opts: setsockopt" RESET);
-		return -1;
-	}
-
 	return tb_set_bsd_sock_opts(options, fd);
 }

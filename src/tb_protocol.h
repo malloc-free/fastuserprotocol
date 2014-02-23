@@ -218,6 +218,11 @@ typedef struct
 
 	void *prot_data;	///< Protocol specific data.
 	PROTOCOL protocol;	///< Protocol for these stats.
+
+	//Time stats
+	long long connect_time; ///< The time taken to connect.
+	long long transfer_time; ///< The time taken for transfer.
+	tb_time_t *stat_time;	///< The timer for stat collection.
 }
 tb_prot_stats_t;
 

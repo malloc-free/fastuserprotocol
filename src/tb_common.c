@@ -53,6 +53,7 @@ tb_time_t
 	time->start = malloc(sizeof(struct timespec));
 	time->finish = malloc(sizeof(struct timespec));
 	time->n_sec = 0;
+	time->started = 0;
 
 	return time;
 }
@@ -69,6 +70,7 @@ void
 tb_start_time(tb_time_t *time)
 {
 	clock_gettime(time->clk_id, time->start);
+	time->started = 1;
 }
 
 void
@@ -76,6 +78,7 @@ tb_finish_time(tb_time_t *time)
 {
 	clock_gettime(time->clk_id, time->finish);
 	tb_calculate_time(time);
+	time->stopped = 1;
 }
 
 void

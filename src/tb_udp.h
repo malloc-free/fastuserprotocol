@@ -15,7 +15,7 @@
 #include <sys/socket.h>
 #include <pthread.h>
 
-////////////// UDP Client Functions /////////////
+/////////////////////// UDP Client Functions /////////////////////
 
 /**
  * @struct <tb_udp_session_t> [tb_udp.h]

@@ -49,6 +49,9 @@ tb_stream_server(tb_listener_t *listener)
 				(struct sockaddr*)session->addr_in,
 				&session->addr_len);
 
+		//Start timing.
+		tb_start_time(listener->transfer_time);
+
 		if(session->sock_d == -1)
 		{
 			PRT_ERR("Error: tb_stream_server: accept");
@@ -61,9 +64,6 @@ tb_stream_server(tb_listener_t *listener)
 		listener->curr_session = session;
 		listener->status = TB_CONNECTED;
 
-		listener->sec = 0;
-		time_t s_time = time(0);
-
 		do
 		{
 			tb_recv_data(listener, session);
@@ -73,8 +73,7 @@ tb_stream_server(tb_listener_t *listener)
 		}
 		while(session->last_trans != 0 && !(listener->command & TB_E_LOOP));
 
-		time_t f_time = time(0);
-		listener->sec = difftime(f_time, s_time);
+		tb_finish_time(listener->transfer_time);
 
 		//Lock while destroying session and closing connection
 		pthread_mutex_trylock(listener->stat_lock);
@@ -140,6 +139,7 @@ tb_stream_event(int events, void *data)
 				&session->addr_len);
 		tb_finish_time(session->connect_t);
 
+		//Mostly catches EWAIT errors, not a problem.
 		if(session->sock_d == -1)
 		{
 			perror("Error: tb_stream_event: ");
@@ -148,8 +148,12 @@ tb_stream_event(int events, void *data)
 			return 0;
 		}
 
+		//Set options for the new socket.
+		tb_set_sock_opt(listener->options, session->sock_d);
+
 		session->pack_size = listener->bufsize;
 		session->data = malloc(listener->bufsize);
+		session->stats->protocol = listener->protocol->protocol;
 
 		//Add the session to the linked list, and add the list to other info.
 		tb_session_add(listener->session_list, session);
@@ -234,7 +238,7 @@ tb_stream_m_client(tb_listener_t *listener)
 	for(; x < num_conn; x++)
 	{
 		tb_session_t *session = tb_create_session_full(listener->bind_address,
-				listener->bind_port, SOCK_STREAM, 0);
+				listener->bind_port, listener->protocol->type, 0);
 
 		if(session == NULL)
 		{
@@ -250,6 +254,9 @@ tb_stream_m_client(tb_listener_t *listener)
 			perror("Error: tb_stream_client: ");
 			tb_abort(listener);
 		}
+
+		//Set options for the new socket.
+		//tb_set_sock_opt(listener->options, session->sock_d);
 
 		//Set session parameters.
 		session->l_status = (int*)&listener->status;
@@ -346,7 +353,7 @@ void
 
 	int sz = session->pack_size, rc, rmbytes = 0;
 
-	//Start the transfer, and begin timing.
+	//Begin timing, and start transfer.
 	tb_start_time(session->transfer_t);
 	while(session->total_bytes < session->data_size)
 	{
@@ -383,7 +390,13 @@ void
 int
 tb_stream_client(tb_listener_t *listener)
 {
+	//Time connection.
+	tb_start_time(listener->connect_time);
 	tb_connect(listener);
+	tb_finish_time(listener->connect_time);
+
+	//Start timing transfer.
+	tb_start_time(listener->transfer_time);
 
 	listener->status = TB_CONNECTED;
 
@@ -404,6 +417,8 @@ tb_stream_client(tb_listener_t *listener)
 
 		listener->total_tx_rx += rc;
 	}
+
+	tb_finish_time(listener->transfer_time);
 
 	pthread_mutex_trylock(listener->stat_lock);
 

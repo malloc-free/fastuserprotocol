@@ -299,10 +299,10 @@ tb_start(tb_listener_t *listener)
 int
 tb_monitor(tb_listener_t *listener)
 {
+	//Wait for socket to be set.
 	while(listener->sock_d == -1);
 
 	int prev_bytes = 0, peak_bytes = 0;
-
 	char animate[8] = {'|', '/', '-', '\\', '|', '/', '-', '\\'};
 	int index = 0;
 
@@ -377,8 +377,8 @@ tb_monitor(tb_listener_t *listener)
 		else
 		{
 			//Not currently connected, report status.
-			fprintf(stdout, "\r%c Time for last transfer = %.f",
-					animate[index++], listener->sec);
+			fprintf(stdout, "\rWaiting for transfer %c",
+					animate[index++]);
 
 			fflush(stdout);
 
@@ -391,6 +391,9 @@ tb_monitor(tb_listener_t *listener)
 		}
 
 	}
+
+	fprintf(stdout, "\nTime for transfer: %f seconds\n",
+			listener->transfer_time->n_sec / (double)1000000000);
 
 	fprintf(stdout, "Main thread exiting\n");
 

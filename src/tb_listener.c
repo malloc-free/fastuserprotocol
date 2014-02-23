@@ -54,7 +54,6 @@ tb_listener_t
 	listener->file_size = 0;
 	listener->filename = NULL;
 	listener->data = NULL;
-	listener->sec = 0;
 	listener->num_send = 1;
 
 	//Set the listener to NOT be destroyed on exit.
@@ -76,10 +75,11 @@ tb_listener_t
 
 	listener->__l_thread = malloc(sizeof(pthread_t));
 
-	//Initalize stats.
+	//Initialize stats.
 	listener->stats = malloc(sizeof(tb_prot_stats_t));
 	memset(listener->stats, 0, sizeof(tb_prot_stats_t));
 	listener->stats->protocol = protocol;
+	listener->stats->stat_time = tb_create_time(CLOCK_MONOTONIC);
 
 	tb_other_info *info = malloc(sizeof(tb_other_info));
 	info->sys_tid = -1;
@@ -143,6 +143,10 @@ tb_listener_t
 	listener->session_list->num_active_conn = malloc(sizeof(int));
 	*listener->session_list->num_active_conn = 0;
 	listener->session_list->num_sessions = 0;
+
+	//Setup timing
+	listener->transfer_time = tb_create_time(CLOCK_MONOTONIC);
+	listener->connect_time = tb_create_time(CLOCK_MONOTONIC);
 
 	return listener;
 }
@@ -271,12 +275,19 @@ tb_destroy_listener(tb_listener_t *listener)
 	}
 
 	free(listener->session_list);
+
+	tb_destroy_time(listener->stats->stat_time);
+
 	free(listener->stats);
 	free(listener->options);
 
 	tb_destroy_protocol(listener->protocol);
 
 	PRT_INFO("protocol destroyed");
+
+	//Destroy timers.
+	tb_destroy_time(listener->connect_time);
+	tb_destroy_time(listener->transfer_time);
 
 	free(listener);
 }
@@ -308,8 +319,6 @@ tb_print_listener(tb_listener_t *listener)
 tb_prot_stats_t
 *tb_ex_get_stats(tb_listener_t *listener)
 {
-	tb_prot_stats_t *stats = malloc(sizeof(tb_prot_stats_t));
-
 	pthread_mutex_trylock(listener->stat_lock);
 
 	if(listener->read == 1 && (listener->status != TB_ABORTING &&
@@ -318,12 +327,29 @@ tb_prot_stats_t
 		pthread_cond_wait(listener->stat_cond, listener->stat_lock);
 	}
 
-	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
-	listener->read = 1;
+	//Start recording time if not started, otherwise get time of collection.
+	if(!listener->stats->stat_time->started)
+	{
+		tb_start_time(listener->stats->stat_time);
+	}
+	else
+	{
+		tb_finish_time(listener->stats->stat_time);
+	}
+
+	if(listener->transfer_time->stopped)
+	{
+		listener->stats->transfer_time = listener->transfer_time->n_sec;
+	}
+
+	if(listener->connect_time->stopped)
+	{
+		listener->stats->connect_time = listener->connect_time->n_sec;
+	}
 
 	pthread_mutex_unlock(listener->stat_lock);
 
-	return stats;
+	return listener->stats;
 }
 
 void
@@ -364,6 +390,8 @@ void
 tb_set_m_stats(tb_listener_t *listener)
 {
 	pthread_mutex_trylock(listener->stat_lock);
+	listener->stats->current_read = 0;
+	listener->total_tx_rx = 0;
 
 	tb_session_t *session = listener->session_list->start;
 
@@ -371,9 +399,13 @@ tb_set_m_stats(tb_listener_t *listener)
 	{
 		pthread_mutex_trylock(session->stat_lock);
 
+		//Add to the total bytes read for the listener.
+		listener->stats->current_read += session->total_bytes;
+		listener->total_tx_rx += session->total_bytes;
+
+		//Collect stats for the session if connected.
 		if(session->status == SESSION_CONNECTED)
 		{
-			listener->stats->current_read += session->total_bytes;
 			tb_get_stats(session->stats, session->sock_d);
 		}
 
