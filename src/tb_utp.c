@@ -558,18 +558,22 @@ tb_utp_client(tb_listener_t *listener)
 	}
 
 	LOG_INFO(listener, "uTP Connecting");
+	tb_start_time(listener->connect_time);
 	if(tb_utp_connect(utp, (struct sockaddr*)listener->addr_info->ai_addr,
 			listener->addr_info->ai_addrlen) < 0)
 	{
 		LOG_E_NO(listener, "Error: tb_utp_client: tb_utp_connect", errno);
 		tb_abort(listener);
 	}
+	tb_finish_time(listener->connect_time);
 
 	listener->status = TB_CONNECTED;
 	listener->sock_d = utp->sock_fd;
 
 	int sz = listener->bufsize;
 
+	//Main loop, start timing.
+	tb_start_time(listener->transfer_time);
 	while(!(listener->command & TB_E_LOOP))
 	{
 		if((listener->file_size - listener->total_tx_rx) < listener->bufsize)
@@ -605,7 +609,9 @@ tb_utp_client(tb_listener_t *listener)
 			tb_abort(listener);
 		}
 	}
+	tb_finish_time(listener->transfer_time);
 
+	//Lock 'n' close.
 	pthread_mutex_trylock(listener->stat_lock);
 
 	listener->status = TB_DISCONNECTED;
@@ -736,6 +742,12 @@ tb_utp_server(tb_listener_t *listener)
 		switch(utp->state)
 		{
 		case UTP_STATE_CONNECT:
+			//Now connected, start timing.
+			if(!listener->transfer_time->started)
+			{
+				tb_start_time(listener->transfer_time);
+			}
+
 			listener->status = TB_CONNECTED;
 			break;
 
@@ -758,6 +770,8 @@ tb_utp_server(tb_listener_t *listener)
 			tb_abort(listener);
 		}
 	}
+
+	tb_finish_time(listener->transfer_time);
 
 	//Lock and disconnect.
 	pthread_mutex_trylock(listener->stat_lock);

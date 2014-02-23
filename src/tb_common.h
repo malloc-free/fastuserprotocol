@@ -1,5 +1,5 @@
 /*
- * tb_macro.h
+ * tb_common.h
  *
  *  Created on: 9/01/2014
  *      Author: michael
@@ -39,9 +39,21 @@
 
 //////////////////// Network Functions /////////////////////////////
 
+/**
+ * @brief Print the given address to stdout.
+ *
+ * Prints the provided address to screen in human readable form.
+ *
+ * @param store The sockaddr_storage to get the address from.
+ */
 inline void
 tb_print_address(struct sockaddr_storage *store) __attribute__((always_inline));
 
+/**
+ * @brief Get the address as a string from a sockaddr_storage struct.
+ *
+ * Get a human readable string from a sockaddr_storage struct.
+ */
 inline char
 *tb_get_address(struct sockaddr_storage *store) __attribute__((always_inline));
 
@@ -52,47 +64,67 @@ inline char
  * @struct <tb_time_t> [tb_common.h]
  *
  * @brief A struct to hold start, finish and elapsed times.
+ *
+ * Used in the TestBed to record times for connection and transfer of data.
  */
 typedef struct
 {
-	clockid_t clk_id;	///< Id of the clock to use.
-	struct timespec *start;  ///< Start time.
-	struct timespec *finish; ///< Finish time.
-	int started;	///< Timing has started.
-	int stopped;	///< Timing has stopped;
-
-	long long n_sec;	///< Total time.
+	clockid_t clk_id;			///< Id of the clock to use.
+	struct timespec *start;  	///< Start time.
+	struct timespec *finish; 	///< Finish time.
+	int started;				///< Timing has started.
+	int stopped;				///< Timing has stopped;
+	long long n_sec;			///< Total time.
 }
 tb_time_t;
 
 /**
  * @brief Create a time struct.
  *
- * @param clk_id The id of the type of clock to use.
+ * Allocate memory for a tb_time_t struct.
+ *
+ * @param clk_id The id of the type of clock to use. Please see time.h.
  */
 tb_time_t
 *tb_create_time(clockid_t clk_id);
 
 /**
  * @brief Destroy a tb_time_t struct.
+ *
+ * Frees memory used by a tb_time_t struct.
+ *
+ * @param time The struct to destroy/free.
  */
 void
 tb_destroy_time(tb_time_t *time);
 
 /**
  * @brief Record the start time.
+ *
+ * Sets the start time, and also sets the struct to started.
+ *
+ * @param time The tb_time_t struct to start timing for.
  */
 inline void
 tb_start_time(tb_time_t *time) __attribute__((always_inline));
 
 /**
  * @brief Record the finish time.
+ *
+ * Sets the finish time, and also sets the struct to stopped. Calls tb_calculate_time.
+ *
+ * @param time The tb_time_t struct to stop timing for.
  */
 inline void
 tb_finish_time(tb_time_t *time) __attribute__((always_inline));
 
 /**
  * @brief Calculate the time difference between start and stop.
+ *
+ * Calculates the elapsed time between start and finish, and records this in the
+ * n_sec field. Also called by tb_finish_time when the timer is stopped.
+ *
+ * @param time The time to calculate for.
  */
 inline void
 tb_calculate_time(tb_time_t *time) __attribute__((always_inline));
@@ -100,15 +132,21 @@ tb_calculate_time(tb_time_t *time) __attribute__((always_inline));
 //////////////////// File Handling Functions /////////////////////
 
 /**
- *	@brief Load the file to be used for sending using the cilent.
+ * @brief Load the file to be used for sending using the cilent.
  *
- *	@param listener The listener to create the file for.
+ * Creates a test file that will be used by the TB for testing.
+ *
+ * @param file_name The name of the file to use.
+ * @param file_size A pointer to which the size of the file can be recorded.
  */
 char
 *tb_create_test_file(char *file_name, int *file_size);
 
 /**
- * @brief Load file.
+ * @brief Load file to be used in tests.
+ *
+ * @param file_name The name of the file to use
+ * @param file_size A pointer to which the size of the file can be recorded.
  */
 char
 *tb_load_test_file(char *file_name, int *file_size);
@@ -118,12 +156,19 @@ char
  *
  * Loads a pre-generated file of the specified size,
  * or generates it if it does not exist.
+ *
+ * @param size The size of the random file to generate.
  */
 char
 *tb_load_random_file(int size);
 
 /**
  * @brief Create a random file.
+ *
+ * Create a random file of the specified size, and save it to the specified path.
+ *
+ * @param path Path to the location where the path should be saved.
+ * @param size The size of the file to create.
  */
 char
 *tb_create_random(char *path, int size);

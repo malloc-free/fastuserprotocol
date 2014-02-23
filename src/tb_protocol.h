@@ -26,7 +26,7 @@ typedef enum
 	UDT = 2,	 ///< Flash and fun UDT, please.
 	aUDT = 3, 	 ///< Yet to be implemented adaptive UDT.
 	uTP = 4,     ///< Arrrr a pirates favourite protocol.
-	eUDP = 5,	 ///< UDP with epoll.
+	eUDP = 5,	 ///< UDP with epoll. No longer used.
 	DCCP = 6	 ///< DCCP, in linux kernel.
 }
 PROTOCOL;
@@ -147,8 +147,8 @@ typedef int (*funct_options)(int sock, int level, int optname,
 typedef int (*funct_setup)(void *data);
 
 
-/** @struct <tb_protocol_t> [tb_protocol.h]
- *
+/**
+ * @struct <tb_protocol_t> [tb_protocol.h]
  * @brief Defines the API for the chosen protocol.
  *
  * This struct describes the protocol to be used in communication.
@@ -223,29 +223,50 @@ typedef struct
 	long long connect_time; ///< The time taken to connect.
 	long long transfer_time; ///< The time taken for transfer.
 	tb_time_t *stat_time;	///< The timer for stat collection.
+
+	void *n_stats;			///< Link to the next set of stats.
 }
 tb_prot_stats_t;
 
 /**
  * @brief Destroy stats struct.
+ *
+ * Frees all of the memory associated with the stats struct.
+ *
+ * @param stats The stats struct to destroy.
  */
 void
 tb_destroy_stats(tb_prot_stats_t *stats);
 
 /**
  * @brief Handle errors for udt.
+ *
+ * Called when an error has occured with UDT.
+ *
+ * @param val The value of the error.
+ * @param err_no The errorno associated with the error, if it exists.
  */
 int
 tb_udt_error(int value, int err_no);
 
 /**
- * @brief Handle errors for dccp
+ * @brief Handle errors for dccp.
+ *
+ * Called when errors occur with DCCP.
+ *
+ * @param value The value of the error
+ * @param err_no The errorno associated with the error, if it exists.
  */
 int
 tb_dccp_error(int value, int err_no);
 
 /**
  * @brief Handle errors for socket.
+ *
+ * Called to handle errors with BSD sockets.
+ *
+ * @param value The value for the error.
+ * @param err_no The errorno associated with the error, if it exists.
  */
 int
 tb_socket_error(int value, int err_no);
@@ -253,45 +274,81 @@ tb_socket_error(int value, int err_no);
 /**
  * @brief Get the stats for the given protocol, with the
  * given descriptor.
+ *
+ * Fetches protocol specific stats. All protocols and their implementations
+ * have varying stats and methods of collection.
+ *
+ * @param stats The stats struct to populate with data.
+ * @param sock_d The socket descripton to collect the stats for.
  */
 void
-tb_get_stats(tb_prot_stats_t *stats, int fd);
+tb_get_stats(tb_prot_stats_t *stats, int sock_d);
 
 /**
  * @brief Get udt stats.
+ *
+ * Fetch the stats for UDT, for the specified socket descriptor.
+ *
+ * @param stats The stats struct to populate with data.
+ * @sock_d The socket descriptor to get stats for.
  */
 void
-get_udt_stats(tb_prot_stats_t *stats, int fd);
+get_udt_stats(tb_prot_stats_t *stats, int sock_d);
 
 /**
  * @brief Get dccp stats.
+ *
+ * Fetch the stats for DCCP, for the specified socket descriptor.
+ *
+ * @param stats The stats struct to populate with data.
+ * @sock_d The socket descriptor to get stats for.
  */
 void
-get_dccp_stats(tb_prot_stats_t *stats, int fd);
+get_dccp_stats(tb_prot_stats_t *stats, int sock_d);
 
 /**
  * @brief Get tcp stats.
+ *
+ * Fetch the stats for TCP, for the specified socket descriptor.
+ *
+ * @param stats The stats struct to populate with data.
+ * @sock_d The socket descriptor to get stats for.
  */
 void
-get_tcp_stats(tb_prot_stats_t *stats, int fd);
+get_tcp_stats(tb_prot_stats_t *stats, int sock_d);
 
 /**
- * @brief Get udp stats.
+ * @brief Get UDP stats.
+ *
+ * Fetch the stats for a UDP socket.
+ *
+ * @param stats The stats struct to populate with data.
+ * @sock_d The socket to get the stats for.
  */
 void
-get_udp_stats(tb_prot_stats_t *stats, int fd);
+get_udp_stats(tb_prot_stats_t *stats, int sock_d);
 
 /**
- * @brief Get utp stats.
+ * @brief Get uTP stats.
+ *
+ * Get stats for a uTP socket.
+ *
+ * @param stats The stats struct to populate with data.
+ * @sock_d The socket to get the stats for.
  */
 void
-get_utp_stats(tb_prot_stats_t *stats, int fd);
+get_utp_stats(tb_prot_stats_t *stats, int sock_d);
 
 /**
- * @brief Get generic bsd stats.
+ * @brief Get generic BSD stats.
+ *
+ * Get generic stats for any BSD socket.
+ *
+ * @param stats The stats struct to populate with data.
+ * @param sock_d The socket to get stats for.
  */
 void
-tb_get_bsd_stats(tb_prot_stats_t *stats, int fd);
+tb_get_bsd_stats(tb_prot_stats_t *stats, int sock_d);
 
 /**
  * @brief Create a new Protocol

@@ -134,12 +134,10 @@ tb_stream_event(int events, void *data)
 	{
 		tb_session_t *session = tb_create_session();
 
-		tb_start_time(session->connect_t);
 		session->sock_d = accept(listener->sock_d, (struct sockaddr*)session->addr_in,
 				&session->addr_len);
-		tb_finish_time(session->connect_t);
 
-		//Mostly catches EWAIT errors, not a problem.
+		//Mostly catches EWOULDWAIT errors, not a problem.
 		if(session->sock_d == -1)
 		{
 			perror("Error: tb_stream_event: ");

@@ -2,7 +2,13 @@
  * tb_endpoint.h
  *
  *  Created on: 7/02/2014
- *      Author: michael
+ *      Author: Michael Holmwood
+ *
+ *      Contains the functions for the creation of end-points (or listeners)
+ *      to be used in TestBed. tb_client is called for client side, tb_server
+ *      for server side. Each function uses the data in the listener struct
+ *      to start a client or server using the protocol, buffer sizes, timers
+ *      and other parameters in the listener struct.
  */
 
 #ifndef TB_ENDPOINT_H_

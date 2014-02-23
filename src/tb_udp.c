@@ -74,7 +74,9 @@ tb_destroy_udp_session(tb_udp_session_t *session)
 int
 tb_udp_client(tb_listener_t *listener)
 {
+	tb_start_time(listener->connect_time);
 	tb_connect(listener);
+	tb_finish_time(listener->connect_time);
 
 	listener->status = TB_CONNECTED;
 
@@ -100,6 +102,8 @@ tb_udp_client(tb_listener_t *listener)
 		tb_abort(listener);
 	}
 
+	//Main loop, start timing.
+	tb_start_time(listener->transfer_time);
 	while(listener->total_tx_rx < listener->file_size)
 	{
 		if(ioctl(listener->sock_d, TIOCOUTQ, &num_bytes) == -1)
@@ -129,6 +133,7 @@ tb_udp_client(tb_listener_t *listener)
 			}
 		}
 	}
+	tb_finish_time(listener->transfer_time);
 
 	LOG_INFO(listener, "Waiting for ack");
 
@@ -243,8 +248,9 @@ tb_udp_m_client(tb_listener_t *listener)
 				(void*)session);
 	}
 
-	//Spin and wait. Controlled using an enum.
+	//Spin and wait. Controlled using an enum. Then start timing connection.
 	while(listener->session_list->start->status == SESSION_CREATED);
+	tb_start_time(listener->transfer_time);
 	listener->status = TB_CONNECTED;
 
 	int *retval;
@@ -264,9 +270,9 @@ tb_udp_m_client(tb_listener_t *listener)
 		curr_session = curr_session->n_session;
 	}
 
-	//Close the connection.
+	//Stop timing, close the connection.
+	tb_finish_time(listener->transfer_time);
 	tb_udp_m_close_conn(listener);
-
 	listener->status = TB_DISCONNECTED;
 
 	return listener->total_tx_rx;
@@ -325,8 +331,15 @@ void
 
 	tb_session_t *session = (tb_session_t*)data;
 
-	connect(session->sock_d, session->addr_info->ai_addr,
-			session->addr_info->ai_addrlen);
+	//Connect, time.
+	tb_start_time(session->transfer_t);
+	if(connect(session->sock_d, session->addr_info->ai_addr,
+			session->addr_info->ai_addrlen) < 0)
+	{
+		*retval = -1;
+		return retval;
+	}
+	tb_finish_time(session->transfer_t);
 
 	session->status = SESSION_CONNECTED;
 
@@ -351,6 +364,8 @@ void
 	vec[1].iov_base = &sz;
 	vec[1].iov_len = sizeof(int);
 
+	//Start timing, send data.
+	tb_start_time(session->transfer_t);
 	do
 	{
 		vec[2].iov_base = session->data + sent;
@@ -375,13 +390,13 @@ void
 		session->total_bytes += sent;
 	}
 	while(session->total_bytes < session->data_size);
+	tb_finish_time(session->transfer_t);
 
+	//Send exit message, and bail.
 	sendmsg(session->sock_d, &msg, 0);
-
 	session->status = SESSION_COMPLETE;
 
 	*retval = 0;
-
 	return retval;
 }
 
@@ -403,6 +418,8 @@ tb_udp_server(tb_listener_t *listener)
 	listener->status = TB_CONNECTED;
 	LOG_INFO(listener, "UDP Connected");
 
+	//Start timing, receive data.
+	tb_start_time(listener->transfer_time);
 	while(listener->command != TB_ABORT && listener->command != TB_EXIT)
 	{
 		tb_recv_from(listener, listener->curr_session);
@@ -420,6 +437,7 @@ tb_udp_server(tb_listener_t *listener)
 			listener->total_tx_rx += listener->curr_session->last_trans;
 		}
 	}
+	tb_finish_time(listener->transfer_time);
 
 	LOG_INFO(listener, "Closing UDP Connection");
 
@@ -458,6 +476,8 @@ tb_udp_m_server(tb_listener_t *listener)
 		}
 	}
 
+	tb_finish_time(listener->transfer_time);
+
 	LOG_INFO(listener, "exiting m server");
 
 	return 0;
@@ -477,6 +497,7 @@ tb_udp_event(int events, void *data)
 	if(listener->status == TB_LISTENING)
 	{
 		listener->status = TB_CONNECTED;
+		tb_start_time(listener->transfer_time);
 	}
 
 	struct msghdr msg;

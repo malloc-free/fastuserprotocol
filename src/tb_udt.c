@@ -67,7 +67,8 @@ tb_udt_server(tb_listener_t *listener)
 		listener->curr_session = session;
 		listener->status = TB_CONNECTED;
 
-		//Critical loop.
+		//Critical loop, start timing.
+		tb_start_time(listener->transfer_time);
 		while(!(listener->command & TB_E_LOOP))
 		{
 			session->last_trans =
@@ -91,7 +92,7 @@ tb_udt_server(tb_listener_t *listener)
 			session->total_bytes += session->last_trans;
 			listener->total_tx_rx += session->last_trans;
 		}
-
+		tb_finish_time(listener->transfer_time);
 
 		//Lock stat collection while closing connection and destroying session.
 		pthread_mutex_trylock(listener->stat_lock);
@@ -283,12 +284,16 @@ void
 int
 tb_udt_client(tb_listener_t *listener)
 {
+	tb_start_time(listener->connect_time);
 	tb_connect(listener);
+	tb_finish_time(listener->connect_time);
+
 	PRT_INFO("Connected");
 	listener->status = TB_CONNECTED;
 
 	int sz = listener->bufsize, rc, rmbytes = 0;
 
+	tb_start_time(listener->transfer_time);
 	while(listener->total_tx_rx < listener->file_size &&
 			listener->command != TB_ABORT && listener->command != TB_EXIT)
 	{
@@ -310,6 +315,7 @@ tb_udt_client(tb_listener_t *listener)
 
 		listener->total_tx_rx += rc;
 	}
+	tb_finish_time(listener->transfer_time);
 
 	//Lock up stat collection and close the socket.
 	pthread_mutex_trylock(listener->stat_lock);
