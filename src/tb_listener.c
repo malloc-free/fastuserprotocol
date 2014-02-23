@@ -78,6 +78,7 @@ tb_listener_t
 	//Initialize stats.
 	listener->stats = malloc(sizeof(tb_prot_stats_t));
 	memset(listener->stats, 0, sizeof(tb_prot_stats_t));
+	listener->stats->n_stats = NULL;
 	listener->stats->protocol = protocol;
 	listener->stats->stat_time = tb_create_time(CLOCK_MONOTONIC);
 
@@ -337,19 +338,35 @@ tb_prot_stats_t
 		tb_finish_time(listener->stats->stat_time);
 	}
 
-	if(listener->transfer_time->stopped)
-	{
-		listener->stats->transfer_time = listener->transfer_time->n_sec;
-	}
-
-	if(listener->connect_time->stopped)
-	{
-		listener->stats->connect_time = listener->connect_time->n_sec;
-	}
-
 	pthread_mutex_unlock(listener->stat_lock);
 
 	return listener->stats;
+}
+
+void
+tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
+{
+	pthread_mutex_trylock(listener->stat_lock);
+
+	if(listener->read == 1 && (listener->status != TB_ABORTING &&
+			listener->status != TB_EXITING))
+	{
+		pthread_cond_wait(listener->stat_cond, listener->stat_lock);
+	}
+
+	//Start recording time if not started, otherwise get time of collection.
+	if(!listener->stats->stat_time->started)
+	{
+		tb_start_time(listener->stats->stat_time);
+	}
+	else
+	{
+		tb_finish_time(listener->stats->stat_time);
+	}
+
+	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
+	pthread_mutex_unlock(listener->stat_lock);
+
 }
 
 void
@@ -394,8 +411,9 @@ tb_set_m_stats(tb_listener_t *listener)
 	listener->total_tx_rx = 0;
 
 	tb_session_t *session = listener->session_list->start;
+	int num_sessions = 0;
 
-	while(session != NULL)
+	while(session)
 	{
 		pthread_mutex_trylock(session->stat_lock);
 
@@ -406,6 +424,7 @@ tb_set_m_stats(tb_listener_t *listener)
 		//Collect stats for the session if connected.
 		if(session->status == SESSION_CONNECTED)
 		{
+			++num_sessions;
 			tb_get_stats(session->stats, session->sock_d);
 		}
 
@@ -422,6 +441,25 @@ tb_set_m_stats(tb_listener_t *listener)
 
 	pthread_cond_signal(listener->stat_cond);
 	pthread_mutex_unlock(listener->stat_lock);
+}
+
+void
+tb_get_time_stats(tb_listener_t *listener)
+{
+	tb_session_t *session = listener->session_list->start;
+
+	//Iterate through the sessions and collect data.
+	while(session)
+	{
+		session->stats->connect_time = session->connect_t->n_sec;
+		session->stats->transfer_time = session->transfer_t->n_sec;
+
+		session = session->n_session;
+	}
+
+	//Get the listener data.
+	listener->stats->connect_time = listener->connect_time->n_sec;
+	listener->stats->transfer_time = listener->transfer_time->n_sec;
 }
 
 int

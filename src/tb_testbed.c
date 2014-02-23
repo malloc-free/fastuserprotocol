@@ -392,8 +392,34 @@ tb_monitor(tb_listener_t *listener)
 
 	}
 
+
+
+	//Get the time stats for the test.
+	tb_get_time_stats(listener);
+
 	fprintf(stdout, "\nTime for transfer: %f seconds\n",
-			listener->transfer_time->n_sec / (double)1000000000);
+				listener->transfer_time->n_sec / (double)1000000000);
+
+	fprintf(stdout, "Time for connection: %lld nano seconds\n",
+			listener->connect_time->n_sec);
+
+	//Iterate through the stats for each session, if they exist.
+	tb_prot_stats_t *stats = listener->stats->n_stats;
+	if(stats)
+	{
+		PRT_INFO("Print stats for sessions");
+	}
+
+	while(stats)
+	{
+		fprintf(stdout, "Time for transfer: %f seconds\n",
+					stats->transfer_time / (double)1000000000);
+
+		fprintf(stdout, "Time for connection: %lld nano seconds",
+				stats->connect_time);
+
+		stats = stats->n_stats;
+	}
 
 	fprintf(stdout, "Main thread exiting\n");
 

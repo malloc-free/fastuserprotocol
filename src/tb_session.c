@@ -31,6 +31,10 @@ tb_session_add(tb_session_list_t *list, tb_session_t *session)
 void
 tb_session_add_to(tb_session_list_t *list, tb_session_t *session)
 {
+	//If the start node is NULL, add as start and end of list.
+	//Otherwise, add to the end node. The stats for the new node
+	//are also appended to the linked list of stats in the stats
+	//struct.
 	if(list->start == NULL)
 	{
 		list->start = session;
@@ -39,6 +43,7 @@ tb_session_add_to(tb_session_list_t *list, tb_session_t *session)
 	else
 	{
 		list->end->n_session = session;
+		list->end->stats->n_stats = (void*)session->stats;
 		list->end = session;
 	}
 
@@ -116,7 +121,9 @@ tb_session_t
 
 	//Set stats struct.
 	session->stats = malloc(sizeof(tb_prot_stats_t));
+	memset(session->stats, 0, sizeof(tb_prot_stats_t));
 	session->stats->prot_data = NULL;
+	session->stats->n_stats = NULL;
 
 	//Create stats lock.
 	session->stat_lock = malloc(sizeof(pthread_mutex_t));

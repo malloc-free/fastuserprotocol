@@ -117,6 +117,8 @@ tb_stream_m_server(tb_listener_t *listener)
 		tb_poll_for_events(epoll);
 	}
 
+	tb_finish_time(listener->transfer_time);
+
 	return listener->total_tx_rx;
 }
 
@@ -162,7 +164,17 @@ tb_stream_event(int events, void *data)
 		pthread_create(session->s_thread, NULL, &tb_stream_m_server_conn,
 				(void*)session);
 
-		listener->status = TB_CONNECTED;
+		if(listener->stats->n_stats == NULL)
+		{
+			listener->stats->n_stats = session->stats;
+		}
+
+		//If still listening, change to connected and start timing.
+		if(listener->status == TB_LISTENING)
+		{
+			listener->status = TB_CONNECTED;
+			tb_start_time(listener->transfer_time);
+		}
 	}
 
 	return 0;
@@ -273,22 +285,8 @@ tb_stream_m_client(tb_listener_t *listener)
 		session->n_session = NULL;
 		session->pack_size = listener->bufsize;
 
-
-		//Add this session to the end of the list, and to the start
-		//if the list is empty.
-		session->id = ++listener->session_list->current_max_id;
-
-		PRT_I_D("Adding session %d", session->id);
-		if(listener->session_list->start == NULL)
-		{
-			listener->session_list->start = session;
-			listener->session_list->end = session;
-		}
-		else
-		{
-			listener->session_list->end->n_session = session;
-			listener->session_list->end = session;
-		}
+		//Add session to current list.
+		tb_session_add(listener->session_list, session);
 
 		//Add logging info
 		session->log_enabled = 1;
@@ -298,9 +296,15 @@ tb_stream_m_client(tb_listener_t *listener)
 		//Send the thread on its merry way.
 		pthread_create(session->s_thread, NULL, &tb_stream_connection,
 				(void*)session);
+
+		if(listener->stats->n_stats == NULL)
+		{
+			listener->stats->n_stats = session->stats;
+		}
 	}
 
 	while(listener->session_list->start->status == SESSION_CREATED);
+	tb_start_time(listener->transfer_time);
 	listener->status = TB_CONNECTED;
 
 	int *retval;
@@ -319,6 +323,8 @@ tb_stream_m_client(tb_listener_t *listener)
 		curr_session = curr_session->n_session;
 	}
 
+	//Stop timing and disconnect.
+	tb_finish_time(listener->transfer_time);
 	listener->status = TB_DISCONNECTED;
 
 	return listener->total_tx_rx;
