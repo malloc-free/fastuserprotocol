@@ -308,10 +308,29 @@ tb_print_listener(tb_listener_t *listener)
 		fprintf(stdout, "filename = %s\n", listener->filename);
 	}
 
-	fprintf(stdout, "e_type = %s\n",
-			(listener->e_type == 0) ? "server" : "client");
+	char *type;
 
+	switch(listener->e_type)
+	{
+	case SERVER:
+		type = "Server";
+		break;
 
+	case CLIENT:
+		type = "Client";
+		break;
+
+	case mSERVER:
+		type = "mServer";
+		break;
+
+	case mCLIENT:
+		type = "mClient";
+		break;
+
+	}
+
+	fprintf(stdout, "e_type = %s\n", type);
 	tb_print_protocol(listener->protocol);
 
 	PRT_ACK(LINE);
@@ -365,6 +384,7 @@ tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
 	}
 
 	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
+
 	pthread_mutex_unlock(listener->stat_lock);
 
 }
