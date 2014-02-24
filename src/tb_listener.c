@@ -433,6 +433,19 @@ tb_set_m_stats(tb_listener_t *listener)
 	tb_session_t *session = listener->session_list->start;
 	int num_sessions = 0;
 
+	//Clear out the stats.
+	tb_prot_stats_t *stats = listener->stats;
+	stats->rtt = 0.0;
+	stats->rtt_var = 0.0;
+	stats->send_rate = 0.0;
+	stats->recv_rate = 0.0;
+	stats->send_window = 0.0;
+	stats->recv_window = 0.0;
+	stats->send_p_loss = 0;
+	stats->recv_p_loss = 0;
+
+	//Iterate through each of the sessions, get stats for each,
+	//add them to the listener stats, and average them.
 	while(session)
 	{
 		pthread_mutex_trylock(session->stat_lock);
@@ -446,11 +459,34 @@ tb_set_m_stats(tb_listener_t *listener)
 		{
 			++num_sessions;
 			tb_get_stats(session->stats, session->sock_d);
+
+			//Add to stats to find average.
+			stats->rtt += session->stats->rtt;
+			stats->rtt_var += session->stats->rtt_var;
+			stats->send_rate += session->stats->send_rate;
+			stats->recv_rate += session->stats->recv_rate;
+			stats->send_window += session->stats->send_window;
+			stats->recv_window += session->stats->recv_window;
+			stats->send_p_loss += session->stats->send_p_loss;
+			stats->recv_p_loss += session->stats->recv_p_loss;
 		}
 
 		pthread_mutex_unlock(session->stat_lock);
 
 		session = session->n_session;
+	}
+
+	//If we have any sessions, find the average.
+	if(num_sessions)
+	{
+		stats->rtt /= num_sessions;
+		stats->rtt_var /= num_sessions;
+		stats->send_rate /= num_sessions;
+		stats->recv_rate /= num_sessions;
+		stats->send_window /= num_sessions;
+		stats->recv_window /= num_sessions;
+		stats->send_p_loss /= num_sessions;
+		stats->recv_p_loss /= num_sessions;
 	}
 
 	tb_other_info *info = (tb_other_info*)listener->stats->other_info;

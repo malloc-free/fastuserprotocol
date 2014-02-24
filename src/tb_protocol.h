@@ -229,6 +229,12 @@ typedef struct
 tb_prot_stats_t;
 
 /**
+ * @brief Create and allocate memory for a stats struct.
+ */
+tb_prot_stats_t
+*tb_create_stats();
+
+/**
  * @brief Destroy stats struct.
  *
  * Frees all of the memory associated with the stats struct.

@@ -389,10 +389,7 @@ tb_monitor(tb_listener_t *listener)
 
 			tb_set_l_stats(listener);
 		}
-
 	}
-
-
 
 	//Get the time stats for the test.
 	tb_get_time_stats(listener);
@@ -419,6 +416,16 @@ tb_monitor(tb_listener_t *listener)
 				stats->connect_time);
 
 		stats = stats->n_stats;
+	}
+
+	//Final Read.
+	if(listener->e_type == CLIENT || listener->e_type == SERVER)
+	{
+		tb_set_l_stats(listener);
+	}
+	else
+	{
+		tb_set_m_stats(listener);
 	}
 
 	fprintf(stdout, "Main thread exiting\n");

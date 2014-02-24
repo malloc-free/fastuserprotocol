@@ -245,6 +245,15 @@ tb_get_stats(tb_prot_stats_t *stats, int fd)
 
 }
 
+tb_prot_stats_t
+*tb_create_stats()
+{
+	tb_prot_stats_t *stats = malloc(sizeof(tb_prot_stats_t));
+	memset(stats, 0, sizeof(tb_prot_stats_t));
+
+	return stats;
+}
+
 void
 tb_destroy_stats(tb_prot_stats_t *stats)
 {
