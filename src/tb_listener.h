@@ -276,8 +276,18 @@ tb_get_time_stats(tb_listener_t *listener);
 tb_prot_stats_t
 *tb_ex_get_stats(tb_listener_t *listener);
 
+/**
+ * @brief Get a copy of the stats struct.
+ *
+ * This is a safer way to get stats, as the values are copied
+ * into the provided struct
+ *
+ * @param listener The listener to get stats for.
+ * @param stats The stats struct to copy to.
+ */
 void
 tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats);
+
 /**
  *  @brief Create a listener with the supplied parameters.
  *
