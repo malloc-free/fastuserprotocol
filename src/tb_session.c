@@ -99,6 +99,7 @@ tb_session_t
 	data->connect_t = NULL;
 	data->stats = NULL;
 	data->n_session = NULL;
+	data->total_bytes = 0;
 
 	return data;
 }
@@ -135,6 +136,8 @@ tb_session_t
 
 	session->file_name = NULL;
 	session->n_session = NULL;
+
+	session->total_bytes = 0;
 
 	return session;
 }
