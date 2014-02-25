@@ -168,6 +168,7 @@ tb_udt_m_server(tb_listener_t *listener)
 
 	udt_close(listener->sock_d);
 	listener->status = TB_DISCONNECTED;
+	udt_cleanup();
 
 	pthread_mutex_unlock(listener->stat_lock);
 
@@ -324,6 +325,7 @@ tb_udt_client(tb_listener_t *listener)
 	udt_close(listener->sock_d);
 	listener->sock_d = -1;
 	listener->status = TB_DISCONNECTED;
+	udt_cleanup();
 
 	pthread_mutex_unlock(listener->stat_lock);
 
