@@ -84,6 +84,7 @@ void
 			PRT_INFO("Running UDP mClient");
 			totalbytes = tb_udp_m_client(listener);
 		}
+
 		break;
 
 	case UDT:
@@ -106,7 +107,7 @@ void
 	}
 
 
-	fprintf(stdout, "Number of bytes sent: %lld\n", totalbytes);
+	fprintf(stdout, "Number of bytes sent: %lld\n", listener->total_tx_rx);
 
 	tb_exit(listener);
 

@@ -406,6 +406,7 @@ tb_udt_m_client(tb_listener_t *listener)
 
 	pthread_mutex_lock(listener->stat_lock);
 	listener->status = TB_DISCONNECTED;
+	udt_cleanup();
 	pthread_mutex_unlock(listener->stat_lock);
 
 	return listener->total_tx_rx;

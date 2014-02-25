@@ -94,7 +94,7 @@ tb_listener_t
 
 	//Set defaults for monitor and print
 	listener->monitor = 1;
-	listener->print_stats = 0;
+	listener->print_stats = 1;
 
 	//Set CPU and thread info.
 	listener->num_proc = get_nprocs();
@@ -453,6 +453,7 @@ tb_set_m_stats(tb_listener_t *listener)
 
 		//Add to the total bytes read for the listener.
 		listener->stats->current_read += session->total_bytes;
+
 		listener->total_tx_rx += session->total_bytes;
 
 		//Collect stats for the session if connected.

@@ -428,11 +428,10 @@ tb_udp_server(tb_listener_t *listener)
 
 		if(listener->curr_session->last_trans == listener->protocol->eot)
 		{
-			listener->status = TB_LISTENING;
-			listener->command = listener->s_tx_end;
 			PRT_INFO("Sending ack");
 			LOG_INFO(listener, "UDP Sending ack");
 			tb_send_to(listener, listener->curr_session);
+			break;
 		}
 		else
 		{
@@ -447,6 +446,7 @@ tb_udp_server(tb_listener_t *listener)
 	pthread_mutex_lock(listener->stat_lock);
 	close(listener->sock_d);
 	listener->sock_d = -1;
+	listener->status = TB_DISCONNECTED;
 	pthread_mutex_unlock(listener->stat_lock);
 
 	return listener->total_tx_rx;

@@ -305,7 +305,5 @@ tb_set_dccp_opts(tb_options_t *options, int fd)
 		options->l3_s_b_size = DCCP_SND_BUFF;
 	}
 
-	int on = 1;
-
 	return tb_set_bsd_sock_opts(options, fd);
 }

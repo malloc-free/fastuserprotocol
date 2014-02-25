@@ -102,8 +102,6 @@ tb_parse(int argc, char *argv[])
 		exit(-1);
 	}
 
-
-
 	PROTOCOL protocol;
 
 	if(strcmp("tcp", argv[PROT]) == 0)
@@ -387,7 +385,14 @@ tb_monitor(tb_listener_t *listener)
 				index = 0;
 			}
 
-			tb_set_l_stats(listener);
+			if(listener->e_type == CLIENT || listener->e_type == SERVER)
+			{
+				tb_set_l_stats(listener);
+			}
+			else
+			{
+				tb_set_m_stats(listener);
+			}
 		}
 	}
 
@@ -426,6 +431,8 @@ tb_monitor(tb_listener_t *listener)
 	else
 	{
 		tb_set_m_stats(listener);
+		int status = ((tb_other_info*)listener->stats->other_info)->l_status;
+		PRT_I_D("Listener status = %d", status);
 	}
 
 	fprintf(stdout, "Main thread exiting\n");
@@ -484,9 +491,11 @@ tb_abort(void *data)
 
 	if(listener->sock_d != -1)
 	{
+		pthread_mutex_lock(listener->stat_lock);
 		PRT_INFO("Disconnecting");
 		listener->protocol->f_close(listener->sock_d);
 		listener->status = TB_DISCONNECTED;
+		pthread_mutex_unlock(listener->stat_lock);
 	}
 
 	listener->status = TB_ABORTING;
