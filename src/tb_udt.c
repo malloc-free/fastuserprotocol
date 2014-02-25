@@ -460,6 +460,7 @@ void
 	tb_finish_time(session->transfer_t);
 
 	PRT_I_D("Session %d: ended connection", session->id);
+	fprintf(stdout, "Session %d: sent %lld bytes", session->id, session->total_bytes);
 	session->status = SESSION_COMPLETE;
 
 	tb_print_times(session);
