@@ -347,8 +347,7 @@ tb_monitor(tb_listener_t *listener)
 			}
 			else
 			{
-				tb_set_l_stats(listener);
-				//tb_set_m_stats(listener);
+				tb_set_m_stats(listener);
 			}
 
 			listener->stats->byte_sec = listener->stats->current_read - prev_bytes;
@@ -392,8 +391,7 @@ tb_monitor(tb_listener_t *listener)
 			}
 			else
 			{
-				tb_set_l_stats(listener);
-				//tb_set_m_stats(listener);
+				tb_set_m_stats(listener);
 			}
 		}
 	}
