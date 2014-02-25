@@ -402,7 +402,9 @@ tb_udt_m_client(tb_listener_t *listener)
 		curr_session = curr_session->n_session;
 	}
 
+	pthread_mutex_lock(listener->stat_lock);
 	listener->status = TB_DISCONNECTED;
+	pthread_mutex_unlock(listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
