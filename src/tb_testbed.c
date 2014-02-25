@@ -286,10 +286,10 @@ tb_start(tb_listener_t *listener)
 		tb_monitor(listener);
 	}
 
-	PRT_INFO("Destroying Listener");
 
 	if(listener->d_exit)
 	{
+		PRT_INFO("Destroying Listener");
 		tb_destroy_listener(listener);
 	}
 }
