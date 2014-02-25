@@ -94,7 +94,7 @@ tb_listener_t
 
 	//Set defaults for monitor and print
 	listener->monitor = 1;
-	listener->print_stats = 1;
+	listener->print_stats = 0;
 
 	//Set CPU and thread info.
 	listener->num_proc = get_nprocs();
@@ -370,22 +370,21 @@ tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
 		pthread_cond_wait(listener->stat_cond, listener->stat_lock);
 	}
 
-//	//Start recording time if not started, otherwise get time of collection.
-//	if(!listener->stats->stat_time->started)
-//	{
-//		tb_start_time(listener->stats->stat_time);
-//	}
-//	else
-//	{
-//		tb_finish_time(listener->stats->stat_time);
-//	}
+	//Start recording time if not started, otherwise get time of collection.
+	if(!listener->stats->stat_time->started)
+	{
+		tb_start_time(listener->stats->stat_time);
+	}
+	else
+	{
+		tb_finish_time(listener->stats->stat_time);
+	}
 
 	listener->stats->id++;
 
 	//Set to read.
 	listener->read = 1;
-	stats->other_info = listener->stats->other_info;
-	//memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
+	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
 
 	pthread_mutex_unlock(listener->stat_lock);
 

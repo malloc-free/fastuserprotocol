@@ -278,9 +278,6 @@ tb_stream_m_client(tb_listener_t *listener)
 				((listener->file_size / num_conn) * x);
 		session->data_size = listener->file_size / num_conn;
 
-		fprintf(stdout, BLUE "listener %d allocated %zu bytes" RESET,
-				session->id, session->data_size);
-
 		session->stats->protocol = listener->protocol->protocol;
 		session->n_session = NULL;
 		session->pack_size = listener->bufsize;
@@ -288,11 +285,15 @@ tb_stream_m_client(tb_listener_t *listener)
 		//Add session to current list.
 		tb_session_add(listener->session_list, session);
 
+		fprintf(stdout, BLUE "Session %d allocated %zu bytes" RESET,
+						session->id, session->data_size);
+
 		//Add logging info
 		session->log_enabled = 1;
 		session->log_info = listener->log_info;
 
 		PRT_I_D("Creating thread for session %d", session->id);
+
 		//Send the thread on its merry way.
 		pthread_create(session->s_thread, NULL, &tb_stream_connection,
 				(void*)session);
@@ -303,6 +304,7 @@ tb_stream_m_client(tb_listener_t *listener)
 		}
 	}
 
+	//Wait for the first session to be connected.
 	while(listener->session_list->start->status == SESSION_CREATED);
 	tb_start_time(listener->transfer_time);
 	listener->status = TB_CONNECTED;
