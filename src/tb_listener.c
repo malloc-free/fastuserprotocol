@@ -384,6 +384,7 @@ tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
 
 	//Set to read.
 	listener->read = 1;
+	stats->other_info = listener->stats->other_info;
 	//memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
 
 	pthread_mutex_unlock(listener->stat_lock);
