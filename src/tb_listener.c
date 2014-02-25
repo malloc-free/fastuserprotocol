@@ -352,6 +352,7 @@ tb_prot_stats_t
 		tb_finish_time(listener->stats->stat_time);
 	}
 
+	//Set to read.
 	listener->read = 1;
 	pthread_mutex_unlock(listener->stat_lock);
 
@@ -369,17 +370,19 @@ tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
 		pthread_cond_wait(listener->stat_cond, listener->stat_lock);
 	}
 
-	//Start recording time if not started, otherwise get time of collection.
-	if(!listener->stats->stat_time->started)
-	{
-		tb_start_time(listener->stats->stat_time);
-	}
-	else
-	{
-		tb_finish_time(listener->stats->stat_time);
-	}
+//	//Start recording time if not started, otherwise get time of collection.
+//	if(!listener->stats->stat_time->started)
+//	{
+//		tb_start_time(listener->stats->stat_time);
+//	}
+//	else
+//	{
+//		tb_finish_time(listener->stats->stat_time);
+//	}
 
 	listener->stats->id++;
+
+	//Set to read.
 	listener->read = 1;
 	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
 
