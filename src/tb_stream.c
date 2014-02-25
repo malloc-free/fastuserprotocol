@@ -119,6 +119,12 @@ tb_stream_m_server(tb_listener_t *listener)
 
 	tb_finish_time(listener->transfer_time);
 
+	pthread_mutex_trylock(listener->stat_lock);
+	close(listener->sock_d);
+	listener->sock_d = -1;
+	listener->status = TB_DISCONNECTED;
+	pthread_mutex_unlock(listener->stat_lock);
+
 	return listener->total_tx_rx;
 }
 
