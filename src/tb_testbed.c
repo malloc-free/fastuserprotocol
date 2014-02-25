@@ -430,18 +430,9 @@ tb_monitor(tb_listener_t *listener)
 	}
 	else
 	{
-		tb_set_l_stats(listener);
-		//tb_set_m_stats(listener);
-		int status = ((tb_other_info*)listener->stats->other_info)->l_status;
-		PRT_I_D("Listener status = %d", status);
+		tb_set_m_stats(listener);
 	}
 
-	tb_prot_stats_t *st = tb_create_stats();
-
-	tb_ex_get_stat_cpy(listener, st);
-
-	fprintf(stdout, "other info status = %d\n", ((tb_other_info*)st->other_info)->l_status);
-	free(st);
 	fprintf(stdout, "Main thread exiting\n");
 
 	return 0;

@@ -62,7 +62,6 @@ tb_listener_t
 	listener->d_exit = 1;
 
 	//Threading stuff
-
 	//Lock and condition for stat collection
 	listener->stat_lock = malloc(sizeof(pthread_mutex_t));
 	pthread_mutex_init(listener->stat_lock, NULL);
