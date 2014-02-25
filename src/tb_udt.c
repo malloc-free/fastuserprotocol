@@ -366,14 +366,16 @@ tb_udt_m_client(tb_listener_t *listener)
 				((listener->file_size / num_conn) * x);
 		session->data_size = listener->file_size / num_conn;
 
-		fprintf(stdout, BLUE "listener %d allocated %zu bytes" RESET,
-				session->id, session->data_size);
+
 
 		session->stats->protocol = listener->protocol->protocol;
 		session->n_session = NULL;
 		session->pack_size = listener->bufsize;
 
 		tb_session_add(listener->session_list, session);
+
+		fprintf(stdout, BLUE "listener %d allocated %zu bytes" RESET,
+						session->id, session->data_size);
 
 		PRT_I_D("Creating thread for session %d", session->id);
 		//Send the thread on its merry way.

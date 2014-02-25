@@ -94,7 +94,7 @@ tb_listener_t
 
 	//Set defaults for monitor and print
 	listener->monitor = 1;
-	listener->print_stats = 0;
+	listener->print_stats = 1;
 
 	//Set CPU and thread info.
 	listener->num_proc = get_nprocs();
@@ -196,12 +196,7 @@ tb_listener_t
 	listener->options->l4_r_b_size = params->l4_r_b_size;
 	listener->options->control = params->control;
 
-	listener->monitor = params->monitor;
-
-	if(params->monitor)
-	{
-		listener->print_stats = params->print_stats;
-	}
+	listener->print_stats = params->print_stats;
 
 	//Setup and create log.
 	if(params->log_enable)
@@ -357,6 +352,7 @@ tb_prot_stats_t
 		tb_finish_time(listener->stats->stat_time);
 	}
 
+	listener->read = 1;
 	pthread_mutex_unlock(listener->stat_lock);
 
 	return listener->stats;
@@ -383,8 +379,9 @@ tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
 		tb_finish_time(listener->stats->stat_time);
 	}
 
-	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
 	listener->stats->id++;
+	listener->read = 1;
+	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
 
 	pthread_mutex_unlock(listener->stat_lock);
 

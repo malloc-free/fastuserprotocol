@@ -205,9 +205,9 @@ typedef struct
 	double recv_window; ///< The current recv window for the socket.
 	void *other_info; 	///< Other info added here.
 
-	long num_m_seconds;	///< Total transfer time in microseconds.
+	long num_m_seconds;		///< Total transfer time in microseconds.
 	long long current_read;	///< The current rx/tx byte read.
-	long total_bytes;	///< Total received bytes.
+	long total_bytes;		///< Total received bytes.
 	unsigned long ex_time;  ///< Total time for transfer.
 
 	int send_p_loss;	///< Number of lost packets (sender side).
@@ -220,16 +220,18 @@ typedef struct
 	PROTOCOL protocol;	///< Protocol for these stats.
 
 	//Time stats
-	long long connect_time; ///< The time taken to connect.
+	long long connect_time;  ///< The time taken to connect.
 	long long transfer_time; ///< The time taken for transfer.
-	tb_time_t *stat_time;	///< The timer for stat collection.
+	tb_time_t *stat_time;	 ///< The timer for stat collection.
 
-	void *n_stats;			///< Link to the next set of stats.
+	void *n_stats;			 ///< Link to the next set of stats.
 }
 tb_prot_stats_t;
 
 /**
  * @brief Create and allocate memory for a stats struct.
+ *
+ * @return Provides a newly minted stats struct, for stats collection.
  */
 tb_prot_stats_t
 *tb_create_stats();
