@@ -271,9 +271,11 @@ tb_udp_m_client(tb_listener_t *listener)
 	}
 
 	//Stop timing, close the connection.
+	pthread_mutex_lock(listener->stat_lock);
 	tb_finish_time(listener->transfer_time);
 	tb_udp_m_close_conn(listener);
 	listener->status = TB_DISCONNECTED;
+	pthread_mutex_lock(listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -477,6 +479,13 @@ tb_udp_m_server(tb_listener_t *listener)
 	}
 
 	tb_finish_time(listener->transfer_time);
+
+	//Lock and disconnect.
+	pthread_mutex_lock(listener->stat_lock);
+	close(listener->sock_d);
+	listener->sock_d = -1;
+	listener->status = TB_DISCONNECTED;
+	pthread_mutex_lock(listener->stat_lock);
 
 	LOG_INFO(listener, "exiting m server");
 
