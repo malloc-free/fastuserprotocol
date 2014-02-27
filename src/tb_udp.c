@@ -242,7 +242,13 @@ tb_udp_m_client(tb_listener_t *listener)
 			listener->session_list->end = session;
 		}
 
+		if(listener->stats->n_stats == NULL)
+		{
+			listener->stats->n_stats = session->stats;
+		}
+
 		PRT_I_D("Creating thread for session %d", session->id);
+
 		//Send the thread on its merry way.
 		pthread_create(session->s_thread, NULL, &tb_udp_m_client_conn,
 				(void*)session);
@@ -502,7 +508,7 @@ tb_udp_event(int events, void *data)
 	tb_listener_t *listener = (tb_listener_t*)e_data->data;
 	sock_d = e_data->fd;
 
-	tb_session_t *session = listener->curr_session;
+	tb_session_t *l_session = listener->curr_session;
 
 	if(listener->status == TB_LISTENING)
 	{
@@ -522,11 +528,11 @@ tb_udp_event(int events, void *data)
 	vec[1].iov_base = &sz;
 	vec[1].iov_len = sizeof(int);
 
-	vec[2].iov_base = session->data;
-	vec[2].iov_len = session->data_size;
+	vec[2].iov_base = l_session->data;
+	vec[2].iov_len = l_session->data_size;
 
-	msg.msg_name = (struct sockaddr_t*)session->addr_in;
-	msg.msg_namelen = (socklen_t)session->addr_len;
+	msg.msg_name = (struct sockaddr_t*)l_session->addr_in;
+	msg.msg_namelen = (socklen_t)l_session->addr_len;
 	msg.msg_iov = vec;
 	msg.msg_iovlen = 2;
 	msg.msg_flags = 0;
@@ -556,6 +562,7 @@ tb_udp_event(int events, void *data)
 			tb_session_t *session =
 					tb_session_list_search(listener->session_list, id);
 
+			//If no session exists for this id, create one.
 			if(!session)
 			{
 				session = tb_create_session();
@@ -563,6 +570,12 @@ tb_udp_event(int events, void *data)
 				tb_session_add_to(listener->session_list, session);
 				tb_session_list_inc(listener->session_list);
 				PRT_I_D("Created session %d", session->id);
+			}
+
+			//If the session attached to the listener is null, set it now.
+			if(l_session->n_session == NULL)
+			{
+				l_session->n_session = session;
 			}
 
 			session->total_bytes += rc;

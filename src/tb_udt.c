@@ -220,6 +220,7 @@ tb_udt_event(tb_listener_t *listener)
 		{
 			listener->status = TB_CONNECTED;
 			tb_start_time(listener->transfer_time);
+			listener->stats->n_stats = session->stats;
 		}
 	}
 
@@ -387,6 +388,11 @@ tb_udt_m_client(tb_listener_t *listener)
 		//Send the thread on its merry way.
 		pthread_create(session->s_thread, NULL, &tb_udt_m_connection,
 				(void*)session);
+
+		if(listener->stats->n_stats == NULL)
+		{
+			listener->stats->n_stats = session->stats;
+		}
 	}
 
 	//Wait for connections, then declare connection status.

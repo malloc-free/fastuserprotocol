@@ -170,16 +170,12 @@ tb_stream_event(int events, void *data)
 		pthread_create(session->s_thread, NULL, &tb_stream_m_server_conn,
 				(void*)session);
 
-		if(listener->stats->n_stats == NULL)
-		{
-			listener->stats->n_stats = session->stats;
-		}
-
 		//If still listening, change to connected and start timing.
 		if(listener->status == TB_LISTENING)
 		{
 			listener->status = TB_CONNECTED;
 			tb_start_time(listener->transfer_time);
+			listener->stats->n_stats = session->stats;
 		}
 	}
 
