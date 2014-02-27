@@ -3,6 +3,23 @@
  *
  *  Created on: 5/12/2013
  *      Author: michael
+ *
+ *      tb_protocol.h contains:
+ *
+ *      - Structs for the collection of stats and the protocol dispatcher
+ *      - Enums that define protocols available, and options for those protocols.
+ *      - functions for the creation, setup and destruction for these structs
+ *      - functions to collect stats for different protocols
+ *
+ *      As the TestBed has slowly migrated away from using the dispatcher
+ *      pattern (due to performance concerns), this has been used less and
+ *      less. A more 'procedural' pattern was used, and the abstract
+ *      function pointer definitions in this file used less and less. However,
+ *      they are here for the moment, in case they prove useful in the future.
+ *
+ *      Also contains some of the 'wrapper' functions for protocols
+ *      (such as error checking) that need to be moved to their respective
+ *      files.
  */
 
 #ifndef TB_PROTOCOL_H_
@@ -210,29 +227,29 @@ typedef struct
 	double send_rate;	///< The send rate.
 	double recv_rate;	///< The recv rate.
 	double send_window; ///< The send window.
-	double recv_window; ///< The current recv window for the socket.
-	void *other_info; 	///< Other info added here.
+	double recv_window; 		///< The current recv window for the socket.
+	void *other_info; 			///< Other info added here.
 
-	long num_m_seconds;		///< Total transfer time in microseconds.
-	long long current_read;	///< The current rx/tx byte read.
-	long total_bytes;		///< Total received bytes.
-	unsigned long ex_time;  ///< Total time for transfer.
+	long num_m_seconds;			///< Total transfer time in microseconds.
+	long long current_read;		///< The current rx/tx byte read.
+	long total_bytes;			///< Total received bytes.
+	unsigned long ex_time;  	///< Total time for transfer.
 
-	int send_p_loss;	///< Number of lost packets (sender side).
-	int recv_p_loss;	///< Number of lost packets (recivers side).
+	int send_p_loss;			///< Number of lost packets (sender side).
+	int recv_p_loss;			///< Number of lost packets (recivers side).
 
-	int w_buff_size;	///< The current send buff size.
-	int r_buff_size; 	///< The current recv buff size.
+	int w_buff_size;			///< The current send buff size.
+	int r_buff_size; 			///< The current recv buff size.
 
-	void *prot_data;	///< Protocol specific data.
-	PROTOCOL protocol;	///< Protocol for these stats.
+	void *prot_data;			///< Protocol specific data.
+	PROTOCOL protocol;		 	///< Protocol for these stats.
 
 	//Time stats
-	long long connect_time;  ///< The time taken to connect.
-	long long transfer_time; ///< The time taken for transfer.
-	tb_time_t *stat_time;	 ///< The timer for stat collection.
+	long long connect_time;  	///< The time taken to connect.
+	long long transfer_time; 	///< The time taken for transfer.
+	tb_time_t *stat_time;	 	///< The timer for stat collection.
 
-	void *n_stats;			 ///< Link to the next set of stats.
+	void *n_stats;			 	///< Link to the next set of stats.
 }
 tb_prot_stats_t;
 
@@ -379,6 +396,7 @@ tb_get_bsd_stats(tb_prot_stats_t *stats, int sock_d);
  *
  * @pre The protocol must be one of the supported types.
  * @param prot The protocol to use in the tests.
+ *
  * @return The struct tb_protocol_t
  */
 tb_protocol_t
@@ -397,6 +415,8 @@ tb_destroy_protocol(tb_protocol_t *protocol);
 
 /**
  * @brief Print the values for this protocol.
+ *
+ * Retrieves and prints the values for a given protocol struct.
  *
  * @param listener The protocol to print the values for.
  */
