@@ -105,7 +105,6 @@ tb_udt_server(tb_listener_t *listener)
 		udt_close(session->sock_d);
 		tb_destroy_session(session);
 		PRT_INFO("Session destroyed");
-		udt_close(listener->sock_d);
 
 		pthread_mutex_unlock(listener->stat_lock);
 
@@ -393,7 +392,7 @@ tb_udt_m_client(tb_listener_t *listener)
 
 	//Close and clear all sessions.
 	tb_session_t *curr_session = listener->session_list->start;
-	while(curr_session != NULL)
+	while(curr_session)
 	{
 		PRT_I_D("Joining with session %d",curr_session->id);
 		pthread_join(*curr_session->s_thread, (void**)&retval);

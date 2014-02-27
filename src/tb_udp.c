@@ -269,10 +269,11 @@ tb_udp_m_client(tb_listener_t *listener)
 		free(retval);
 		curr_session = curr_session->n_session;
 	}
-
-	//Stop timing, close the connection.
-	pthread_mutex_lock(listener->stat_lock);
 	tb_finish_time(listener->transfer_time);
+
+	//Close the connection.
+	pthread_mutex_lock(listener->stat_lock);
+
 	tb_udp_m_close_conn(listener);
 	listener->status = TB_DISCONNECTED;
 	pthread_mutex_lock(listener->stat_lock);

@@ -35,7 +35,8 @@ PROTOCOL;
  * @enum
  *
  * @brief An enum that specifies valuse for the different
- * protocol congestion control algorithms.
+ * protocol congestion control algorithms. This was not actually used
+ * in the TestBed, but is something to look at in the future.
  */
 typedef enum
 {
@@ -50,7 +51,8 @@ CONGESTION_CONTROL;
 /**
  * @enum
  *
- * @brief Flags that specify protocol behaviour.
+ * @brief Flags that specify protocol behaviour. Not used in the end,
+ * something that could be used for future iterations.
  */
 typedef enum
 {
@@ -158,28 +160,29 @@ typedef int (*funct_setup)(void *data);
  */
 typedef struct
 {
-	PROTOCOL protocol;
-	void *parameters;
-	int type;
-	const int *error_no;
-	int eot;
-	int sock_flags;
-	PROT_OPT prot_opts;
-	funct_socket f_sock;
-	funct_bind f_bind;
-	funct_connect f_connect;
-	funct_send f_send;
-	funct_recv f_recv;
-	funct_listen f_listen;
-	funct_accept f_accept;
-	funct_close f_close;
-	funct_exit f_exit;
-	funct_recvfrom f_recfrom;
-	funct_sendto f_sendto;
-	funct_error f_error;
-	funct_options f_opt;
-	funct_setup f_setup;
-	func_event f_ep_event;
+	PROTOCOL protocol;			///< The protocol identifier.
+	void *parameters;			///< Generic parameters struct.
+	int type;					///< The type of socket to use.
+	const int *error_no;		///< The expected error_no for a protocol.
+								///< Generally -1.
+	int eot;					///< End-of-transmission number, 0 for BSD Sockets.
+	int sock_flags;				///< Socket flags to be used.
+	PROT_OPT prot_opts;			///< Options struct to set protocol options.
+	funct_socket f_sock;		///< Function to create a socket.
+	funct_bind f_bind;			///< Function to bind a socket.
+	funct_connect f_connect;	///< Function to connect.
+	funct_send f_send;			///< Function to send data.
+	funct_recv f_recv;			///< Function to recveive data.
+	funct_listen f_listen;		///< Function to listenen on a socket.
+	funct_accept f_accept;		///< Function to accept a connection.
+	funct_close f_close;		///< Function to close a socket.
+	funct_exit f_exit;			///< Function to exit/clean up.
+	funct_recvfrom f_recfrom;	///< Function to receive a datagram.
+	funct_sendto f_sendto;		///< Function to send a datagram.
+	funct_error f_error;		///< Function to call on error.
+	funct_options f_opt;		///< Function to call to set options.
+	funct_setup f_setup;		///< Function to setup a protocol.
+	func_event f_ep_event;		///< Function to call on epoll event.
 }
 tb_protocol_t;
 
@@ -188,7 +191,12 @@ tb_protocol_t;
  * @brief Protocol information struct
  *
  * This struct contains all of the statistics on the currently tested
- * protocol.
+ * protocol. Not all of the stats can be collected for all of the
+ * protocols, so they are filled in where possible. An example would
+ * be for UDP, where no statistics are provided by the protocol.
+ * Reliable protocols, such as TCP and UDT, generate a reasonable
+ * amount of statistics, as they rely on those values to perform
+ * congestion control and provide reliability.
  *
  */
 typedef struct
@@ -231,6 +239,9 @@ tb_prot_stats_t;
 /**
  * @brief Create and allocate memory for a stats struct.
  *
+ * Generate an empty stats struct. Used by external applications when
+ * using cTestBed as a library.
+ *
  * @return Provides a newly minted stats struct, for stats collection.
  */
 tb_prot_stats_t
@@ -249,35 +260,37 @@ tb_destroy_stats(tb_prot_stats_t *stats);
 /**
  * @brief Handle errors for udt.
  *
- * Called when an error has occured with UDT.
+ * Called when an error has occured with UDT. To be deprecated in the
+ * future.
  *
  * @param val The value of the error.
  * @param err_no The errorno associated with the error, if it exists.
  */
 int
-tb_udt_error(int value, int err_no);
+tb_udt_error(int value, int err_no) __attribute__ ((deprecated));
 
 /**
  * @brief Handle errors for dccp.
  *
- * Called when errors occur with DCCP.
+ * Called when errors occur with DCCP. To be deprecated in the future.
  *
  * @param value The value of the error
  * @param err_no The errorno associated with the error, if it exists.
  */
 int
-tb_dccp_error(int value, int err_no);
+tb_dccp_error(int value, int err_no) __attribute__ ((deprecated));
 
 /**
  * @brief Handle errors for socket.
  *
- * Called to handle errors with BSD sockets.
+ * Called to handle errors with BSD sockets. To be deprecated in the
+ * future.
  *
  * @param value The value for the error.
  * @param err_no The errorno associated with the error, if it exists.
  */
 int
-tb_socket_error(int value, int err_no);
+tb_socket_error(int value, int err_no) __attribute__ ((deprecated));
 
 /**
  * @brief Get the stats for the given protocol, with the
