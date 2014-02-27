@@ -162,6 +162,7 @@ tb_udt_m_server(tb_listener_t *listener)
 		}
 	}
 
+	tb_finish_time(listener->transfer_time);
 	LOG_INFO(listener, "exit main loop");
 	pthread_mutex_trylock(listener->stat_lock);
 
@@ -215,7 +216,11 @@ tb_udt_event(tb_listener_t *listener)
 		pthread_create(session->s_thread, NULL, &tb_udt_m_server_conn,
 				(void*)session);
 
-		listener->status = TB_CONNECTED;
+		if(listener->status == TB_LISTENING)
+		{
+			listener->status = TB_CONNECTED;
+			tb_start_time(listener->transfer_time);
+		}
 	}
 
 	return 0;
@@ -259,7 +264,7 @@ void
 		session->total_bytes += rc;
 	}
 	while(rc != 0);
-
+	tb_finish_time(session->transfer_t);
 	pthread_mutex_trylock(session->stat_lock);
 	udt_close(session->sock_d);
 	session->status = SESSION_DISCONNECTED;
