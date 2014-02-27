@@ -391,6 +391,7 @@ tb_udt_m_client(tb_listener_t *listener)
 
 	//Wait for connections, then declare connection status.
 	while(listener->session_list->start->status == SESSION_CREATED);
+	tb_start_time(listener->transfer_time);
 	listener->status = TB_CONNECTED;
 
 	int *retval;
@@ -407,7 +408,7 @@ tb_udt_m_client(tb_listener_t *listener)
 
 		curr_session = curr_session->n_session;
 	}
-
+	tb_finish_time(listener->transfer_time);
 	pthread_mutex_lock(listener->stat_lock);
 	listener->status = TB_DISCONNECTED;
 	udt_cleanup();
