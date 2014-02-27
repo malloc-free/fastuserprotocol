@@ -2,12 +2,19 @@
  * tb_udt.h
  *
  *  Created on: 7/02/2014
- *      Author: michael
+ *      Author: Michael Holmwood
+ *
+ *  tb_udt.h contains all of the functions to run single and multiple connection
+ *  clients and servers for the UDT protocol. Because the UDT library is
+ *  based on the Sockets API, it operates in very much the same way as the
+ *  DCCP and TCP server/client code. The main differences would be in
+ *  the error handling, and epoll code.
  */
 
 #ifndef TB_UDT_H_
 #define TB_UDT_H_
 
+//Module includes.
 #include "tb_listener.h"
 
 /**
@@ -16,6 +23,8 @@
  * This runs the TB server with the UDT protocol.
  *
  * @param listener The listener to run with.
+ *
+ * @return The number of bytes sent.
  */
 int
 tb_udt_server(tb_listener_t *listener);
@@ -25,6 +34,8 @@ tb_udt_server(tb_listener_t *listener);
  *
  * Runs a server that can handle multiple connections
  * using the UDT protocol.
+ *
+ * @return The number of bytes received.
  */
 int
 tb_udt_m_server(tb_listener_t *listener);
@@ -34,6 +45,10 @@ tb_udt_m_server(tb_listener_t *listener);
  *
  * Called when udt_epolls_wait2 indicates that a new
  * incoming connection is being made.
+ *
+ * @param listener The listener to handle incoming connections.
+ *
+ * @return -1 on error, otherwise 0.
  */
 int
 tb_udt_event(tb_listener_t *listener);
@@ -47,13 +62,21 @@ tb_udt_event(tb_listener_t *listener);
  *
  * @pre data must be a tb_session_t struct.
  * @param data void pointer to a tb_session_t struct.
+ *
  * @return pointer to int, 0 if connection terminated normally, -1 if not.
  */
 void
 *tb_udt_m_server_conn(void *data);
 
 /**
- * @brief Upload a file using udt.
+ * @brief Create a single connection using UDT.
+ *
+ * Creates and starts a single connection UDT client, uploading random
+ * data.
+ *
+ * @param listener The listener to create the client with.
+ *
+ * @return The number of bytes sent.
  */
 int
 tb_udt_client(tb_listener_t *listener);
@@ -73,9 +96,10 @@ tb_udt_m_client(tb_listener_t *listener);
 /**
  * @brief Write data to a connection.
  *
- * Called when creating new client connections to
- * multi-connection servers. Passed as a function pointer
- * to pthread_create.
+ * Called when creating new client connections to multi-connection servers.
+ * Passed as a function pointer to pthread_create.
+ *
+ * @return Pointer to int, -1 on error, 0 otherwise.
  */
 void
 *tb_udt_m_connection(void *data);

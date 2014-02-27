@@ -8,12 +8,15 @@
 #ifndef TESTBED_H_
 #define TESTBED_H_
 
+//Module imports.
 #include "tb_protocol.h"
 #include "tb_listener.h"
 #include "tb_session.h"
 
 /**
- * @enum Defines the positions for the command line parameters.
+ * @enum <INPUT> [tb_testbed.h]
+ *
+ * @brief Defines the positions for the command line parameters.
  */
 typedef enum
 {
@@ -28,25 +31,8 @@ typedef enum
 }
 INPUT;
 
-/**
- * @const
- *
- * @brief The client buffer multiplier.
- *
- * The size provided by the user at run time is multiplied by
- * this number to generate the buffer size.
- */
-extern const int C_BUFF_SIZE;
 
-/**
- * @const
- *
- * @brief The server buffer multiplier.
- *
- * The size provided by the user at run time is multiplited by
- * this number to generate the buffer size.
- */
-extern const int S_BUFF_SIZE;
+///////// Declarations for TestBed API functions. /////////
 
 extern tb_listener_t
 *tb_create_listener(ENDPOINT_TYPE type, char *addr,
@@ -73,9 +59,6 @@ extern tb_prot_stats_t
 int
 tb_parse(int argc, char *argv[]);
 
-int
-test();
-
 /**
  * @brief Starts the server/client
  *
@@ -83,7 +66,6 @@ test();
  * the endpoint is a server.
  *
  * @param listener The listener to start.
- * @return 0 if performed.
  */
 void
 tb_start(tb_listener_t *listener);
@@ -91,13 +73,17 @@ tb_start(tb_listener_t *listener);
 /**
  * @brief actively monitor the server/client connection
  *
- * @param listener The listener to monitor.
+ * Monitors and updates the stats struct in the listener.
+ *
+ * @param listener The listener data to run.
  */
 int
 tb_monitor(tb_listener_t *listener);
 
 /**
  * @brief Print the stats given.
+ *
+ * Print the stats for the given listener and stats structs.
  *
  * @param stats The stats struct to print.
  * @param listener The listener to print stats for.
@@ -109,7 +95,7 @@ tb_print_stats(tb_prot_stats_t *stats, tb_listener_t *listener);
  * @brief Handle system interrupts.
  *
  * Handles system interrupts, and kills the client/server if
- * one is received.
+ * one is received. Not currently implemented.
  *
  * @param value Value passed by the signal.
  */
@@ -120,7 +106,8 @@ tb_interrupt_handler(int value);
  * @brief Aborts program.
  *
  * Aborts the program, closes the listener and underlying protocol,
- * kills any sockets or files still open.
+ * kills any sockets or files still open. Closes any currently open
+ * connections.
  *
  * @param listener The listener to close/destroy.
  */
