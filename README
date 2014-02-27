@@ -19,29 +19,17 @@ Dependencies:
 The TestBed does have a couple of dependencies, one of which is going to be
 redundant soon, and removed.
 
-Generic Data Structures Library (GDSL):
-
-home page: home.gna.org/gdsl/
-docs: home.gna.org/gdsl/1.7/html/
-code: download.gna.org/gdsl
-
-This dependency will be removed shortly, as I am going to be using the glib
-hashtable and queue implementations instead.
-
-glib2.0:
-
-On debian, its just apt-get install libglib2.0-0 libglib2.0-dev
-
-At the moment there is no real make file - to build, just run the tbmake
-script. libmake creates testbed as a shared library, and runs odxygen to
-create the documentation in the doc folder. However, it also currently pushes
-this into what will be a non-existent directory in a remote machine, fix to
-come soon.
-
 doxygen:
 
 To create the documentation, doxygen needs to be installed. On debian just run: 
 apt-get install doxygen.
+
+cccc:
+
+To create the metrics file, the program cccc is required. This has not been
+included in the 'all' target. It generates a file called 'metrics.html' and 
+a directory called .cccc. Information on cccc can be found at:
+cccc.sourceforge.net.
 
 Building:
 

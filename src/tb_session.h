@@ -2,18 +2,22 @@
  * tb_session.h
  *
  *  Created on: 25/11/2013
- *      Author: michael
+ *      Author: Michael Holmwood
+ *
+ *
  */
 
 #ifndef TB_SESSION_H_
 #define TB_SESSION_H_
 
+//Module includes.
 #include "tb_epoll.h"
 #include "tb_common.h"
 #include "tb_session.h"
 #include "tb_protocol.h"
 #include "tb_logging.h"
 
+//External includes.
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include <stdio.h>
@@ -21,91 +25,107 @@
 #include <netdb.h>
 #include <pthread.h>
 
+/**
+ * @enum <tb_session_status> [tb_session.h]
+ * @brief Status of the session.
+ */
 typedef enum
 {
-	SESSION_CREATED = 0,
-	SESSION_ADDR_RES,
-	SESSION_CONNECTED,
-	SESSION_COMPLETE,
-	SESSION_DISCONNECTED
+	SESSION_CREATED = 0,	///< Session has been created.
+	SESSION_ADDR_RES,		///< Session address is resolved.
+	SESSION_CONNECTED,		///< Session is connected to peer.
+	SESSION_COMPLETE,		///< Session transmission is complete.
+	SESSION_DISCONNECTED	///< Session is disconnected from peer.
 }
 tb_session_status;
 
+/**
+ * @enum <tb_session_command> [tb_session.h]
+ * @brief Commands that apply to sessions.
+ */
 typedef enum
 {
-	S_CONTINUE = 1,
-	S_EXIT = 2,
-	S_ABORT = 4,
-	S_E_LOOP = S_EXIT | S_ABORT
+	S_CONTINUE = 1,				///< Standard operation, continue.
+	S_EXIT = 2,					///< Exit from the current operation.
+	S_ABORT = 4,				///< Abort from the current operation.
+	S_E_LOOP = S_EXIT | S_ABORT ///< Exit from main loop.
 }
 tb_session_command;
 
+/**
+ * @enum <tb_session_t> [tb_session.h]
+ * @brief The data for a session.
+ */
 typedef struct
 {
-	int id;			///< Id for this session.
+	int id;								///< Id for this session.
 
 	//Raw network data.
-	char *address;	///< The address to connect/bind to.
-	char *port;    ///< The port to connect/bind to.
+	char *address;						///< The address to connect/bind to.
+	char *port;    						///< The port to connect/bind to.
 
 	//Network data
-	struct sockaddr_storage *addr_in; ///< For receiving connections.
-	socklen_t addr_len;	///< Length of sockaddr_storage.
-	struct addrinfo *addr_info; ///< Connection info.
-	struct addrinfo *addr_hints; ///< Connection hints.
-	int sock_d; ///< The socket descriptor for this session.
-	int pack_size; ///< The size of the pack to use.
+	struct sockaddr_storage *addr_in; 	///< For receiving connections.
+	socklen_t addr_len;					///< Length of sockaddr_storage.
+	struct addrinfo *addr_info; 		///< Connection info.
+	struct addrinfo *addr_hints; 		///< Connection hints.
+	int sock_d; 						///< The socket descriptor for this session.
+	int pack_size; 						///< The size of the pack to use.
 
 	//Data information
-	char *file_name;
-	char *data;
-	size_t data_size;
-	int int_data; ///< If the session creates the data, it is destroyed.
+	char *file_name;					///< Name for the file, not used currently.
+	char *data;							///< Data for tx/rx.
+	size_t data_size;					///< Size data.
+	int int_data; 						///< If the session creates the data, it is destroyed.
 
 	//Transfer information.
-	int last_trans;
-	long long total_bytes;
-	tb_prot_stats_t *stats;
+	int last_trans;						///< Number of bytes sent/recv in last tx/rx.
+	long long total_bytes;				///< Total number of bytes tx/rx.
+	tb_prot_stats_t *stats;				///< Protocol stats for this session.
 
 	//Status of the session.
-	tb_session_status status;
-	int *l_status;		///< The status of the session.
-	long long *l_txrx;
+	tb_session_status status;			///< Current status of the session.
+	int *l_status;						///< The status of the session.
+	long long *l_txrx;					///< Pointer to listener tx/rx.
 
 	//Threading info
-	pthread_t *s_thread;	///< Thread for this session.
-	pthread_mutex_t *stat_lock; ///< Lock for stat collection.
-	void *n_session;		///< Link to next session (Linked list).
+	pthread_t *s_thread;				///< Thread for this session.
+	pthread_mutex_t *stat_lock; 		///< Lock for stat collection.
+	void *n_session;					///< Link to next session (Linked list).
 
 	//Global session info
-	pthread_mutex_t *nac_lock; ///< Lock for num_active_conn
-	int *num_active_conn;  ///< Num active connections
+	pthread_mutex_t *nac_lock; 			///< Lock for num_active_conn
+	int *num_active_conn;  				///< Num active connections
 
 	//Time info
-	tb_time_t *transfer_t; ///< Transfer time.
-	tb_time_t *connect_t;  ///< Connection time.
+	tb_time_t *transfer_t; 				///< Transfer time.
+	tb_time_t *connect_t;  				///< Connection time.
 
 	//Logging info
-	int log_enabled;	///< 1 if logging is enabled.
-	tb_log_t *log_info; ///< Log info to log to.
+	int log_enabled;					///< 1 if logging is enabled.
+	tb_log_t *log_info; 				///< Log info to log to.
 
 	//Protocol specific info
-	void *info; 	///< Used for other info.
+	void *info; 						///< Used for other info.
 
 	//Other info to be referenced.
-	void *other_info;	///< Mostly used to reference the session_list;
+	void *other_info;					///< Mostly used to reference the session_list;
 }
 tb_session_t;
 
+/**
+ * @struct <tb_session_list_t> [tb_session.h]
+ * @brief Singly linked list for sessions.
+ */
 typedef struct
 {
-	int current_max_id;
-	int num_sessions;
-	tb_session_t *start;
-	tb_session_t *end;
-	int *num_active_conn;
-	pthread_mutex_t *nac_lock;
-	void *userdata;
+	int current_max_id;			///< The current max id for sessions in this list.
+	int num_sessions;			///< Number of sessions in list.
+	tb_session_t *start;		///< Pointer to first session in list.
+	tb_session_t *end;			///< Pointer to last session in list.
+	int *num_active_conn;		///< Number of active sessions.
+	pthread_mutex_t *nac_lock;	///< Lock for num_active_conn.
+	void *userdata;				///< Userdata for this list.
 }
 tb_session_list_t;
 
@@ -116,12 +136,20 @@ tb_session_list_t;
  *
  * Just appends a session to the list, and allocates an appropriate id
  * to the session.
+ *
+ * @param list List to add session to.
+ * @param session The session to add to the list.
  */
 inline void
 tb_session_add(tb_session_list_t *list, tb_session_t *session) __attribute__ ((always_inline));
 
 /**
  * @brief Add a session to a list.
+ *
+ * Adds to a list without setting the session id.
+ *
+ * @param list List to add session to.
+ * @param sessios Session to add.
  */
 inline void
 tb_session_add_to(tb_session_list_t *list, tb_session_t *session) __attribute__ ((always_inline));

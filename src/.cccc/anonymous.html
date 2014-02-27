@@ -8,19 +8,19 @@ Detailed report on module anonymous
 <TR>
 <TH BGCOLOR="AQUA" WIDTH=70%>Metric</TH><TH BGCOLOR="AQUA" WIDTH=10%>Tag</TH><TH BGCOLOR="AQUA" WIDTH=10%>Overall</TH><TH BGCOLOR="AQUA" WIDTH=10%>Per Function</TH></TR>
 <TR>
-<TD>Lines of Code</TD><TD>LOC</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>  3164</STRONG></TD><TD ALIGN=RIGHT>******</TD></TR>
+<TD>Lines of Code</TD><TD>LOC</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>  3769</STRONG></TD><TD ALIGN=RIGHT>******</TD></TR>
 <TR>
-<TD>McCabe's Cyclomatic Number</TD><TD>MVG</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>   486</EM></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+<TD>McCabe's Cyclomatic Number</TD><TD>MVG</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>   533</EM></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
-<TD>Lines of Comment</TD><TD>COM</TD><TD ALIGN=RIGHT>    81</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>********</STRONG></TD></TR>
+<TD>Lines of Comment</TD><TD>COM</TD><TD ALIGN=RIGHT>   156</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>********</STRONG></TD></TR>
 <TR>
-<TD>LOC/COM</TD><TD>L_C</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>39.062</STRONG></TD><TD>&nbsp;</TD></TR>
+<TD>LOC/COM</TD><TD>L_C</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>24.160</EM></TD><TD>&nbsp;</TD></TR>
 <TR>
-<TD>MVG/COM</TD><TD>M_C</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 6.000</EM></TD><TD>&nbsp;</TD></TR>
+<TD>MVG/COM</TD><TD>M_C</TD><TD ALIGN=RIGHT> 3.417</TD><TD>&nbsp;</TD></TR>
 <TR>
-<TD>Weighted Methods per Class ( &nbsp;weighting = unity&nbsp;)</TD><TD>WMC1</TD><TD ALIGN=RIGHT>   165</TD><TD>&nbsp;</TD></TR>
+<TD>Weighted Methods per Class ( &nbsp;weighting = unity&nbsp;)</TD><TD>WMC1</TD><TD ALIGN=RIGHT>   162</TD><TD>&nbsp;</TD></TR>
 <TR>
-<TD>Weighted Methods per Class ( &nbsp;weighting = visible&nbsp;)</TD><TD>WMCv</TD><TD ALIGN=RIGHT>   128</TD><TD>&nbsp;</TD></TR>
+<TD>Weighted Methods per Class ( &nbsp;weighting = visible&nbsp;)</TD><TD>WMCv</TD><TD ALIGN=RIGHT>   133</TD><TD>&nbsp;</TD></TR>
 <TR>
 <TD>Depth of Inheritance Tree</TD><TD>DIT</TD><TD ALIGN=RIGHT>     0</TD><TD>&nbsp;</TD></TR>
 <TR>
@@ -42,149 +42,45 @@ Detailed report on module anonymous
 <H2><A NAME="proc">Functions</A></H2>
 <TABLE BORDER WIDTH=100%><TR>
 <TD WIDTH=50%>Function prototype</TD><TH BGCOLOR="AQUA" WIDTH=10%>LOC</TH><TH BGCOLOR="AQUA" WIDTH=10%>MVG</TH><TH BGCOLOR="AQUA" WIDTH=10%>COM</TH><TH BGCOLOR="AQUA" WIDTH=10%>L_C</TH><TH BGCOLOR="AQUA" WIDTH=10%>M_C</TH><TR>
-<TD>add_work( &nbsp;tb_worker_t *, &nbsp;tb_session_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.c:        72">tb_worker.c:72</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.h:       115">tb_worker.h:115</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>allocate_session( &nbsp;void *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:       216">tb_session.c:216</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       165">tb_session.h:165</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>allocate_tuple( &nbsp;void *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker_pair.c:        21">tb_worker_pair.c:21</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker_pair.h:        21">tb_worker_pair.h:21</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>compare_workers( &nbsp;gdsl_element_t, &nbsp;void *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.c:       109">tb_worker.c:109</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.h:        84">tb_worker.h:84</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>create_session( &nbsp;char *, &nbsp;sockaddr_storage *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:        26">tb_session.c:26</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:        99">tb_session.h:99</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>create_worker( &nbsp;&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.c:        44">tb_worker.c:44</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.h:        68">tb_worker.h:68</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>destroy_worker( &nbsp;tb_worker_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.c:        61">tb_worker.c:61</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.h:        58">tb_worker.h:58</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>do_work( &nbsp;void *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.c:        25">tb_worker.c:25</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.h:        48">tb_worker.h:48</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>free_session( &nbsp;gdsl_element_t&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:       229">tb_session.c:229</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       171">tb_session.h:171</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>free_tuple( &nbsp;gdsl_element_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker_pair.c:        30">tb_worker_pair.c:30</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker_pair.h:        22">tb_worker_pair.h:22</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
 <TD>get_dccp_stats( &nbsp;tb_prot_stats_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       295">tb_protocol.c:295</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       310">tb_protocol.c:310</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       264">tb_protocol.h:264</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       345">tb_protocol.h:345</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>get_key_value( &nbsp;void *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:       239">tb_session.c:239</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       174">tb_session.h:174</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    18</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>get_pair_key( &nbsp;void *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker_pair.c:        14">tb_worker_pair.c:14</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker_pair.h:        20">tb_worker_pair.h:20</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
 <TD>get_tcp_stats( &nbsp;tb_prot_stats_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       301">tb_protocol.c:301</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       316">tb_protocol.c:316</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       270">tb_protocol.h:270</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       356">tb_protocol.h:356</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>get_udp_stats( &nbsp;tb_prot_stats_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       283">tb_protocol.c:283</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       298">tb_protocol.c:298</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       276">tb_protocol.h:276</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       367">tb_protocol.h:367</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>get_udt_stats( &nbsp;tb_prot_stats_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       254">tb_protocol.c:254</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       269">tb_protocol.c:269</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       258">tb_protocol.h:258</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       334">tb_protocol.h:334</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>22.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>get_utp_stats( &nbsp;tb_prot_stats_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       289">tb_protocol.c:289</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       304">tb_protocol.c:304</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       282">tb_protocol.h:282</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       378">tb_protocol.h:378</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>get_work( &nbsp;tb_worker_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.c:        86">tb_worker.c:86</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_worker.h:        98">tb_worker.h:98</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>main( &nbsp;...&nbsp;)<BR>
 definition &nbsp;
@@ -194,49 +90,49 @@ definition &nbsp;
 <TR>
 <TD>tb_abort( &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       591">tb_testbed.c:591</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_testbed.c:       486">tb_testbed.c:486</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.h:       164">tb_testbed.h:164</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_testbed.h:       128">tb_testbed.h:128</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_accept( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       471">tb_listener.c:471</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       541">tb_listener.c:541</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       386">tb_listener.h:386</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       458">tb_listener.h:458</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    16</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_add_socket( &nbsp;tb_epoll_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
 <CODE><A HREF="cccc_src.html#tb_epoll.c:        76">tb_epoll.c:76</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_epoll.h:        51">tb_epoll.h:51</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_epoll.h:       101">tb_epoll.h:101</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    31</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
 <TD>tb_address( &nbsp;tb_listener_t *, &nbsp;const char *, &nbsp;sockaddr_storage *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       697">tb_listener.c:697</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       766">tb_listener.c:766</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       446">tb_listener.h:446</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       560">tb_listener.h:560</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_bind( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       569">tb_listener.c:569</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       638">tb_listener.c:638</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       405">tb_listener.h:405</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       480">tb_listener.h:480</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_calculate_time( &nbsp;tb_time_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.c:        79">tb_common.c:79</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:        85">tb_common.c:85</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.h:        66">tb_common.h:66</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:       130">tb_common.h:130</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
@@ -244,55 +140,15 @@ declaration &nbsp;
 definition &nbsp;
 <CODE><A HREF="cccc_src.html#tb_endpoint.c:        30">tb_endpoint.c:30</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_endpoint.h:        25">tb_endpoint.h:25</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_endpoint.h:        31">tb_endpoint.h:31</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    51</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
-<TR>
-<TD>tb_close_as( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       364">tb_file_io.c:364</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       172">tb_file_io.h:172</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_close_buffs( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       313">tb_file_io.c:313</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       148">tb_file_io.h:148</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_close_destroy( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:        37">tb_file_io.c:37</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:        85">tb_file_io.h:85</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_close_mmap( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       139">tb_file_io.c:139</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       112">tb_file_io.h:112</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_close_s( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       182">tb_file_io.c:182</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       136">tb_file_io.h:136</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    69</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
 <TD>tb_connect( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       550">tb_listener.c:550</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       619">tb_listener.c:619</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       394">tb_listener.h:394</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       469">tb_listener.h:469</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
@@ -300,119 +156,131 @@ declaration &nbsp;
 definition &nbsp;
 <CODE><A HREF="cccc_src.html#tb_epoll.c:        19">tb_epoll.c:19</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_epoll.h:        44">tb_epoll.h:44</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_epoll.h:        77">tb_epoll.h:77</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    39</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
 <TD>tb_create_endpoint( &nbsp;tb_test_params_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       158">tb_listener.c:158</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       155">tb_listener.c:155</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       290">tb_listener.h:290</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       352">tb_listener.h:352</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_testbed.h:        56">tb_testbed.h:56</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    58</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>19.333</EM></TD><TD ALIGN=RIGHT> 2.667</TD></TR>
-<TR>
-<TD>tb_create_file( &nbsp;char *, &nbsp;tb_io_type&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:        20">tb_file_io.c:20</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:        76">tb_file_io.h:76</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_create_file( &nbsp;tb_listener_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       439">tb_testbed.c:439</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.h:       125">tb_testbed.h:125</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    29</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    55</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>18.333</EM></TD><TD ALIGN=RIGHT> 2.333</TD></TR>
 <TR>
 <TD>tb_create_flog( &nbsp;char *, &nbsp;tb_log_format_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.c:        33">tb_logging.c:33</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.c:        34">tb_logging.c:34</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.h:        52">tb_logging.h:52</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.h:        89">tb_logging.h:89</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_create_listener( &nbsp;ENDPOINT_TYPE, &nbsp;char *, &nbsp;char *, &nbsp;PROTOCOL, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:        38">tb_listener.c:38</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:        32">tb_listener.c:32</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       277">tb_listener.h:277</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       339">tb_listener.h:339</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_testbed.h:        52">tb_testbed.h:52</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    78</EM></TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>    18</TD><TD ALIGN=RIGHT> 4.333</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    82</EM></TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>    18</TD><TD ALIGN=RIGHT> 4.556</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_create_log( &nbsp;char *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.c:        18">tb_logging.c:18</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.c:        19">tb_logging.c:19</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.h:        45">tb_logging.h:45</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.h:        74">tb_logging.h:74</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_create_protocol( &nbsp;PROTOCOL&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:        27">tb_protocol.c:27</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:        29">tb_protocol.c:29</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       301">tb_protocol.h:301</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       403">tb_protocol.h:403</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>   148</STRONG></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>148.000</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 8.000</EM></TD></TR>
 <TR>
 <TD>tb_create_random( &nbsp;char *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       556">tb_testbed.c:556</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:       187">tb_common.c:187</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.h:       153">tb_testbed.h:153</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:       174">tb_common.h:174</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>******</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    33</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+<TR>
+<TD>tb_create_server_session( &nbsp;&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.c:        91">tb_session.c:91</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.h:       200">tb_session.h:200</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_create_session( &nbsp;&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:        47">tb_session.c:47</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.c:       108">tb_session.c:108</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       109">tb_session.h:109</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.h:       210">tb_session.h:210</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    18</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    24</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT> 4.800</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_create_session_full( &nbsp;char *, &nbsp;char *, &nbsp;int, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:        77">tb_session.c:77</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.c:       146">tb_session.c:146</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       120">tb_session.h:120</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.h:       221">tb_session.h:221</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    21</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_create_socket( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       532">tb_listener.c:532</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       601">tb_listener.c:601</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       362">tb_listener.h:362</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       432">tb_listener.h:432</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_create_time( &nbsp;&nbsp;)<BR>
+<TD>tb_create_stats( &nbsp;&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       249">tb_protocol.c:249</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.h:        54">tb_common.h:54</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       265">tb_protocol.h:265</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_create_test_file( &nbsp;char *, &nbsp;int *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_common.c:        94">tb_common.c:94</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_common.h:       143">tb_common.h:143</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    23</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_create_time( &nbsp;clockid_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.c:        46">tb_common.c:46</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:        49">tb_common.c:49</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_common.h:        89">tb_common.h:89</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_create_udp_session( &nbsp;&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.c:        54">tb_udp.c:54</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.h:        66">tb_udp.h:66</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_dccp_error( &nbsp;int, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       192">tb_protocol.c:192</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       194">tb_protocol.c:194</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       239">tb_protocol.h:239</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       298">tb_protocol.h:298</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
@@ -420,149 +288,161 @@ declaration &nbsp;
 definition &nbsp;
 <CODE><A HREF="cccc_src.html#tb_epoll.c:        68">tb_epoll.c:68</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_epoll.h:        48">tb_epoll.h:48</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_epoll.h:        88">tb_epoll.h:88</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_destroy_file( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:        29">tb_file_io.c:29</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:        82">tb_file_io.h:82</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
 <TD>tb_destroy_listener( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       280">tb_listener.c:280</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       231">tb_listener.c:231</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       306">tb_listener.h:306</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       363">tb_listener.h:363</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    50</EM></TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>50.000</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    46</EM></TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>23.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_destroy_log( &nbsp;tb_log_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.c:        50">tb_logging.c:50</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.c:        51">tb_logging.c:51</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.h:        60">tb_logging.h:60</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.h:        97">tb_logging.h:97</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_destroy_protocol( &nbsp;tb_protocol_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       340">tb_protocol.c:340</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       355">tb_protocol.c:355</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       312">tb_protocol.h:312</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       414">tb_protocol.h:414</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_destroy_session( &nbsp;tb_session_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:       102">tb_session.c:102</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.c:       171">tb_session.c:171</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       130">tb_session.h:130</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.h:       231">tb_session.h:231</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    43</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    42</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 8.400</EM></TD><TD ALIGN=RIGHT> 1.800</TD></TR>
 <TR>
 <TD>tb_destroy_stats( &nbsp;tb_prot_stats_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       247">tb_protocol.c:247</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       258">tb_protocol.c:258</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       227">tb_protocol.h:227</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       275">tb_protocol.h:275</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_destroy_time( &nbsp;tb_time_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.c:        58">tb_common.c:58</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:        62">tb_common.c:62</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.h:        57">tb_common.h:57</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:        99">tb_common.h:99</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
+<TD>tb_destroy_udp_session( &nbsp;&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.h:        72">tb_udp.h:72</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_destroy_udp_session( &nbsp;tb_udp_session_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.c:        65">tb_udp.c:65</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
 <TD>tb_epoll_accept( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       492">tb_listener.c:492</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       562">tb_listener.c:562</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_error( &nbsp;tb_listener_t *, &nbsp;const char *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       681">tb_listener.c:681</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       750">tb_listener.c:750</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       443">tb_listener.h:443</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       547">tb_listener.h:547</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_ex_get_stat_cpy( &nbsp;tb_listener_t *, &nbsp;tb_prot_stats_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_listener.c:       362">tb_listener.c:362</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_listener.h:       324">tb_listener.h:324</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>11.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_ex_get_stats( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       367">tb_listener.c:367</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       334">tb_listener.c:334</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       262">tb_listener.h:262</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       308">tb_listener.h:308</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_testbed.h:        62">tb_testbed.h:62</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    16</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>11.000</EM></TD><TD ALIGN=RIGHT> 2.500</TD></TR>
 <TR>
 <TD>tb_exit( &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       580">tb_testbed.c:580</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_testbed.c:       475">tb_testbed.c:475</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.h:       175">tb_testbed.h:175</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_testbed.h:       139">tb_testbed.h:139</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_finish_time( &nbsp;tb_time_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.c:        72">tb_common.c:72</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:        77">tb_common.c:77</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.h:        63">tb_common.h:63</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:       119">tb_common.h:119</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_gen_log_str( &nbsp;tb_session_t *, &nbsp;const char *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.c:       286">tb_session.c:286</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.h:       262">tb_session.h:262</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_get_address( &nbsp;sockaddr_storage *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.c:        25">tb_common.c:25</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:        28">tb_common.c:28</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.h:        41">tb_common.h:41</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:        58">tb_common.h:58</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    18</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_get_bsd_stats( &nbsp;tb_prot_stats_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       330">tb_protocol.c:330</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       345">tb_protocol.c:345</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       288">tb_protocol.h:288</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       389">tb_protocol.h:389</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_get_cpu_info( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       274">tb_listener.c:274</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       225">tb_listener.c:225</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       322">tb_listener.h:322</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       374">tb_listener.h:374</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_get_f_time( &nbsp;char *, &nbsp;size_t, &nbsp;const char *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.c:       116">tb_logging.c:116</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.c:       117">tb_logging.c:117</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.h:        77">tb_logging.h:77</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.h:       120">tb_logging.h:120</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_get_file_length( &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:        44">tb_file_io.c:44</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:        88">tb_file_io.h:88</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
 <TD>tb_get_prot_stats( &nbsp;tb_listener_t *&nbsp;)<BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       431">tb_listener.h:431</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       523">tb_listener.h:523</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
@@ -572,27 +452,21 @@ declaration &nbsp;
 <BR>
 </TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_get_session( &nbsp;tb_listener_t *, &nbsp;tb_session_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       268">tb_listener.c:268</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
 <TD>tb_get_stats( &nbsp;tb_prot_stats_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       215">tb_protocol.c:215</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       217">tb_protocol.c:217</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       252">tb_protocol.h:252</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       323">tb_protocol.h:323</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    25</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
-<TD>tb_get_worker( &nbsp;tb_listener_t *, &nbsp;tb_session_t *&nbsp;)<BR>
+<TD>tb_get_time_stats( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       242">tb_listener.c:242</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       504">tb_listener.c:504</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       296">tb_listener.h:296</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       287">tb_listener.h:287</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    19</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_interrupt_handler( &nbsp;int&nbsp;)<BR>
 declaration &nbsp;
@@ -602,35 +476,59 @@ declaration &nbsp;
 <TR>
 <TD>tb_listen( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       453">tb_listener.c:453</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       523">tb_listener.c:523</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       374">tb_listener.h:374</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       445">tb_listener.h:445</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_load_file( &nbsp;tb_listener_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       474">tb_testbed.c:474</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.h:       131">tb_testbed.h:131</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
 <TD>tb_load_random_file( &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       522">tb_testbed.c:522</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:       153">tb_common.c:153</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.h:       145">tb_testbed.h:145</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:       163">tb_common.h:163</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    25</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>25.000</EM></TD><TD ALIGN=RIGHT> 5.000</TD></TR>
 <TR>
+<TD>tb_load_test_file( &nbsp;char *, &nbsp;int *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_common.c:       123">tb_common.c:123</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_common.h:       152">tb_common.h:152</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+<TR>
+<TD>tb_log_error_no( &nbsp;tb_log_t *, &nbsp;int, &nbsp;const char *, &nbsp;int&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_logging.c:       127">tb_logging.c:127</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_logging.h:       135">tb_logging.h:135</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_log_info( &nbsp;tb_log_t *, &nbsp;int, &nbsp;const char *, &nbsp;tb_log_type_t&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_logging.c:       138">tb_logging.c:138</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_logging.h:       148">tb_logging.h:148</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    19</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>******</TD></TR>
+<TR>
+<TD>tb_log_session_info( &nbsp;tb_session_t *, &nbsp;const char *, &nbsp;tb_log_type_t, &nbsp;int&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.c:       296">tb_session.c:296</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.h:       268">tb_session.h:268</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    16</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
 <TD>tb_monitor( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       305">tb_testbed.c:305</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_testbed.c:       298">tb_testbed.c:298</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_testbed.h:        97">tb_testbed.h:97</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    75</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    16</EM></TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>37.500</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 8.000</EM></TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>   108</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    22</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>18.000</EM></TD><TD ALIGN=RIGHT> 3.667</TD></TR>
 <TR>
 <TD>tb_parse( &nbsp;...&nbsp;)<BR>
 definition &nbsp;
@@ -644,37 +542,37 @@ declaration &nbsp;
 definition &nbsp;
 <CODE><A HREF="cccc_src.html#tb_epoll.c:       115">tb_epoll.c:115</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_epoll.h:        54">tb_epoll.h:54</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_epoll.h:       113">tb_epoll.h:113</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    25</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
 <TD>tb_print_address( &nbsp;sockaddr_storage *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.c:        17">tb_common.c:17</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:        20">tb_common.c:20</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.h:        38">tb_common.h:38</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:        50">tb_common.h:50</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_print_listener( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       343">tb_listener.c:343</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       291">tb_listener.c:291</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       332">tb_listener.h:332</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       384">tb_listener.h:384</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    32</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
 <TD>tb_print_protocol( &nbsp;tb_protocol_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       209">tb_protocol.c:209</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       211">tb_protocol.c:211</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       320">tb_protocol.h:320</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       424">tb_protocol.h:424</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_print_stats( &nbsp;tb_prot_stats_t *, &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       406">tb_testbed.c:406</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_testbed.c:       442">tb_testbed.c:442</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_testbed.h:       106">tb_testbed.h:106</A></CODE><BR>
 <BR>
@@ -682,113 +580,113 @@ declaration &nbsp;
 <TR>
 <TD>tb_print_times( &nbsp;tb_session_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:       191">tb_session.c:191</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.c:       264">tb_session.c:264</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       153">tb_session.h:153</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.h:       254">tb_session.h:254</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    16</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_random_array( &nbsp;int&nbsp;)<BR>
+<TD>tb_queue_add( &nbsp;tb_queue_t *, &nbsp;tb_queue_data_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       502">tb_testbed.c:502</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.c:        37">tb_udp.c:37</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.h:       137">tb_testbed.h:137</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.h:        58">tb_udp.h:58</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_read_as( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       346">tb_file_io.c:346</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       160">tb_file_io.h:160</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_read_buffs( &nbsp;tb_file_t *, &nbsp;char *, &nbsp;int, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       299">tb_file_io.c:299</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       142">tb_file_io.h:142</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_read_mmap( &nbsp;tb_file_t *, &nbsp;char *, &nbsp;int, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       128">tb_file_io.c:128</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       106">tb_file_io.h:106</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_read_s( &nbsp;tb_file_t *, &nbsp;char *, &nbsp;int, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       193">tb_file_io.c:193</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       124">tb_file_io.h:124</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>******</TD></TR>
+</TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_recv_data( &nbsp;tb_listener_t *, &nbsp;tb_session_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       611">tb_listener.c:611</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       680">tb_listener.c:680</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       417">tb_listener.h:417</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       502">tb_listener.h:502</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_recv_from( &nbsp;tb_listener_t *, &nbsp;tb_session_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       648">tb_listener.c:648</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       717">tb_listener.c:717</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       425">tb_listener.h:425</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       513">tb_listener.h:513</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_resolve_address( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       502">tb_listener.c:502</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       571">tb_listener.c:571</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       341">tb_listener.h:341</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       409">tb_listener.h:409</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    21</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>21.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_send_data( &nbsp;tb_listener_t *, &nbsp;char *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       587">tb_listener.c:587</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       656">tb_listener.c:656</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       411">tb_listener.h:411</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       492">tb_listener.h:492</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    18</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_send_to( &nbsp;tb_listener_t *, &nbsp;tb_session_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       631">tb_listener.c:631</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       700">tb_listener.c:700</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       420">tb_listener.h:420</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       505">tb_listener.h:505</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_server( &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_endpoint.c:        92">tb_endpoint.c:92</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_endpoint.c:       117">tb_endpoint.c:117</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_endpoint.h:        37">tb_endpoint.h:37</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_endpoint.h:        43">tb_endpoint.h:43</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    51</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    63</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
-<TD>tb_session_equals( &nbsp;gconstpointer, &nbsp;gconstpointer&nbsp;)<BR>
+<TD>tb_session_add( &nbsp;tb_session_list_t *, &nbsp;tb_session_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:       262">tb_session.c:262</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.c:        25">tb_session.c:25</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       184">tb_session.h:184</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.h:       144">tb_session.h:144</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_session_add_to( &nbsp;tb_session_list_t *, &nbsp;tb_session_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.c:        32">tb_session.c:32</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.h:       155">tb_session.h:155</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    16</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_session_list_dec( &nbsp;tb_session_list_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.c:        64">tb_session.c:64</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.h:       177">tb_session.h:177</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_session_list_inc( &nbsp;tb_session_list_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.c:        54">tb_session.c:54</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.h:       166">tb_session.h:166</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_session_list_search( &nbsp;tb_session_list_t *, &nbsp;int&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.c:        74">tb_session.c:74</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_session.h:       192">tb_session.h:192</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_set_addrinfo( &nbsp;tb_session_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.c:       158">tb_session.c:158</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.c:       231">tb_session.c:231</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_session.h:       138">tb_session.h:138</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_session.h:       239">tb_session.h:239</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    26</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
 <TR>
@@ -810,23 +708,23 @@ declaration &nbsp;
 <TR>
 <TD>tb_set_dccp_opts( &nbsp;tb_options_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_sock_opt.c:       311">tb_sock_opt.c:311</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_sock_opt.c:       294">tb_sock_opt.c:294</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_sock_opt.h:        88">tb_sock_opt.h:88</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    20</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>******</TD><TD ALIGN=RIGHT>******</TD></TR>
+</TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_set_epoll( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       664">tb_listener.c:664</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       733">tb_listener.c:733</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       437">tb_listener.h:437</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       535">tb_listener.h:535</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_set_eudp_opts( &nbsp;tb_options_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_sock_opt.c:       303">tb_sock_opt.c:303</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_sock_opt.c:       286">tb_sock_opt.c:286</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_sock_opt.h:        82">tb_sock_opt.h:82</A></CODE><BR>
 <BR>
@@ -834,19 +732,19 @@ declaration &nbsp;
 <TR>
 <TD>tb_set_l_stats( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       388">tb_listener.c:388</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       393">tb_listener.c:393</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       234">tb_listener.h:234</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       261">tb_listener.h:261</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    25</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>12.500</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_set_m_stats( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       421">tb_listener.c:421</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.c:       427">tb_listener.c:427</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       248">tb_listener.h:248</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       275">tb_listener.h:275</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    23</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    56</EM></TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 8.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_set_sock_opt( &nbsp;tb_options_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
@@ -858,7 +756,7 @@ declaration &nbsp;
 <TR>
 <TD>tb_set_sockopt( &nbsp;tb_listener_t *&nbsp;)<BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       352">tb_listener.h:352</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_listener.h:       420">tb_listener.h:420</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
@@ -869,12 +767,6 @@ declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_sock_opt.h:        52">tb_sock_opt.h:52</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_set_therad_param( &nbsp;tb_listener_t *&nbsp;)<BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.h:       315">tb_listener.h:315</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_set_udp_opts( &nbsp;tb_options_t *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
@@ -898,117 +790,79 @@ definition &nbsp;
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_sock_opt.h:        76">tb_sock_opt.h:76</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    36</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    11</EM></TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
-<TR>
-<TD>tb_setup_as( &nbsp;char *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       325">tb_file_io.c:325</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       154">tb_file_io.h:154</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_setup_buffs( &nbsp;char *, &nbsp;tb_o_flags, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       232">tb_file_io.c:232</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       139">tb_file_io.h:139</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    35</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
-<TR>
-<TD>tb_setup_mmap( &nbsp;char *, &nbsp;tb_o_flags, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:        66">tb_file_io.c:66</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:        94">tb_file_io.h:94</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    36</EM></TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
-<TR>
-<TD>tb_setup_s( &nbsp;char *, &nbsp;tb_o_flags, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       151">tb_file_io.c:151</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       118">tb_file_io.h:118</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
-<TR>
-<TD>tb_setup_workers( &nbsp;tb_listener_t *, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_listener.c:       230">tb_listener.c:230</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    22</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>******</TD></TR>
 <TR>
 <TD>tb_socket_error( &nbsp;int, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       185">tb_protocol.c:185</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       187">tb_protocol.c:187</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       245">tb_protocol.h:245</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       310">tb_protocol.h:310</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_start( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_testbed.c:       211">tb_testbed.c:211</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_testbed.c:       209">tb_testbed.c:209</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_testbed.h:        89">tb_testbed.h:89</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    69</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    13</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>11.500</EM></TD><TD ALIGN=RIGHT> 2.167</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    66</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    13</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>13.200</EM></TD><TD ALIGN=RIGHT> 2.600</TD></TR>
 <TR>
 <TD>tb_start_time( &nbsp;tb_time_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.c:        66">tb_common.c:66</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.c:        70">tb_common.c:70</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_common.h:        60">tb_common.h:60</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_common.h:       109">tb_common.h:109</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_stream_client( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_stream.c:       365">tb_stream.c:365</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_stream.c:       403">tb_stream.c:403</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_stream.h:        63">tb_stream.h:63</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    25</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    29</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>14.500</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_stream_connection( &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_stream.c:       307">tb_stream.c:307</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_stream.c:       342">tb_stream.c:342</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_stream.h:        57">tb_stream.h:57</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    41</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>20.500</EM></TD><TD ALIGN=RIGHT> 3.500</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    43</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>21.500</EM></TD><TD ALIGN=RIGHT> 3.500</TD></TR>
 <TR>
 <TD>tb_stream_event( &nbsp;int, &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_stream.c:       116">tb_stream.c:116</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_stream.c:       132">tb_stream.c:132</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_stream.h:        36">tb_stream.h:36</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    42</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>******</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    40</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>10.000</EM></TD><TD ALIGN=RIGHT> 1.500</TD></TR>
 <TR>
 <TD>tb_stream_m_client( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_stream.c:       218">tb_stream.c:218</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_stream.c:       249">tb_stream.c:249</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_stream.h:        51">tb_stream.h:51</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    63</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>10.500</EM></TD><TD ALIGN=RIGHT> 1.167</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    60</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT> 5.455</TD><TD ALIGN=RIGHT> 0.636</TD></TR>
 <TR>
 <TD>tb_stream_m_server( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_stream.c:        99">tb_stream.c:99</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_stream.c:       105">tb_stream.c:105</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_stream.h:        30">tb_stream.h:30</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    21</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_stream_m_server_conn( &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_stream.c:       171">tb_stream.c:171</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_stream.c:       190">tb_stream.c:190</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_stream.h:        42">tb_stream.h:42</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    34</EM></TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>34.000</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    41</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>10.250</EM></TD><TD ALIGN=RIGHT> 1.250</TD></TR>
 <TR>
 <TD>tb_stream_server( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
@@ -1016,87 +870,127 @@ definition &nbsp;
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_stream.h:        22">tb_stream.h:22</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    44</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>14.667</EM></TD><TD ALIGN=RIGHT> 1.667</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    47</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>11.750</EM></TD><TD ALIGN=RIGHT> 1.250</TD></TR>
 <TR>
 <TD>tb_udp_ack( &nbsp;int, &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:       105">tb_udp.c:105</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.c:       171">tb_udp.c:171</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        37">tb_udp.h:37</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.h:        93">tb_udp.h:93</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_udp_client( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:        37">tb_udp.c:37</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.c:        75">tb_udp.c:75</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        28">tb_udp.h:28</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.h:        84">tb_udp.h:84</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    50</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>25.000</EM></TD><TD ALIGN=RIGHT> 4.000</TD></TR>
-<TR>
-<TD>tb_udp_epoll_client( &nbsp;tb_listener_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:       117">tb_udp.c:117</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        44">tb_udp.h:44</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_udp_epoll_server( &nbsp;tb_listener_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:       229">tb_udp.c:229</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        71">tb_udp.h:71</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    71</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    11</EM></TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>17.750</EM></TD><TD ALIGN=RIGHT> 2.750</TD></TR>
 <TR>
 <TD>tb_udp_event( &nbsp;int, &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:       269">tb_udp.c:269</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.c:       497">tb_udp.c:497</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        87">tb_udp.h:87</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.h:       137">tb_udp.h:137</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    47</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>23.500</EM></TD><TD ALIGN=RIGHT> 4.000</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    75</EM></TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>75.000</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>10.000</EM></TD></TR>
 <TR>
 <TD>tb_udp_m_client( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:       134">tb_udp.c:134</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.c:       186">tb_udp.c:186</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        50">tb_udp.h:50</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.h:        99">tb_udp.h:99</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    35</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>******</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    69</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 7.667</EM></TD><TD ALIGN=RIGHT> 0.778</TD></TR>
+<TR>
+<TD>tb_udp_m_client_conn( &nbsp;void *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.c:       331">tb_udp.c:331</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.h:       111">tb_udp.h:111</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    55</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>18.333</EM></TD><TD ALIGN=RIGHT> 2.333</TD></TR>
+<TR>
+<TD>tb_udp_m_close_conn( &nbsp;tb_listener_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.c:       285">tb_udp.c:285</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udp.h:       105">tb_udp.h:105</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    36</EM></TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>12.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_udp_m_server( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:       253">tb_udp.c:253</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.c:       457">tb_udp.c:457</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        77">tb_udp.h:77</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.h:       127">tb_udp.h:127</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    27</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 9.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_udp_server( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.c:       182">tb_udp.c:182</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.c:       409">tb_udp.c:409</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udp.h:        59">tb_udp.h:59</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udp.h:       120">tb_udp.h:120</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    37</EM></TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    36</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>18.000</EM></TD><TD ALIGN=RIGHT> 2.500</TD></TR>
 <TR>
 <TD>tb_udt_client( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udt.c:       132">tb_udt.c:132</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udt.c:       285">tb_udt.c:285</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_udt.h:        27">tb_udt.h:27</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_udt.h:        59">tb_udt.h:59</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    31</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>31.000</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 6.000</EM></TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    37</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>37.000</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 6.000</EM></TD></TR>
 <TR>
 <TD>tb_udt_error( &nbsp;int, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.c:       203">tb_protocol.c:203</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.c:       205">tb_protocol.c:205</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_protocol.h:       233">tb_protocol.h:233</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_protocol.h:       287">tb_protocol.h:287</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_udt_event( &nbsp;tb_listener_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.c:       178">tb_udt.c:178</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.h:        39">tb_udt.h:39</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    35</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>17.500</EM></TD><TD ALIGN=RIGHT> 2.500</TD></TR>
+<TR>
+<TD>tb_udt_m_client( &nbsp;tb_listener_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.c:       335">tb_udt.c:335</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.h:        71">tb_udt.h:71</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    55</EM></TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 9.167</EM></TD><TD ALIGN=RIGHT> 1.000</TD></TR>
+<TR>
+<TD>tb_udt_m_connection( &nbsp;void *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.c:       415">tb_udt.c:415</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.h:        81">tb_udt.h:81</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    44</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>22.000</EM></TD><TD ALIGN=RIGHT> 3.500</TD></TR>
+<TR>
+<TD>tb_udt_m_server( &nbsp;tb_listener_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.c:       122">tb_udt.c:122</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.h:        30">tb_udt.h:30</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    42</EM></TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>42.000</STRONG></TD><TD ALIGN=RIGHT> 5.000</TD></TR>
+<TR>
+<TD>tb_udt_m_server_conn( &nbsp;void *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.c:       225">tb_udt.c:225</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_udt.h:        53">tb_udt.h:53</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    46</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>46.000</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 7.000</EM></TD></TR>
 <TR>
 <TD>tb_udt_server( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
@@ -1104,235 +998,315 @@ definition &nbsp;
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_udt.h:        21">tb_udt.h:21</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    66</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>16.500</EM></TD><TD ALIGN=RIGHT> 2.250</TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    64</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>16.000</EM></TD><TD ALIGN=RIGHT> 2.250</TD></TR>
+<TR>
+<TD>tb_utp_accept_2( &nbsp;utp_callback_arguments *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        69">tb_utp_2.c:69</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        76">tb_utp_2.h:76</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_client( &nbsp;tb_listener_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       372">tb_utp.c:372</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       526">tb_utp.c:526</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       164">tb_utp.h:164</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       195">tb_utp.h:195</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    31</EM></TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    77</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    12</EM></TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>38.500</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 6.000</EM></TD></TR>
 <TR>
-<TD>tb_utp_close( &nbsp;int&nbsp;)<BR>
+<TD>tb_utp_close( &nbsp;tb_utp_t *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       340">tb_utp.c:340</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       304">tb_utp.c:304</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       154">tb_utp.h:154</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       173">tb_utp.h:173</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    24</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    25</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>******</TD></TR>
 <TR>
-<TD>tb_utp_connect( &nbsp;int, &nbsp;const sockaddr *, &nbsp;socklen_t&nbsp;)<BR>
+<TD>tb_utp_connect( &nbsp;tb_utp_t *, &nbsp;const sockaddr *, &nbsp;socklen_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       222">tb_utp.c:222</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       177">tb_utp.c:177</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       123">tb_utp.h:123</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       142">tb_utp.h:142</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_connect_2( &nbsp;tb_utp_2_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        40">tb_utp_2.c:40</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        56">tb_utp_2.h:56</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_create_2( &nbsp;&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        17">tb_utp_2.c:17</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        44">tb_utp_2.h:44</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    14</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_destroy_2( &nbsp;tb_utp_2_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        34">tb_utp_2.c:34</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        50">tb_utp_2.h:50</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_error( &nbsp;void *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       120">tb_utp.c:120</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       112">tb_utp.c:112</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        90">tb_utp.h:90</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       109">tb_utp.h:109</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_error_2( &nbsp;utp_callback_arguments *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        75">tb_utp_2.c:75</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        82">tb_utp_2.h:82</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_error_handle( &nbsp;int, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       334">tb_utp.c:334</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       298">tb_utp.c:298</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       151">tb_utp.h:151</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       170">tb_utp.h:170</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_event( &nbsp;int, &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       273">tb_utp.c:273</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       223">tb_utp.c:223</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       139">tb_utp.h:139</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       158">tb_utp.h:158</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    34</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    11</EM></TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    36</EM></TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>36.000</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>10.000</EM></TD></TR>
 <TR>
 <TD>tb_utp_funct_exit( &nbsp;&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       328">tb_utp.c:328</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       292">tb_utp.c:292</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       148">tb_utp.h:148</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       167">tb_utp.h:167</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_get_Rcv_buff( &nbsp;void *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:        92">tb_utp.c:92</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:        99">tb_utp.c:99</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        84">tb_utp.h:84</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       103">tb_utp.h:103</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_get_state( &nbsp;&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       161">tb_utp.c:161</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        70">tb_utp.h:70</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:        89">tb_utp.h:89</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_incoming( &nbsp;void *, &nbsp;UTPSocket *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       152">tb_utp.c:152</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       140">tb_utp.c:140</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       106">tb_utp.h:106</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       125">tb_utp.h:125</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_log_2( &nbsp;utp_callback_arguments *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        90">tb_utp_2.c:90</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        94">tb_utp_2.h:94</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_m_client( &nbsp;tb_listener_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.c:       337">tb_utp.c:337</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       181">tb_utp.h:181</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    77</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>11.000</EM></TD><TD ALIGN=RIGHT> 1.286</TD></TR>
+<TR>
+<TD>tb_utp_m_client_conn( &nbsp;void *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.c:       451">tb_utp.c:451</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       187">tb_utp.h:187</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    55</EM></TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+<TR>
+<TD>tb_utp_m_event( &nbsp;int, &nbsp;void *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.c:       636">tb_utp.c:636</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       209">tb_utp.h:209</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    31</EM></TD><TD ALIGN=RIGHT>     9</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+<TR>
+<TD>tb_utp_m_new_conn( &nbsp;void *, &nbsp;UTPSocket *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.c:       677">tb_utp.c:677</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       215">tb_utp.h:215</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_m_server( &nbsp;tb_listener_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.c:       629">tb_utp.c:629</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       203">tb_utp.h:203</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_overhead( &nbsp;void *, &nbsp;int, &nbsp;size_t, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       131">tb_utp.c:131</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       121">tb_utp.c:121</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        93">tb_utp.h:93</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       112">tb_utp.h:112</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_read( &nbsp;void *, &nbsp;const byte *, &nbsp;size_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:        76">tb_utp.c:76</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:        81">tb_utp.c:81</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        78">tb_utp.h:78</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:        97">tb_utp.h:97</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_utp_recv( &nbsp;char *, &nbsp;int&nbsp;)<BR>
+<TD>tb_utp_read_2( &nbsp;utp_callback_arguments *&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       318">tb_utp.c:318</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        63">tb_utp_2.c:63</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       145">tb_utp.h:145</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        70">tb_utp_2.h:70</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_recv( &nbsp;tb_utp_t *, &nbsp;char *, &nbsp;int&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.c:       271">tb_utp.c:271</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       164">tb_utp.h:164</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_recv_data( &nbsp;&nbsp;)<BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       129">tb_utp.h:129</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       148">tb_utp.h:148</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_recv_from( &nbsp;int, &nbsp;void *, &nbsp;size_t, &nbsp;int, &nbsp;const sockaddr *, &nbsp;socklen_t *&nbsp;)<BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       132">tb_utp.h:132</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       151">tb_utp.h:151</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_utp_send( &nbsp;void *, &nbsp;size_t&nbsp;)<BR>
+<TD>tb_utp_send( &nbsp;tb_utp_t *, &nbsp;void *, &nbsp;size_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       240">tb_utp.c:240</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       190">tb_utp.c:190</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       126">tb_utp.h:126</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       145">tb_utp.h:145</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    26</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
+</TD><TD ALIGN=RIGHT>    25</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>25.000</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM> 6.000</EM></TD></TR>
 <TR>
 <TD>tb_utp_send_to( &nbsp;void *, &nbsp;const byte *, &nbsp;size_t, &nbsp;const sockaddr *, &nbsp;socklen_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       137">tb_utp.c:137</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        96">tb_utp.h:96</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    13</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_utp_server( &nbsp;tb_listener_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       413">tb_utp.c:413</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       172">tb_utp.h:172</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    32</EM></TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
-<TR>
-<TD>tb_utp_set_buffers( &nbsp;size_t, &nbsp;size_t&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       167">tb_utp.c:167</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        73">tb_utp.h:73</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    10</TD><TD ALIGN=RIGHT>     2</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_utp_setsockopt( &nbsp;int, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       181">tb_utp.c:181</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       127">tb_utp.c:127</A></CODE><BR>
 declaration &nbsp;
 <CODE><A HREF="cccc_src.html#tb_utp.h:       115">tb_utp.h:115</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     4</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    12</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_utp_setup( &nbsp;void *&nbsp;)<BR>
+<TD>tb_utp_sendto_2( &nbsp;utp_callback_arguments *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        57">tb_utp_2.c:57</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        64">tb_utp_2.h:64</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_server( &nbsp;tb_listener_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.c:       683">tb_utp.c:683</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       221">tb_utp.h:221</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    78</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    12</EM></TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>26.000</EM></TD><TD ALIGN=RIGHT> 4.000</TD></TR>
+<TR>
+<TD>tb_utp_set_buffers( &nbsp;size_t, &nbsp;size_t&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:        92">tb_utp.h:92</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_setsockopt( &nbsp;int, &nbsp;int&nbsp;)<BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp.h:       134">tb_utp.h:134</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_setup( &nbsp;&nbsp;)<BR>
 definition &nbsp;
 <CODE><A HREF="cccc_src.html#tb_utp.c:        36">tb_utp.c:36</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        67">tb_utp.h:67</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:        86">tb_utp.h:86</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    27</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>    30</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>30.000</EM></TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
-<TD>tb_utp_socket( &nbsp;int, &nbsp;int, &nbsp;int&nbsp;)<BR>
+<TD>tb_utp_socket( &nbsp;tb_utp_t *, &nbsp;int, &nbsp;int, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:       202">tb_utp.c:202</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       157">tb_utp.c:157</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:       120">tb_utp.h:120</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       139">tb_utp.h:139</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_state_change( &nbsp;void *, &nbsp;int&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:        98">tb_utp.c:98</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:       105">tb_utp.c:105</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        87">tb_utp.h:87</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       106">tb_utp.h:106</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>    17</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_state_change_2( &nbsp;utp_callback_arguments *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        81">tb_utp_2.c:81</A></CODE><BR>
+declaration &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.h:        88">tb_utp_2.h:88</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+<TR>
+<TD>tb_utp_write( &nbsp;tb_utp_2_t *&nbsp;)<BR>
+definition &nbsp;
+<CODE><A HREF="cccc_src.html#tb_utp_2.c:        49">tb_utp_2.c:49</A></CODE><BR>
+<BR>
+</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_utp_write( &nbsp;void *, &nbsp;byte *, &nbsp;size_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.c:        84">tb_utp.c:84</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.c:        90">tb_utp.c:90</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_utp.h:        81">tb_utp.h:81</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_utp.h:       100">tb_utp.h:100</A></CODE><BR>
 <BR>
-</TD><TD ALIGN=RIGHT>     7</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_write_as( &nbsp;tb_file_t *&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       355">tb_file_io.c:355</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       166">tb_file_io.h:166</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_write_buffs( &nbsp;tb_file_t *, &nbsp;char *, &nbsp;int, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       285">tb_file_io.c:285</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       145">tb_file_io.h:145</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    11</TD><TD ALIGN=RIGHT>     3</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
+</TD><TD ALIGN=RIGHT>     8</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
 <TR>
 <TD>tb_write_log( &nbsp;tb_log_t *, &nbsp;char *, &nbsp;tb_log_type_t&nbsp;)<BR>
 definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.c:        58">tb_logging.c:58</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.c:        59">tb_logging.c:59</A></CODE><BR>
 declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_logging.h:        71">tb_logging.h:71</A></CODE><BR>
+<CODE><A HREF="cccc_src.html#tb_logging.h:       108">tb_logging.h:108</A></CODE><BR>
 <BR>
 </TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    35</EM></TD><TD ALIGN=RIGHT BGCOLOR="YELLOW"><EM>    12</EM></TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD><TD ALIGN=RIGHT BGCOLOR="RED"><STRONG>******</STRONG></TD></TR>
-<TR>
-<TD>tb_write_mmap( &nbsp;tb_file_t *, &nbsp;char *, &nbsp;int, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       117">tb_file_io.c:117</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       100">tb_file_io.h:100</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>     6</TD><TD ALIGN=RIGHT>     1</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>------</TD></TR>
-<TR>
-<TD>tb_write_s( &nbsp;tb_file_t *, &nbsp;char *, &nbsp;int, &nbsp;int&nbsp;)<BR>
-definition &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.c:       214">tb_file_io.c:214</A></CODE><BR>
-declaration &nbsp;
-<CODE><A HREF="cccc_src.html#tb_file_io.h:       130">tb_file_io.h:130</A></CODE><BR>
-<BR>
-</TD><TD ALIGN=RIGHT>    15</TD><TD ALIGN=RIGHT>     5</TD><TD ALIGN=RIGHT>     0</TD><TD ALIGN=RIGHT>------</TD><TD ALIGN=RIGHT>******</TD></TR>
 <TR>
 <TD>test( &nbsp;&nbsp;)<BR>
 definition &nbsp;

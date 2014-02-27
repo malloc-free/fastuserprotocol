@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Report on software metrics-->
 <CCCC_Project>
-<timestamp>Fri Feb  7 18:17:07 2014
+<timestamp>Thu Feb 27 18:14:14 2014
 </timestamp>
 <project_summary>
 <number_of_modules value="1" level="0" />
-<lines_of_code value="3929" level="0" />
-<lines_of_code_per_module value="3929.000" level="2" />
-<McCabes_cyclomatic_complexity value="486" level="0" />
-<McCabes_cyclomatic_complexity_per_module value="486.000" level="1" />
-<lines_of_comment value="1395" level="0" />
-<lines_of_comment_per_module value="1395.000" level="0" />
-<lines_of_code_per_line_of_comment value="2.816" level="0" />
-<McCabes_cyclomatic_complexity_per_line_of_comment value="0.348" level="0" />
+<lines_of_code value="4534" level="0" />
+<lines_of_code_per_module value="4534.000" level="2" />
+<McCabes_cyclomatic_complexity value="533" level="0" />
+<McCabes_cyclomatic_complexity_per_module value="533.000" level="1" />
+<lines_of_comment value="1926" level="0" />
+<lines_of_comment_per_module value="1926.000" level="0" />
+<lines_of_code_per_line_of_comment value="2.354" level="0" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="0.277" level="0" />
 <IF4 value="0" level="0" />
 <IF4_per_module value="0.000" level="0" />
 <IF4_visible value="0" level="0" />
@@ -24,18 +24,18 @@
 <procedural_summary>
 <module>
 <name>anonymous</name>
-<lines_of_code value="3164" level="2" />
-<McCabes_cyclomatic_complexity value="486" level="1" />
-<lines_of_comment value="81" level="0" />
-<lines_of_code_per_line_of_comment value="39.062" level="2" />
-<McCabes_cyclomatic_complexity_per_line_of_comment value="6.000" level="1" />
+<lines_of_code value="3769" level="2" />
+<McCabes_cyclomatic_complexity value="533" level="1" />
+<lines_of_comment value="156" level="0" />
+<lines_of_code_per_line_of_comment value="24.160" level="1" />
+<McCabes_cyclomatic_complexity_per_line_of_comment value="3.417" level="0" />
 </module>
 </procedural_summary>
 <oo_design>
 <module>
 <name>anonymous</name>
-<weighted_methods_per_class_unity value="165" level="2" />
-<weighted_methods_per_class_visibility value="128" level="2" />
+<weighted_methods_per_class_unity value="162" level="2" />
+<weighted_methods_per_class_visibility value="133" level="2" />
 <depth_of_inheritance_tree value="0" level="0" />
 <number_of_children value="0" level="0" />
 <coupling_between_objects value="0" level="0" />
@@ -59,8 +59,8 @@
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_common.c" line="1" />
-<lines_of_code value="7" level="0" />
-<lines_of_comment value="6" level="0" />
+<lines_of_code value="11" level="0" />
+<lines_of_comment value="7" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
@@ -79,37 +79,30 @@
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
-<source_reference file="tb_file_io.c" line="1" />
-<lines_of_code value="21" level="0" />
-<lines_of_comment value="42" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
 <source_reference file="tb_listener.c" line="1" />
-<lines_of_code value="26" level="0" />
+<lines_of_code value="25" level="0" />
 <lines_of_comment value="6" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_logging.c" line="1" />
-<lines_of_code value="6" level="0" />
+<lines_of_code value="8" level="0" />
 <lines_of_comment value="6" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_protocol.c" line="1" />
-<lines_of_code value="16" level="0" />
+<lines_of_code value="17" level="0" />
 <lines_of_comment value="6" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_session.c" line="1" />
-<lines_of_code value="11" level="0" />
-<lines_of_comment value="19" level="0" />
+<lines_of_code value="14" level="0" />
+<lines_of_comment value="12" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
@@ -129,99 +122,85 @@
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_testbed.c" line="1" />
-<lines_of_code value="15" level="0" />
-<lines_of_comment value="19" level="0" />
+<lines_of_code value="10" level="0" />
+<lines_of_comment value="18" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_udp.c" line="1" />
-<lines_of_code value="10" level="0" />
-<lines_of_comment value="7" level="0" />
+<lines_of_code value="12" level="0" />
+<lines_of_comment value="14" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_udt.c" line="1" />
-<lines_of_code value="3" level="0" />
+<lines_of_code value="8" level="0" />
+<lines_of_comment value="8" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+</rejected_extent>
+<rejected_extent>
+<name>&lt;file scope items&gt;</name>
+<source_reference file="tb_utp_2.c" line="1" />
+<lines_of_code value="11" level="0" />
 <lines_of_comment value="8" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_utp.c" line="1" />
-<lines_of_code value="26" level="0" />
+<lines_of_code value="27" level="0" />
 <lines_of_comment value="10" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
-<source_reference file="tb_worker.c" line="1" />
-<lines_of_code value="8" level="0" />
-<lines_of_comment value="25" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
-<source_reference file="tb_worker_pair.c" line="1" />
-<lines_of_code value="4" level="0" />
-<lines_of_comment value="6" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
 <source_reference file="tb_common.h" line="1" />
-<lines_of_code value="16" level="0" />
-<lines_of_comment value="6" level="0" />
+<lines_of_code value="22" level="0" />
+<lines_of_comment value="100" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_endpoint.h" line="1" />
 <lines_of_code value="3" level="0" />
-<lines_of_comment value="24" level="0" />
+<lines_of_comment value="30" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_epoll.h" line="1" />
 <lines_of_code value="24" level="0" />
-<lines_of_comment value="13" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
-<source_reference file="tb_file_io.h" line="1" />
-<lines_of_code value="47" level="0" />
-<lines_of_comment value="76" level="0" />
+<lines_of_comment value="79" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_listener.h" line="1" />
-<lines_of_code value="134" level="0" />
-<lines_of_comment value="295" level="0" />
+<lines_of_code value="132" level="0" />
+<lines_of_comment value="409" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_logging.h" line="1" />
-<lines_of_code value="27" level="0" />
-<lines_of_comment value="29" level="0" />
+<lines_of_code value="29" level="0" />
+<lines_of_comment value="103" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_protocol.h" line="1" />
-<lines_of_code value="109" level="0" />
-<lines_of_comment value="188" level="0" />
+<lines_of_code value="114" level="0" />
+<lines_of_comment value="308" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_session.h" line="1" />
-<lines_of_code value="63" level="0" />
-<lines_of_comment value="89" level="0" />
+<lines_of_code value="76" level="0" />
+<lines_of_comment value="178" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
@@ -241,43 +220,36 @@
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
 <source_reference file="tb_testbed.h" line="1" />
-<lines_of_code value="31" level="0" />
-<lines_of_comment value="108" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
-<source_reference file="tb_udp.h" line="1" />
-<lines_of_code value="9" level="0" />
-<lines_of_comment value="52" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
-<source_reference file="tb_udt.h" line="1" />
-<lines_of_code value="3" level="0" />
-<lines_of_comment value="16" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
-<source_reference file="tb_utp.h" line="1" />
-<lines_of_code value="60" level="0" />
-<lines_of_comment value="35" level="0" />
-<McCabes_cyclomatic_complexity value="0" level="0" />
-</rejected_extent>
-<rejected_extent>
-<name>&lt;file scope items&gt;</name>
-<source_reference file="tb_worker.h" line="1" />
-<lines_of_code value="15" level="0" />
+<lines_of_code value="26" level="0" />
 <lines_of_comment value="86" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 <rejected_extent>
 <name>&lt;file scope items&gt;</name>
-<source_reference file="tb_worker_pair.h" line="1" />
-<lines_of_code value="5" level="0" />
-<lines_of_comment value="6" level="0" />
+<source_reference file="tb_udp.h" line="1" />
+<lines_of_code value="32" level="0" />
+<lines_of_comment value="67" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+</rejected_extent>
+<rejected_extent>
+<name>&lt;file scope items&gt;</name>
+<source_reference file="tb_udt.h" line="1" />
+<lines_of_code value="8" level="0" />
+<lines_of_comment value="55" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+</rejected_extent>
+<rejected_extent>
+<name>&lt;file scope items&gt;</name>
+<source_reference file="tb_utp_2.h" line="1" />
+<lines_of_code value="23" level="0" />
+<lines_of_comment value="42" level="0" />
+<McCabes_cyclomatic_complexity value="0" level="0" />
+</rejected_extent>
+<rejected_extent>
+<name>&lt;file scope items&gt;</name>
+<source_reference file="tb_utp.h" line="1" />
+<lines_of_code value="67" level="0" />
+<lines_of_comment value="87" level="0" />
 <McCabes_cyclomatic_complexity value="0" level="0" />
 </rejected_extent>
 </other_extents>
