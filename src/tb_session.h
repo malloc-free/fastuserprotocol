@@ -4,6 +4,11 @@
  *  Created on: 25/11/2013
  *      Author: Michael Holmwood
  *
+ * This file contains the structs used for handling sessions used in the server
+ * side of single connection tests, and in multi-connection server/client tests.
+ *
+ * Originally TestBed was using workers, but this proved unnecessary when we
+ * removed any file I/O from the tests.
  *
  */
 
@@ -184,8 +189,9 @@ tb_session_list_dec(tb_session_list_t *list) __attribute__ ((always_inline));
  * through the list, not a binary search or anything. As we are only going
  * to have 4 connections, it should suffice.
  *
- * @param list The list to search
- * @param id The id of the session to find
+ * @param list The list to search.
+ * @param id The id of the session to find.
+ *
  * @return A pointer to the session if it is present, or null if not found.
  */
 inline tb_session_t
@@ -195,6 +201,11 @@ inline tb_session_t
 
 /**
  * @brief Create a session for servers.
+ *
+ * Creates a session to be used with servers, so the addr_info fields
+ * are not used in the session struct.
+ *
+ * @return A new tb_session_t struct.
  */
 tb_session_t
 *tb_create_server_session();
@@ -205,6 +216,8 @@ tb_session_t
  * With this version of create_session, the sockaddr_storage
  * is created, the file name is set to NULL, addr_info
  * and hints are null.
+ *
+ * @return A new tb_session_t struct, or NULL on error.
  */
 tb_session_t
 *tb_create_session();
@@ -216,6 +229,13 @@ tb_session_t
  * resolves the provided address. If the data_size
  * parameter is greater than zero, the session buffer
  * is also created.
+ *
+ * @param addr The address to connect/bind to.
+ * @param port The port to connect/bind to.
+ * @param sock_type Type of socket to connect with.
+ * @param data_size If not null, create the buffer for this session.
+ *
+ * @return A new tb_session_t struct, or NULL on error.
  */
 tb_session_t
 *tb_create_session_full(char *addr, char *port, int sock_type,
@@ -226,6 +246,8 @@ tb_session_t
  *
  * Frees memory used by a tb_session_t struct. Releases
  * all memory for associated fields.
+ *
+ * @param session The session to destroy, and free memory for.
  */
 void
 tb_destroy_session(tb_session_t *session);
@@ -234,6 +256,11 @@ tb_destroy_session(tb_session_t *session);
  * @brief Set the addrinfo for the session.
  *
  * Fills out the addrinfo field for the session.
+ *
+ * @param session The session to set the addrinfo for.
+ * @param type The type of socket to set.
+ *
+ * @return -1 on error, 0 otherwise.
  */
 int
 tb_set_addrinfo(tb_session_t *session, int type);
@@ -257,12 +284,27 @@ tb_print_times(tb_session_t *session);
 
 /**
  * @brief Generate a string to be used in logging functions.
+ *
+ * Creates an appropriate string to be used in logging.
+ *
+ * @param session The session to log the info for.
+ * @param info The info to log.
+ *
+ * @return A string with the session info.
  */
 inline char
 *tb_gen_log_str(tb_session_t *session, const char *info) __attribute__ ((always_inline));
 
 /**
  * @brief Log info for the given session.
+ *
+ * Logs session specific info.
+ *
+ * @param session The session to log info for.
+ * @param info The info to log.
+ * @param type The type of info to log.
+ * @param err_no The error number, if logging an error.
+ *
  */
 inline void
 tb_log_session_info(tb_session_t *session, const char *info,
