@@ -95,7 +95,7 @@ tb_udt_server(tb_listener_t *listener)
 		tb_finish_time(listener->transfer_time);
 
 		//Lock stat collection while closing connection and destroying session.
-		pthread_mutex_trylock(listener->stat_lock);
+		pthread_mutex_trylock(&listener->stat_lock);
 
 		fprintf(stdout, "Session closed\n");
 		listener->status = TB_DISCONNECTED;
@@ -106,7 +106,7 @@ tb_udt_server(tb_listener_t *listener)
 		tb_destroy_session(session);
 		PRT_INFO("Session destroyed");
 
-		pthread_mutex_unlock(listener->stat_lock);
+		pthread_mutex_unlock(&listener->stat_lock);
 
 		//Exit if prompted to.
 		listener->command = listener->s_tx_end;
@@ -164,13 +164,13 @@ tb_udt_m_server(tb_listener_t *listener)
 
 	tb_finish_time(listener->transfer_time);
 	LOG_INFO(listener, "exit main loop");
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	udt_close(listener->sock_d);
 	listener->status = TB_DISCONNECTED;
 	udt_cleanup();
 
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -213,7 +213,7 @@ tb_udt_event(tb_listener_t *listener)
 		session->other_info = listener->session_list;
 
 		PRT_I_D("Starting session: %d", session->id);
-		pthread_create(session->s_thread, NULL, &tb_udt_m_server_conn,
+		pthread_create(&session->s_thread, NULL, &tb_udt_m_server_conn,
 				(void*)session);
 
 		if(listener->status == TB_LISTENING)
@@ -252,10 +252,10 @@ void
 				fprintf(stderr, "Session %d: Error: tb_udt_m_connection:"
 						" udt_recv: %s", session->id, udt_getlasterror_desc());
 
-				pthread_mutex_trylock(session->stat_lock);
+				pthread_mutex_trylock(&session->stat_lock);
 				udt_close(session->sock_d);
 				session->status = SESSION_DISCONNECTED;
-				pthread_mutex_unlock(session->stat_lock);
+				pthread_mutex_unlock(&session->stat_lock);
 
 				*retval = -1;
 				return retval;
@@ -266,7 +266,7 @@ void
 	}
 	while(rc != 0);
 	tb_finish_time(session->transfer_t);
-	pthread_mutex_trylock(session->stat_lock);
+	pthread_mutex_trylock(&session->stat_lock);
 	udt_close(session->sock_d);
 	session->status = SESSION_DISCONNECTED;
 
@@ -279,7 +279,7 @@ void
 	}
 
 	fprintf(stdout, "Session %d received %lld\n", session->id, session->total_bytes);
-	pthread_mutex_unlock(session->stat_lock);
+	pthread_mutex_unlock(&session->stat_lock);
 
 	PRT_I_D("Session %d: Ended connection", session->id);
 	return retval;
@@ -324,7 +324,7 @@ tb_udt_client(tb_listener_t *listener)
 	tb_finish_time(listener->transfer_time);
 
 	//Lock up stat collection and close the socket.
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	LOG(listener, "Closing Connection", LOG_INFO);
 	udt_close(listener->sock_d);
@@ -332,7 +332,7 @@ tb_udt_client(tb_listener_t *listener)
 	listener->status = TB_DISCONNECTED;
 	udt_cleanup();
 
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -386,7 +386,7 @@ tb_udt_m_client(tb_listener_t *listener)
 
 		PRT_I_D("Creating thread for session %d", session->id);
 		//Send the thread on its merry way.
-		pthread_create(session->s_thread, NULL, &tb_udt_m_connection,
+		pthread_create(&session->s_thread, NULL, &tb_udt_m_connection,
 				(void*)session);
 
 		if(listener->stats->n_stats == NULL)
@@ -407,18 +407,18 @@ tb_udt_m_client(tb_listener_t *listener)
 	while(curr_session)
 	{
 		PRT_I_D("Joining with session %d",curr_session->id);
-		pthread_join(*curr_session->s_thread, (void**)&retval);
-		pthread_mutex_lock(curr_session->stat_lock);
+		pthread_join(curr_session->s_thread, (void**)&retval);
+		pthread_mutex_lock(&curr_session->stat_lock);
 		udt_close(curr_session->sock_d);
-		pthread_mutex_unlock(curr_session->stat_lock);
+		pthread_mutex_unlock(&curr_session->stat_lock);
 
 		curr_session = curr_session->n_session;
 	}
 	tb_finish_time(listener->transfer_time);
-	pthread_mutex_lock(listener->stat_lock);
+	pthread_mutex_lock(&listener->stat_lock);
 	listener->status = TB_DISCONNECTED;
 	udt_cleanup();
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }

@@ -40,8 +40,8 @@
  */
 typedef struct
 {
-	pthread_cond_t *data_cond;	///< condition for data.
-	pthread_mutex_t *data_lock; ///< Lock for data
+	pthread_cond_t data_cond;	///< condition for data.
+	pthread_mutex_t data_lock; ///< Lock for data
 	tb_session_list_t *list;    ///< List of sessions.
 }
 tb_udp_session_t;

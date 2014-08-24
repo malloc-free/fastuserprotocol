@@ -94,8 +94,8 @@ typedef struct
 	long long *l_txrx;					///< Pointer to listener tx/rx.
 
 	//Threading info
-	pthread_t *s_thread;				///< Thread for this session.
-	pthread_mutex_t *stat_lock; 		///< Lock for stat collection.
+	pthread_t s_thread;				///< Thread for this session.
+	pthread_mutex_t stat_lock; 		///< Lock for stat collection.
 	void *n_session;					///< Link to next session (Linked list).
 
 	//Global session info

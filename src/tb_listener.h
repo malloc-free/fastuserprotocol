@@ -162,11 +162,11 @@ typedef struct
 	int __num_threads;		///< The number of threads for listener.
 
 	//pthread fields
-	pthread_t *__l_thread;			///< The thread the listener is on.
+	pthread_t __l_thread;			///< The thread the listener is on.
 	int sys_tid;					///< The id returned from syscall
-	pthread_mutex_t *stat_lock; 	///< Locks the stats field for writing.
-	pthread_cond_t *stat_cond; 		///< The condition for releasing external threads.
-	pthread_mutex_t *status_lock; 	///< Lock for safe set/get of listener status.
+	pthread_mutex_t stat_lock; 	///< Locks the stats field for writing.
+	pthread_cond_t stat_cond; 		///< The condition for releasing external threads.
+	pthread_mutex_t status_lock; 	///< Lock for safe set/get of listener status.
 
 	//cpu info
 	int num_proc;					///< The number of processors available.

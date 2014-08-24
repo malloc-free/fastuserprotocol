@@ -416,7 +416,7 @@ tb_utp_m_client(tb_listener_t *listener)
 
 		PRT_I_D("Creating thread for session %d", session->id);
 		//Send the thread on its merry way.
-		pthread_create(session->s_thread, NULL, &tb_utp_m_client_conn,
+		pthread_create(&session->s_thread, NULL, &tb_utp_m_client_conn,
 				(void*)session);
 	}
 
@@ -432,10 +432,10 @@ tb_utp_m_client(tb_listener_t *listener)
 	while(curr_session != NULL)
 	{
 		PRT_I_D("Joining with session %d",curr_session->id);
-		pthread_join(*curr_session->s_thread, (void**)&retval);
-		pthread_mutex_lock(curr_session->stat_lock);
+		pthread_join(curr_session->s_thread, (void**)&retval);
+		pthread_mutex_lock(&curr_session->stat_lock);
 
-		pthread_mutex_unlock(curr_session->stat_lock);
+		pthread_mutex_unlock(&curr_session->stat_lock);
 
 		curr_session = curr_session->n_session;
 	}
@@ -510,11 +510,11 @@ void
 		}
 	}
 
-	pthread_mutex_trylock(session->stat_lock);
+	pthread_mutex_trylock(&session->stat_lock);
 
 	session->status = SESSION_DISCONNECTED;
 
-	pthread_mutex_unlock(session->stat_lock);
+	pthread_mutex_unlock(&session->stat_lock);
 
 	fprintf(stdout, "Session %d sent %lld bytes", session->id,
 			session->total_bytes);
@@ -598,13 +598,13 @@ tb_utp_client(tb_listener_t *listener)
 			break;
 		case UTP_STATE_ERROR:
 			PRT_ERR("UTP Error");
-			pthread_mutex_trylock(listener->stat_lock);
+			pthread_mutex_trylock(&listener->stat_lock);
 
 			tb_utp_close(utp);
 			listener->status = TB_DISCONNECTED;
 			listener->sock_d = -1;
 
-			pthread_mutex_unlock(listener->stat_lock);
+			pthread_mutex_unlock(&listener->stat_lock);
 
 			tb_abort(listener);
 		}
@@ -612,13 +612,13 @@ tb_utp_client(tb_listener_t *listener)
 	tb_finish_time(listener->transfer_time);
 
 	//Lock 'n' close.
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	listener->status = TB_DISCONNECTED;
 	tb_utp_close(utp);
 	listener->sock_d = -1;
 
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -758,13 +758,13 @@ tb_utp_server(tb_listener_t *listener)
 
 		case UTP_STATE_ERROR:
 			PRT_ERR("UTP error");
-			pthread_mutex_trylock(listener->stat_lock);
+			pthread_mutex_trylock(&listener->stat_lock);
 
 			tb_utp_close(utp);
 			listener->status = TB_DISCONNECTED;
 			listener->sock_d = -1;
 
-			pthread_mutex_unlock(listener->stat_lock);
+			pthread_mutex_unlock(&listener->stat_lock);
 
 			free(buffer);
 			tb_abort(listener);
@@ -774,13 +774,13 @@ tb_utp_server(tb_listener_t *listener)
 	tb_finish_time(listener->transfer_time);
 
 	//Lock and disconnect.
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	tb_utp_close(utp);
 	listener->status = TB_DISCONNECTED;
 	listener->sock_d = -1;
 
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	free(buffer);
 

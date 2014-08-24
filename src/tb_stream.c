@@ -76,7 +76,7 @@ tb_stream_server(tb_listener_t *listener)
 		tb_finish_time(listener->transfer_time);
 
 		//Lock while destroying session and closing connection
-		pthread_mutex_trylock(listener->stat_lock);
+		pthread_mutex_trylock(&listener->stat_lock);
 
 		PRT_INFO("Session closed\n");
 		listener->status = TB_DISCONNECTED;
@@ -90,7 +90,7 @@ tb_stream_server(tb_listener_t *listener)
 		//Close connection
 		listener->protocol->f_close(session->sock_d);
 
-		pthread_mutex_unlock(listener->stat_lock);
+		pthread_mutex_unlock(&listener->stat_lock);
 
 		listener->command = listener->s_tx_end;
 	}
@@ -119,11 +119,11 @@ tb_stream_m_server(tb_listener_t *listener)
 
 	tb_finish_time(listener->transfer_time);
 
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 	close(listener->sock_d);
 	listener->sock_d = -1;
 	listener->status = TB_DISCONNECTED;
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -201,10 +201,10 @@ void
 		{
 			perror("Error: tb_stream_m_server_conn");
 
-			pthread_mutex_trylock(session->stat_lock);
+			pthread_mutex_trylock(&session->stat_lock);
 			close(session->sock_d);
 			session->status = SESSION_DISCONNECTED;
-			pthread_mutex_unlock(session->stat_lock);
+			pthread_mutex_unlock(&session->stat_lock);
 
 			*retval = -1;
 			return retval;
@@ -220,7 +220,7 @@ void
 			session->total_bytes);
 
 	//Lock and update status.
-	pthread_mutex_trylock(session->stat_lock);
+	pthread_mutex_trylock(&session->stat_lock);
 	close(session->sock_d);
 	session->status = SESSION_DISCONNECTED;
 
@@ -232,7 +232,7 @@ void
 		*(int*)list->userdata = TB_EXIT;
 	}
 
-	pthread_mutex_unlock(session->stat_lock);
+	pthread_mutex_unlock(&session->stat_lock);
 
 	PRT_I_D("Session %d: Ended connection", session->id);
 	*retval = 0;
@@ -297,7 +297,7 @@ tb_stream_m_client(tb_listener_t *listener)
 		PRT_I_D("Creating thread for session %d", session->id);
 
 		//Send the thread on its merry way.
-		pthread_create(session->s_thread, NULL, &tb_stream_connection,
+		pthread_create(&session->s_thread, NULL, &tb_stream_connection,
 				(void*)session);
 
 		if(listener->stats->n_stats == NULL)
@@ -319,10 +319,10 @@ tb_stream_m_client(tb_listener_t *listener)
 	while(curr_session != NULL)
 	{
 		PRT_I_D("Joining with session %d",curr_session->id);
-		pthread_join(*curr_session->s_thread, (void**)&retval);
-		pthread_mutex_lock(curr_session->stat_lock);
+		pthread_join(curr_session->s_thread, (void**)&retval);
+		pthread_mutex_lock(&curr_session->stat_lock);
 		close(curr_session->sock_d);
-		pthread_mutex_unlock(curr_session->stat_lock);
+		pthread_mutex_unlock(&curr_session->stat_lock);
 
 		curr_session = curr_session->n_session;
 	}
@@ -428,14 +428,14 @@ tb_stream_client(tb_listener_t *listener)
 
 	tb_finish_time(listener->transfer_time);
 
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	listener->protocol->f_close(listener->sock_d);
 	listener->sock_d = -1;
 
 	listener->status = TB_DISCONNECTED;
 
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }

@@ -237,7 +237,7 @@ tb_start(tb_listener_t *listener)
 	if(listener->e_type == SERVER || listener->e_type == mSERVER)
 	{
 		PRT_INFO("Creating server thread");
-		pthread_create(listener->__l_thread, NULL, &tb_server, listener);
+		pthread_create(&listener->__l_thread, NULL, &tb_server, listener);
 	}
 
 	//This is here, in case we decided to look at downloading files
@@ -245,7 +245,7 @@ tb_start(tb_listener_t *listener)
 	else if(listener->e_type == CLIENT || listener->e_type == mCLIENT)
 	{
 		PRT_INFO("Creating client thread");
-		pthread_create(listener->__l_thread, NULL, &tb_client, (void*)listener);
+		pthread_create(&listener->__l_thread, NULL, &tb_client, (void*)listener);
 	}
 	else if(listener->e_type == SERVER || listener->e_type == mSERVER)
 	{
@@ -264,7 +264,7 @@ tb_start(tb_listener_t *listener)
 	CPU_ZERO(&set);
 	CPU_SET(listener->e_type, &set);
 
-	if(pthread_setaffinity_np(*listener->__l_thread, sizeof(cpu_set_t), &set)
+	if(pthread_setaffinity_np(listener->__l_thread, sizeof(cpu_set_t), &set)
 			!= 0)
 	{
 		PRT_ERR("Cannot set affinity");
@@ -309,7 +309,7 @@ tb_monitor(tb_listener_t *listener)
 	cpu_set_t set;
 	CPU_ZERO(&set);
 
-	pthread_getaffinity_np(*listener->__l_thread, sizeof(cpu_set_t), &set);
+	pthread_getaffinity_np(listener->__l_thread, sizeof(cpu_set_t), &set);
 
 	unsigned int x = 0;
 
@@ -491,11 +491,11 @@ tb_abort(void *data)
 
 	if(listener->sock_d != -1)
 	{
-		pthread_mutex_lock(listener->stat_lock);
+		pthread_mutex_lock(&listener->stat_lock);
 		PRT_INFO("Disconnecting");
 		listener->protocol->f_close(listener->sock_d);
 		listener->status = TB_DISCONNECTED;
-		pthread_mutex_unlock(listener->stat_lock);
+		pthread_mutex_unlock(&listener->stat_lock);
 	}
 
 	listener->status = TB_ABORTING;

@@ -127,8 +127,7 @@ tb_session_t
 	session->stats->n_stats = NULL;
 
 	//Create stats lock.
-	session->stat_lock = malloc(sizeof(pthread_mutex_t));
-	pthread_mutex_init(session->stat_lock, NULL);
+	pthread_mutex_init(&session->stat_lock, NULL);
 
 	//Create time structures for transfer and connect.
 	session->transfer_t = tb_create_time(CLOCK_MONOTONIC);

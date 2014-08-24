@@ -76,16 +76,11 @@ tb_listener_t
 
 	//Threading stuff
 	//Lock and condition for stat collection
-	listener->stat_lock = malloc(sizeof(pthread_mutex_t));
-	pthread_mutex_init(listener->stat_lock, NULL);
+	pthread_mutex_init(&listener->stat_lock, NULL);
 
-	listener->stat_cond = malloc(sizeof(pthread_cond_t));
-	pthread_cond_init(listener->stat_cond, NULL);
+	pthread_cond_init(&listener->stat_cond, NULL);
 
-	listener->status_lock = malloc(sizeof(pthread_mutex_t));
-	pthread_mutex_init(listener->status_lock, NULL);
-
-	listener->__l_thread = malloc(sizeof(pthread_t));
+	pthread_mutex_init(&listener->status_lock, NULL);
 
 	//Initialize stats.
 	listener->stats = malloc(sizeof(tb_prot_stats_t));
@@ -251,13 +246,12 @@ tb_get_cpu_info(tb_listener_t *listener)
 void
 tb_destroy_listener(tb_listener_t *listener)
 {
-	free(listener->__l_thread);
 	free(listener->bind_address);
 	free(listener->bind_port);
 
-	pthread_cond_destroy(listener->stat_cond);
-	pthread_mutex_destroy(listener->stat_lock);
-	pthread_mutex_destroy(listener->status_lock);
+	pthread_cond_destroy(&listener->stat_cond);
+	pthread_mutex_destroy(&listener->stat_lock);
+	pthread_mutex_destroy(&listener->status_lock);
 
 	//Do NOT want to forget to do this :-)
 	if(listener->data != NULL)
@@ -354,12 +348,12 @@ tb_print_listener(tb_listener_t *listener)
 tb_prot_stats_t
 *tb_ex_get_stats(tb_listener_t *listener)
 {
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	if(listener->read == 1 && (listener->status != TB_ABORTING &&
 			listener->status != TB_EXITING))
 	{
-		pthread_cond_wait(listener->stat_cond, listener->stat_lock);
+		pthread_cond_wait(&listener->stat_cond, &listener->stat_lock);
 	}
 
 	//Start recording time if not started, otherwise get time of collection.
@@ -374,7 +368,7 @@ tb_prot_stats_t
 
 	//Set to read.
 	listener->read = 1;
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->stats;
 }
@@ -382,12 +376,12 @@ tb_prot_stats_t
 void
 tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
 {
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	if(listener->read == 1 && (listener->status != TB_ABORTING &&
 			listener->status != TB_EXITING))
 	{
-		pthread_cond_wait(listener->stat_cond, listener->stat_lock);
+		pthread_cond_wait(&listener->stat_cond, &listener->stat_lock);
 	}
 
 	//Start recording time if not started, otherwise get time of collection.
@@ -406,7 +400,7 @@ tb_ex_get_stat_cpy(tb_listener_t *listener, tb_prot_stats_t *stats)
 	listener->read = 1;
 	memcpy(stats, listener->stats, sizeof(tb_prot_stats_t));
 
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 }
 
@@ -414,7 +408,7 @@ void
 tb_set_l_stats(tb_listener_t *listener)
 {
 	//Thread safe set the current status.
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	//Get the current read for the listener.
 	listener->stats->current_read = listener->total_tx_rx;
@@ -439,15 +433,15 @@ tb_set_l_stats(tb_listener_t *listener)
 
 	listener->read = 0;
 
-	pthread_cond_signal(listener->stat_cond);
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_cond_signal(&listener->stat_cond);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 }
 
 void
 tb_set_m_stats(tb_listener_t *listener)
 {
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 	listener->stats->current_read = 0;
 	listener->total_tx_rx = 0;
 
@@ -469,7 +463,7 @@ tb_set_m_stats(tb_listener_t *listener)
 	//add them to the listener stats, and average them.
 	while(session)
 	{
-		pthread_mutex_trylock(session->stat_lock);
+		pthread_mutex_trylock(&session->stat_lock);
 
 		//Add to the total bytes read for the listener.
 		listener->stats->current_read += session->total_bytes;
@@ -493,7 +487,7 @@ tb_set_m_stats(tb_listener_t *listener)
 			stats->recv_p_loss += session->stats->recv_p_loss;
 		}
 
-		pthread_mutex_unlock(session->stat_lock);
+		pthread_mutex_unlock(&session->stat_lock);
 
 		session = session->n_session;
 	}
@@ -517,8 +511,8 @@ tb_set_m_stats(tb_listener_t *listener)
 
 	listener->read = 0;
 
-	pthread_cond_signal(listener->stat_cond);
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_cond_signal(&listener->stat_cond);
+	pthread_mutex_unlock(&listener->stat_lock);
 }
 
 void

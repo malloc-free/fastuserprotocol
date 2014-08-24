@@ -55,17 +55,14 @@ tb_udp_session_t
 {
 	tb_udp_session_t *session = malloc(sizeof(tb_udp_session_t));
 
-	session->data_cond = malloc(sizeof(pthread_cond_t));
-	session->data_lock = malloc(sizeof(pthread_mutex_t));
-
 	return session;
 }
 
 void
 tb_destroy_udp_session(tb_udp_session_t *session)
 {
-	pthread_cond_destroy(session->data_cond);
-	pthread_mutex_destroy(session->data_lock);
+	pthread_cond_destroy(&session->data_cond);
+	pthread_mutex_destroy(&session->data_lock);
 	free(session);
 }
 
@@ -155,14 +152,14 @@ tb_udp_client(tb_listener_t *listener)
 		tb_poll_for_events(listener->epoll);
 	}
 
-	pthread_mutex_trylock(listener->stat_lock);
+	pthread_mutex_trylock(&listener->stat_lock);
 
 	LOG_INFO(listener, "Closing Connection");
 	listener->protocol->f_close(listener->sock_d);
 	listener->sock_d = -1;
 	listener->status = TB_DISCONNECTED;
 
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -250,7 +247,7 @@ tb_udp_m_client(tb_listener_t *listener)
 		PRT_I_D("Creating thread for session %d", session->id);
 
 		//Send the thread on its merry way.
-		pthread_create(session->s_thread, NULL, &tb_udp_m_client_conn,
+		pthread_create(&session->s_thread, NULL, &tb_udp_m_client_conn,
 				(void*)session);
 	}
 
@@ -267,10 +264,10 @@ tb_udp_m_client(tb_listener_t *listener)
 	while(curr_session != NULL)
 	{
 		PRT_I_D("Joining with session %d",curr_session->id);
-		pthread_join(*curr_session->s_thread, (void**)&retval);
-		pthread_mutex_lock(curr_session->stat_lock);
+		pthread_join(curr_session->s_thread, (void**)&retval);
+		pthread_mutex_lock(&curr_session->stat_lock);
 		close(curr_session->sock_d);
-		pthread_mutex_unlock(curr_session->stat_lock);
+		pthread_mutex_unlock(&curr_session->stat_lock);
 
 		free(retval);
 		curr_session = curr_session->n_session;
@@ -278,11 +275,11 @@ tb_udp_m_client(tb_listener_t *listener)
 	tb_finish_time(listener->transfer_time);
 
 	//Close the connection.
-	pthread_mutex_lock(listener->stat_lock);
+	pthread_mutex_lock(&listener->stat_lock);
 
 	tb_udp_m_close_conn(listener);
 	listener->status = TB_DISCONNECTED;
-	pthread_mutex_lock(listener->stat_lock);
+	pthread_mutex_lock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -450,11 +447,11 @@ tb_udp_server(tb_listener_t *listener)
 	LOG_INFO(listener, "Closing UDP Connection");
 
 	//Lock 'n' close.
-	pthread_mutex_lock(listener->stat_lock);
+	pthread_mutex_lock(&listener->stat_lock);
 	close(listener->sock_d);
 	listener->sock_d = -1;
 	listener->status = TB_DISCONNECTED;
-	pthread_mutex_unlock(listener->stat_lock);
+	pthread_mutex_unlock(&listener->stat_lock);
 
 	return listener->total_tx_rx;
 }
@@ -488,11 +485,11 @@ tb_udp_m_server(tb_listener_t *listener)
 	tb_finish_time(listener->transfer_time);
 
 	//Lock and disconnect.
-	pthread_mutex_lock(listener->stat_lock);
+	pthread_mutex_lock(&listener->stat_lock);
 	close(listener->sock_d);
 	listener->sock_d = -1;
 	listener->status = TB_DISCONNECTED;
-	pthread_mutex_lock(listener->stat_lock);
+	pthread_mutex_lock(&listener->stat_lock);
 
 	LOG_INFO(listener, "exiting m server");
 
