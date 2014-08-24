@@ -32,6 +32,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <pthread.h>
+#include <signal.h>
 
 /**
  * @enum <ENDPOINT_TYPE> [tb_listener.h]
@@ -137,7 +138,7 @@ typedef void (*funct_l_exit)(void *data);
  * @typedef
  * @brief Function to be called when aborting.
  *
- * This function only differs in that it shoud attempt to close any open
+ * This function only differs in that it should attempt to close any open
  * connections as well as exiting.
  *
  * @param data Pointer to pass into the aborting function. Should be a listener.
@@ -148,14 +149,15 @@ typedef void (*funct_l_abort)(void *data);
  *
  *  @brief struct that defines the fields for the listener class.
  *
- *  This is the 'main' struct used in testbed. It contains all of the data
- *  required to carry out a test. This information is set using command line
- *  parameters (when used as an application) or using the tb_test_param_t
- *  struct, passed into the tb_create_endpoint function. This avoid the need for
- *  any global variables in the TestBed.
+ *  This is the 'main' struct used in testbed. This is effectively a 'context'.
+ *  It contains all of the data required to carry out a test. This information
+ *   is set using command line parameters (when used as an application) or
+ *   using the tb_test_param_t struct, passed into the tb_create_endpoint
+ *   function. This avoid the need for any global variables in the TestBed.
  */
 typedef struct
 {
+	PROTOCOL prot_id;		///< The id of the protocol to use.
 	//Listener Data Structures
 	int __num_threads;		///< The number of threads for listener.
 
@@ -228,6 +230,21 @@ typedef struct
 }
 tb_listener_t;
 
+/*******************************************************************
+ * Pretty much the one and only global we are using here. This is used
+ * to stop execution when SIGINT (i.e. Ctrl-C) has been pressed by the
+ * user.
+ */
+
+tb_listener_t *tb_global_l;
+
+/**
+ * @brief Signal handler, currently registered to handle SIGINT.
+ */
+void
+sig_action(int sig, siginfo_t* info, void* arg);
+
+/*******************************************************************/
 /**
  * @struct <tb_other_info> [tb_listener.h]
  *
@@ -501,8 +518,12 @@ tb_send_data(tb_listener_t *listener, char *buff, int size) __attribute__ ((alwa
 inline int
 tb_recv_data(tb_listener_t *listener, tb_session_t *session) __attribute__ ((always_inline));
 
+/**
+ * @brief send_to - used by datagram protocols
+ */
 inline int
 tb_send_to(tb_listener_t *listener, tb_session_t *session) __attribute__ ((always_inline));
+
 /**
  * @brief recv from - used by datagram protocols.
  *

@@ -78,7 +78,7 @@ tb_stream_server(tb_listener_t *listener)
 		//Lock while destroying session and closing connection
 		pthread_mutex_trylock(listener->stat_lock);
 
-		fprintf(stdout, "Session closed\n");
+		PRT_INFO("Session closed\n");
 		listener->status = TB_DISCONNECTED;
 
 		//Close and destroy current session

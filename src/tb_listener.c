@@ -26,6 +26,19 @@
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <sys/sysinfo.h>
+#include <signal.h>
+
+void
+sig_action(int sig, siginfo_t* info, void* arg)
+{
+	PRT_INFO("\nListener interrupted");
+	tb_global_l->command = TB_EXIT;
+
+	if(tb_global_l->e_type == SERVER || tb_global_l->e_type == CLIENT)
+	{
+		shutdown(tb_global_l->sock_d, SHUT_RDWR);
+	}
+}
 
 tb_listener_t
 *tb_create_listener(ENDPOINT_TYPE type, char *addr, char *port, PROTOCOL protocol,
@@ -33,6 +46,7 @@ tb_listener_t
 {
 	tb_listener_t *listener = malloc(sizeof(tb_listener_t));
 
+	listener->prot_id = protocol;
 	//Listener thread.
 	listener->__l_thread = malloc(sizeof(pthread_t));
 
@@ -107,7 +121,7 @@ tb_listener_t
 	//Set status of listener.
 	listener->status = TB_CREATED;
 
-#ifndef _TB_LIBRARY
+//#ifndef _TB_LIBRARY
 	//Set logging info
 	listener->log_enabled = 1;
 	//Save file name depends on client or server
@@ -119,10 +133,10 @@ tb_listener_t
 	{
 		listener->log_info = tb_create_flog("log_client", DATE);
 	}
-#else
-	listener->log_info = NULL;
-	listener->log_enabled = 0;
-#endif
+//#else
+//	listener->log_info = NULL;
+//	listener->log_enabled = 0;
+//#endif
 
 	//Set protocol options
 	listener->options = malloc(sizeof(tb_options_t));
@@ -146,6 +160,14 @@ tb_listener_t
 	//Setup timing
 	listener->transfer_time = tb_create_time(CLOCK_MONOTONIC);
 	listener->connect_time = tb_create_time(CLOCK_MONOTONIC);
+
+	struct sigaction s_act;
+	s_act.sa_sigaction = &sig_action;
+
+	if(sigaction(SIGINT, &s_act, NULL) == -1)
+	{
+		PRT_ERR("Cannot set SIGINT");
+	}
 
 	return listener;
 }

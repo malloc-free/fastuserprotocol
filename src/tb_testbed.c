@@ -213,6 +213,8 @@ tb_start(tb_listener_t *listener)
 
 	tb_print_listener(listener);
 
+	tb_global_l = listener;
+
 	PRT_INFO("tb_start: Resolving address");
 	if(tb_resolve_address(listener) == -1)
 	{

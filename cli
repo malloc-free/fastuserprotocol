@@ -4,7 +4,7 @@ export LD_LIBRARY_PATH=lib
 
 if test "$1" == "tcp"
 then
-	./TestBed mclient 192.168.0.10 4950 tcp 1408 size 32768
+	./TestBed mclient 54.84.27.70 4950 tcp 1408 size 1024
 elif test "$1" == "udt"
 then
 	./TestBed mclient 192.168.0.10 4950 udt 1408 size 32768
