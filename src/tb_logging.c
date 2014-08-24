@@ -38,10 +38,6 @@ tb_log_t
 
 	tb_get_f_time(time_str, sizeof time_str, "%F");
 
-#ifdef _DEBUG_LOGGING
-	PRT_I_S("tb_create_flog: time_str: ", time_str)
-#endif
-
 	snprintf(fmt_path, sizeof fmt_path, "%s_%s", file_path, time_str);
 
 	return tb_create_log(fmt_path);
@@ -64,17 +60,7 @@ tb_write_log(tb_log_t *log, char *info, tb_log_type_t type)
 	char time_str[30];
 	char *m_type;
 
-#ifdef _DEBUG_LOGGING
-	PRT_INFO("Get the current time, prepend it to info")
-	PRT_I_S("info: ", info)
-#endif
-
 	tb_get_f_time(time_str, sizeof(time_str), "%c");
-
-#ifdef _DEBUG_LOGGING
-	PRT_INFO("Determine type of log")
-	PRT_I_S("time_str", time_str)
-#endif
 
 	switch(type)
 	{
@@ -83,16 +69,8 @@ tb_write_log(tb_log_t *log, char *info, tb_log_type_t type)
 	case LOG_ERR: m_type = L_ERR; break;
 	}
 
-#ifdef _DEBUG_LOGGING
-	PRT_INFO("Create string")
-#endif
-
 	snprintf(buff, sizeof buff, "%s [ %s ] %s\n", m_type, time_str, info);
 
-#ifdef _DEBUG_LOGGING
-	PRT_I_S("Log string: ", buff)
-	PRT_INFO("Write to file")
-#endif
 
 	if(fputs(buff, log->file) == EOF)
 	{
@@ -105,10 +83,6 @@ tb_write_log(tb_log_t *log, char *info, tb_log_type_t type)
 		perror("Cannot flush file");
 		return -1;
 	}
-
-#ifdef _DEBUG_LOGGING
-	PRT_INFO("Log written")
-#endif
 
 	return 0;
 }

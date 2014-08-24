@@ -17,7 +17,6 @@
 #include <pthread.h>
 #include <sys/socket.h>
 #include <string.h>
-#include <sys/socket.h>
 #include <netdb.h>
 #include <errno.h>
 #include <fcntl.h>

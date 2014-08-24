@@ -14,6 +14,23 @@
 
 #include <sys/epoll.h>
 
+
+/**
+ * @struct <tb_e_data> [tb_epoll.h]
+ *
+ * Allows for multiple data types to be returned by epoll_wait and events.
+ * With epoll, a Union is used to store user data, and this data can be
+ * either a void* or a socket descriptor. We want both, so this struct
+ * is stored in the void*.
+ */
+typedef struct
+{
+	int fd;
+	void *data;
+}
+tb_e_data;
+
+
 /**
  * @brief Callback for events on the socket.
  *
@@ -21,7 +38,7 @@
  * given fd.
  *
  */
-typedef int (*func_event)(int events, void *data);
+typedef int (*func_event)(int events, tb_e_data *data);
 
 /**
  * @struct <tb_epoll_t> [tb_epoll.h]
@@ -39,21 +56,6 @@ typedef struct
 	func_event f_event;				///< Callback for when events occur.
 }
 tb_epoll_t;
-
-/**
- * @struct <tb_e_data> [tb_epoll.h]
- *
- * Allows for multiple data types to be returned by epoll_wait and events.
- * With epoll, a Union is used to store user data, and this data can be
- * either a void* or a socket descriptor. We want both, so this struct
- * is stored in the void*.
- */
-typedef struct
-{
-	int fd;
-	void *data;
-}
-tb_e_data;
 
 /**
  * The default events used if none are supplied at the time that the

@@ -130,7 +130,6 @@ char
 		return NULL;
 	}
 
-
 	*file_size = fseek(fp, 0, SEEK_END);
 	if(*file_size == EOF)
 	{
